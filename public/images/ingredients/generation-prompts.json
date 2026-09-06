@@ -1,0 +1,25 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "file": "dried-mango-classic.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape ingredient-card photograph for a premium Thai dried mango store. Golden dried Nam Dok Mai mango strips piled on a small ivory ceramic plate, one ripe yellow mango and a green mango leaf beside it. Warm cream limestone tabletop, soft side daylight, subtle natural shadows, restrained editorial food styling, rich golden amber fruit with realistic wrinkled chewy dried texture. Three-quarter overhead view, centered arrangement fully visible with breathing room, landscape 3:2 composition suitable for cropping to 16:10. No people, packaging, lettering, logos, watermark or collage."
+    },
+    {
+      "file": "dried-mango-beetroot.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape ingredient-card photograph for a premium Thai dried mango store. Ruby-gold beetroot-coated dried mango strips in a small ivory ceramic bowl, with a halved beetroot beside it. The snack is visibly dried mango, not candy. Warm cream limestone tabletop, soft side daylight, subtle natural shadows, restrained editorial food styling, rich golden amber fruit with realistic wrinkled chewy dried texture. Three-quarter overhead view, centered arrangement fully visible with breathing room, landscape 3:2 composition suitable for cropping to 16:10. No people, packaging, lettering, logos, watermark or collage."
+    },
+    {
+      "file": "dried-mango-honey.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape ingredient-card photograph for a premium Thai dried mango store. Golden honey-glazed dried mango slices on an ivory ceramic plate, a small glass honey jar and wooden honey dipper beside it. Warm cream limestone tabletop, soft side daylight, subtle natural shadows, restrained editorial food styling, rich golden amber fruit with realistic wrinkled chewy dried texture. Three-quarter overhead view, centered arrangement fully visible with breathing room, landscape 3:2 composition suitable for cropping to 16:10. No people, packaging, lettering, logos, watermark or collage."
+    },
+    {
+      "file": "dried-mango-chili-lime.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape ingredient-card photograph for a premium Thai dried mango store. Golden dried mango strips lightly dusted with red chili flakes on an ivory ceramic plate, with a fresh green lime half, lime leaves and two small red Thai chilies beside it. Warm cream limestone tabletop, soft side daylight, subtle natural shadows, restrained editorial food styling, rich golden amber fruit with realistic wrinkled chewy dried texture. Three-quarter overhead view, centered arrangement fully visible with breathing room, landscape 3:2 composition suitable for cropping to 16:10. No people, packaging, lettering, logos, watermark or collage."
+    },
+    {
+      "file": "dried-mango-sea-salt.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape ingredient-card photograph for a premium Thai dried mango store. Golden dried mango strips on a small ivory ceramic plate with a tiny ceramic pinch bowl of coarse sea salt and a fresh lime wedge beside it. Warm cream limestone tabletop, soft side daylight, subtle natural shadows, restrained editorial food styling, rich golden amber fruit with realistic wrinkled chewy dried texture. Three-quarter overhead view, centered arrangement fully visible with breathing room, landscape 3:2 composition suitable for cropping to 16:10. No people, packaging, lettering, logos, watermark or collage."
+    }
+  ]
+}

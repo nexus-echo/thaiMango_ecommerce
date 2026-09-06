@@ -12,6 +12,7 @@ import { z } from "zod";
 import { useStore } from "@/components/public/store";
 import { loginSchema } from "@/schemas/login.schema";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 type LoginValues = z.infer<typeof loginSchema>;
 
@@ -70,6 +71,7 @@ export default function LoginPage() {
   };
 
   return (
+    <>
     <main className="flex-1 flex items-center justify-center py-12 md:py-20 px-6">
       <div className="max-w-5xl w-full bg-white rounded-[36px] shadow-2xl border border-cream overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         {/* Left Visual / Brand Column (5 cols) */}
@@ -270,5 +272,15 @@ export default function LoginPage() {
         </div>
       </div>
     </main>
+      <CtaBanner
+        eyebrow="New Here"
+        title="Taste before you sign in"
+        description="Browse every sun-dried mango flavor — no account needed to explore the range."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Create an Account"
+        secondaryHref="/register"
+      />
+    </>
   );
 }

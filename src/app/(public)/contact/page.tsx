@@ -9,6 +9,7 @@ import PhoneField from "@/components/common/PhoneField";
 import { DEFAULT_SETTINGS } from "@/schemas/settings.schema";
 import { INQUIRY_TOPICS } from "@/schemas/contact.schema";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 export default function ContactPage() {
   const { showToast, settings } = useStore();
@@ -192,6 +193,16 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      <CtaBanner
+        eyebrow="While You Wait"
+        title="Have a taste while we reply"
+        description="Your message is on its way to us. In the meantime, the full range of sun-dried mango is right here."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Read the FAQ"
+        secondaryHref="/faq"
+      />
 
       {/* Quality & Origin 5-Badge Banner */}
       <div className="relative z-10 w-full border-t border-[#E5B869]/30 bg-[#640C26] text-white reveal">

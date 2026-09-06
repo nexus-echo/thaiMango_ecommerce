@@ -10,6 +10,7 @@ import { useStore } from "@/components/public/store";
 import { defaultVariant, minPrice } from "@/lib/variants";
 import { productImage } from "@/lib/images";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 interface ApiVariant {
   label: string;
@@ -318,6 +319,16 @@ function ShopPageContent() {
           )}
         </div>
       </section>
+
+      <CtaBanner
+        eyebrow="Not Sure Where to Start"
+        title="Find the flavor that's yours"
+        description="Tell us how you like to snack — sweet, tangy or spiced — and our team will point you to the right pouch, or set up a bulk and gifting order."
+        primaryLabel="Talk to Our Team"
+        primaryHref="/contact"
+        secondaryLabel="Read the FAQ"
+        secondaryHref="/faq"
+      />
 
       {/* Quality & Origin 5-Badge Banner (Mobile 2x2+1 responsive format) */}
       <div className="relative z-10 w-full border-t border-gold/30 bg-beetroot text-white reveal">

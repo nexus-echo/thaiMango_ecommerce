@@ -1,3 +1,5 @@
+import CtaBanner from "@/components/public/CtaBanner";
+
 export default function AboutPage() {
   return (
     <main>
@@ -56,6 +58,16 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <CtaBanner
+        eyebrow="The Story Continues"
+        title="From our orchard to your hands"
+        description="Three generations of sun-drying craft, packed into every pouch. Taste what the story's really about."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Common Questions"
+        secondaryHref="/faq"
+      />
 
       {/* Quality & Origin 5-Badge Banner */}
       <div className="relative z-10 w-full border-t border-[#E5B869]/30 bg-[#640C26] text-white reveal">

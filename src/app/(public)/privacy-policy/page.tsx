@@ -1,3 +1,5 @@
+import CtaBanner from "@/components/public/CtaBanner";
+
 export default function PrivacyPolicyPage() {
   return (
     <main className="py-16 md:py-24">
@@ -28,6 +30,15 @@ export default function PrivacyPolicyPage() {
           </section>
         </div>
       </div>
+      <CtaBanner
+        eyebrow="Your Data, Respected"
+        title="The same honesty, everywhere"
+        description="The transparency we bring to our ingredient list, we bring to your data. Questions? We're one message away."
+        primaryLabel="Contact Us"
+        primaryHref="/contact"
+        secondaryLabel="Shop the Collection"
+        secondaryHref="/shop"
+      />
     </main>
   );
 }

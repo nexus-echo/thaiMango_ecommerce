@@ -42,6 +42,7 @@ import CheckoutAddressBook, {
   type CheckoutAddress,
   type SavedAddress,
 } from "@/components/public/CheckoutAddressBook";
+import CtaBanner from "@/components/public/CtaBanner";
 
 type ShippingMethod = "standard" | "priority";
 type PaymentMethod = "cod" | "razorpay" | "stripe";
@@ -1160,6 +1161,15 @@ export default function CheckoutPage() {
             </div>
           </div>
         </div>
+      <CtaBanner
+        eyebrow="Almost There"
+        title="One last look before you order"
+        description="Want to add another flavor, or have a question about your order? Our team is one message away."
+        primaryLabel="Back to the Shop"
+        primaryHref="/shop"
+        secondaryLabel="Talk to Us"
+        secondaryHref="/contact"
+      />
       </main>
 
       {/* Order Success Modal */}

@@ -72,6 +72,13 @@ const subitemPromoData: Record<string, PromoContent> = {
     btn: "Explore Ideas",
     url: "/rituals",
   },
+  "/processing": {
+    img: "/images/processing/mango-drying.webp",
+    tag: "Our Process",
+    title: "From ripe Thai mango to a delicious golden bite.",
+    btn: "Discover the Process",
+    url: "/processing",
+  },
   "/ingredients": {
     img: "/images/menu-guides-promo.jpg",
     tag: "Our Ingredients",
@@ -434,6 +441,19 @@ export default function MobileMenu() {
                   <Leaf className="w-5 h-5" />
                 </span>
                 <span className={subLabel}>NATURAL INGREDIENTS</span>
+              </span>
+            </Link>
+            <Link
+              href="/processing"
+              className={linkCls()}
+              onClick={closeMenu}
+              onMouseEnter={() => hoverPromo("/processing")}
+            >
+              <span className="contents">
+                <span className={subIconBox}>
+                  <Sun className="w-5 h-5" />
+                </span>
+                <span className={subLabel}>OUR PROCESS</span>
               </span>
             </Link>
           </div>

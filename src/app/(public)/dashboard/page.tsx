@@ -26,6 +26,7 @@ import { tipsForPreference } from "@/lib/flavor-tips";
 import PhoneField from "@/components/common/PhoneField";
 import PasswordInput from "@/components/common/PasswordInput";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 type TabKey =
   | "overview"
@@ -318,6 +319,7 @@ export default function DashboardPage() {
   };
 
   return (
+    <>
     <main className="flex-1 py-10 md:py-16 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto w-full">
       {/* Welcome Header Banner */}
       <div className="p-8 md:p-10 rounded-4xl bg-linear-to-r from-burgundy via-beetroot to-[#3D0514] text-white shadow-xl mb-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
@@ -1272,5 +1274,15 @@ export default function DashboardPage() {
         </div>
       </div>
     </main>
+      <CtaBanner
+        eyebrow="Welcome Back"
+        title="Restock your favorites"
+        description="Your last order's a click away — or discover a flavor you haven't tried yet."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Talk to Us"
+        secondaryHref="/contact"
+      />
+    </>
   );
 }

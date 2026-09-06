@@ -1,5 +1,6 @@
 import { baseCurrencyOf, getStoreSettings } from "@/lib/storeSettings";
 import { formatMoney } from "@/lib/currency";
+import CtaBanner from "@/components/public/CtaBanner";
 
 export const dynamic = "force-dynamic";
 
@@ -41,6 +42,15 @@ export default async function ShippingPolicyPage() {
           </section>
         </div>
       </div>
+      <CtaBanner
+        eyebrow="Packed Fresh, Shipped Fast"
+        title="Ready when you are"
+        description="Temperature-controlled, eco-packed and dispatched within 24 hours. Fill a box worth sending."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Delivery FAQ"
+        secondaryHref="/faq"
+      />
     </main>
   );
 }

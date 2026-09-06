@@ -21,6 +21,7 @@ import { useStore } from "@/components/public/store";
 import { defaultVariant } from "@/lib/variants";
 import { PRODUCT_PLACEHOLDER, normalizeImagePath, productImage } from "@/lib/images";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 const PLACEHOLDER_IMAGE = PRODUCT_PLACEHOLDER;
 
@@ -960,6 +961,16 @@ export default function ProductDetailPage() {
             </div>
           </section>
         )}
+        <CtaBanner
+          eyebrow="Build Your Box"
+          title="There's a whole range where this came from"
+          description="From classic Nam Dok Mai to chili-lime, every flavor is sun-dried the same slow way. Mix and match a selection that's entirely yours."
+          primaryLabel="Browse All Flavors"
+          primaryHref="/shop"
+          secondaryLabel="Ask a Question"
+          secondaryHref="/contact"
+        />
+
         {/* Quality & Origin 5-Badge Banner */}
         <div className="relative z-10 w-full border-t border-[#E5B869]/30 bg-[#640C26] text-white reveal">
           <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 py-10 md:py-6 grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-0 gap-x-6 md:gap-x-0 md:divide-x md:divide-[#E5B869]/30 text-center items-center">

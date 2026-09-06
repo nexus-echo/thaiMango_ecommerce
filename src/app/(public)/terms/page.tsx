@@ -1,3 +1,5 @@
+import CtaBanner from "@/components/public/CtaBanner";
+
 export default function TermsPage() {
   return (
     <main className="py-16 md:py-24">
@@ -28,6 +30,15 @@ export default function TermsPage() {
           </section>
         </div>
       </div>
+      <CtaBanner
+        eyebrow="The Fine Print, Handled"
+        title="Now for the better part"
+        description="Policies read, questions always welcome. Explore the flavors or reach out to our team any time."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Contact Us"
+        secondaryHref="/contact"
+      />
     </main>
   );
 }

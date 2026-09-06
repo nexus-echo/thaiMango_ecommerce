@@ -1,0 +1,21 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "file": "mango-selection.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape photograph for a dried mango processing stage card. A shallow wooden harvest crate holding ripe elongated golden yellow Thai mangoes, a few fresh green leaves, close-up of beautiful natural fruit. Professional editorial food photography, warm natural side lighting, cream and golden amber palette, realistic tactile textures, clean food preparation setting, close three-quarter overhead composition, subject centered with breathing room for a 16:10 crop, landscape 3:2. No people, hands, lettering, logos, watermarks, collage, or certification symbols."
+    },
+    {
+      "file": "mango-preparation.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape photograph for a dried mango processing stage card. Ripe yellow Thai mangoes with water droplets in a stainless steel colander beside a clean sink, with one freshly peeled mango on a separate ivory cutting board. No running faucet needed. Professional editorial food photography, warm natural side lighting, cream and golden amber palette, realistic tactile textures, clean food preparation setting, close three-quarter overhead composition, subject centered with breathing room for a 16:10 crop, landscape 3:2. No people, hands, lettering, logos, watermarks, collage, or certification symbols."
+    },
+    {
+      "file": "mango-slicing.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape photograph for a dried mango processing stage card. Neat even slices of fresh golden mango flesh on an ivory cutting board, with one peeled mango cheek and a clean stainless steel kitchen knife resting safely beside it. Professional editorial food photography, warm natural side lighting, cream and golden amber palette, realistic tactile textures, clean food preparation setting, close three-quarter overhead composition, subject centered with breathing room for a 16:10 crop, landscape 3:2. No people, hands, lettering, logos, watermarks, collage, or certification symbols."
+    },
+    {
+      "file": "mango-packing.webp",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape photograph for a dried mango processing stage card. Golden dried mango strips neatly portioned into three unbranded kraft paper stand-up pouches with small clear windows showing the dried fruit, on a spotless cream packing counter, a small stainless steel scoop resting beside a bowl of dried mango. Professional editorial food photography, warm natural side lighting, cream and golden amber palette, realistic tactile textures, clean food preparation setting, close three-quarter overhead composition, subject centered with breathing room for a 16:10 crop, landscape 3:2. No people, hands, lettering, logos, watermarks, collage, or certification symbols."
+    }
+  ]
+}

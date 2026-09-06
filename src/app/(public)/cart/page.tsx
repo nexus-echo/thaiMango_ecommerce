@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import { useStore } from "@/components/public/store";
+import CtaBanner from "@/components/public/CtaBanner";
 
 type PromoMessage = { text: string; type: "success" | "error" };
 
@@ -573,6 +574,15 @@ export default function CartPage() {
           </div>
         )}
       </div>
+      <CtaBanner
+        eyebrow="Before You Check Out"
+        title="Round out your box"
+        description="Add a chili-lime or a classic pouch — free express delivery kicks in on larger orders."
+        primaryLabel="Keep Shopping"
+        primaryHref="/shop"
+        secondaryLabel="View Bestsellers"
+        secondaryHref="/shop?category=Bestsellers"
+      />
     </main>
   );
 }

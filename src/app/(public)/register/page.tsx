@@ -13,6 +13,7 @@ import { z } from "zod";
 import { useStore } from "@/components/public/store";
 import { signUpSchema } from "@/schemas/signup.schema";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 type SignUpValues = z.infer<typeof signUpSchema>;
 
@@ -74,6 +75,7 @@ export default function RegisterPage() {
   };
 
   return (
+    <>
     <main className="flex-1 flex items-center justify-center py-12 md:py-20 px-6">
       <div className="max-w-5xl w-full bg-white rounded-[36px] shadow-2xl border border-cream overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         {/* Left Visual / Brand Column (5 cols) */}
@@ -356,5 +358,15 @@ export default function RegisterPage() {
         </div>
       </div>
     </main>
+      <CtaBanner
+        eyebrow="Members Get More"
+        title="Join the Bangkok Mango Circle"
+        description="Fifteen percent off reorders, free express delivery and a festive gift-box sampler with your first order."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Already a Member"
+        secondaryHref="/login"
+      />
+    </>
   );
 }

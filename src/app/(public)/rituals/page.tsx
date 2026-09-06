@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CtaBanner from "@/components/public/CtaBanner";
 
 export default function RitualsPage() {
   return (
@@ -73,6 +74,16 @@ export default function RitualsPage() {
           </div>
         </div>
       </section>
+
+      <CtaBanner
+        eyebrow="Make It a Habit"
+        title="Bring the ritual home"
+        description="For the afternoon slump, the lunchbox, the long drive north. Stock the flavors you'll keep reaching for."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Talk to Us"
+        secondaryHref="/contact"
+      />
 
       {/* Quality & Origin 5-Badge Banner */}
       <div className="relative z-10 w-full border-t border-[#E5B869]/30 bg-[#640C26] text-white reveal">

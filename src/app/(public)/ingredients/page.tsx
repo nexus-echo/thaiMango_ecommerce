@@ -1,12 +1,7 @@
 import Link from "next/link";
-import {
-  Sun,
-  Sparkles,
-  Droplet,
-  Shield,
-  Leaf,
-  CheckCircle,
-} from "lucide-react";
+import Image from "next/image";
+import { CheckCircle } from "lucide-react";
+import CtaBanner from "@/components/public/CtaBanner";
 
 export default function IngredientsPage() {
   return (
@@ -31,8 +26,14 @@ export default function IngredientsPage() {
             {/* Active 1: Thai Mango */}
             <div className="p-8 md:p-10 rounded-[32px] bg-white border border-cream shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-mango mb-6">
-                  <Sun className="w-7 h-7" />
+                <div className="relative aspect-[16/10] -mx-8 -mt-8 md:-mx-10 md:-mt-10 mb-7 overflow-hidden rounded-t-[31px] bg-cream">
+                  <Image
+                    src="/images/ingredients/dried-mango-classic.webp"
+                    alt="Golden dried mango slices with a ripe mango and green leaf"
+                    fill
+                    sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) calc((100vw - 128px) / 2), (max-width: 1535px) calc((100vw - 160px) / 3), 459px"
+                    className="object-cover"
+                  />
                 </div>
                 <span className="text-[10px] tracking-widest uppercase font-bold text-accent mb-2 block">Origin: Chanthaburi, Thailand</span>
                 <h3 className="font-serif text-2xl text-charcoal mb-4">Nam Dok Mai Mango</h3>
@@ -48,8 +49,14 @@ export default function IngredientsPage() {
             {/* Active 2: Beetroot */}
             <div className="p-8 md:p-10 rounded-[32px] bg-white border border-cream shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center text-beetroot mb-6">
-                  <Sparkles className="w-7 h-7" />
+                <div className="relative aspect-[16/10] -mx-8 -mt-8 md:-mx-10 md:-mt-10 mb-7 overflow-hidden rounded-t-[31px] bg-cream">
+                  <Image
+                    src="/images/ingredients/dried-mango-beetroot.webp"
+                    alt="Beetroot-coated dried mango strips beside a halved beetroot"
+                    fill
+                    sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) calc((100vw - 128px) / 2), (max-width: 1535px) calc((100vw - 160px) / 3), 459px"
+                    className="object-cover"
+                  />
                 </div>
                 <span className="text-[10px] tracking-widest uppercase font-bold text-accent mb-2 block">Origin: Natural, Cold-Pressed</span>
                 <h3 className="font-serif text-2xl text-charcoal mb-4">Beetroot Juice</h3>
@@ -62,11 +69,17 @@ export default function IngredientsPage() {
               </div>
             </div>
 
-            {/* Active 3: Triple Hyaluronic Acid */}
+            {/* Active 3: Wildflower Honey */}
             <div className="p-8 md:p-10 rounded-[32px] bg-white border border-cream shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 mb-6">
-                  <Droplet className="w-7 h-7" />
+                <div className="relative aspect-[16/10] -mx-8 -mt-8 md:-mx-10 md:-mt-10 mb-7 overflow-hidden rounded-t-[31px] bg-cream">
+                  <Image
+                    src="/images/ingredients/dried-mango-honey.webp"
+                    alt="Honey-glazed dried mango with a honey jar and wooden dipper"
+                    fill
+                    sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) calc((100vw - 128px) / 2), (max-width: 1535px) calc((100vw - 160px) / 3), 459px"
+                    className="object-cover"
+                  />
                 </div>
                 <span className="text-[10px] tracking-widest uppercase font-bold text-accent mb-2 block">Small-Batch Sourced</span>
                 <h3 className="font-serif text-2xl text-charcoal mb-4">Wildflower Honey</h3>
@@ -79,11 +92,17 @@ export default function IngredientsPage() {
               </div>
             </div>
 
-            {/* Active 4: Niacinamide */}
+            {/* Active 4: Thai Chili & Lime */}
             <div className="p-8 md:p-10 rounded-[32px] bg-white border border-cream shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700 mb-6">
-                  <Shield className="w-7 h-7" />
+                <div className="relative aspect-[16/10] -mx-8 -mt-8 md:-mx-10 md:-mt-10 mb-7 overflow-hidden rounded-t-[31px] bg-cream">
+                  <Image
+                    src="/images/ingredients/dried-mango-chili-lime.webp"
+                    alt="Chili-dusted dried mango with lime, leaves and red Thai chilies"
+                    fill
+                    sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) calc((100vw - 128px) / 2), (max-width: 1535px) calc((100vw - 160px) / 3), 459px"
+                    className="object-cover"
+                  />
                 </div>
                 <span className="text-[10px] tracking-widest uppercase font-bold text-accent mb-2 block">Quality-Checked at Origin</span>
                 <h3 className="font-serif text-2xl text-charcoal mb-4">Thai Chili &amp; Kaffir Lime</h3>
@@ -96,11 +115,17 @@ export default function IngredientsPage() {
               </div>
             </div>
 
-            {/* Active 5: Green Tea Extract */}
+            {/* Active 5: Citric Acid & Sea Salt */}
             <div className="p-8 md:p-10 rounded-[32px] bg-white border border-cream shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
               <div>
-                <div className="w-14 h-14 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700 mb-6">
-                  <Leaf className="w-7 h-7" />
+                <div className="relative aspect-[16/10] -mx-8 -mt-8 md:-mx-10 md:-mt-10 mb-7 overflow-hidden rounded-t-[31px] bg-cream">
+                  <Image
+                    src="/images/ingredients/dried-mango-sea-salt.webp"
+                    alt="Dried mango slices with coarse sea salt and a lime wedge"
+                    fill
+                    sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) calc((100vw - 128px) / 2), (max-width: 1535px) calc((100vw - 160px) / 3), 459px"
+                    className="object-cover"
+                  />
                 </div>
                 <span className="text-[10px] tracking-widest uppercase font-bold text-accent mb-2 block">Naturally Sourced</span>
                 <h3 className="font-serif text-2xl text-charcoal mb-4">Citric Acid &amp; Sea Salt</h3>
@@ -131,6 +156,16 @@ export default function IngredientsPage() {
           </div>
         </div>
       </section>
+
+      <CtaBanner
+        eyebrow="Nothing to Hide"
+        title="Read the label, then taste it"
+        description="Every pouch lists exactly what goes in — and nothing that doesn't. Try the flavors behind the ingredient list."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Our Story"
+        secondaryHref="/about"
+      />
 
       {/* Quality & Origin 5-Badge Banner */}
       <div className="relative z-10 w-full border-t border-[#E5B869]/30 bg-[#640C26] text-white reveal">

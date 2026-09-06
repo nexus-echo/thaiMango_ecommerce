@@ -10,6 +10,7 @@ import axios from "axios";
 import { z } from "zod";
 import { forgetPasswordSchema } from "@/schemas/password.schema";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 type ForgotValues = z.infer<typeof forgetPasswordSchema>;
 
@@ -31,6 +32,7 @@ export default function ForgotPasswordPage() {
   });
 
   return (
+    <>
     <main className="flex-1 flex items-center justify-center py-16 md:py-24 px-6">
       <div className="max-w-md w-full bg-white rounded-[36px] shadow-2xl border border-cream p-8 md:p-10">
         {sentTo ? (
@@ -112,5 +114,15 @@ export default function ForgotPasswordPage() {
         )}
       </div>
     </main>
+      <CtaBanner
+        eyebrow="While That Email Sends"
+        title="Pick up where you left off"
+        description="Your reset link is on its way. In the meantime, the full flavor range is right here."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Back to Sign In"
+        secondaryHref="/login"
+      />
+    </>
   );
 }

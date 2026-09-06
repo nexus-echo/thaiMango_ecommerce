@@ -11,6 +11,7 @@ import { z } from "zod";
 import PasswordInput from "@/components/common/PasswordInput";
 import { useStore } from "@/components/public/store";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 /* Token travels in the URL; only the passwords are typed here. */
 const newPasswordSchema = z
@@ -52,6 +53,7 @@ function ResetPasswordContent() {
   });
 
   return (
+    <>
     <main className="flex-1 flex items-center justify-center py-16 md:py-24 px-6">
       <div className="max-w-md w-full bg-white rounded-[36px] shadow-2xl border border-cream p-8 md:p-10">
         <span className="text-xs uppercase tracking-widest text-accent font-bold block mb-1">
@@ -129,6 +131,16 @@ function ResetPasswordContent() {
         )}
       </div>
     </main>
+      <CtaBanner
+        eyebrow="You're All Set"
+        title="Back to the good stuff"
+        description="Password sorted. Now the fun part — choosing your next box of sun-dried mango."
+        primaryLabel="Shop the Collection"
+        primaryHref="/shop"
+        secondaryLabel="Sign In"
+        secondaryHref="/login"
+      />
+    </>
   );
 }
 

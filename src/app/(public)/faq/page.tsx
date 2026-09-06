@@ -23,6 +23,7 @@ import {
   FaqCategoryId,
 } from "@/schemas/faq.schema";
 import { unwrap } from "@/lib/http";
+import CtaBanner from "@/components/public/CtaBanner";
 
 interface FaqItem {
   id: number;
@@ -409,6 +410,16 @@ export default function FaqPage() {
           </div>
         </div>
       </section>
+
+      <CtaBanner
+        eyebrow="Still Curious"
+        title="Didn't find your answer?"
+        description="Our team replies within one business day — on orders, ingredients, shipping or bulk enquiries."
+        primaryLabel="Contact the Team"
+        primaryHref="/contact"
+        secondaryLabel="Shipping & Delivery"
+        secondaryHref="/shipping-policy"
+      />
 
       {/* Quality & Origin 5-Badge Banner */}
       <div className="relative z-10 w-full border-t border-[#E5B869]/30 bg-[#640C26] text-white reveal">

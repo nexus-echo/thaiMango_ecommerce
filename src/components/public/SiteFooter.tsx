@@ -112,6 +112,11 @@ export default function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link href="/processing" className="hover:text-white transition">
+                Our Process
+              </Link>
+            </li>
+            <li>
               <Link href="/rituals" className="hover:text-white transition">
                 Rituals
               </Link>
