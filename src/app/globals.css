@@ -368,3 +368,28 @@ body {
   object-fit: contain;
   will-change: transform;
 }
+
+/* ===== Account dashboard =====
+   The dashboard swaps sections in place, so the incoming panel gets a short
+   entrance rather than appearing instantly. */
+
+@keyframes dash-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.dash-panel-in {
+  animation: dash-panel-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dash-panel-in {
+    animation: none;
+  }
+}

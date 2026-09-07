@@ -20,6 +20,7 @@ import { useStore } from "@/components/public/store";
 import { defaultVariant, minPrice } from "@/lib/variants";
 import { productImage } from "@/lib/images";
 import { unwrap } from "@/lib/http";
+import Image from "next/image";
 
 interface ApiVariant {
   label: string;
@@ -320,10 +321,13 @@ export default function Home() {
                   style={i > 0 ? { transitionDelay: `${i * 200}ms` } : undefined}
                 >
                   {/* Background Image */}
-                  <img
+                  <Image
                     src={product.image}
                     alt={product.name}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 bg-ivory"
+                    width={300}
+                    height={300}
+                    quality={60}
+                    className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-out group-hover:scale-105 bg-ivory"
                   />
 
                   {/* Dark linear Overlay for text readability */}
@@ -389,10 +393,13 @@ export default function Home() {
                   className="relative overflow-hidden rounded-4xl aspect-4/3 md:aspect-video lg:aspect-2/1 group block reveal"
                   style={i > 0 ? { transitionDelay: `${(i % 2) * 200}ms` } : undefined}
                 >
-                  <img
+                  <Image
+                    width={300}
+                    height={300}
+                    quality={60}
                     src={categoryImage(category.slug, i)}
                     alt={`${localized(category.name_en, category.name_th)} Category`}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-fill transition-transform duration-1000 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-8 md:p-10 z-10 w-full">
@@ -452,10 +459,13 @@ export default function Home() {
                 >
                   <div className="relative aspect-4/3 overflow-hidden bg-[#FCE9D8]">
                     <Link href={`/product-detail/${product.slug}`} className="absolute inset-0">
-                      <img
+                      <Image
+                        width={300}
+                        height={300}
+                        quality={60}
                         src={product.image}
                         alt={product.name}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                        className="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 ease-out group-hover:scale-105"
                       />
                     </Link>
 
@@ -536,7 +546,14 @@ export default function Home() {
             {/* Image */}
             <div className="w-full lg:w-1/2">
               <div className="relative aspect-4/4.5 lg:aspect-[4/3.6] rounded-[28px] overflow-hidden border border-accent/10">
-                <img src="/images/products/bangkok-mango-chili-lime.png" alt="Our Founder" className="w-full h-full object-cover" />
+                <Image
+                  width={300}
+                  height={300}
+                  quality={60}
+                  src="/images/products/bangkok-mango-chili-lime.png"
+                  alt="Our Founder"
+                  className="w-full h-full object-fill"
+                />
               </div>
             </div>
             {/* Text */}
@@ -597,14 +614,26 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 lg:h-150">
             {/* Large tile */}
             <Link href="/rituals" className="relative rounded-3xl overflow-hidden group cursor-pointer lg:row-span-2 aspect-4/3 lg:aspect-auto reveal">
-              <img src="/images/products/bangkok-mango-beetroot.png" alt="Thai Mango editorial" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+              <Image
+                width={300}
+                height={300}
+                quality={60} src="/images/products/bangkok-mango-beetroot.png"
+                alt="Thai Mango editorial"
+                className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-out group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-linear-to-t from-black/40 via-transparent to-transparent"></div>
               <span className="absolute top-4 left-4 bg-white/90 text-[#334155] text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Editorial</span>
             </Link>
 
             {/* Small tile 1 */}
             <Link href="/rituals" className="relative rounded-3xl overflow-hidden group cursor-pointer aspect-4/3 lg:aspect-auto reveal delay-100">
-              <img src="/images/products/bangkok-mango-chili-salt.png" alt="Behind the harvest" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+              <Image
+                width={300}
+                height={300}
+                quality={60} src="/images/sample_1.webp"
+                alt="Behind the harvest"
+                className="absolute inset-0 w-full h-full object-fill transition-transform duration-1000 ease-out group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent"></div>
               <span className="absolute top-4 left-4 bg-white/90 text-[#334155] text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Editorial</span>
               <div className="absolute bottom-4 left-4 right-4">
@@ -629,14 +658,27 @@ export default function Home() {
 
             {/* Small tile 2 */}
             <Link href="/rituals" className="relative rounded-3xl overflow-hidden group cursor-pointer aspect-4/3 lg:aspect-auto reveal delay-200">
-              <img src="/images/products/bangkok-mango-Ginger.png" alt="Thai Mango snacking ritual" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+              <Image
+                width={300}
+                height={300}
+                quality={60} src="/images/sample_2.webp"
+                alt="Thai Mango snacking ritual"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent"></div>
               <span className="absolute top-4 left-4 bg-white/90 text-[#334155] text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Editorial</span>
             </Link>
 
             {/* Small tile 3 */}
             <Link href="/rituals" className="relative rounded-3xl overflow-hidden group cursor-pointer aspect-4/3 lg:aspect-auto reveal delay-250">
-              <img src="/images/products/bangkok-mango-Lychee.png" alt="Snacking rituals" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+              <Image
+                width={300}
+                height={300}
+                quality={60}
+                src="/images/sample_3.webp"
+                alt="Snacking rituals"
+                className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-out group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent"></div>
               <span className="absolute top-4 left-4 bg-white/90 text-[#334155] text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Editorial</span>
               <div className="absolute bottom-4 left-4 right-4">
@@ -649,7 +691,14 @@ export default function Home() {
 
       {/* Our Heritage Film */}
       <section className="relative h-[80vh] bg-charcoal flex items-center justify-center overflow-hidden">
-        <img src="/images/products/bangkok-mango-original.png" alt="Thai Mango Philosophy" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay" />
+        <Image
+          width={300}
+          height={300}
+          quality={60}
+          src="/images/products/bangkok-mango-original.png"
+          alt="Thai Mango Philosophy"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
+        />
 
         {/* Corner Frame Accent */}
         <div className="hidden md:block absolute inset-8 md:inset-12 z-5 pointer-events-none">
@@ -695,7 +744,14 @@ export default function Home() {
             {/* Card 1 */}
             <article className="group cursor-pointer reveal">
               <div className="relative aspect-4/3 rounded-[20px] overflow-hidden mb-5 shadow-sm">
-                <img src="/images/products/bangkok-mango-passion.png" alt="The Art of Sun-Drying" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+                <Image
+                  width={300}
+                  height={300}
+                  quality={60}
+                  src="/images/products/bangkok-mango-passion.png"
+                  alt="The Art of Sun-Drying"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                />
                 <span className="absolute top-4 left-4 bg-white/90 text-accent text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Craft</span>
               </div>
               <div className="flex items-center gap-3 text-[10px] text-muted tracking-widest uppercase mb-3 font-semibold">
@@ -714,7 +770,14 @@ export default function Home() {
             {/* Card 2 */}
             <article className="group cursor-pointer reveal delay-100">
               <div className="relative aspect-4/3 rounded-[20px] overflow-hidden mb-5 shadow-sm">
-                <img src="/images/products/bangkok-mango-Roselle.png" alt="Understanding Mango Varietals" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+                <Image
+                  width={300}
+                  height={300}
+                  quality={60}
+                  src="/images/products/bangkok-mango-Roselle.png"
+                  alt="Understanding Mango Varietals"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                />
                 <span className="absolute top-4 left-4 bg-white/90 text-accent text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Varietals</span>
               </div>
               <div className="flex items-center gap-3 text-[10px] text-muted tracking-widest uppercase mb-3 font-semibold">
@@ -733,7 +796,14 @@ export default function Home() {
             {/* Card 3 */}
             <article className="group cursor-pointer reveal delay-200">
               <div className="relative aspect-4/3 rounded-[20px] overflow-hidden mb-5 shadow-sm">
-                <img src="/images/products/bangkok-mango-Turmeric.png" alt="Ways to Enjoy Dried Mango" className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" />
+                <Image
+                  width={300}
+                  height={300}
+                  quality={60}
+                  src="/images/products/bangkok-mango-Turmeric.png"
+                  alt="Ways to Enjoy Dried Mango"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                />
                 <span className="absolute top-4 left-4 bg-white/90 text-accent text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full">Ingredients</span>
               </div>
               <div className="flex items-center gap-3 text-[10px] text-muted tracking-widest uppercase mb-3 font-semibold">
@@ -756,7 +826,14 @@ export default function Home() {
       <section id="skin-consultant" className="flex flex-col lg:flex-row min-h-[70vh]">
         {/* Image */}
         <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-auto">
-          <img src="/images/products/bangkok-mango-strawberry.png" alt="Thai Mango orchard" className="absolute inset-0 w-full h-full object-cover" />
+          <Image
+            width={300}
+            height={300}
+            quality={60}
+            src="/images/products/bangkok-mango-strawberry.png"
+            alt="Thai Mango orchard"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute bottom-6 left-6 right-6 lg:right-auto lg:max-w-xs bg-charcoal/70 backdrop-blur-sm rounded-2xl p-5">
             <h3 className="text-ivory text-xs font-bold tracking-widest uppercase mb-2">Hand-Picked Quality</h3>
             <p className="text-ivory/70 text-xs leading-relaxed">Blending orchard heritage with careful ripeness testing for a snack that&apos;s actually worth it.</p>
