@@ -19,6 +19,10 @@ function wrapperClass(pathname: string) {
   if (pathname === "/") {
     return "bg-ivory text-charcoal min-h-screen overflow-x-hidden selection:bg-accent selection:text-white pb-[68px] lg:pb-0";
   }
+  /* Preview-only clone of the home page carrying the proposed mango palette. */
+  if (pathname === "/theme-preview") {
+    return "palette-mango bg-ivory text-charcoal min-h-screen overflow-x-hidden selection:bg-accent selection:text-white pb-[68px] lg:pb-0";
+  }
   if (["/login", "/register", "/dashboard"].includes(pathname)) {
     return "palette-account bg-ivory text-charcoal flex flex-col min-h-screen";
   }
@@ -36,7 +40,8 @@ export default function PublicShell({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
-  const variant = pathname === "/" ? "hero" : "solid";
+  const variant =
+    pathname === "/" || pathname === "/theme-preview" ? "hero" : "solid";
 
   const { settings } = useStore();
 

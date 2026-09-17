@@ -24,15 +24,18 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [variant]);
 
+  /* The foreground is only tied to --color-headerfg where the bar is actually
+     filled. Unscrolled, the hero header floats over the dark hero video, so it
+     stays ivory regardless of what the palette does to the bar colour. */
   const headerClass =
     variant === "hero"
-      ? `header-transparent w-full z-40 transition-all duration-500 text-ivory ${
+      ? `header-transparent w-full z-40 transition-all duration-500 ${
           scrolled
-            ? "fixed top-0 bg-[#52091E]/95 backdrop-blur-md shadow-md py-4"
-            : "absolute top-[40px] bg-transparent py-6"
+            ? "fixed top-0 bg-header/95 text-headerfg backdrop-blur-md shadow-md py-4"
+            : "absolute top-[40px] bg-transparent text-ivory py-6"
         }`
-      : `sticky top-0 w-full z-40 py-4 text-ivory transition-all duration-300 ${
-          scrolled ? "bg-[#400717] shadow-lg" : "bg-[#52091E] shadow-md"
+      : `sticky top-0 w-full z-40 py-4 text-headerfg transition-all duration-300 ${
+          scrolled ? "bg-headerdark shadow-lg" : "bg-header shadow-md"
         }`;
 
   const loggedIn = mounted && user?.isLoggedIn;

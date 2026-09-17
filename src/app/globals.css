@@ -12,6 +12,19 @@
   --color-beetroot: #640C26;
   --color-gold: #E5B869;
   --color-mango: #F4A228;
+  /* Site header bar — tokenised so a palette scope can restyle the header
+     without editing SiteHeader. Defaults are the original maroon hexes. */
+  --color-header: #52091E;
+  --color-headerdark: #400717;
+  --color-headerfg: #F7F4EE;
+  /* Full-screen mobile menu — same reason as the header tokens above:
+     defaults reproduce the hexes the overlay shipped with. */
+  --color-menusurface: #FBF9F6;
+  --color-menuraised: #FFF9F0;
+  --color-menutext: #334155;
+  --color-menumuted: #94A3B8;
+  --color-menuaccent: #F29F86;
+  --color-menuactive: #8C2442;
 
   /* Single-font policy: every typography token resolves to Inter. The serif/
      camera/display tokens are kept only so existing font-* classes still work. */
@@ -41,6 +54,36 @@
   --color-charcoal: #24211E;
   --color-muted: #706B65;
   --color-accent: #7A1233;
+}
+
+/* PREVIEW ONLY — the golden "Bangkok Mango" packaging palette, applied by the
+   /theme-preview route so the team can sign off on the new colours before the
+   rest of the site is switched over. To adopt it everywhere, move these values
+   into @theme above; to drop it, delete this scope and the preview route. */
+.palette-mango {
+  /* Every value below is sampled straight out of the Original Flavor packshot
+     (public/images/products/bangkok-mango-original.jpeg) — dominant colour of
+     the named region, not a hand-mixed approximation. --color-muted is the one
+     exception: the pack has no secondary-text tone, so it is a warm brown
+     derived to sit between the pack's black and its bronze. */
+  --color-ivory: #FFF9E9;    /* the pack's near-white label box */
+  --color-cream: #F4E4D4;    /* the pack's cream panel */
+  --color-charcoal: #0A0A0A; /* "DRIED MANGO" / body text — the pack runs black */
+  --color-muted: #7A6242;    /* derived: secondary copy (4.6:1 on the cream) */
+  --color-accent: #B47404;   /* the big "รสออรีจินอล" headline amber */
+  --color-burgundy: #502500; /* deepest pouch shadow */
+  --color-beetroot: #935400; /* mid pouch shadow — drawers, menus, solid panels */
+  --color-gold: #FFE490;     /* the highlight running through the bottom band */
+  --color-mango: #ECA40C;    /* the pouch body gold */
+  --color-header: #D49C04;   /* the flat marketing band across the pack foot */
+  --color-headerdark: #B47404;
+  --color-headerfg: #0A0A0A; /* black on gold, exactly as the pack sets it */
+  --color-menusurface: #FFF9E9;
+  --color-menuraised: #F4E4D4;
+  --color-menutext: #0A0A0A;
+  --color-menumuted: #7A6242;
+  --color-menuaccent: #B47404;
+  --color-menuactive: #935400;
 }
 
 /* Tailwind v3 (CDN) compatibility — the approved design was built against v3 defaults */

@@ -112,7 +112,7 @@ const subitemPromoData: Record<string, PromoContent> = {
 const subIconBox =
   "w-12 h-12 rounded-2xl bg-white border border-slate-200/70 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex items-center justify-center text-beetroot group-hover:border-gold group-hover:shadow-[0_4px_16px_rgba(100,12,38,0.14)] transition-all shrink-0";
 const subLabel =
-  "text-xs md:text-sm font-bold tracking-widest text-[#334155] uppercase font-sans group-hover:text-beetroot transition-colors";
+  "text-xs md:text-sm font-bold tracking-widest text-menutext uppercase font-sans group-hover:text-beetroot transition-colors";
 
 export default function MobileMenu() {
   const {
@@ -191,7 +191,7 @@ export default function MobileMenu() {
       linksActive ? "menu-link active" : "menu-link"
     } group relative p-5 md:p-6 rounded-[24px] ${
       isActive
-        ? "bg-[#FFF9F0] border border-gold/60 shadow-[0_4px_24px_rgba(100,12,38,0.10)]"
+        ? "bg-menuraised border border-gold/60 shadow-[0_4px_24px_rgba(100,12,38,0.10)]"
         : "bg-transparent border border-transparent hover:bg-white/60 hover:border-stone-200/60"
     } cursor-pointer transition-all duration-300 flex items-center justify-between`;
   };
@@ -200,12 +200,12 @@ export default function MobileMenu() {
     `menu-card-title text-base sm:text-lg font-bold tracking-wider ${
       activeTab === tab
         ? "text-beetroot"
-        : "text-[#334155] group-hover:text-beetroot"
+        : "text-menutext group-hover:text-beetroot"
     } uppercase font-sans transition-colors`;
 
   const navSub = (tab: MenuTab) =>
     `menu-card-sub text-[10px] sm:text-[11px] font-semibold tracking-widest ${
-      activeTab === tab ? "text-[#8C2442]" : "text-[#94A3B8]"
+      activeTab === tab ? "text-menuactive" : "text-menumuted"
     } uppercase mt-1 transition-colors`;
 
   const navBtn = (tab: MenuTab) =>
@@ -218,7 +218,7 @@ export default function MobileMenu() {
   return (
     <div
       id="mobile-menu"
-      className={`fixed inset-0 bg-[#FBF9F6] z-50 flex flex-col overflow-y-auto${
+      className={`fixed inset-0 bg-menusurface z-50 flex flex-col overflow-y-auto${
         menuOpen ? " menu-open" : ""
       }`}
       style={
@@ -229,7 +229,7 @@ export default function MobileMenu() {
       }
     >
       {/* Top Bar */}
-      <div className="flex justify-between items-center px-6 md:px-12 py-6 border-b border-stone-200/70 shrink-0 sticky top-0 bg-[#FBF9F6]/95 backdrop-blur-md z-10">
+      <div className="flex justify-between items-center px-6 md:px-12 py-6 border-b border-stone-200/70 shrink-0 sticky top-0 bg-menusurface/95 backdrop-blur-md z-10">
         <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
           <img
             src="/brand/logo.svg"
@@ -242,8 +242,8 @@ export default function MobileMenu() {
             <button
               className={`lang-btn px-1.5 py-0.5 rounded transition ${
                 lang === "en"
-                  ? "text-[#F29F86] font-bold"
-                  : "text-muted hover:text-[#F29F86] font-normal"
+                  ? "text-menuaccent font-bold"
+                  : "text-muted hover:text-menuaccent font-normal"
               }`}
               onClick={() => switchLang("en")}
             >
@@ -253,8 +253,8 @@ export default function MobileMenu() {
             <button
               className={`lang-btn px-1.5 py-0.5 rounded transition ${
                 lang === "th"
-                  ? "text-[#F29F86] font-bold"
-                  : "text-muted hover:text-[#F29F86] font-normal"
+                  ? "text-menuaccent font-bold"
+                  : "text-muted hover:text-menuaccent font-normal"
               }`}
               onClick={() => switchLang("th")}
             >
@@ -263,7 +263,7 @@ export default function MobileMenu() {
           </div>
           <button
             id="close-menu"
-            className="p-2 text-charcoal hover:text-[#F29F86] transition rounded-full hover:bg-black/5"
+            className="p-2 text-charcoal hover:text-menuaccent transition rounded-full hover:bg-black/5"
             aria-label="Close menu"
             onClick={closeMenu}
           >
@@ -548,7 +548,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/shop"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   Best Sellers
@@ -557,7 +557,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/shop"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   New Arrivals
@@ -566,7 +566,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/shop"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   Gift Cards
@@ -575,7 +575,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/rituals"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   Snacking Guide
@@ -591,7 +591,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/shipping-policy"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   Shipping
@@ -600,7 +600,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/privacy-policy"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   Privacy Policy
@@ -609,7 +609,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   Terms of Service
@@ -618,7 +618,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   Contact Us
@@ -627,7 +627,7 @@ export default function MobileMenu() {
               <li>
                 <Link
                   href="/faq"
-                  className="text-[#334155] hover:text-[#F29F86] transition"
+                  className="text-menutext hover:text-menuaccent transition"
                   onClick={closeMenu}
                 >
                   FAQ
@@ -650,7 +650,7 @@ export default function MobileMenu() {
           <div className="flex items-center gap-6 text-charcoal">
             <Link
               href="/login"
-              className="hover:text-[#F29F86] transition"
+              className="hover:text-menuaccent transition"
               aria-label="Account"
               onClick={closeMenu}
             >
@@ -658,7 +658,7 @@ export default function MobileMenu() {
             </Link>
             <Link
               href="/shop"
-              className="hover:text-[#F29F86] transition"
+              className="hover:text-menuaccent transition"
               aria-label="Wishlist"
               onClick={closeMenu}
             >
@@ -666,7 +666,7 @@ export default function MobileMenu() {
             </Link>
             <a
               href="#"
-              className="open-search hover:text-[#F29F86] transition"
+              className="open-search hover:text-menuaccent transition"
               aria-label="Search"
               onClick={(e) => {
                 e.preventDefault();
@@ -681,7 +681,7 @@ export default function MobileMenu() {
                 href={settings.social_instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-[#F29F86] transition"
+                className="hover:text-menuaccent transition"
                 aria-label="Instagram"
               >
                 <InstagramIcon className="w-4 h-4 sm:w-5 sm:h-5 font-light" />
@@ -716,7 +716,7 @@ function NewsletterMiniForm() {
       />
       <button
         type="submit"
-        className="p-2 text-charcoal hover:text-[#F29F86] transition"
+        className="p-2 text-charcoal hover:text-menuaccent transition"
         aria-label="Subscribe"
       >
         <ArrowRight className="w-4 h-4" />
