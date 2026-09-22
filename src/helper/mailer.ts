@@ -30,15 +30,15 @@ export async function sendPasswordResetEmail(to: string, link: string) {
         subject: "Reset your Bangkok Mango password",
         text: `We received a request to reset your password.\n\nOpen this link to choose a new one (valid for 30 minutes):\n${link}\n\nIf you didn't request this, you can safely ignore this email.`,
         html: `
-            <div style="font-family: Georgia, serif; max-width: 480px; margin: 0 auto; color: #24211E;">
+            <div style="font-family: Georgia, serif; max-width: 480px; margin: 0 auto; color: #0A0A0A;">
                 <h2 style="letter-spacing: 0.05em;">BANGKOK MANGO</h2>
                 <p>We received a request to reset your password.</p>
                 <p>
-                    <a href="${link}" style="display: inline-block; padding: 12px 28px; background: #52091E; color: #F7F4EE; text-decoration: none; border-radius: 999px;">
+                    <a href="${link}" style="display: inline-block; padding: 12px 28px; background: #935400; color: #FFF9E9; text-decoration: none; border-radius: 999px;">
                         Choose a new password
                     </a>
                 </p>
-                <p style="font-size: 13px; color: #756F68;">
+                <p style="font-size: 13px; color: #7A6242;">
                     The link is valid for 30 minutes. If you didn't request this,
                     you can safely ignore this email.
                 </p>

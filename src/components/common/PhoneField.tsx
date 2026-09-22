@@ -36,10 +36,10 @@ const adminPhoneSelectStyles: StylesConfig<DialOption, false> = {
     minHeight: "42px",
     borderRadius: "0.75rem",
     backgroundColor: "#fff",
-    borderColor: state.isFocused ? "#7A1233" : "#EFE9DF",
+    borderColor: state.isFocused ? "#B47404" : "#F4E4D4",
     boxShadow: "none",
     fontSize: "0.875rem",
-    "&:hover": { borderColor: "#7A1233" },
+    "&:hover": { borderColor: "#B47404" },
   }),
 };
 

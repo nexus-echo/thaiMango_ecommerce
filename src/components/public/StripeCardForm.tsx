@@ -135,8 +135,8 @@ export default function StripeCardForm({
       currency: currency.toLowerCase(),
       appearance: {
         variables: {
-          colorPrimary: "#7A1233",
-          colorText: "#2d2a26",
+          colorPrimary: "#B47404",
+          colorText: "#0A0A0A",
           borderRadius: "12px",
           fontSizeBase: "14px",
         },

@@ -34,7 +34,7 @@ export default function CtaBanner({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 120% at 88% -10%, rgba(229,184,105,0.15), transparent 55%), radial-gradient(90% 100% at -10% 110%, rgba(100,12,38,0.45), transparent 60%)",
+            "radial-gradient(120% 120% at 88% -10%, rgba(255,228,144,0.15), transparent 55%), radial-gradient(90% 100% at -10% 110%, rgba(147,84,0,0.45), transparent 60%)",
         }}
       />
       {/* Corner frame accents — echoes the hero and heritage sections */}

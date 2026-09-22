@@ -546,7 +546,7 @@ function ToastItem({ toast }: { toast: Toast }) {
   const visible = entered && !toast.leaving;
   return (
     <div
-      className={`bg-[#241016] text-[#FBF4E8] text-xs md:text-sm font-medium px-5 py-3 rounded-full shadow-2xl pointer-events-auto border border-gold/30 transition-all duration-300 transform flex items-center gap-2.5 ${
+      className={`bg-[#0A0A0A] text-[#FFF9E9] text-xs md:text-sm font-medium px-5 py-3 rounded-full shadow-2xl pointer-events-auto border border-gold/30 transition-all duration-300 transform flex items-center gap-2.5 ${
         visible ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
       }`}
     >

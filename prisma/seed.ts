@@ -261,6 +261,7 @@ const SITE_CONTENT_DEFAULTS = [
     { id: "community_intro", section: "Mango Moments Intro", location: "Home", content: "Join our community of mango lovers. Share your snacking moments with #THAIMANGOMOMENTS." },
     { id: "heritage_title", section: "Heritage Film Title", location: "Home", content: "A Legacy of Golden Orchards" },
     { id: "journal_intro", section: "Journal Intro", location: "Home", content: "Dive into our curated world of snacking rituals, orchard heritage, and mango know-how." },
+    { id: "best_sellers_intro", section: "Best Selling Intro", location: "Home", content: "The flavors our customers come back for — ranked by what actually leaves the orchard." },
     { id: "expert_intro", section: "Flavor Expert Intro", location: "Home", content: "Tell us your taste preferences — sweet, spicy, tangy, or classic — and we'll point you toward the flavors that fit, or connect you with our team for bulk and gifting orders." },
     { id: "story", section: "Our Story", location: "About", content: "Sun-ripened in Thailand, sun-dried the traditional way." },
     { id: "ingredients", section: "Ingredients", location: "Ingredients", content: "100% Thai natural ingredients — mango, chili, honey, beetroot." },

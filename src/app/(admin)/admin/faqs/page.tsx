@@ -192,7 +192,7 @@ export default function FaqsPage() {
               <label className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-cream bg-white text-sm cursor-pointer">
                 <input
                   type="checkbox"
-                  className="accent-[#7A1233] w-4 h-4"
+                  className="accent-[#B47404] w-4 h-4"
                   {...register("is_active")}
                 />
                 <span className="text-charcoal">Visible on the public page</span>

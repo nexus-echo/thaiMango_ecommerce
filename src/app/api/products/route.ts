@@ -2,6 +2,11 @@ import { prisma } from "@/lib/prismaClient";
 import { NextResponse } from "next/server";
 import { Prisma } from "@/generated/prisma/client";
 import { ApiResponse, ApiError } from "@/helper/apiResponse";
+import {
+    isSellingFast,
+    recentUnitsByProduct,
+    stockOf,
+} from "@/lib/sellingFast";
 
 const DEFAULT_LIMIT = 12;
 const MAX_LIMIT = 48;
@@ -42,10 +47,22 @@ export async function GET(req: Request) {
             prisma.product.count({ where }),
         ]);
 
+        /* Same demand signal the best-sellers route attaches, so every grid on
+           the storefront badges a product identically (see lib/sellingFast). */
+        const recentUnits = await recentUnitsByProduct(products.map((p) => p.id));
+        const withVelocity = products.map((product) => {
+            const recent = recentUnits.get(product.id) ?? 0;
+            return {
+                ...product,
+                units_sold_recent: recent,
+                selling_fast: isSellingFast(recent, stockOf(product.productVariant)),
+            };
+        });
+
         const apiResponse = new ApiResponse(
             200,
             {
-                products,
+                products: withVelocity,
                 pagination: { page, limit, total, totalPages: Math.ceil(total / limit) },
             },
             "Products fetched successfully"

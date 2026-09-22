@@ -641,7 +641,7 @@ export default function DashboardPage() {
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(to right, #640C26 0%, rgba(100,12,38,0.96) 34%, rgba(100,12,38,0.76) 100%)",
+                  "linear-gradient(to right, #935400 0%, rgba(147,84,0,0.96) 34%, rgba(147,84,0,0.76) 100%)",
               }}
             />
           </div>
@@ -685,7 +685,7 @@ export default function DashboardPage() {
           ref={shellRef}
           className="mx-auto max-w-screen-2xl px-4 py-6 md:px-10 md:py-10"
         >
-          <div className="overflow-hidden rounded-3xl border border-cream bg-white shadow-[0_24px_60px_-45px_rgba(36,33,30,0.5)]">
+          <div className="overflow-hidden rounded-3xl border border-cream bg-white shadow-[0_24px_60px_-45px_rgba(10,10,10,0.5)]">
             <div className="lg:grid lg:grid-cols-[248px_1fr] xl:grid-cols-[268px_1fr]">
               {/* Sidebar */}
               <aside className="hidden border-r border-cream bg-white p-5 lg:flex lg:flex-col">

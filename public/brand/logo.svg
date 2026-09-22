@@ -2,8 +2,8 @@
   <title id="bm-title">Bangkok Mango — Taste of Thailand</title>
   <defs>
     <linearGradient id="bm-gold" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#E2BC72"/>
-      <stop offset="1" stop-color="#B08341"/>
+      <stop offset="0" stop-color="#FFE490"/>
+      <stop offset="1" stop-color="#D49C04"/>
     </linearGradient>
     <!-- Stepped Thai prang tower, base at (0,0), tip at (0,-90) -->
     <polygon id="bm-prang" fill="url(#bm-gold)" points="
@@ -28,15 +28,15 @@
   <!-- Wordmark: both lines justified to the same width, as on the pack -->
   <text x="210" y="155" text-anchor="middle" textLength="300" lengthAdjust="spacing"
         font-family="Georgia, 'Playfair Display', 'Times New Roman', serif"
-        font-size="46" fill="#24211E">BANGKOK</text>
+        font-size="46" fill="#0A0A0A">BANGKOK</text>
   <text x="210" y="203" text-anchor="middle" textLength="300" lengthAdjust="spacing"
         font-family="Georgia, 'Playfair Display', 'Times New Roman', serif"
-        font-size="46" fill="#24211E">MANGO</text>
+        font-size="46" fill="#0A0A0A">MANGO</text>
 
   <!-- Tagline with flanking gold rules -->
-  <line x1="72" y1="223" x2="136" y2="223" stroke="#C39A57" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="284" y1="223" x2="348" y2="223" stroke="#C39A57" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="72" y1="223" x2="136" y2="223" stroke="#ECA40C" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="284" y1="223" x2="348" y2="223" stroke="#ECA40C" stroke-width="1.6" stroke-linecap="round"/>
   <text x="210" y="229" text-anchor="middle"
         font-family="Georgia, 'Playfair Display', 'Times New Roman', serif"
-        font-size="17" font-style="italic" fill="#7A1233">Taste of Thailand</text>
+        font-size="17" font-style="italic" fill="#935400">Taste of Thailand</text>
 </svg>

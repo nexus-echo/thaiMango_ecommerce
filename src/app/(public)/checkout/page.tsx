@@ -495,7 +495,7 @@ export default function CheckoutPage() {
           email: email || undefined,
           contact: phone || undefined,
         },
-        theme: { color: "#7A1233" },
+        theme: { color: "#B47404" },
         handler: async (response) => {
           try {
             await axios.post("/api/payments/razorpay/verify", response);
@@ -602,7 +602,7 @@ export default function CheckoutPage() {
                   <button
                     type="button"
                     onClick={() => handleExpressPay("Google Pay")}
-                    className="group py-3.5 px-4 rounded-2xl bg-linear-to-b from-white to-[#f7f5f2] border border-charcoal/10 flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(22,22,22,0.05)] hover:shadow-[0_6px_18px_rgba(22,22,22,0.10)] hover:border-charcoal/20 hover:-translate-y-0.5 transition-all duration-300"
+                    className="group py-3.5 px-4 rounded-2xl bg-linear-to-b from-white to-[#FFF9E9] border border-charcoal/10 flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(10,10,10,0.05)] hover:shadow-[0_6px_18px_rgba(10,10,10,0.10)] hover:border-charcoal/20 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <GooglePayIcon className="w-4.5 h-4.5 shrink-0" />
                     <span className="text-sm font-semibold tracking-tight text-[#3c4043]">
@@ -612,7 +612,7 @@ export default function CheckoutPage() {
                   <button
                     type="button"
                     onClick={() => handleExpressPay("PhonePe / UPI")}
-                    className="group py-3.5 px-4 rounded-2xl bg-linear-to-b from-white to-[#f7f5f2] border border-charcoal/10 flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(22,22,22,0.05)] hover:shadow-[0_6px_18px_rgba(95,37,159,0.18)] hover:border-[#5f259f]/30 hover:-translate-y-0.5 transition-all duration-300"
+                    className="group py-3.5 px-4 rounded-2xl bg-linear-to-b from-white to-[#FFF9E9] border border-charcoal/10 flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(10,10,10,0.05)] hover:shadow-[0_6px_18px_rgba(95,37,159,0.18)] hover:border-[#5f259f]/30 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <PhonePeIcon className="w-4.5 h-4.5 shrink-0" />
                     <span className="text-sm font-semibold tracking-tight text-[#5f259f]">
@@ -622,7 +622,7 @@ export default function CheckoutPage() {
                   <button
                     type="button"
                     onClick={() => handleExpressPay("Paytm")}
-                    className="group py-3.5 px-4 rounded-2xl bg-linear-to-b from-white to-[#f7f5f2] border border-charcoal/10 flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(22,22,22,0.05)] hover:shadow-[0_6px_18px_rgba(0,186,242,0.20)] hover:border-[#00baf2]/40 hover:-translate-y-0.5 transition-all duration-300"
+                    className="group py-3.5 px-4 rounded-2xl bg-linear-to-b from-white to-[#FFF9E9] border border-charcoal/10 flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(10,10,10,0.05)] hover:shadow-[0_6px_18px_rgba(0,186,242,0.20)] hover:border-[#00baf2]/40 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <PaytmIcon className="w-4.5 h-4.5 shrink-0" />
                     <span className="text-sm font-semibold tracking-tight">

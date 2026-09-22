@@ -1,0 +1,22 @@
+{
+  "tool": "built-in image_gen",
+  "status": "NOT YET GENERATED — the product page currently reuses photos from /images/ingredients and /images/processing. Generate these, drop the .webp files in this folder, then point the matching field in src/lib/product-story.ts at the new path.",
+  "assets": [
+    {
+      "file": "uses-serving.webp",
+      "target": "USES_IMAGE in src/lib/product-story.ts",
+      "note": "ONE image for every product, not one per flavor — the Uses section is about how the snack is eaten, which does not change with the flavor. Keep the fruit plain golden and unseasoned so it reads as any pouch in the range. The serving props, not the fruit, are the subject.",
+      "prompt": "Use case: photorealistic-natural. Asset: portrait photograph for the 'Uses' section of a premium Thai dried mango product page. An unhurried breakfast-table scene on a warm cream limestone counter: a small ivory ceramic bowl of plain golden dried mango strips in the foreground, a bowl of thick plain yoghurt topped with a few chopped strips beside it, and a clear glass cup of jasmine tea and a folded natural linen napkin set behind. The fruit is plain sun-dried mango with a wrinkled chewy texture and no visible seasoning, coating, chili or colouring. Soft directional morning daylight from the left, restrained editorial food styling, cream and golden amber palette, realistic natural shadows, shallow depth of field on the background props. Three-quarter view, arrangement centred with generous breathing room, portrait 4:5 composition that also crops cleanly to 16:11. No people, hands, packaging, lettering, logos, watermark or collage."
+    },
+    {
+      "file": "know-orchard.webp",
+      "target": "productStory(...).know.image — optional second image for the Know Your Mango panel, beside the strip diagram",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape photograph for the provenance panel of a premium Thai dried mango product page. Ripe elongated golden Nam Dok Mai mangoes still hanging on the tree among glossy dark green leaves, a Thai orchard blurred softly behind in warm late-afternoon light. Professional editorial photography, warm natural backlighting, cream and golden amber palette, realistic tactile fruit texture, shallow depth of field. Subject centred with breathing room for a 16:10 crop, landscape 3:2. No people, hands, lettering, logos, watermarks, collage, or certification symbols."
+    },
+    {
+      "file": "shelf-life-pouch.webp",
+      "target": "optional hero for the Shelf Life band, which currently runs without a photograph",
+      "prompt": "Use case: photorealistic-natural. Asset: landscape photograph for the shelf-life section of a premium Thai dried mango product page. A resealed matte stand-up snack pouch, generic and unbranded, standing upright on a cool dim pantry shelf beside a closed ceramic jar, with the zip-lock visibly pressed shut at the top. Calm even indirect light, cream and warm neutral palette, realistic material texture on the foil pouch, quiet still-life mood. Straight-on three-quarter view, subject centred with breathing room for a 16:10 crop, landscape 3:2. No people, hands, lettering, logos, brand marks, watermarks or collage."
+    }
+  ]
+}

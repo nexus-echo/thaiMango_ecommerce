@@ -8,9 +8,9 @@ export interface SelectOption {
 /* Matches the admin input styling: rounded-xl, cream border, accent focus.
    Hex literals mirror the palette-account scope in globals.css — react-select
    builds inline styles, so it cannot read the CSS variables. */
-const ACCENT = "#7A1233";
-const CREAM = "#EFE9DF";
-const CHARCOAL = "#24211E";
+const ACCENT = "#B47404";
+const CREAM = "#F4E4D4";
+const CHARCOAL = "#0A0A0A";
 
 export const adminSelectStyles: StylesConfig<SelectOption, false> = {
     control: (base, state) => ({
@@ -34,7 +34,7 @@ export const adminSelectStyles: StylesConfig<SelectOption, false> = {
         color: state.isSelected ? "#fff" : CHARCOAL,
         cursor: "pointer",
     }),
-    placeholder: (base) => ({ ...base, color: "rgba(112, 107, 101, 0.6)" }),
+    placeholder: (base) => ({ ...base, color: "rgba(122, 98, 66, 0.6)" }),
     menuPortal: (base) => ({ ...base, zIndex: 60 }),
 };
 

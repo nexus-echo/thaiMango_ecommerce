@@ -1,71 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  /* Home palette (index.html tailwind.config) — the default scope */
-  --color-ivory: #F7F4EE;
-  --color-cream: #EFEAE1;
-  --color-charcoal: #24211E;
-  --color-muted: #756F68;
-  --color-accent: #A18B68;
-  /* Extra brand colors defined by the sub-page configs (identical wherever present) */
-  --color-burgundy: #52091E;
-  --color-beetroot: #640C26;
-  --color-gold: #E5B869;
-  --color-mango: #F4A228;
-  /* Site header bar — tokenised so a palette scope can restyle the header
-     without editing SiteHeader. Defaults are the original maroon hexes. */
-  --color-header: #52091E;
-  --color-headerdark: #400717;
-  --color-headerfg: #F7F4EE;
-  /* Full-screen mobile menu — same reason as the header tokens above:
-     defaults reproduce the hexes the overlay shipped with. */
-  --color-menusurface: #FBF9F6;
-  --color-menuraised: #FFF9F0;
-  --color-menutext: #334155;
-  --color-menumuted: #94A3B8;
-  --color-menuaccent: #F29F86;
-  --color-menuactive: #8C2442;
-
-  /* Single-font policy: every typography token resolves to Inter. The serif/
-     camera/display tokens are kept only so existing font-* classes still work. */
-  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: var(--font-sans);
-  --font-camera: var(--font-sans);
-  --font-display: var(--font-sans);
-}
-
-/* Each static page shipped its own tailwind.config with a different palette
-   under the SAME token names. These scope classes reproduce that per page —
-   PublicShell applies the right one for the current route. */
-.palette-shop {
-  /* shop, product-detail, cart, checkout, about, contact, faq,
-     ingredients, rituals, privacy-policy, shipping-policy, terms */
-  --color-charcoal: #1A1817;
-  --color-ivory: #FAF8F5;
-  --color-cream: #F2EDE4;
-  --color-accent: #8C2442;
-  --color-muted: #7A7571;
-}
-.palette-account {
-  /* login, register, dashboard — and the admin portal, which deliberately
-     shares the account palette so the two dashboards read as one brand. */
-  --color-ivory: #F7F4EE;
-  --color-cream: #EFE9DF;
-  --color-charcoal: #24211E;
-  --color-muted: #706B65;
-  --color-accent: #7A1233;
-}
-
-/* PREVIEW ONLY — the golden "Bangkok Mango" packaging palette, applied by the
-   /theme-preview route so the team can sign off on the new colours before the
-   rest of the site is switched over. To adopt it everywhere, move these values
-   into @theme above; to drop it, delete this scope and the preview route. */
-.palette-mango {
-  /* Every value below is sampled straight out of the Original Flavor packshot
-     (public/images/products/bangkok-mango-original.jpeg) — dominant colour of
-     the named region, not a hand-mixed approximation. --color-muted is the one
-     exception: the pack has no secondary-text tone, so it is a warm brown
-     derived to sit between the pack's black and its bronze. */
+  /* Bangkok Mango packaging palette — one palette for the whole product.
+     Every value is the dominant colour of a named region of the Original
+     Flavor packshot (public/images/products/bangkok-mango-original.jpeg),
+     sampled rather than hand-mixed. --color-muted is the sole exception:
+     the pack carries no secondary-text tone, so it is a warm brown placed
+     between the pack's black and its bronze. */
   --color-ivory: #FFF9E9;    /* the pack's near-white label box */
   --color-cream: #F4E4D4;    /* the pack's cream panel */
   --color-charcoal: #0A0A0A; /* "DRIED MANGO" / body text — the pack runs black */
@@ -75,15 +16,40 @@
   --color-beetroot: #935400; /* mid pouch shadow — drawers, menus, solid panels */
   --color-gold: #FFE490;     /* the highlight running through the bottom band */
   --color-mango: #ECA40C;    /* the pouch body gold */
-  --color-header: #D49C04;   /* the flat marketing band across the pack foot */
-  --color-headerdark: #B47404;
-  --color-headerfg: #0A0A0A; /* black on gold, exactly as the pack sets it */
+  /* Site header bar, tokenised so the bar can be restyled without editing
+     SiteHeader. The pack sets black on gold; so does the header. */
+  /* The bar is the same gold as the badge strip under the hero and the quality
+     band in the footer — one gold across the page, no two-tone seam. The
+     scrolled state is deliberately the SAME value: scroll is signalled by the
+     shadow stepping from md to lg, not by a colour shift. */
+  --color-header: #ECA40C;
+  --color-headerdark: #ECA40C;
+  --color-headerfg: #0A0A0A;
+  /* Full-screen mobile menu, tokenised for the same reason. */
   --color-menusurface: #FFF9E9;
   --color-menuraised: #F4E4D4;
   --color-menutext: #0A0A0A;
   --color-menumuted: #7A6242;
   --color-menuaccent: #B47404;
   --color-menuactive: #935400;
+
+  /* Single-font policy: every typography token resolves to Inter. The serif/
+     camera/display tokens are kept only so existing font-* classes still work. */
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: var(--font-sans);
+  --font-camera: var(--font-sans);
+  --font-display: var(--font-sans);
+}
+
+/* Each static page once shipped its own tailwind.config with a different
+   palette under the SAME token names, which these scope classes reproduced.
+   The pack palette in @theme now covers the whole product, so the scopes are
+   kept only as no-ops: PublicShell and the admin layout still apply the class
+   names, and leaving them defined keeps a single place to reintroduce a
+   per-section palette should one ever be wanted again. */
+.palette-shop,
+.palette-account {
+  /* intentionally empty — see @theme */
 }
 
 /* Tailwind v3 (CDN) compatibility — the approved design was built against v3 defaults */
@@ -122,8 +88,8 @@ html {
 }
 
 body {
-  background-color: #F7F4EE;
-  color: #24211E;
+  background-color: #FFF9E9;
+  color: #0A0A0A;
 }
 
 /* Hide scrollbar for horizontal scroll areas */
@@ -260,8 +226,8 @@ body {
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
 .tab-btn.active {
-  color: #7A1233;
-  border-color: #7A1233;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 /* Quantity stepper — hide native number spinners */
@@ -276,13 +242,13 @@ body {
 
 /* Gallery thumbnail active state */
 .gallery-thumb.active {
-  border-color: #7A1233;
+  border-color: var(--color-accent);
 }
 
 /* Wishlist heart fill toggle */
 .wishlist-toggle[data-active="true"] svg {
-  fill: #7A1233;
-  color: #7A1233;
+  fill: var(--color-accent);
+  color: var(--color-accent);
 }
 
 /* Toast notifications */
@@ -318,21 +284,21 @@ body {
 /* Subtle Thai-motif backdrop for hero (pure CSS, no external image) */
 .thai-motif-bg {
   background-image:
-    radial-gradient(circle at 15% 20%, rgba(201, 162, 75, 0.18) 0, transparent 45%),
-    radial-gradient(circle at 85% 15%, rgba(245, 166, 35, 0.15) 0, transparent 40%),
-    radial-gradient(circle at 50% 90%, rgba(122, 18, 51, 0.35) 0, transparent 55%);
+    radial-gradient(circle at 15% 20%, rgba(255, 228, 144, 0.18) 0, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(236, 164, 12, 0.15) 0, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(180, 116, 4, 0.35) 0, transparent 55%);
 }
 
 /* Product/placeholder image frame */
 .img-placeholder {
-  background: repeating-linear-gradient(135deg, #FBF4E8, #FBF4E8 10px, #F3E6CE 10px, #F3E6CE 20px);
+  background: repeating-linear-gradient(135deg, #FFF9E9, #FFF9E9 10px, #F4E4D4 10px, #F4E4D4 20px);
 }
 
 /* Reusable slot for the real product photo — shows a friendly placeholder
    until the actual file exists at the referenced path (see onerror handler). */
 .product-image-slot .img-missing-note { display: none; }
 .product-image-slot.img-missing {
-  background: repeating-linear-gradient(135deg, #FBF4E8, #FBF4E8 10px, #F3E6CE 10px, #F3E6CE 20px);
+  background: repeating-linear-gradient(135deg, #FFF9E9, #FFF9E9 10px, #F4E4D4 10px, #F4E4D4 20px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -433,6 +399,53 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .dash-panel-in {
+    animation: none;
+  }
+}
+
+/* "Selling fast" badge — a halo that pulses outward from the pill plus a
+   flicker on the bolt, on one shared 2.2s beat so the two read as a single
+   motion rather than two competing loops. */
+@keyframes selling-fast-halo {
+  0% {
+    box-shadow: 0 0 0 0 rgba(180, 116, 4, 0.45);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 9px rgba(180, 116, 4, 0);
+  }
+}
+
+@keyframes selling-fast-bolt {
+  0%,
+  55%,
+  78%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  64% {
+    opacity: 0.35;
+    transform: scale(1.22);
+  }
+  71% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.selling-fast {
+  animation: selling-fast-halo 2.2s ease-out infinite;
+}
+
+.selling-fast-bolt {
+  animation: selling-fast-bolt 2.2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selling-fast,
+  .selling-fast-bolt {
     animation: none;
   }
 }

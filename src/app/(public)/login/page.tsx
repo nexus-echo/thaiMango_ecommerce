@@ -75,14 +75,14 @@ export default function LoginPage() {
     <main className="flex-1 flex items-center justify-center py-12 md:py-20 px-6">
       <div className="max-w-5xl w-full bg-white rounded-[36px] shadow-2xl border border-cream overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         {/* Left Visual / Brand Column (5 cols) */}
-        <div className="lg:col-span-5 relative bg-[#52091E] text-white p-8 md:p-12 flex flex-col justify-between overflow-hidden">
+        <div className="lg:col-span-5 relative bg-[#502500] text-white p-8 md:p-12 flex flex-col justify-between overflow-hidden">
           {/* Backdrop glow & imagery */}
           <img
             src="/images/products/bangkok-mango-beetroot.png"
             alt="Thai Mango Orchards"
             className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#3D0514] via-[#52091E]/90 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#502500] via-[#502500]/90 to-transparent"></div>
 
           <div className="relative z-10">
             <span className="text-[10px] tracking-[0.25em] uppercase font-bold text-gold block mb-3">

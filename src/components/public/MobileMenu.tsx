@@ -110,7 +110,7 @@ const subitemPromoData: Record<string, PromoContent> = {
 };
 
 const subIconBox =
-  "w-12 h-12 rounded-2xl bg-white border border-slate-200/70 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex items-center justify-center text-beetroot group-hover:border-gold group-hover:shadow-[0_4px_16px_rgba(100,12,38,0.14)] transition-all shrink-0";
+  "w-12 h-12 rounded-2xl bg-white border border-slate-200/70 shadow-[0_2px_12px_rgba(0,0,0,0.03)] flex items-center justify-center text-beetroot group-hover:border-gold group-hover:shadow-[0_4px_16px_rgba(147,84,0,0.14)] transition-all shrink-0";
 const subLabel =
   "text-xs md:text-sm font-bold tracking-widest text-menutext uppercase font-sans group-hover:text-beetroot transition-colors";
 
@@ -191,7 +191,7 @@ export default function MobileMenu() {
       linksActive ? "menu-link active" : "menu-link"
     } group relative p-5 md:p-6 rounded-[24px] ${
       isActive
-        ? "bg-menuraised border border-gold/60 shadow-[0_4px_24px_rgba(100,12,38,0.10)]"
+        ? "bg-menuraised border border-gold/60 shadow-[0_4px_24px_rgba(147,84,0,0.10)]"
         : "bg-transparent border border-transparent hover:bg-white/60 hover:border-stone-200/60"
     } cursor-pointer transition-all duration-300 flex items-center justify-between`;
   };

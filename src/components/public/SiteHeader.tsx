@@ -31,7 +31,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
     variant === "hero"
       ? `header-transparent w-full z-40 transition-all duration-500 ${
           scrolled
-            ? "fixed top-0 bg-header/95 text-headerfg backdrop-blur-md shadow-md py-4"
+            ? "fixed top-0 bg-header text-headerfg shadow-md py-4"
             : "absolute top-[40px] bg-transparent text-ivory py-6"
         }`
       : `sticky top-0 w-full z-40 py-4 text-headerfg transition-all duration-300 ${

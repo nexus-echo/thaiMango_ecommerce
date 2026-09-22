@@ -25,9 +25,9 @@ const FLAVORS: Flavor[] = [
 /* Home-page flavor rail: stacked "Shop by / Flavors" heading with a tilted
    highlight tag, then a row of tinted flavor tiles. Scrolls sideways on small
    screens, wraps into a grid from lg up. */
-export default function ShopByFlavor() {
+export default function AvailableByFlavor() {
   return (
-    <section className="pt-8 pb-16 bg-[#F5F5F5]">
+    <section className="pt-8 pb-16 bg-[#F4E4D4]">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="mb-10 flex justify-center items-center text-center reveal">
           {/* <h2 className="font-serif text-xl md:text-5xl font-medium uppercase tracking-tight text-charcoal leading-none">
@@ -45,26 +45,26 @@ export default function ShopByFlavor() {
               className="w-36 shrink-0 snap-start md:w-44 lg:w-auto reveal"
               style={{ transitionDelay: `${Math.min(i, 6) * 60}ms` }}
             >
-              <Link href="/shop" className="group block">
-                <div
-                  className="relative aspect-3/4 overflow-hidden rounded-2xl border border-mango/40 transition duration-300 group-hover:border-mango group-hover:shadow-lg"
-                  style={{
-                    background: `linear-gradient(180deg, ${flavor.tint} 0%, #FFF9E9 100%)`,
-                  }}
-                >
-                  <Image
-                    src={flavor.image}
-                    alt={`${flavor.name} dried mango`}
-                    fill
-                    sizes="(min-width: 1280px) 9vw, (min-width: 1024px) 16vw, 176px"
-                    quality={60}
-                    className="object-cover p-2 rounded-2xl transition-transform duration-500 ease-out group-hover:scale-105"
-                  />
-                </div>
-                <p className="mt-3 text-center text-sm font-semibold text-charcoal transition-colors group-hover:text-accent">
-                  {flavor.name}
-                </p>
-              </Link>
+              {/* <Link href="/shop" className="group block"> */}
+              <div
+                className="relative aspect-3/4 overflow-hidden rounded-2xl border border-mango/40 transition duration-300 group-hover:border-mango group-hover:shadow-lg group block"
+                style={{
+                  background: `linear-gradient(180deg, ${flavor.tint} 0%, #FFF9E9 100%)`,
+                }}
+              >
+                <Image
+                  src={flavor.image}
+                  alt={`${flavor.name} dried mango`}
+                  fill
+                  sizes="(min-width: 1280px) 9vw, (min-width: 1024px) 16vw, 176px"
+                  quality={60}
+                  className="object-cover p-2 rounded-2xl transition-transform duration-500 ease-out group-hover:scale-105"
+                />
+              </div>
+              <p className="mt-3 text-center text-sm font-semibold text-charcoal transition-colors group-hover:text-accent">
+                {flavor.name}
+              </p>
+              {/* </Link> */}
             </li>
           ))}
         </ul>

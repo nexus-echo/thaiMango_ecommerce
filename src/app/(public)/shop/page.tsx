@@ -6,6 +6,11 @@ import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { ChevronRight, Eye } from "lucide-react";
+import Select from "react-select";
+import {
+  publicPillSelectStyles,
+  type PublicSelectOption,
+} from "@/components/public/selectStyles";
 import { useStore } from "@/components/public/store";
 import { defaultVariant, minPrice } from "@/lib/variants";
 import { productImage } from "@/lib/images";
@@ -33,6 +38,8 @@ interface ApiProduct {
   tags: string[];
   category: { slug: string; name_en: string; name_th: string };
   productVariant: ApiVariant[];
+  /* Demand signal the products API attaches — see lib/sellingFast. */
+  units_sold_recent?: number;
 }
 
 interface ApiCategory {
@@ -40,6 +47,19 @@ interface ApiCategory {
   name_en: string;
   name_th: string;
 }
+
+type SortValue = "featured" | "price-asc" | "price-desc" | "best-selling";
+
+const SORT_OPTIONS: PublicSelectOption[] = [
+  { value: "featured", label: "Featured First" },
+  { value: "price-asc", label: "Price: Low to High" },
+  { value: "price-desc", label: "Price: High to Low" },
+  { value: "best-selling", label: "Best Selling" },
+];
+
+/* Built once — react-select rebuilds its internals when the styles object
+   identity changes, which would remount the menu on every render. */
+const sortSelectStyles = publicPillSelectStyles<PublicSelectOption>();
 
 const BADGE_CLASS = "w-fit bg-charcoal text-white text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full shadow-sm";
 const TAGS_CLASS = "w-fit bg-gold text-white text-[9px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full shadow-sm";
@@ -81,6 +101,7 @@ interface ViewProduct {
   priceDisplay: string;
   comparePrice?: string;
   variantCount: number;
+  unitsSoldRecent: number;
 }
 
 function mapProduct(
@@ -117,12 +138,14 @@ function mapProduct(
         ? formatPrice(Number(variant.compare_at_price))
         : undefined,
     variantCount: p.productVariant.length,
+    unitsSoldRecent: p.units_sold_recent ?? 0,
   };
 }
 
 function ShopPageContent() {
   const { addToCart, openQuickView, formatPrice, localized } = useStore();
   const [activeFilter, setActiveFilter] = useState("all");
+  const [sort, setSort] = useState<SortValue>("featured");
 
   const categoriesQuery = useQuery({
     queryKey: ["categories"],
@@ -151,9 +174,21 @@ function ShopPageContent() {
   const allProducts = (productsQuery.data ?? []).map((p) =>
     mapProduct(p, formatPrice, localized)
   );
-  const visibleProducts = allProducts.filter(
+  const filteredProducts = allProducts.filter(
     (p) => activeFilter === "all" || p.categorySlug === activeFilter
   );
+
+  /* "Featured" is the order the API already returns (newest first), so only
+     the other three re-order. Sorting a copy keeps that baseline intact when
+     the shopper switches back. */
+  const visibleProducts =
+    sort === "featured"
+      ? filteredProducts
+      : [...filteredProducts].sort((a, b) => {
+        if (sort === "price-asc") return a.price - b.price;
+        if (sort === "price-desc") return b.price - a.price;
+        return b.unitsSoldRecent - a.unitsSoldRecent;
+      });
 
   return (
     <main>
@@ -182,7 +217,7 @@ function ShopPageContent() {
       </section>
 
       {/* Catalog Section with Filters */}
-      <section className="py-12 md:py-16 bg-[#F8F6F2]">
+      <section className="py-12 md:py-16 bg-[#FFF9E9]">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           {/* Category Tabs & Sorting Bar */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-10 pb-6 border-b border-cream">
@@ -208,12 +243,20 @@ function ShopPageContent() {
               <span className="text-xs text-muted font-medium">
                 Showing {visibleProducts.length} Product{visibleProducts.length === 1 ? "" : "s"}
               </span>
-              <select className="bg-white border border-cream rounded-full px-4 py-2 text-xs font-semibold text-charcoal focus:outline-none focus:border-accent">
-                <option>Featured First</option>
-                <option>Price: Low to High</option>
-                <option>Price: High to Low</option>
-                <option>Best Selling</option>
-              </select>
+              <div className="w-56">
+                <Select<PublicSelectOption>
+                  instanceId="shop-sort"
+                  options={SORT_OPTIONS}
+                  value={SORT_OPTIONS.find((o) => o.value === sort) ?? SORT_OPTIONS[0]}
+                  onChange={(opt) => setSort((opt?.value as SortValue) ?? "featured")}
+                  isSearchable={false}
+                  styles={sortSelectStyles}
+                  menuPortalTarget={
+                    typeof document !== "undefined" ? document.body : undefined
+                  }
+                  aria-label="Sort products"
+                />
+              </div>
             </div>
           </div>
 
@@ -237,7 +280,7 @@ function ShopPageContent() {
               </span>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {visibleProducts.map((product) => (
                 <div
                   key={product.id}
@@ -245,7 +288,11 @@ function ShopPageContent() {
                   data-product-id={product.id}
                   data-category={product.categorySlug}
                 >
-                  <div className="relative aspect-[4/3.8] overflow-hidden bg-[#FAF8F5]">
+                  {/* 3/4 matches every packshot in public/images/products (all
+                      are 3:4 portrait), so object-cover fills the frame edge to
+                      edge without cropping the pouch. The old 4/3.8 frame was
+                      near-square and cut ~29% off the top and bottom. */}
+                  <div className="relative aspect-3/4 overflow-hidden bg-[#FFF9E9]">
                     <img
                       src={product.image}
                       alt={product.alt}
