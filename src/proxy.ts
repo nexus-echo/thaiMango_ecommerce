@@ -9,6 +9,14 @@ export function proxy(request: NextRequest) {
   const token = request.cookies.get(SESSION_COOKIE_NAME)?.value;
   const session = token ? verifySessionToken(token) : null;
 
+  // The customer account page is not for admins; send them to their own dashboard.
+  if (request.nextUrl.pathname === "/dashboard") {
+    if (session?.role === "ADMIN") {
+      return NextResponse.redirect(new URL("/admin/dashboard", request.url));
+    }
+    return NextResponse.next();
+  }
+
   if (session?.role !== "ADMIN") {
     return NextResponse.redirect(new URL("/login", request.url));
   }
@@ -17,5 +25,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin", "/admin/:path*"],
+  matcher: ["/admin", "/admin/:path*", "/dashboard"],
 };

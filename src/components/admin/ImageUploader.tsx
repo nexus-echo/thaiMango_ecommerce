@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import axios from "axios";
 import {
   ArrowLeft,
   ArrowRight,
@@ -13,12 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { normalizeImagePath } from "@/lib/images";
-
-interface UploadedImage {
-  url: string;
-  name: string;
-  size: number;
-}
+import { uploadErrorMessage, uploadImages } from "./uploadImages";
 
 interface ImageUploaderProps {
   /** Ordered image paths — the first one is the product cover. */
@@ -40,30 +34,10 @@ export default function ImageUploader({ value, onChange }: ImageUploaderProps) {
     setError("");
     setUploading(true);
     try {
-      const formData = new FormData();
-      files.forEach((file) => formData.append("files", file));
-
-      const res = await axios.post<{ data: UploadedImage[] }>(
-        "/api/admin/upload",
-        formData
-      );
-
-      const urls = res.data.data.map((img) => img.url);
+      const urls = await uploadImages(files, "products");
       onChange([...value, ...urls]);
     } catch (err) {
-      if (axios.isAxiosError(err) && err.response) {
-        /* The route returns per-file reasons in `errors` when a batch is rejected. */
-        const body = err.response.data as
-          | { errors?: unknown[]; message?: string }
-          | null;
-        const detail =
-          body && Array.isArray(body.errors) && body.errors.length > 0
-            ? body.errors.join(" · ")
-            : body?.message;
-        setError(detail || "Upload failed");
-      } else {
-        setError(err instanceof Error ? err.message : "Upload failed");
-      }
+      setError(uploadErrorMessage(err));
     } finally {
       setUploading(false);
     }
@@ -231,11 +205,11 @@ export default function ImageUploader({ value, onChange }: ImageUploaderProps) {
         </div>
       )}
 
-      {/* Escape hatch for images already sitting in /public/images */}
+      {/* Escape hatch for images already in S3 or /public/images */}
       <div className="flex items-center gap-2">
         <input
           className="flex-1 px-4 py-2.5 rounded-xl border border-cream bg-white text-sm focus:outline-none focus:border-accent transition placeholder:text-muted/60"
-          placeholder="Or paste an existing path — /images/bangkok-mango-beetroot-1.png"
+          placeholder="Or paste an existing S3 link or site path"
           value={manualPath}
           onChange={(e) => setManualPath(e.target.value)}
           onKeyDown={(e) => {
@@ -259,7 +233,7 @@ export default function ImageUploader({ value, onChange }: ImageUploaderProps) {
       <p className="text-[11px] text-muted">
         {value.length === 0
           ? "No images yet — the storefront shows a placeholder."
-          : `${value.length} image${value.length === 1 ? "" : "s"} · first is the cover. Removing one here doesn't delete the file from disk.`}
+          : `${value.length} image${value.length === 1 ? "" : "s"} · first is the cover. Removing one here doesn't delete the file from S3.`}
       </p>
     </div>
   );

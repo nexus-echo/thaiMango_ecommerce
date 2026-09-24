@@ -18,17 +18,20 @@ import { InstagramIcon } from "@/components/public/BrandIcons";
 import BestSellers from "@/components/public/BestSellers";
 import SellingFastBadge from "@/components/public/SellingFastBadge";
 import { useStore } from "@/components/public/store";
-import { productImage } from "@/lib/images";
+import { normalizeImagePath, productImage } from "@/lib/images";
 import { unwrap } from "@/lib/http";
 import { mapProduct, type ApiProduct } from "@/lib/productCard";
 import Image from "next/image";
 import AvailableByFlavor from "@/components/public/ShopByFlavor";
+import Testimonials from "@/components/public/Testimonials";
+import WhyChoose from "@/components/public/WhyChoose";
 
 interface ApiCategory {
   id: number;
   slug: string;
   name_en: string;
   name_th: string;
+  image: string | null;
   cat_id: number | null;
 }
 
@@ -88,8 +91,10 @@ export default function Home() {
     .filter((c) => c.cat_id === null)
     .slice(0, 4);
 
-  const categoryImage = (slug: string, index: number) => {
-    const match = productsQuery.data?.find((p) => p.category.slug === slug)?.images[0];
+  /* Admin-set category image first, then a photo from one of its products. */
+  const categoryImage = (category: ApiCategory, index: number) => {
+    if (category.image) return normalizeImagePath(category.image);
+    const match = productsQuery.data?.find((p) => p.category.slug === category.slug)?.images[0];
     return match ? productImage([match]) : FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
   };
 
@@ -290,6 +295,9 @@ export default function Home() {
 
       <AvailableByFlavor />
 
+      {/* Why Choose — four brand pillars with illustrations */}
+      <WhyChoose />
+
       {/* Shop by Category */}
       <section className="pb-16 pt-8 bg-[#F4E4D4]">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
@@ -328,12 +336,12 @@ export default function Home() {
                   style={i > 0 ? { transitionDelay: `${(i % 2) * 200}ms` } : undefined}
                 >
                   <Image
-                    width={300}
-                    height={300}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     quality={60}
-                    src={categoryImage(category.slug, i)}
+                    src={categoryImage(category, i)}
                     alt={`${localized(category.name_en, category.name_th)} Category`}
-                    className="absolute inset-0 w-full h-full object-fill transition-transform duration-1000 ease-out group-hover:scale-105"
+                    className={`${category.image ? "object-cover" : "object-fill"} transition-transform duration-1000 ease-out group-hover:scale-105`}
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 p-8 md:p-10 z-10 w-full">
@@ -539,6 +547,9 @@ export default function Home() {
       {/* Best Selling — ranked by real order volume (/api/products/best-sellers) */}
       <BestSellers intro={content("best_sellers_intro", "")} />
 
+      {/* Testimonials — curated in Admin → Testimonials; hidden when none are live */}
+      <Testimonials />
+
       {/* AI Skin Expert */}
       <section id="skin-consultant" className="flex flex-col lg:flex-row min-h-[70vh]">
         {/* Image */}
@@ -617,10 +628,10 @@ export default function Home() {
       </section>
 
       {/* Trust / Quality Pillars */}
-      <section className="py-16 bg-mango text-charcoal border-y border-[#502500]/30 reveal">
+      <section className="py-16 bg-mango text-charcoal border-y border-burgundy/30 reveal">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
-            <span className="text-[10px] tracking-[0.3em] uppercase text-[#502500] font-bold">Quality &amp; Authenticity</span>
+            <span className="text-[10px] tracking-[0.3em] uppercase text-burgundy font-bold">Quality &amp; Authenticity</span>
             <h2 className="font-serif text-3xl md:text-4xl text-charcoal mt-2">The Thai Mango Standard</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-4 gap-x-6 md:gap-x-4 text-center">

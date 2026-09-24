@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prismaClient";
 import { NextResponse } from "next/server";
 import { ApiResponse, ApiError } from "@/helper/apiResponse";
+import { getSession } from "@/lib/session";
 
 const RELATED_LIMIT = 8;
 
@@ -21,7 +22,9 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
                         rating: true,
                         text: true,
                         created_at: true,
+                        user_id: true,
                         user: { select: { name: true } },
+                        _count: { select: { votes: { where: { helpful: true } } } },
                     },
                 },
             },
@@ -64,6 +67,26 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
             .slice(0, RELATED_LIMIT)
             .map((entry) => entry.candidate);
 
+        /* Helpful counts for everyone; the viewer's own vote and authorship only
+           when signed in. user_id is stripped so account ids never leave the server. */
+        const session = await getSession();
+        const myVotes = session
+            ? await prisma.reviewVote.findMany({
+                  where: {
+                      user_id: session.sub,
+                      review_id: { in: product.reviews.map((r) => r.id) },
+                  },
+                  select: { review_id: true, helpful: true },
+              })
+            : [];
+        const voteByReview = new Map(myVotes.map((v) => [v.review_id, v.helpful]));
+        const reviews = product.reviews.map(({ user_id, _count, ...r }) => ({
+            ...r,
+            helpful_count: _count.votes,
+            is_mine: session?.sub === user_id,
+            my_vote: voteByReview.get(r.id) ?? null,
+        }));
+
         const ratingCount = product.reviews.length;
         const ratingAverage =
             ratingCount === 0
@@ -72,7 +95,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ slug: st
 
         const apiResponse = new ApiResponse(
             200,
-            { ...product, ratingAverage, ratingCount, relatedProducts },
+            { ...product, reviews, ratingAverage, ratingCount, relatedProducts },
             "Product fetched successfully"
         );
         return NextResponse.json(apiResponse, { status: apiResponse.statusCode });

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="Checklist and magnifying glass over a mango">
+  <!-- Clipboard -->
+  <rect x="14" y="14" width="52" height="72" rx="6" fill="#502500"/>
+  <rect x="30" y="7" width="20" height="13" rx="3.5" fill="#502500" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="40" cy="12" r="2.2" fill="#FFFFFF"/>
+  <!-- Checklist -->
+  <g stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 32l3 3 6-6M36 32h20"/>
+    <path d="M21 46l3 3 6-6M36 46h10"/>
+    <path d="M21 60l3 3 6-6M36 60h4"/>
+  </g>
+  <!-- Magnifier (white backing separates it from the board) -->
+  <path d="M73 73l13 13" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="62" cy="62" r="20" fill="#FFFFFF"/>
+  <path d="M73 73l13 13" stroke="#502500" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="62" cy="62" r="14" fill="#FFFFFF" stroke="#502500" stroke-width="5"/>
+  <!-- Mango under the lens -->
+  <ellipse cx="62" cy="63.5" rx="5.5" ry="7.5" transform="rotate(22 62 63.5)" fill="#ECA40C"/>
+  <path d="M63 56c2-3 5-4 8-3-1 3-4 4-8 3z" fill="#502500"/>
+</svg>

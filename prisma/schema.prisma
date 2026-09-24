@@ -29,6 +29,7 @@ model User {
   addresses         addresses[]
   orders            Order[]
   reviews           Review[]
+  reviewVotes       ReviewVote[]
   resetTokens       PasswordResetToken[]
 }
 
@@ -73,9 +74,10 @@ model Categories {
   slug    String @unique
   name_en String
   name_th String
+  image   String?
   cat_id  Int?
 
-  category   Categories?  @relation("CategoryToSubcategories", fields: [cat_id], references: [id])
+  category   Categories? @relation("CategoryToSubcategories", fields: [cat_id], references: [id])
   categories Categories[] @relation("CategoryToSubcategories")
   products   Product[]
 }
@@ -210,11 +212,54 @@ model Review {
   status     ReviewStatus @default(PENDING)
   created_at DateTime     @default(now())
 
-  product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  product     Product      @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  testimonial Testimonial?
+  votes       ReviewVote[]
 
   @@index([product_id])
   @@index([status])
+}
+
+/// "Did you find this helpful?" — one vote per signed-in user per review.
+model ReviewVote {
+  review_id  Int
+  user_id    String
+  helpful    Boolean
+  created_at DateTime @default(now())
+
+  review Review @relation(fields: [review_id], references: [id], onDelete: Cascade)
+  user   User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@id([review_id, user_id])
+  @@index([user_id])
+}
+
+/**
+ * ───────── Testimonials ─────────
+ */
+
+/// Admin-curated quotes for the storefront. Either written from scratch or
+/// picked from a customer Review; the text is copied either way, so the admin
+/// can trim it and deleting the review never blanks the testimonial.
+model Testimonial {
+  id         Int      @id @default(autoincrement())
+  name       String
+  /* Shown under the name — a city, "Verified buyer", a job title… */
+  location   String   @default("")
+  quote      String
+  rating     Int      @default(5)
+  /* Site path or S3 URL; null renders the default testimonial image. */
+  image      String?
+  review_id  Int?     @unique
+  position   Int      @default(0)
+  is_active  Boolean  @default(true)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  review Review? @relation(fields: [review_id], references: [id], onDelete: SetNull)
+
+  @@index([is_active])
 }
 
 /**

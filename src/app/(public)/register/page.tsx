@@ -14,6 +14,7 @@ import { useStore } from "@/components/public/store";
 import { signUpSchema } from "@/schemas/signup.schema";
 import { unwrap } from "@/lib/http";
 import CtaBanner from "@/components/public/CtaBanner";
+import { readReturnTo, useReturnTo, withReturnTo } from "@/lib/returnTo";
 
 type SignUpValues = z.infer<typeof signUpSchema>;
 
@@ -28,6 +29,7 @@ const SKIN_TYPE_TITLES: Record<(typeof SKIN_TYPES)[number], string> = {
 export default function RegisterPage() {
   const router = useRouter();
   const { setUser, showToast } = useStore();
+  const returnTo = useReturnTo();
 
   const {
     register,
@@ -59,8 +61,11 @@ export default function RegisterPage() {
         skinType: values.choice,
       });
       showToast("Welcome to the Thai Mango Circle! Claimed 15% discount.");
+      /* Back to where they came from (e.g. the review they were writing),
+         else their dashboard. replace() so Back doesn't land on this form. */
+      const next = readReturnTo();
       setTimeout(() => {
-        router.push("/dashboard");
+        router.replace(next ?? "/dashboard");
       }, 600);
     },
     onError: (error: Error) => {
@@ -126,7 +131,7 @@ export default function RegisterPage() {
             <p className="text-xs text-muted">
               Already registered?{" "}
               <Link
-                href="/login"
+                href={withReturnTo("/login", returnTo)}
                 className="text-accent font-semibold underline hover:text-charcoal transition"
               >
                 Sign In here

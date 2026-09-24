@@ -4,6 +4,7 @@ import { z } from "zod";
 import { ApiResponse, ApiError } from "@/helper/apiResponse";
 import { requireAdmin } from "@/lib/adminAuth";
 import { categorySchema } from "@/schemas/category.schema";
+import { isAllowedImageSrc } from "@/lib/s3";
 
 export async function GET() {
     try {
@@ -46,6 +47,11 @@ export async function POST(req: Request) {
             return NextResponse.json(apiError, { status: apiError.statusCode });
         }
 
+        if (parsed.data.image && !isAllowedImageSrc(parsed.data.image)) {
+            const apiError = new ApiError(400, "Image must be a site path or an upload in our S3 bucket");
+            return NextResponse.json(apiError, { status: apiError.statusCode });
+        }
+
         const existing = await prisma.categories.findUnique({ where: { slug: parsed.data.slug } });
         if (existing) {
             const apiError = new ApiError(409, "A category with this slug already exists");
@@ -57,6 +63,7 @@ export async function POST(req: Request) {
                 slug: parsed.data.slug,
                 name_en: parsed.data.name_en,
                 name_th: parsed.data.name_th,
+                image: parsed.data.image ?? null,
                 cat_id: parsed.data.cat_id ?? null,
             },
         });

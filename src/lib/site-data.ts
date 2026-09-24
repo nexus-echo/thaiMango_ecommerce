@@ -25,6 +25,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     join_circle_desc:
       "Receive snacking rituals, new launches and exclusive offers directly in your inbox.",
     join_circle_btn: "Join the Circle",
+    testimonials_eyebrow: "Kind Words",
+    testimonials_title: "What Our Customers Say",
+    testimonials_verified: "Verified buyer",
     search_placeholder: "Search products, recipes, ingredients...",
     your_bag: "Your Bag",
     subtotal: "Subtotal",
@@ -65,6 +68,9 @@ export const translations: Record<Lang, Record<string, string>> = {
     join_circle_desc:
       "รับเคล็ดลับการกินมะม่วงและข้อเสนอสุดพิเศษส่งตรงถึงคุณก่อนใคร",
     join_circle_btn: "สมัครรับข่าวสาร",
+    testimonials_eyebrow: "เสียงจากลูกค้า",
+    testimonials_title: "ลูกค้าพูดถึงเราอย่างไร",
+    testimonials_verified: "ผู้ซื้อที่ยืนยันแล้ว",
     search_placeholder: "ค้นหาสินค้า สูตรอาหาร ส่วนผสม...",
     your_bag: "ตะกร้าสินค้าของคุณ",
     subtotal: "ยอดรวมย่อย",
@@ -134,4 +140,5 @@ export interface AuthUser {
   tier?: string;
   points?: number;
   memberSince?: string;
+  role?: "ADMIN" | "CUSTOMER";
 }

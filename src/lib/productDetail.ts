@@ -27,6 +27,12 @@ export interface DetailReview {
     text: string;
     created_at: string;
     user: { name: string };
+    /** People who answered "Yes" to "Did you find this helpful?". */
+    helpful_count: number;
+    /** Written by the signed-in viewer (they can't vote on their own). */
+    is_mine: boolean;
+    /** The viewer's own vote: true / false, or null for none (or a guest). */
+    my_vote: boolean | null;
 }
 
 export interface RelatedProduct {

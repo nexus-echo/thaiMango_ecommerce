@@ -26,6 +26,7 @@ import axios from "axios";
 import { menuPromoData, MenuTab } from "@/lib/site-data";
 import { useStore } from "./store";
 import { unwrap } from "@/lib/http";
+import { normalizeImagePath } from "@/lib/images";
 
 interface PromoContent {
   img: string;
@@ -40,6 +41,7 @@ interface PublicCategory {
   slug: string;
   name_en: string;
   name_th: string;
+  image: string | null;
 }
 
 /* Icon pool cycled across however many categories exist in the catalog */
@@ -144,7 +146,9 @@ export default function MobileMenu() {
       href: `/shop?category=${encodeURIComponent(c.slug)}`,
       Icon: CATEGORY_ICONS[i % CATEGORY_ICONS.length],
       promo: {
-        img: CATEGORY_PROMO_IMAGES[i % CATEGORY_PROMO_IMAGES.length],
+        img: c.image
+          ? normalizeImagePath(c.image)
+          : CATEGORY_PROMO_IMAGES[i % CATEGORY_PROMO_IMAGES.length],
         tag: name,
         title: `Explore our ${name} collection.`,
         btn: `Shop ${name}`,

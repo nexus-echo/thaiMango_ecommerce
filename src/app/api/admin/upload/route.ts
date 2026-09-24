@@ -1,21 +1,23 @@
 import { NextResponse } from "next/server";
 import { randomBytes } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { ApiResponse, ApiError } from "@/helper/apiResponse";
 import { requireAdmin } from "@/lib/adminAuth";
+import { uploadToS3 } from "@/lib/s3";
 
-/* Product photos land in /public/images/products and are referenced by the
-   public path that Next serves them from. */
-const UPLOAD_DIR = path.join(process.cwd(), "public", "images", "products");
-const PUBLIC_PREFIX = "/images/products";
+/* Every upload goes to the S3 bucket as <folder>/<file> and is referenced by
+   its public URL — nothing is written to the local disk. The folder comes
+   from this whitelist, never straight from the request; anything else falls
+   back to products. */
+const UPLOAD_FOLDERS = new Set(["products", "categories", "testimonials"]);
+const DEFAULT_FOLDER = "products";
 
 const MAX_FILE_BYTES = 5 * 1024 * 1024;
 const MAX_FILES_PER_REQUEST = 10;
 
 /* The extension comes from this map, never from the uploaded filename, so a
    file can only ever be written as one of these types. SVG is excluded on
-   purpose — it can carry script and is served from our own origin. */
+   purpose — it can carry script. */
 const ALLOWED_TYPES = new Map<string, string>([
     ["image/jpeg", ".jpg"],
     ["image/png", ".png"],
@@ -44,6 +46,11 @@ export async function POST(req: Request) {
 
         const formData = await req.formData();
         const files = formData.getAll("files").filter((f): f is File => f instanceof File);
+        const requestedFolder = formData.get("folder");
+        const folder =
+            typeof requestedFolder === "string" && UPLOAD_FOLDERS.has(requestedFolder)
+                ? requestedFolder
+                : DEFAULT_FOLDER;
 
         if (files.length === 0) {
             const apiError = new ApiError(400, "No files were uploaded");
@@ -58,7 +65,7 @@ export async function POST(req: Request) {
         }
 
         /* Validate everything before writing anything, so a bad file in the
-           batch doesn't leave half the images on disk. */
+           batch doesn't leave half the images in the bucket. */
         const errors: string[] = [];
         for (const file of files) {
             if (!ALLOWED_TYPES.has(file.type)) {
@@ -74,17 +81,15 @@ export async function POST(req: Request) {
             return NextResponse.json(apiError, { status: apiError.statusCode });
         }
 
-        await mkdir(UPLOAD_DIR, { recursive: true });
-
         const uploaded: { url: string; name: string; size: number }[] = [];
         for (const file of files) {
             const ext = ALLOWED_TYPES.get(file.type)!;
             /* Random suffix keeps same-named uploads from overwriting each other. */
             const filename = `${slugifyFilename(file.name)}-${randomBytes(4).toString("hex")}${ext}`;
             const buffer = Buffer.from(await file.arrayBuffer());
-            await writeFile(path.join(UPLOAD_DIR, filename), buffer);
+            const url = await uploadToS3(`${folder}/${filename}`, buffer, file.type);
             uploaded.push({
-                url: `${PUBLIC_PREFIX}/${filename}`,
+                url,
                 name: file.name,
                 size: file.size,
             });

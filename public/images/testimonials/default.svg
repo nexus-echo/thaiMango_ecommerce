@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Thai Mango customer">
+  <rect width="400" height="400" fill="#F4E4D4"/>
+  <circle cx="200" cy="200" r="150" fill="#FFF9E9"/>
+  <!-- Head and shoulders in the pack's pouch tones -->
+  <circle cx="200" cy="165" r="58" fill="#ECA40C"/>
+  <path d="M92 330c10-62 54-98 108-98s98 36 108 98" fill="#ECA40C"/>
+  <!-- Mango leaf accent -->
+  <path d="M258 108c18-22 44-28 64-20-6 24-30 38-64 20z" fill="#935400"/>
+  <path d="M258 108c20-6 38-10 64-20" fill="none" stroke="#FFF9E9" stroke-width="3" stroke-linecap="round"/>
+</svg>

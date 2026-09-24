@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="Mango tree">
+  <!-- Canopy -->
+  <g fill="#502500">
+    <circle cx="48" cy="28" r="18"/>
+    <circle cx="30" cy="34" r="14"/>
+    <circle cx="66" cy="34" r="14"/>
+    <circle cx="36" cy="18" r="11"/>
+    <circle cx="60" cy="18" r="11"/>
+    <circle cx="20" cy="42" r="9"/>
+    <circle cx="76" cy="42" r="9"/>
+    <circle cx="48" cy="44" r="12"/>
+    <!-- Trunk -->
+    <path d="M39 89c5-3 6-14 6-37h6c0 23 1 34 6 37z"/>
+  </g>
+  <!-- Leaf texture -->
+  <g fill="#FFFFFF" opacity=".35">
+    <ellipse cx="40" cy="20" rx="3" ry="1.2" transform="rotate(-30 40 20)"/>
+    <ellipse cx="56" cy="26" rx="3" ry="1.2" transform="rotate(25 56 26)"/>
+    <ellipse cx="28" cy="36" rx="3" ry="1.2" transform="rotate(-20 28 36)"/>
+    <ellipse cx="68" cy="38" rx="3" ry="1.2" transform="rotate(30 68 38)"/>
+    <ellipse cx="46" cy="36" rx="3" ry="1.2" transform="rotate(-10 46 36)"/>
+    <ellipse cx="62" cy="14" rx="3" ry="1.2" transform="rotate(-35 62 14)"/>
+    <ellipse cx="20" cy="44" rx="2.6" ry="1.1" transform="rotate(20 20 44)"/>
+    <ellipse cx="78" cy="44" rx="2.6" ry="1.1" transform="rotate(-20 78 44)"/>
+  </g>
+  <!-- Hanging mangoes -->
+  <g fill="#ECA40C" stroke="#FFFFFF" stroke-width="1.5">
+    <ellipse cx="30" cy="54" rx="4.5" ry="6" transform="rotate(18 30 54)"/>
+    <ellipse cx="64" cy="54" rx="4.5" ry="6" transform="rotate(-15 64 54)"/>
+    <ellipse cx="79" cy="55" rx="3.8" ry="5.2" transform="rotate(14 79 55)"/>
+  </g>
+  <!-- Ground -->
+  <g stroke="#502500" stroke-width="3" stroke-linecap="round">
+    <path d="M22 89h52"/>
+    <path d="M30 89l-3-5M34 89l1-5M62 89l-1-5M66 89l3-5" stroke-width="2"/>
+  </g>
+</svg>

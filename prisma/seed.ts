@@ -7,12 +7,44 @@ import { FAQ_DEFAULTS } from "../src/schemas/faq.schema";
 const ADMIN_EMAIL = process.env.SEED_ADMIN_EMAIL || "admin@thaimango.com";
 const ADMIN_PASSWORD = process.env.SEED_ADMIN_PASSWORD || "Admin@12345";
 
+/* Category images were uploaded once through Admin → Categories and already
+   live in the S3 bucket, so every environment references the SAME objects —
+   re-uploading them on the server would only create duplicate copies. These
+   URLs were copied from the local DB on 2026-09-24; they only resolve while
+   the server's S3_* env points at this same bucket. */
+const CATEGORY_IMAGE_BASE = "https://s3.nexusneural.online/thai-mango/categories";
+
 const CATEGORY_DEFAULTS = [
-    { slug: "classic-cuts", name_en: "Classic Cuts", name_th: "แบบดั้งเดิม" },
-    { slug: "spiced-zesty", name_en: "Spiced & Zesty", name_th: "เผ็ดแซ่บ" },
-    { slug: "glazed-sweet", name_en: "Glazed & Sweet", name_th: "เคลือบหวาน" },
-    { slug: "fusion-blends", name_en: "Fusion Blends", name_th: "ฟิวชันเบลนด์" },
-    { slug: "gift-sets", name_en: "Gift Sets", name_th: "ชุดของขวัญ" },
+    {
+        slug: "classic-cuts",
+        name_en: "Classic Cuts",
+        name_th: "แบบดั้งเดิม",
+        image: `${CATEGORY_IMAGE_BASE}/classic-cuts-7a160e94-d09a8f12.webp`,
+    },
+    {
+        slug: "spiced-zesty",
+        name_en: "Spiced & Zesty",
+        name_th: "เผ็ดแซ่บ",
+        image: `${CATEGORY_IMAGE_BASE}/spiced-zesty-1f010061.webp`,
+    },
+    {
+        slug: "glazed-sweet",
+        name_en: "Glazed & Sweet",
+        name_th: "เคลือบหวาน",
+        image: `${CATEGORY_IMAGE_BASE}/glazed-sweet-478f3242.webp`,
+    },
+    {
+        slug: "fusion-blends",
+        name_en: "Fusion Blends",
+        name_th: "ฟิวชันเบลนด์",
+        image: `${CATEGORY_IMAGE_BASE}/fusion-blends-30420a8f.webp`,
+    },
+    {
+        slug: "gift-sets",
+        name_en: "Gift Sets",
+        name_th: "ชุดของขวัญ",
+        image: `${CATEGORY_IMAGE_BASE}/gift-sets-a9618c4f.webp`,
+    },
 ];
 
 
@@ -286,12 +318,18 @@ async function main() {
     });
     console.log(`Admin ready: ${admin.email} (password: ${ADMIN_PASSWORD})`);
 
-    /* Default product categories — created once, admin edits win afterwards */
+    /* Default product categories — created once, admin edits win afterwards.
+       A category that already exists WITHOUT an image gets the seeded one;
+       an image the admin has set is never overwritten. */
     for (const category of CATEGORY_DEFAULTS) {
         await prisma.categories.upsert({
             where: { slug: category.slug },
             update: {},
             create: category,
+        });
+        await prisma.categories.updateMany({
+            where: { slug: category.slug, image: null },
+            data: { image: category.image },
         });
     }
     console.log(`Categories ready (${CATEGORY_DEFAULTS.length})`);

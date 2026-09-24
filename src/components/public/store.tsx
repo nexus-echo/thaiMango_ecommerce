@@ -211,6 +211,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
           name: string;
           email: string;
           phone: string;
+          role: "ADMIN" | "CUSTOMER";
           flavor_preference: string[];
           created_at: string;
         };
@@ -237,6 +238,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         phone: u.phone,
         skinType: u.flavor_preference?.[0],
         memberSince: new Date(u.created_at).getFullYear().toString(),
+        role: u.role,
       });
     }
     setAuthLoading(false);

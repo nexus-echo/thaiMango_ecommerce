@@ -4,6 +4,7 @@ import { z } from "zod";
 import { ApiResponse, ApiError } from "@/helper/apiResponse";
 import { requireAdmin } from "@/lib/adminAuth";
 import { categorySchema } from "@/schemas/category.schema";
+import { isAllowedImageSrc } from "@/lib/s3";
 
 type Params = { params: Promise<{ id: string }> };
 
@@ -30,6 +31,11 @@ export async function PATCH(req: Request, { params }: Params) {
                 (messages ?? []).map((message) => `${field}: ${message}`)
             );
             const apiError = new ApiError(400, "Validation failed", errors);
+            return NextResponse.json(apiError, { status: apiError.statusCode });
+        }
+
+        if (parsed.data.image && !isAllowedImageSrc(parsed.data.image)) {
+            const apiError = new ApiError(400, "Image must be a site path or an upload in our S3 bucket");
             return NextResponse.json(apiError, { status: apiError.statusCode });
         }
 

@@ -1,6 +1,9 @@
 /** Neutral square placeholder shown when a product has no photos yet. */
 export const PRODUCT_PLACEHOLDER = "/images/placeholder-product.png";
 
+/** Shown for a testimonial with no photo, or whose photo fails to load. */
+export const TESTIMONIAL_PLACEHOLDER = "/images/testimonials/default.svg";
+
 /** Local paths saved without a leading slash ("images/x.png") resolve against
  *  the current route and 404 on nested pages; absolute URLs and data URIs
  *  pass through untouched. */

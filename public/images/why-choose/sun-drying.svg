@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="Mango slices sun-drying on a tray">
+  <!-- Sun -->
+  <circle cx="26" cy="22" r="9" fill="#ECA40C"/>
+  <g stroke="#502500" stroke-width="3" stroke-linecap="round">
+    <path d="M26 9V5M26 35v4M13 22H9M39 22h4M16.8 12.8 14 10M35.2 12.8 38 10M16.8 31.2 14 34M35.2 31.2 38 34"/>
+  </g>
+  <!-- Heat rising -->
+  <g stroke="#502500" stroke-width="2.5" stroke-linecap="round" opacity=".55">
+    <path d="M52 44c-3-4 3-8 0-12s3-8 0-12"/>
+    <path d="M64 42c-3-4 3-8 0-12s3-8 0-12"/>
+    <path d="M76 44c-3-4 3-8 0-12s3-8 0-12"/>
+  </g>
+  <!-- Mango slices -->
+  <g fill="#ECA40C" stroke="#502500" stroke-width="2">
+    <ellipse cx="27" cy="54.5" rx="9" ry="4.5"/>
+    <ellipse cx="48" cy="54.5" rx="9" ry="4.5"/>
+    <ellipse cx="69" cy="54.5" rx="9" ry="4.5"/>
+  </g>
+  <!-- Drying tray -->
+  <rect x="12" y="59" width="72" height="7" rx="3.5" fill="#502500"/>
+  <g stroke="#502500" stroke-linecap="round">
+    <path d="M20 66l-4 22M76 66l4 22" stroke-width="4"/>
+    <path d="M18 78h60" stroke-width="3"/>
+    <path d="M8 89h80" stroke-width="3"/>
+  </g>
+</svg>

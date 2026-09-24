@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" role="img" aria-label="Tuk-tuk carrying mangoes">
+  <!-- Canopy roof, curling down at the front -->
+  <path d="M8 33c0-11 6-18 16-18h58c4 0 6 3 6 6v6H22c-7 0-11 2-14 6z" fill="#502500"/>
+  <path d="M22 24h66v3H22z" fill="#ECA40C"/>
+  <!-- Front pillar + rear post -->
+  <path d="M15 30h4l9 20h-4z" fill="#502500"/>
+  <rect x="83" y="27" width="4" height="21" fill="#502500"/>
+  <!-- Handlebar -->
+  <path d="M27 44l7-3" stroke="#502500" stroke-width="3" stroke-linecap="round"/>
+  <!-- Mango cargo on the passenger bench -->
+  <g fill="#ECA40C" stroke="#FFFFFF" stroke-width="1.5">
+    <ellipse cx="62" cy="42" rx="5" ry="6" transform="rotate(-20 62 42)"/>
+    <ellipse cx="72" cy="42" rx="5" ry="6" transform="rotate(20 72 42)"/>
+    <ellipse cx="67" cy="34" rx="5" ry="6" transform="rotate(8 67 34)"/>
+  </g>
+  <!-- Body: narrow nose, low footwell, boxy rear -->
+  <path d="M14 70c-3-9-2-18 3-22 3-2 6-2 8 0l6 12h19l2-12h32c3 0 5 2 5 5v17z" fill="#502500"/>
+  <path d="M14 62h75v3H14z" fill="#ECA40C"/>
+  <circle cx="17.5" cy="53" r="2.5" fill="#ECA40C"/>
+  <!-- Wheels: small front, larger rear -->
+  <circle cx="21" cy="71" r="8.5" fill="#FFFFFF"/>
+  <circle cx="75" cy="70" r="10.5" fill="#FFFFFF"/>
+  <circle cx="21" cy="71" r="6.5" fill="#502500"/>
+  <circle cx="75" cy="70" r="8.5" fill="#502500"/>
+  <circle cx="21" cy="71" r="2.5" fill="#FFFFFF"/>
+  <circle cx="75" cy="70" r="3" fill="#FFFFFF"/>
+  <!-- Road + motion -->
+  <g stroke="#502500" stroke-linecap="round">
+    <path d="M6 81h84" stroke-width="3"/>
+    <path d="M90 56h4M91 62h3" stroke-width="2.5" opacity=".55"/>
+  </g>
+</svg>

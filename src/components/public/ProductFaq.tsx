@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Minus, Plus } from "lucide-react";
 import { FAQ_DEFAULTS, type FaqCategoryId } from "@/schemas/faq.schema";
 import { unwrap } from "@/lib/http";
 
@@ -23,6 +22,10 @@ const PRODUCT_TOPICS: FaqCategoryId[] = ["ingredients", "snacks"];
 
 const MAX_QUESTIONS = 7;
 
+/* One curve for every moving part (height, fade, colours, icon) so the open
+   and close read as a single motion. Spelled out in full for Tailwind. */
+const EASE = "ease-[cubic-bezier(0.4,0,0.2,1)]";
+
 /* Pre-fetch fallback — the same seeded launch set the /faq page falls back to,
    with synthetic negative ids that can never collide with real rows. */
 const FALLBACK_ROWS: FaqRow[] = FAQ_DEFAULTS.map((f, i) => ({
@@ -37,22 +40,24 @@ const FALLBACK_ROWS: FaqRow[] = FAQ_DEFAULTS.map((f, i) => ({
  * "You Ask, We Answer" — the product-relevant slice of the site FAQ.
  *
  * Plain wide rows under a plain centred title: a bold "Q." marker, the
- * question at normal weight, and a light "+" at the far right. Opening a row
- * turns its header into a solid burgundy bar and drops the answer into a
- * tinted panel beneath it, so an open question reads as a heading over its
- * answer rather than as one more row in the list.
+ * question at normal weight, and a light "+" at the far right. Every row is a
+ * white card, open or closed — the open one only swaps its header to the
+ * pouch's mango gold (black text, as on every gold band) and reveals the
+ * answer on the same white beneath it, so it stays one card instead of
+ * becoming a dark bar over a cream outline box.
  *
- * IMPORTANT: no element here may carry both `reveal` and `accordion-item`.
- * ScrollEffects marks a `.reveal` element `active` when it scrolls into view,
- * and `.accordion-item.active .accordion-panel` is what opens a panel — put
- * both on one node and every answer springs open on scroll and can never be
- * closed again. The stagger lives on the wrapper for that reason.
+ * Only one answer is open at a time. The panels deliberately do NOT use the
+ * global `.accordion-item` / `.accordion-panel` classes (still used by /faq):
+ * those animate max-height to a fixed 400px, which stalls at one end of the
+ * motion. Also, ScrollEffects adds `active` to `.reveal` elements, and
+ * `.accordion-item.active` opens a panel — so never combine those two.
  *
  * Reads the same /api/faqs resource the FAQ page does rather than carrying its
  * own copy, so an admin answering a question once answers it in both places.
  */
 export default function ProductFaq() {
-  const [openIds, setOpenIds] = useState<Set<number>>(new Set());
+  /* One question open at a time — opening another closes the current one. */
+  const [openId, setOpenId] = useState<number | null>(null);
 
   const faqQuery = useQuery({
     queryKey: ["faqs"],
@@ -70,10 +75,7 @@ export default function ProductFaq() {
   if (items.length === 0) return null;
 
   const toggle = (id: number) => {
-    const next = new Set(openIds);
-    if (next.has(id)) next.delete(id);
-    else next.add(id);
-    setOpenIds(next);
+    setOpenId((current) => (current === id ? null : id));
   };
 
   return (
@@ -85,51 +87,75 @@ export default function ProductFaq() {
 
         <div className="reveal mx-auto max-w-6xl space-y-2.5">
           {items.map((item) => {
-            const open = openIds.has(item.id);
+            const open = openId === item.id;
+            const panelId = `product-faq-${item.id}`;
             return (
               <div
                 key={item.id}
-                className={`accordion-item overflow-hidden rounded-lg border shadow-[0_1px_2px_rgba(10,10,10,0.04)] transition-colors duration-200 ${
+                className={`overflow-hidden rounded-xl border bg-white transition-[border-color,box-shadow] duration-300 ${EASE} ${
                   open
-                    ? "active border-burgundy"
-                    : "border-cream bg-white hover:border-accent/30"
+                    ? "border-mango shadow-[0_6px_20px_rgba(80,37,0,0.08)]"
+                    : "border-white shadow-[0_1px_2px_rgba(10,10,10,0.04)] hover:border-mango/50"
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => toggle(item.id)}
                   aria-expanded={open}
-                  className={`flex w-full cursor-pointer items-center gap-4 px-5 py-5 text-left transition-colors duration-200 md:px-7 ${
-                    open ? "bg-burgundy" : "bg-white"
+                  aria-controls={panelId}
+                  id={`${panelId}-q`}
+                  className={`flex w-full cursor-pointer items-center gap-4 px-5 py-5 text-left transition-colors duration-300 md:px-7 ${EASE} ${
+                    open ? "bg-mango" : "bg-white"
                   }`}
                 >
-                  <span
-                    className={`flex-1 text-sm leading-snug md:text-[15px] ${
-                      open ? "text-ivory" : "text-charcoal"
-                    }`}
-                  >
+                  <span className="flex-1 text-sm leading-snug text-charcoal md:text-[15px]">
                     <span
-                      className={`mr-1.5 font-bold ${
-                        open ? "text-gold" : "text-accent"
+                      className={`mr-1.5 font-bold transition-colors duration-300 ${
+                        open ? "text-burgundy" : "text-accent"
                       }`}
                     >
                       Q.
                     </span>
                     {item.question}
                   </span>
-                  {open ? (
-                    <Minus className="h-4 w-4 shrink-0 text-ivory/80" strokeWidth={1.75} />
-                  ) : (
-                    <Plus className="h-4 w-4 shrink-0 text-muted/70" strokeWidth={1.75} />
-                  )}
+                  {/* "+" whose vertical stroke folds away into a "−" */}
+                  <span aria-hidden className="relative h-3.5 w-3.5 shrink-0">
+                    <span
+                      className={`absolute left-0 top-1/2 h-[1.75px] w-full -translate-y-1/2 rounded-full transition-colors duration-300 ${
+                        open ? "bg-charcoal" : "bg-muted/70"
+                      }`}
+                    />
+                    <span
+                      className={`absolute left-1/2 top-0 h-full w-[1.75px] -translate-x-1/2 rounded-full bg-muted/70 transition-transform duration-300 ${EASE} ${
+                        open ? "scale-y-0" : "scale-y-100"
+                      }`}
+                    />
+                  </span>
                 </button>
 
-                <div className="accordion-panel bg-cream/40">
-                  <div className="px-5 py-5 md:px-7">
-                    <p className="text-xs leading-relaxed text-muted md:text-sm">
-                      <span className="mr-1.5 font-bold text-accent">A.</span>
-                      {item.answer}
-                    </p>
+                {/* Animates to the answer's real height (0fr → 1fr) rather
+                    than a guessed max-height, so there's no dead time at
+                    either end of the motion. */}
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={`${panelId}-q`}
+                  inert={!open}
+                  className={`grid transition-[grid-template-rows] duration-300 ${EASE} ${
+                    open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div
+                      className={`px-5 py-5 transition-opacity duration-300 md:px-7 md:py-6 ${EASE} ${
+                        open ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <p className="text-sm leading-relaxed text-charcoal/75 md:text-[15px]">
+                        <span className="mr-1.5 font-bold text-accent">A.</span>
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

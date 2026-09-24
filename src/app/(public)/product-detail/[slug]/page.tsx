@@ -145,6 +145,8 @@ export default function ProductDetailPage() {
         />
 
         <ProductReviews
+          slug={product.slug}
+          productImage={images[0]}
           reviews={product.reviews}
           average={product.ratingAverage}
           count={product.ratingCount}

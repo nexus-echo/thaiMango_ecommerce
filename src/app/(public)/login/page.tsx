@@ -13,12 +13,14 @@ import { useStore } from "@/components/public/store";
 import { loginSchema } from "@/schemas/login.schema";
 import { unwrap } from "@/lib/http";
 import CtaBanner from "@/components/public/CtaBanner";
+import { readReturnTo, useReturnTo, withReturnTo } from "@/lib/returnTo";
 
 type LoginValues = z.infer<typeof loginSchema>;
 
 export default function LoginPage() {
   const router = useRouter();
   const { setUser, showToast } = useStore();
+  const returnTo = useReturnTo();
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -37,7 +39,7 @@ export default function LoginPage() {
         name: string;
         email: string;
         phone: string;
-        role: string;
+        role: "ADMIN" | "CUSTOMER";
         flavor_preference: string[];
         created_at: string;
       }>(axios.post("/api/login", values)),
@@ -53,10 +55,14 @@ export default function LoginPage() {
         phone: data.phone,
         skinType: data.flavor_preference?.[0],
         memberSince: new Date(data.created_at).getFullYear().toString(),
+        role: data.role,
       });
       showToast(`Welcome back, ${firstName}!`);
+      /* Back to where they came from (e.g. the review they were writing),
+         else their dashboard. replace() so Back doesn't land on this form. */
+      const next = readReturnTo();
       setTimeout(() => {
-        router.push(data.role === "ADMIN" ? "/admin/dashboard" : "/dashboard");
+        router.replace(next ?? (data.role === "ADMIN" ? "/admin/dashboard" : "/dashboard"));
       }, 600);
     },
     onError: (error: Error) => {
@@ -132,7 +138,7 @@ export default function LoginPage() {
             <p className="text-xs text-muted">
               Don&apos;t have an account yet?{" "}
               <Link
-                href="/register"
+                href={withReturnTo("/register", returnTo)}
                 className="text-accent font-semibold underline hover:text-charcoal transition"
               >
                 Create an Account

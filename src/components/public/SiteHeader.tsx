@@ -39,7 +39,11 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
         }`;
 
   const loggedIn = mounted && user?.isLoggedIn;
-  const accountHref = loggedIn ? "/dashboard" : "/login";
+  const accountHref = !loggedIn
+    ? "/login"
+    : user?.role === "ADMIN"
+      ? "/admin/dashboard"
+      : "/dashboard";
   const accountLabel = loggedIn ? user?.firstName || "Sanctuary" : "Sign In";
 
   const switchLang = (l: "en" | "th") => {
