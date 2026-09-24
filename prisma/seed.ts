@@ -7,12 +7,16 @@ import { FAQ_DEFAULTS } from "../src/schemas/faq.schema";
 const ADMIN_EMAIL = process.env.SEED_ADMIN_EMAIL || "admin@thaimango.com";
 const ADMIN_PASSWORD = process.env.SEED_ADMIN_PASSWORD || "Admin@12345";
 
-/* Category images were uploaded once through Admin → Categories and already
-   live in the S3 bucket, so every environment references the SAME objects —
-   re-uploading them on the server would only create duplicate copies. These
-   URLs were copied from the local DB on 2026-09-24; they only resolve while
-   the server's S3_* env points at this same bucket. */
-const CATEGORY_IMAGE_BASE = "https://s3.nexusneural.online/thai-mango/categories";
+/* Images uploaded through the admin already live in the S3 bucket, so every
+   environment references the SAME objects — re-uploading them on the server
+   would only create duplicate copies. Seed with the existing URLs instead.
+   They only resolve while the server's S3_* env points at this same bucket.
+
+   Migration to S3 is in progress: categories are done (URLs copied from the
+   local DB on 2026-09-24); products and the rest still use /public/images
+   and should move to `${S3_BASE}/<folder>/…` the same way. */
+const S3_BASE = "https://s3.nexusneural.online/thai-mango";
+const CATEGORY_IMAGE_BASE = `${S3_BASE}/categories`;
 
 const CATEGORY_DEFAULTS = [
     {
