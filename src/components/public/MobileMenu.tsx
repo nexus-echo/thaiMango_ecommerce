@@ -23,7 +23,7 @@ import { InstagramIcon } from "./BrandIcons";
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { menuPromoData, MenuTab } from "@/lib/site-data";
+import type { MenuTab } from "@/lib/site-data";
 import { useStore } from "./store";
 import { unwrap } from "@/lib/http";
 import { normalizeImagePath } from "@/lib/images";
@@ -54,25 +54,19 @@ const CATEGORY_PROMO_IMAGES = [
 
 const subitemPromoData: Record<string, PromoContent> = {
   "/shop": {
-    img: "/images/all_products.jpeg",
+    /* 4:5 to match the tile — composed from the flavor pack cutouts */
+    img: "/images/menu/all-products-promo.webp",
     tag: "All Products",
     title: "Discover our newest mango creations.",
     btn: "Shop All",
     url: "/shop",
   },
-  "/about": {
+  "/our-story": {
     img: "/images/menu-guides-promo.jpg",
     tag: "Our Heritage",
     title: "Honoring Thai orchard tradition through mango craft.",
     btn: "Discover Story",
-    url: "/about",
-  },
-  "/rituals": {
-    img: "/images/menu-guides-promo.jpg",
-    tag: "Mango Inspiration",
-    title: "Discover serving ideas, pairings, and mango stories.",
-    btn: "Explore Ideas",
-    url: "/rituals",
+    url: "/our-story",
   },
   "/processing": {
     img: "/images/processing/mango-drying.webp",
@@ -129,7 +123,8 @@ export default function MobileMenu() {
     settings,
   } = useStore();
   const [activeTab, setActiveTab] = useState<MenuTab>("shop");
-  const [promo, setPromo] = useState<PromoContent>(menuPromoData.shop);
+  /* Empty until a sub-item is hovered — the tabs themselves have no image. */
+  const [promo, setPromo] = useState<PromoContent | null>(null);
   const [linksActive, setLinksActive] = useState(false);
 
   const categoriesQuery = useQuery({
@@ -167,7 +162,7 @@ export default function MobileMenu() {
 
   const switchTab = (tab: MenuTab) => {
     setActiveTab(tab);
-    setPromo(menuPromoData[tab]);
+    setPromo(null);
   };
 
   const hoverPromo = (href: string) => {
@@ -311,7 +306,7 @@ export default function MobileMenu() {
               <p className={navSub("guides")}>OUR STORY AND TIPS</p>
             </div>
             <Link
-              href="/about"
+              href="/our-story"
               className={navBtn("guides")}
               aria-label="Guides & Journal"
               onClick={closeMenu}
@@ -409,29 +404,16 @@ export default function MobileMenu() {
             } flex-col gap-5 md:gap-6`}
           >
             <Link
-              href="/about"
+              href="/our-story"
               className={linkCls()}
               onClick={closeMenu}
-              onMouseEnter={() => hoverPromo("/about")}
+              onMouseEnter={() => hoverPromo("/our-story")}
             >
               <span className="contents">
                 <span className={subIconBox}>
                   <BookOpen className="w-5 h-5" />
                 </span>
                 <span className={subLabel}>OUR STORY</span>
-              </span>
-            </Link>
-            <Link
-              href="/rituals"
-              className={linkCls()}
-              onClick={closeMenu}
-              onMouseEnter={() => hoverPromo("/rituals")}
-            >
-              <span className="contents">
-                <span className={subIconBox}>
-                  <Flame className="w-5 h-5" />
-                </span>
-                <span className={subLabel}>RITUALS &amp; JOURNAL</span>
               </span>
             </Link>
             <Link
@@ -511,7 +493,10 @@ export default function MobileMenu() {
           </div>
         </div>
 
-        {/* Right Column: Promo Image Tile */}
+        {/* Right Column: Promo Image Tile — only for a hovered sub-item. The
+            empty placeholder keeps the tile's space so the columns don't
+            shift when an image appears. */}
+        {promo ? (
         <Link
           href={promo.url}
           className={linkCls(
@@ -539,6 +524,9 @@ export default function MobileMenu() {
             </span>
           </div>
         </Link>
+        ) : (
+          <div aria-hidden="true" className="hidden xl:block w-75 2xl:w-85 shrink-0 aspect-4/5 self-center" />
+        )}
       </div>
 
       {/* Footer */}
@@ -574,15 +562,6 @@ export default function MobileMenu() {
                   onClick={closeMenu}
                 >
                   Gift Cards
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/rituals"
-                  className="text-menutext hover:text-menuaccent transition"
-                  onClick={closeMenu}
-                >
-                  Snacking Guide
                 </Link>
               </li>
             </ul>

@@ -9,7 +9,7 @@ import { uploadToS3 } from "@/lib/s3";
    its public URL — nothing is written to the local disk. The folder comes
    from this whitelist, never straight from the request; anything else falls
    back to products. */
-const UPLOAD_FOLDERS = new Set(["products", "categories", "testimonials"]);
+const UPLOAD_FOLDERS = new Set(["products", "categories", "testimonials", "site-content"]);
 const DEFAULT_FOLDER = "products";
 
 const MAX_FILE_BYTES = 5 * 1024 * 1024;

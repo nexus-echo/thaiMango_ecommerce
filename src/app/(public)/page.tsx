@@ -21,8 +21,11 @@ import { useStore } from "@/components/public/store";
 import { normalizeImagePath, productImage } from "@/lib/images";
 import { unwrap } from "@/lib/http";
 import { mapProduct, type ApiProduct } from "@/lib/productCard";
+import { siteContentDefault } from "@/schemas/siteContent.schema";
 import Image from "next/image";
 import AvailableByFlavor from "@/components/public/ShopByFlavor";
+import FlavorCollections from "@/components/public/FlavorCollections";
+import FermentationProcess from "@/components/public/FermentationProcess";
 import Testimonials from "@/components/public/Testimonials";
 import WhyChoose from "@/components/public/WhyChoose";
 
@@ -78,7 +81,7 @@ export default function Home() {
   const blocks = new Map(
     (contentQuery.data ?? []).map((b) => [b.id, b.content])
   );
-  const content = (id: string, fallback: string) =>
+  const content = (id: string, fallback = siteContentDefault(id)) =>
     blocks.get(id)?.trim() || fallback;
 
   const products = (productsQuery.data ?? []).map((p) =>
@@ -293,6 +296,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Flavor collections — pins full-screen and swaps slides on scroll */}
+      <FlavorCollections />
+
       <AvailableByFlavor />
 
       {/* Why Choose — four brand pillars with illustrations */}
@@ -485,20 +491,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Where tradition meets biotechnology — the slow fermentation story */}
+      <FermentationProcess />
+
       {/* The Visionary */}
       <section id="our-founder" className="py-12 md:py-16 bg-ivory">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
             {/* Image */}
             <div className="w-full lg:w-1/2">
-              <div className="relative aspect-4/4.5 lg:aspect-[4/3.6] rounded-[28px] overflow-hidden border border-accent/10">
+              {/* Portrait frame: the founder photo is a 1055×1491 poster */}
+              <div className="relative mx-auto max-w-lg aspect-[5/7] rounded-[28px] overflow-hidden border border-accent/10 bg-cream">
+                {/* Admin → Site Content → Founder Section */}
                 <Image
-                  width={300}
-                  height={300}
-                  quality={60}
-                  src="/images/products/bangkok-mango-chili-lime.png"
-                  alt="Our Founder"
-                  className="w-full h-full object-fill"
+                  fill
+                  sizes="(max-width: 559px) calc(100vw - 48px), 512px"
+                  src={normalizeImagePath(content("founder_image"))}
+                  alt={`${content("founder_name")}, founder of Bangkok Mango`}
+                  className="object-cover object-top"
                 />
               </div>
             </div>
@@ -506,27 +516,29 @@ export default function Home() {
             <div className="w-full lg:w-1/2 reveal text-center lg:text-left">
               <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-bold block mb-4">The Visionary</span>
               <h2 className="font-serif text-4xl md:text-5xl mb-6">Our Founder</h2>
-              <blockquote className="border-l-2 border-accent pl-5 italic text-muted text-base md:text-lg mb-10 max-w-xl mx-auto lg:mx-0">
-                &quot;{content(
-                  "founder_quote",
-                  "Thai Mango was created to bring my family's three generations of orchard craft to the world — mango dried the way my grandmother did it, with nothing added and nothing hidden."
-                )}&quot;
-              </blockquote>
+              <figure className="mb-10 max-w-xl mx-auto lg:mx-0">
+                <blockquote className="border-l-2 border-accent pl-5 italic text-muted text-base md:text-lg">
+                  &quot;{content("founder_quote")}&quot;
+                </blockquote>
+                <figcaption className="mt-4 pl-5 text-xs font-bold uppercase tracking-widest text-charcoal">
+                  — {content("founder_name")}
+                </figcaption>
+              </figure>
 
               <div className="grid grid-cols-2 gap-8 mb-10 max-w-md mx-auto lg:mx-0">
                 <div>
                   <div className="w-11 h-11 rounded-full bg-[#F4E4D4] flex items-center justify-center mb-3 mx-auto lg:mx-0">
                     <Star className="w-5 h-5 text-accent" />
                   </div>
-                  <h3 className="text-xs font-bold uppercase tracking-wide mb-1">[Add Figure] Harvests</h3>
-                  <p className="text-xs text-muted">Placeholder — replace with a real, verifiable number.</p>
+                  <h3 className="text-xs font-bold uppercase tracking-wide mb-1">{content("founder_point1_title")}</h3>
+                  <p className="text-xs text-muted">{content("founder_point1_text")}</p>
                 </div>
                 <div>
                   <div className="w-11 h-11 rounded-full bg-[#F4E4D4] flex items-center justify-center mb-3 mx-auto lg:mx-0">
                     <Award className="w-5 h-5 text-accent" />
                   </div>
-                  <h3 className="text-xs font-bold uppercase tracking-wide mb-1">Orchard-Direct Sourcing</h3>
-                  <p className="text-xs text-muted">Placeholder — name the actual grower/partner once confirmed.</p>
+                  <h3 className="text-xs font-bold uppercase tracking-wide mb-1">{content("founder_point2_title")}</h3>
+                  <p className="text-xs text-muted">{content("founder_point2_text")}</p>
                 </div>
               </div>
 
@@ -535,7 +547,7 @@ export default function Home() {
                   Request a Sample
                   <ArrowRight className="w-4 h-4 ml-3" />
                 </Link>
-                <Link href="/about" className="inline-flex items-center justify-center px-8 py-3.5 border border-accent text-accent text-[10px] md:text-xs tracking-widest uppercase hover:bg-accent hover:text-white transition duration-300 rounded-full font-bold">
+                <Link href="/our-story" className="inline-flex items-center justify-center px-8 py-3.5 border border-accent text-accent text-[10px] md:text-xs tracking-widest uppercase hover:bg-accent hover:text-white transition duration-300 rounded-full font-bold">
                   <User className="w-4 h-4 mr-2" /> Meet the Team
                 </Link>
               </div>
@@ -572,10 +584,7 @@ export default function Home() {
           <div className="max-w-lg">
             <h2 className="text-charcoal text-2xl md:text-3xl font-serif font-bold uppercase tracking-tight mb-5">Your Mango Flavor Expert</h2>
             <p className="text-charcoal/85 text-sm md:text-base leading-relaxed mb-8">
-              {content(
-                "expert_intro",
-                "Tell us your taste preferences — sweet, spicy, tangy, or classic — and we'll point you toward the flavors that fit, or connect you with our team for bulk and gifting orders."
-              )}
+              {content("expert_intro")}
             </p>
 
             {/* <form

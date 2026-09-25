@@ -5,7 +5,9 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { Check, FileText, Pencil, X } from "lucide-react";
 import { Card, PageHeader } from "@/components/admin/ui";
+import FounderContentCard from "@/components/admin/FounderContentCard";
 import { unwrap } from "@/lib/http";
+import { FOUNDER_FIELD_IDS } from "@/schemas/siteContent.schema";
 
 interface ContentBlock {
   id: string;
@@ -36,7 +38,10 @@ export default function SiteContentPage() {
     onError: (error: Error) => setServerError(error.message),
   });
 
-  const blocks = blocksQuery.data ?? [];
+  const allBlocks = blocksQuery.data ?? [];
+  /* Founder fields are edited together in their own card. */
+  const founderBlocks = allBlocks.filter((b) => FOUNDER_FIELD_IDS.has(b.id));
+  const blocks = allBlocks.filter((b) => !FOUNDER_FIELD_IDS.has(b.id));
 
   return (
     <>
@@ -50,7 +55,7 @@ export default function SiteContentPage() {
 
       {blocksQuery.isPending ? (
         <p className="text-sm text-muted py-16 text-center">Loading content blocks…</p>
-      ) : blocks.length === 0 ? (
+      ) : allBlocks.length === 0 ? (
         <Card className="p-12 text-center">
           <p className="text-sm text-muted">
             No content blocks yet — run <code>bun run seed</code> to create the default
@@ -59,6 +64,7 @@ export default function SiteContentPage() {
         </Card>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          <FounderContentCard blocks={founderBlocks} />
           {blocks.map((block) => {
             const isEditing = editingId === block.id;
             return (

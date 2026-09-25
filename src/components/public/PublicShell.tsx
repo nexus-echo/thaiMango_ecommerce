@@ -15,10 +15,12 @@ import { useStore } from "./store";
 
 /* Per-page body classes. The palette-* classes are no-ops now that the pack
    palette in globals.css covers the whole product; they are kept as the hook
-   for reintroducing a per-section palette. */
+   for reintroducing a per-section palette. The home page clips (not hides)
+   horizontal overflow: overflow-x-hidden turns the wrapper into a scroll
+   container, which breaks position: sticky in FlavorCollections. */
 function wrapperClass(pathname: string) {
   if (pathname === "/") {
-    return "bg-ivory text-charcoal min-h-screen overflow-x-hidden selection:bg-accent selection:text-white pb-[68px] lg:pb-0";
+    return "bg-ivory text-charcoal min-h-screen overflow-x-clip selection:bg-accent selection:text-white pb-[68px] lg:pb-0";
   }
   if (["/login", "/register", "/dashboard"].includes(pathname)) {
     return "palette-account bg-ivory text-charcoal flex flex-col min-h-screen";

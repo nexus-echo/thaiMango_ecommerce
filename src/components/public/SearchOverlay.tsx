@@ -29,9 +29,8 @@ interface PublicCategory {
 
 /* Real content pages — static by nature, not catalog data */
 const CONTENT_PAGES = [
-  { title: "Our Orchard Story & Heritage", category: "Story", url: "/about", tags: ["story", "about", "heritage", "history", "thailand"] },
+  { title: "Our Orchard Story & Heritage", category: "Story", url: "/our-story", tags: ["story", "about", "heritage", "history", "thailand"] },
   { title: "100% Thai Natural Ingredients", category: "Ingredients", url: "/ingredients", tags: ["ingredients", "natural", "mango", "chili", "honey", "beetroot"] },
-  { title: "Mango Rituals & Recipe Guide", category: "Guide", url: "/rituals", tags: ["rituals", "guide", "recipes", "pairings", "snacking"] },
   { title: "FAQ & Advice", category: "Support", url: "/faq", tags: ["faq", "help", "questions", "shipping"] },
 ];
 

@@ -164,7 +164,7 @@ export default function IngredientsPage() {
         primaryLabel="Shop the Collection"
         primaryHref="/shop"
         secondaryLabel="Our Story"
-        secondaryHref="/about"
+        secondaryHref="/our-story"
       />
 
       {/* Quality & Origin 5-Badge Banner */}

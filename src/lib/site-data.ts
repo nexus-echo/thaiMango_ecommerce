@@ -95,31 +95,9 @@ export const translations: Record<Lang, Record<string, string>> = {
 /* Site search now queries /api/products live; static content-page entries live
    in SearchOverlay.tsx. */
 
-export const menuPromoData = {
-  shop: {
-    img: "/images/products/bangkok-mango-chili-lime.png",
-    tag: "New Arrivals",
-    title: "Discover our newest mango creations.",
-    btn: "Shop Now",
-    url: "/shop",
-  },
-  guides: {
-    img: "/images/products/bangkok-mango-beetroot.png",
-    tag: "Mango Stories & Ideas",
-    title: "Discover our heritage, ingredients, and serving inspiration.",
-    btn: "Explore Stories",
-    url: "/rituals",
-  },
-  customerCare: {
-    img: "/images/products/bangkok-mango-original.jpeg",
-    tag: "Customer Care",
-    title: "Help with mango products, orders, and delivery.",
-    btn: "Contact Us",
-    url: "/contact",
-  },
-} as const;
-
-export type MenuTab = keyof typeof menuPromoData;
+/* Full-screen menu tabs. Tabs carry no promo image of their own — the
+   menu's image tile only shows what the hovered sub-item provides. */
+export type MenuTab = "shop" | "guides" | "customerCare";
 
 /** @deprecated static fallback — client components should take formatPrice
  *  from useStore() so it follows the store currency setting. */

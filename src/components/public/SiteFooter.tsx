@@ -102,7 +102,7 @@ export default function SiteFooter() {
           </h4>
           <ul className="space-y-4 text-sm text-ivory/70">
             <li>
-              <Link href="/about" className="hover:text-white transition">
+              <Link href="/our-story" className="hover:text-white transition">
                 Our Story
               </Link>
             </li>
@@ -114,11 +114,6 @@ export default function SiteFooter() {
             <li>
               <Link href="/processing" className="hover:text-white transition">
                 Our Process
-              </Link>
-            </li>
-            <li>
-              <Link href="/rituals" className="hover:text-white transition">
-                Rituals
               </Link>
             </li>
             <li>

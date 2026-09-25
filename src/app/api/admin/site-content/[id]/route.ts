@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { ApiResponse, ApiError } from "@/helper/apiResponse";
 import { requireAdmin } from "@/lib/adminAuth";
+import { isAllowedImageSrc } from "@/lib/s3";
+import { IMAGE_CONTENT_IDS } from "@/schemas/siteContent.schema";
 
 const contentPatchSchema = z.object({
     content: z.string().trim().min(1, "Content cannot be empty"),
@@ -21,6 +23,13 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
         const parsed = contentPatchSchema.safeParse(body);
         if (!parsed.success) {
             const apiError = new ApiError(400, "Content cannot be empty");
+            return NextResponse.json(apiError, { status: apiError.statusCode });
+        }
+
+        /* Image blocks are rendered with next/image, which only accepts site
+           paths and our S3 bucket (next.config remotePatterns). */
+        if (IMAGE_CONTENT_IDS.has(id) && !isAllowedImageSrc(parsed.data.content)) {
+            const apiError = new ApiError(400, "Image must be a site path (/images/…) or a link to our S3 bucket");
             return NextResponse.json(apiError, { status: apiError.statusCode });
         }
 

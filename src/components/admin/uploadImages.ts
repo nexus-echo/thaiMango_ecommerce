@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export type UploadFolder = "products" | "categories" | "testimonials";
+export type UploadFolder = "products" | "categories" | "testimonials" | "site-content";
 
 interface UploadedImage {
   url: string;
