@@ -1,17 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 248" role="img" aria-labelledby="bmd-title">
-  <title id="bmd-title">Bangkok Mango — Taste of Thailand</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 248" role="img" aria-labelledby="bmg-title">
+  <title id="bmg-title">Bangkok Mango — Taste of Thailand</title>
+  <!-- Variant for the gold header bar: dark ink on gold, as the packs print their gold bands (gold emblem/ivory text vanish there). -->
   <defs>
     <!-- Deep gold of the emblem printed on the packs -->
-    <linearGradient id="bmd-gold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="200">
-      <stop offset="0" stop-color="#FFD560"/>
-      <stop offset="1" stop-color="#D49C04"/>
+    <linearGradient id="bmg-gold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="200">
+      <stop offset="0" stop-color="#935400"/>
+      <stop offset="1" stop-color="#502500"/>
     </linearGradient>
 
     <!-- Temple emblem traced from the packaging (e.g. the Ginger pack):
          central stepped prang, flanking chedi spires, upturned finials and a
          long tapered base, with a lotus in an ogee arch. Drawn as the right
          half around x=0, then mirrored. Emblem box: 424 x 200. -->
-    <g id="bmd-half" fill="url(#bmd-gold)">
+    <g id="bmg-half" fill="url(#bmg-gold)">
       <polygon points="0,7 2.5,28 5,40 8,44 8,52 11,56 12,66 15,70 17,80 20,84 23,94 26,98 29,108 32,112 35,122 38,126 42,137 42,160 0,160"/>
       <polygon points="0,137 42,137 52,147 95,147 108,160 130,172 150,180 190,190 212,195 0,198"/>
       <polygon points="0,192 214,194.5 217,195.5 214,196.5 0,199"/>
@@ -24,48 +25,48 @@
       <path d="M133 182Q139 174 145 182Z"/>
       <path d="M158 123Q160 165 168 184H148Q156 165 158 123Z"/>
       <path d="M177 158L179.8 165H174.2Z"/>
-      <circle cx="177" cy="170.5" r="5.2" fill="none" stroke="url(#bmd-gold)" stroke-width="2.6"/>
-      <path d="M177 176Q176.5 185 170 191" fill="none" stroke="url(#bmd-gold)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="177" cy="170.5" r="5.2" fill="none" stroke="url(#bmg-gold)" stroke-width="2.6"/>
+      <path d="M177 176Q176.5 185 170 191" fill="none" stroke="url(#bmg-gold)" stroke-width="3" stroke-linecap="round"/>
     </g>
 
     <!-- Knock the arch and the prang's small oval window out of the gold -->
-    <mask id="bmd-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="424" height="200">
+    <mask id="bmg-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="424" height="200">
       <rect width="424" height="200" fill="#fff"/>
       <path fill="#000" d="M212 132C218 140 228 144 234 152C242 160 249 172 249 191H175C175 172 182 160 190 152C196 144 206 140 212 132Z"/>
       <ellipse fill="#000" cx="212" cy="110" rx="2.6" ry="4.2"/>
     </mask>
 
-    <g id="bmd-emblem">
-      <g mask="url(#bmd-cut)">
-        <use href="#bmd-half" transform="translate(212 0)"/>
-        <use href="#bmd-half" transform="translate(212 0) scale(-1 1)"/>
+    <g id="bmg-emblem">
+      <g mask="url(#bmg-cut)">
+        <use href="#bmg-half" transform="translate(212 0)"/>
+        <use href="#bmg-half" transform="translate(212 0) scale(-1 1)"/>
       </g>
       <!-- Lotus in the arch -->
-      <g fill="none" stroke="#E3A418" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+      <g fill="none" stroke="#502500" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
         <path d="M212 150C221 160 224 172 212 187C200 172 203 160 212 150Z"/>
         <path d="M212 187C220 170 234 163 243 172C249 180 240 188 212 187"/>
         <path d="M212 187C204 170 190 163 181 172C175 180 184 188 212 187"/>
         <path d="M181 189.5H243"/>
       </g>
-      <circle cx="212" cy="176" r="1.8" fill="#E3A418"/>
+      <circle cx="212" cy="176" r="1.8" fill="#502500"/>
     </g>
   </defs>
 
-  <use href="#bmd-emblem" transform="translate(104 8) scale(0.5)"/>
+  <use href="#bmg-emblem" transform="translate(104 8) scale(0.5)"/>
 
   <!-- Wordmark: bold serif set tight at natural width (MANGO is narrower
        than BANGKOK), as on the pack -->
   <text x="210" y="158" text-anchor="middle"
         font-family="Georgia, 'Playfair Display', 'Times New Roman', serif"
-        font-size="54" font-weight="700" fill="#FFF9E9">BANGKOK</text>
+        font-size="54" font-weight="700" fill="#0A0A0A">BANGKOK</text>
   <text x="210" y="208" text-anchor="middle"
         font-family="Georgia, 'Playfair Display', 'Times New Roman', serif"
-        font-size="54" font-weight="700" fill="#FFF9E9">MANGO</text>
+        font-size="54" font-weight="700" fill="#0A0A0A">MANGO</text>
 
   <!-- Script tagline with flanking rules, as on the pack -->
-  <line x1="48" y1="232" x2="104" y2="232" stroke="#ECA40C" stroke-width="1.6" stroke-linecap="round"/>
-  <line x1="316" y1="232" x2="372" y2="232" stroke="#ECA40C" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="48" y1="232" x2="104" y2="232" stroke="#502500" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="316" y1="232" x2="372" y2="232" stroke="#502500" stroke-width="1.6" stroke-linecap="round"/>
   <text x="210" y="239" text-anchor="middle"
         font-family="'Segoe Script', 'Brush Script MT', 'Snell Roundhand', cursive"
-        font-size="19" fill="#FFE490">Taste of Thailand</text>
+        font-size="19" fill="#502500">Taste of Thailand</text>
 </svg>

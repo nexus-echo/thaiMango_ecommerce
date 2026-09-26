@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import {
-  Sparkles,
+  Leaf,
   Apple,
   Truck,
   ChevronDown,
@@ -41,7 +41,7 @@ const CATEGORY_ICONS: Record<
   FaqCategoryId,
   React.ComponentType<{ className?: string }>
 > = {
-  ingredients: Sparkles,
+  ingredients: Leaf,
   snacks: Apple,
   shipping: Truck,
 };

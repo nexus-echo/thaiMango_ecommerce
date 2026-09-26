@@ -29,7 +29,8 @@ interface PublicCategory {
 
 /* Real content pages — static by nature, not catalog data */
 const CONTENT_PAGES = [
-  { title: "Our Orchard Story & Heritage", category: "Story", url: "/our-story", tags: ["story", "about", "heritage", "history", "thailand"] },
+  { title: "About Us: Kui Buri Origin, Clean Label & Our Founder", category: "About", url: "/about-us", tags: ["about", "about us", "founder", "dr patr", "kui buri", "kaew kamin", "traceability", "clean label", "no preservatives"] },
+  { title: "Our Orchard Story & Heritage", category: "Story", url: "/our-story", tags: ["story", "heritage", "history", "thailand", "fermentation"] },
   { title: "100% Thai Natural Ingredients", category: "Ingredients", url: "/ingredients", tags: ["ingredients", "natural", "mango", "chili", "honey", "beetroot"] },
   { title: "FAQ & Advice", category: "Support", url: "/faq", tags: ["faq", "help", "questions", "shipping"] },
 ];

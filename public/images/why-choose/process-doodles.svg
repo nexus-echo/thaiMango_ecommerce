@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" viewBox="0 0 560 560" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Process doodles, tiled behind the Why Choose section. Hand-drawn feel:
+       round caps, uneven curves, scribbled step words between the sketches. -->
+
+  <!-- 1 · select: mango with leaf -->
+  <path d="M62 62c-26 5-36 36-20 59 14 22 47 21 58 1 12-22-8-62-38-60z"/>
+  <path d="M63 60c2-8 6-12 11-15"/>
+  <path d="M74 45c10-13 29-13 35-4-10 10-25 10-35 4z"/>
+  <path d="M80 44c8-2 15-2 22 0"/>
+  <path d="M50 92c3 8 9 14 17 17" stroke-width="1.6"/>
+
+  <!-- dashed path → fermentation -->
+  <path d="M128 150c70 34 128-24 178 2" stroke-dasharray="3 8"/>
+  <path d="M298 142l10 10-13 5"/>
+
+  <!-- 2 · ferment: jar with bubbles -->
+  <path d="M322 72h58v78a14 14 0 0 1-14 14h-30a14 14 0 0 1-14-14z"/>
+  <rect x="316" y="58" width="70" height="14" rx="4"/>
+  <path d="M324 104q14-7 28 0t26 0"/>
+  <circle cx="340" cy="132" r="4"/>
+  <circle cx="357" cy="118" r="3"/>
+  <circle cx="364" cy="142" r="5"/>
+  <circle cx="347" cy="150" r="2.5"/>
+  <path d="M398 44c4-6 4-12 0-18M410 48c5-8 5-16 0-24" stroke-width="1.6"/>
+
+  <!-- microbes -->
+  <circle cx="486" cy="92" r="13"/>
+  <circle cx="482" cy="88" r="2" fill="#B47404"/>
+  <circle cx="491" cy="97" r="2.5" fill="#B47404"/>
+  <path d="M499 88c8-4 12-10 14-18"/>
+  <ellipse cx="516" cy="128" rx="9" ry="6" transform="rotate(-30 516 128)"/>
+  <path d="M507 134c-6 4-12 4-16 2"/>
+  <circle cx="458" cy="130" r="6"/>
+  <circle cx="458" cy="130" r="1.5" fill="#B47404"/>
+
+  <!-- dashed path → drying -->
+  <path d="M340 190c-60 40-160 20-200 80" stroke-dasharray="3 8"/>
+  <path d="M136 258l3 14 12-8"/>
+
+  <!-- sun -->
+  <circle cx="92" cy="300" r="17"/>
+  <path d="M92 270v-8M92 338v-8M62 300h-8M130 300h-8M71 279l-6-6M119 327l-6-6M71 321l-6 6M119 273l-6 6"/>
+
+  <!-- 3 · dry: tray with slices + heat -->
+  <path d="M60 384h142"/>
+  <path d="M78 384l-9 30M186 384l9 30M72 404h122" stroke-width="1.8"/>
+  <ellipse cx="94" cy="376" rx="17" ry="6"/>
+  <ellipse cx="132" cy="376" rx="17" ry="6"/>
+  <ellipse cx="170" cy="376" rx="17" ry="6"/>
+  <path d="M118 354q-6-8 0-16t0-16M138 354q-6-8 0-16t0-16M158 354q-6-8 0-16t0-16" stroke-width="1.6"/>
+
+  <!-- 4 · test: magnifier + ticks -->
+  <circle cx="322" cy="300" r="21"/>
+  <path d="M337 315l20 20" stroke-width="4"/>
+  <path d="M314 300q6-9 14-4" stroke-width="1.6"/>
+  <path d="M276 356l6 7 13-15M276 380l6 7 13-15" stroke-width="2"/>
+  <path d="M304 360h28M304 384h22" stroke-width="1.6"/>
+
+  <!-- dashed path → pack -->
+  <path d="M372 300c26-24 40-26 58-24" stroke-dasharray="3 8"/>
+  <path d="M422 268l10 8-11 6"/>
+
+  <!-- 5 · pack: pouch -->
+  <path d="M442 262h74l-4 98a8 8 0 0 1-8 8h-50a8 8 0 0 1-8-8z"/>
+  <path d="M443 276h72" stroke-dasharray="2 5" stroke-width="1.6"/>
+  <path d="M470 296c-10 2-14 14-8 22 6 8 18 7 22-1 4-9-3-22-14-21z"/>
+  <path d="M458 340h44M462 350h36" stroke-width="1.4"/>
+
+  <!-- leaves + sparkles -->
+  <path d="M232 482c14-20 42-24 52-14-12 18-38 22-52 14z"/>
+  <path d="M236 480c14-6 28-10 44-10" stroke-width="1.4"/>
+  <path d="M24 470c6-18 26-26 38-20-6 16-24 26-38 20z"/>
+  <path d="M250 56l0 12M244 62h12M522 214v10M517 219h10M214 280v8M210 284h8M396 470v10M391 475h10" stroke-width="1.8"/>
+
+  <!-- scribbled step words -->
+  <g fill="#B47404" stroke="none" font-family="'Segoe Script','Bradley Hand','Brush Script MT','Comic Sans MS',cursive" font-size="22">
+    <text x="118" y="112" transform="rotate(-8 118 112)">select</text>
+    <text x="392" y="210" transform="rotate(6 392 210)">ferment</text>
+    <text x="404" y="232" font-size="14" transform="rotate(6 404 232)">very slowly…</text>
+    <text x="214" y="344" transform="rotate(-5 214 344)">dry</text>
+    <text x="340" y="424" transform="rotate(4 340 424)">test</text>
+    <text x="448" y="404" transform="rotate(-6 448 404)">pack</text>
+    <text x="36" y="540" font-size="16" transform="rotate(-3 36 540)">Kui Buri · Kaew Kamin</text>
+    <text x="330" y="520" font-size="20" font-family="'Leelawadee UI','Tahoma',sans-serif" transform="rotate(-4 330 520)">มะม่วง</text>
+    <text x="150" y="220" font-size="15" transform="rotate(-12 150 220)">we transform first</text>
+  </g>
+</svg>

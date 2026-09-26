@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <!-- Vector redraw of step 5 ("Richer flavor & thoughtful processing") from
+       slide 5 of the Our Story deck: droplet, leaf and sparkles in bronze.
+       Sized to fill the round frame the way the original crop did. -->
+  <rect width="100" height="100" fill="#FEF7E4"/>
+  <g fill="none" stroke="#8A6A2E" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M42 26C35 35 22 50 22 62a20 20 0 0 0 40 0C62 50 49 35 42 26z" stroke-width="3.2"/>
+    <path d="M33 58v5a8 8 0 0 0 8 8" stroke-width="2.8"/>
+  </g>
+  <path d="M56 44c-3-16 6-28 24-30 3 16-6 28-24 30z" fill="#8A6A2E"/>
+  <path d="M58.5 41C64 32 70 25 77 18" fill="none" stroke="#FEF7E4" stroke-width="1.8" stroke-linecap="round"/>
+  <g fill="#8A6A2E">
+    <path d="M13 45Q13 52 20 52Q13 52 13 59Q13 52 6 52Q13 52 13 45z"/>
+    <path d="M30 15Q30 20 35 20Q30 20 30 25Q30 20 25 20Q30 20 30 15z"/>
+    <path d="M84 46Q84 52 90 52Q84 52 84 58Q84 52 78 52Q84 52 84 46z"/>
+    <path d="M70 57.5Q70 62 74.5 62Q70 62 70 66.5Q70 62 65.5 62Q70 62 70 57.5z"/>
+    <path d="M74 72Q74 78 80 78Q74 78 74 84Q74 78 68 78Q74 78 74 72z"/>
+  </g>
+</svg>

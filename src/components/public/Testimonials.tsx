@@ -9,6 +9,7 @@ import { useStore } from "@/components/public/store";
 import Stars from "@/components/public/Stars";
 import TestimonialImage from "@/components/common/TestimonialImage";
 import { unwrap } from "@/lib/http";
+import TwoToneTitle from "./TwoToneTitle";
 
 interface PublicTestimonial {
     id: number;
@@ -57,9 +58,7 @@ export default function Testimonials() {
                         <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-bold block mb-3">
                             {t("testimonials_eyebrow")}
                         </span>
-                        <h2 className="font-serif text-3xl md:text-4xl text-charcoal">
-                            {t("testimonials_title")}
-                        </h2>
+                        <TwoToneTitle text={t("testimonials_title")} />
                     </div>
                     {scrollable && (
                         <div className="flex items-center gap-3">

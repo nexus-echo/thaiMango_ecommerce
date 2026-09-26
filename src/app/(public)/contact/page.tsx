@@ -55,10 +55,10 @@ export default function ContactPage() {
   return (
     <main>
       {/* Contact Hero */}
-      <section className="py-20 md:py-28 bg-[#502500] text-white text-center">
+      <section className="py-20 md:py-28 bg-burgundy text-white text-center">
         <div className="max-w-3xl mx-auto px-6">
           <span className="text-[11px] tracking-[0.3em] uppercase text-gold font-bold mb-3 block">We Are Here For You</span>
-          <h1 className="font-serif text-4xl md:text-6xl mb-6">Connect with Thai Mango</h1>
+          <h1 className="font-serif text-4xl md:text-6xl mb-6">Connect with Bangkok Mango</h1>
           <p className="text-white/80 text-sm md:text-base leading-relaxed">
             Whether you have questions about our sun-dried mango snacks, order status, or bulk &amp; wholesale inquiries, our team is always ready to assist.
           </p>
@@ -132,7 +132,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form (7 cols) */}
-            <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-[32px] border border-cream shadow-xl">
+            <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-4xl border border-cream shadow-xl">
               <h3 className="font-serif text-2xl md:text-3xl text-charcoal mb-2">Send Us a Message</h3>
               <p className="text-xs md:text-sm text-muted mb-8">Fill in your details below and we will get back to you promptly.</p>
 
@@ -217,7 +217,7 @@ export default function ContactPage() {
               </svg>
             </span>
             <span className="text-sm font-semibold tracking-wide text-[#0A0A0A] mb-1">ธรรมชาติ 100%</span>
-            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#502500]">100% NATURAL</span>
+            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-burgundy">100% NATURAL</span>
           </div>
           <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
             <span className="w-14 h-14 rounded-full border-2 border-[#0A0A0A]/45 flex items-center justify-center text-[#0A0A0A] mb-3 group-hover:scale-110 group-hover:bg-[#0A0A0A]/10 transition-all duration-300 shadow-sm">
@@ -228,7 +228,7 @@ export default function ContactPage() {
               </svg>
             </span>
             <span className="text-sm font-semibold tracking-wide text-[#0A0A0A] mb-1">คัดสรรจากมะม่วงคุณภาพ</span>
-            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#502500]">FINEST QUALITY MANGO</span>
+            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-burgundy">FINEST QUALITY MANGO</span>
           </div>
           <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
             <span className="w-14 h-14 flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300">
@@ -239,7 +239,7 @@ export default function ContactPage() {
               </svg>
             </span>
             <span className="text-sm font-semibold tracking-wide text-[#0A0A0A] mb-1">ผลิตในประเทศไทย</span>
-            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#502500]">PRODUCT OF THAILAND</span>
+            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-burgundy">PRODUCT OF THAILAND</span>
           </div>
           <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
             <span className="w-14 h-14 rounded-full border-2 border-[#0A0A0A]/45 flex items-center justify-center text-[#0A0A0A] mb-3 group-hover:scale-110 group-hover:bg-[#0A0A0A]/10 transition-all duration-300 shadow-sm">
@@ -250,7 +250,7 @@ export default function ContactPage() {
               </svg>
             </span>
             <span className="text-sm font-semibold tracking-wide text-[#0A0A0A] mb-1">อร่อย เพลิน เคี้ยวหนึบ</span>
-            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#502500]">DELICIOUS &amp; CHEWY</span>
+            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-burgundy">DELICIOUS &amp; CHEWY</span>
           </div>
           <div className="col-span-2 md:col-span-1 px-2 md:px-4 flex flex-col items-center justify-center group max-w-xs mx-auto">
             <span className="w-14 h-14 rounded-full border-2 border-[#0A0A0A]/45 flex items-center justify-center text-[#0A0A0A] mb-3 group-hover:scale-110 group-hover:bg-[#0A0A0A]/10 transition-all duration-300 shadow-sm">
@@ -262,7 +262,7 @@ export default function ContactPage() {
               </svg>
             </span>
             <span className="text-sm font-semibold tracking-wide text-[#0A0A0A] mb-1">เหมาะสำหรับทุกวัย</span>
-            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-[#502500]">FOR ALL AGES</span>
+            <span className="text-[10px] tracking-[0.18em] uppercase font-bold text-burgundy">FOR ALL AGES</span>
           </div>
         </div>
       </div>

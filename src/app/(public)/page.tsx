@@ -28,6 +28,7 @@ import FlavorCollections from "@/components/public/FlavorCollections";
 import FermentationProcess from "@/components/public/FermentationProcess";
 import Testimonials from "@/components/public/Testimonials";
 import WhyChoose from "@/components/public/WhyChoose";
+import TwoToneTitle from "@/components/public/TwoToneTitle";
 
 interface ApiCategory {
   id: number;
@@ -131,13 +132,13 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex-1 flex items-center justify-start">
-          <div className="max-w-4xl text-left text-white reveal">
-            <h1 className="font-serif font-medium text-5xl md:text-[5rem] leading-[1.1] mb-6 tracking-tight uppercase">
+          <div className="max-w-2xl text-left text-white reveal">
+            <h1 className="font-serif font-medium text-5xl md:text-[5rem] leading-[1.1] mb-4 tracking-tight uppercase">
               {heroLead && <span>{heroLead} </span>}
               <span className="text-[#ECA40C]">{heroAccent}</span>
             </h1>
 
-            <p className="text-white/90 text-sm md:text-lg leading-relaxed mb-10 max-w-xl font-medium">
+            <p className="text-white/90 text-sm md:text-lg leading-relaxed mb-10 max-w-md font-medium text-justify">
               {content("hero_desc", t("hero_desc"))}
             </p>
 
@@ -236,9 +237,7 @@ export default function Home() {
       {/* Featured Products Showcase */}
       <section className="pt-16 pb-12 bg-[#F4E4D4]">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 mb-8 reveal">
-          <h2 className="text-xl md:text-[26px] font-serif font-normal tracking-[0.08em] text-menutext uppercase">
-            {t("the_selection")}
-          </h2>
+          <TwoToneTitle text={t("the_selection")} />
         </div>
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           {productsPending ? (
@@ -309,9 +308,7 @@ export default function Home() {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           {/* Header Row */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 reveal">
-            <h2 className="text-xl md:text-[26px] font-serif font-normal tracking-[0.08em] text-[#A4741C] uppercase mb-6 md:mb-0">
-              {t("shop_by_category")}
-            </h2>
+            <TwoToneTitle text={t("shop_by_category")} className="mb-6 md:mb-0" />
             <Link
               href="/shop"
               className="inline-flex items-center justify-center px-6 py-3.5 bg-accent text-white text-[10px] md:text-xs tracking-[0.15em] uppercase hover:bg-charcoal transition duration-300 rounded-full font-bold shadow-md"
@@ -374,9 +371,7 @@ export default function Home() {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           {/* Header Row */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 reveal">
-            <h2 className="text-xl md:text-[26px] font-serif font-normal tracking-[0.08em] text-[#A4741C] uppercase mb-6 md:mb-0">
-              OUR COLLECTIONS
-            </h2>
+            <TwoToneTitle text="OUR COLLECTIONS" className="mb-6 md:mb-0" />
             <Link
               href="/shop"
               className="inline-flex items-center justify-center px-6 py-3.5 bg-accent text-white text-[10px] md:text-xs tracking-[0.15em] uppercase hover:bg-charcoal transition duration-300 rounded-full font-bold shadow-md"
@@ -501,7 +496,7 @@ export default function Home() {
             {/* Image */}
             <div className="w-full lg:w-1/2">
               {/* Portrait frame: the founder photo is a 1055×1491 poster */}
-              <div className="relative mx-auto max-w-lg aspect-[5/7] rounded-[28px] overflow-hidden border border-accent/10 bg-cream">
+              <div className="relative mx-auto max-w-lg aspect-5/7 rounded-[28px] overflow-hidden border border-accent/10 bg-cream">
                 {/* Admin → Site Content → Founder Section */}
                 <Image
                   fill
@@ -515,7 +510,7 @@ export default function Home() {
             {/* Text */}
             <div className="w-full lg:w-1/2 reveal text-center lg:text-left">
               <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-bold block mb-4">The Visionary</span>
-              <h2 className="font-serif text-4xl md:text-5xl mb-6">Our Founder</h2>
+              <TwoToneTitle text="Our Founder" className="mb-6" />
               <figure className="mb-10 max-w-xl mx-auto lg:mx-0">
                 <blockquote className="border-l-2 border-accent pl-5 italic text-muted text-base md:text-lg">
                   &quot;{content("founder_quote")}&quot;
@@ -547,7 +542,7 @@ export default function Home() {
                   Request a Sample
                   <ArrowRight className="w-4 h-4 ml-3" />
                 </Link>
-                <Link href="/our-story" className="inline-flex items-center justify-center px-8 py-3.5 border border-accent text-accent text-[10px] md:text-xs tracking-widest uppercase hover:bg-accent hover:text-white transition duration-300 rounded-full font-bold">
+                <Link href="/about-us#founder" className="inline-flex items-center justify-center px-8 py-3.5 border border-accent text-accent text-[10px] md:text-xs tracking-widest uppercase hover:bg-accent hover:text-white transition duration-300 rounded-full font-bold">
                   <User className="w-4 h-4 mr-2" /> Meet the Team
                 </Link>
               </div>
@@ -582,7 +577,7 @@ export default function Home() {
         {/* Panel */}
         <div className="w-full lg:w-1/2 bg-mango flex items-center p-8 md:p-16">
           <div className="max-w-lg">
-            <h2 className="text-charcoal text-2xl md:text-3xl font-serif font-bold uppercase tracking-tight mb-5">Your Mango Flavor Expert</h2>
+            <TwoToneTitle text="Your Mango Flavor Expert" onGold className="mb-5" />
             <p className="text-charcoal/85 text-sm md:text-base leading-relaxed mb-8">
               {content("expert_intro")}
             </p>
@@ -611,7 +606,7 @@ export default function Home() {
       {/* Newsletter Section */}
       <section className="py-32 bg-cream text-center border-t border-cream reveal">
         <div className="max-w-xl mx-auto px-6">
-          <h2 className="font-serif text-4xl md:text-5xl mb-6">{t("join_circle_title")}</h2>
+          <TwoToneTitle text={t("join_circle_title")} className="mb-6" />
           <p className="text-muted text-sm md:text-base mb-10 leading-relaxed">{t("join_circle_desc")}</p>
 
           <form
@@ -641,7 +636,7 @@ export default function Home() {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <span className="text-[10px] tracking-[0.3em] uppercase text-burgundy font-bold">Quality &amp; Authenticity</span>
-            <h2 className="font-serif text-3xl md:text-4xl text-charcoal mt-2">The Thai Mango Standard</h2>
+            <TwoToneTitle text="The Thai Mango Standard" accentWords={1} onGold className="mt-2" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-4 gap-x-6 md:gap-x-4 text-center">
             {/* 1 */}

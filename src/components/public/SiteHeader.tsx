@@ -38,6 +38,13 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
           scrolled ? "bg-headerdark shadow-lg" : "bg-header shadow-md"
         }`;
 
+  /* Gold bar (solid header, or the hero header once scrolled) needs dark ink;
+     only the unscrolled hero header floats over the dark video and keeps ivory.
+     Amber/ivory accents all but vanish on the gold, so hover/active states use
+     burgundy there — the pack's own rule: dark text on gold bands. */
+  const filled = variant === "solid" || scrolled;
+  const hoverInk = filled ? "hover:text-burgundy" : "hover:text-accent";
+
   const loggedIn = mounted && user?.isLoggedIn;
   const accountHref = !loggedIn
     ? "/login"
@@ -59,8 +66,8 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
           id="open-menu"
           className={`${
             variant === "hero"
-              ? "invisible lg:visible flex items-center gap-3 p-1 hover:text-accent transition"
-              : "flex items-center gap-3 p-1 hover:text-gold transition"
+              ? `invisible lg:visible flex items-center gap-3 p-1 ${hoverInk} transition`
+              : `flex items-center gap-3 p-1 ${hoverInk} transition`
           }`}
           aria-label="Open Menu"
           onClick={(e) => {
@@ -87,7 +94,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
           aria-label="Thai Mango home"
         >
           <img
-            src="/brand/logo-dark.svg"
+            src={filled ? "/brand/logo-on-gold.svg" : "/brand/logo-dark.svg"}
             alt="Bangkok Mango"
             className="h-12 md:h-14 w-auto group-hover:scale-105 transition-transform duration-300"
           />
@@ -99,19 +106,19 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
             <button
               className={`lang-btn px-1.5 py-0.5 rounded transition ${
                 lang === "en"
-                  ? "text-accent font-bold"
-                  : "text-ivory/60 hover:text-accent font-normal"
+                  ? filled ? "text-charcoal font-bold underline underline-offset-4 decoration-2" : "text-accent font-bold"
+                  : filled ? "text-charcoal/70 hover:text-burgundy font-normal" : "text-ivory/60 hover:text-accent font-normal"
               }`}
               onClick={() => switchLang("en")}
             >
               EN
             </button>
-            <span className="text-ivory/40">|</span>
+            <span className={filled ? "text-charcoal/30" : "text-ivory/40"}>|</span>
             <button
               className={`lang-btn px-1.5 py-0.5 rounded transition ${
                 lang === "th"
-                  ? "text-accent font-bold"
-                  : "text-ivory/60 hover:text-accent font-normal"
+                  ? filled ? "text-charcoal font-bold underline underline-offset-4 decoration-2" : "text-accent font-bold"
+                  : filled ? "text-charcoal/70 hover:text-burgundy font-normal" : "text-ivory/60 hover:text-accent font-normal"
               }`}
               onClick={() => switchLang("th")}
             >
@@ -120,7 +127,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
           </div>
           <Link
             href={accountHref}
-            className="account-link text-ivory/80 hover:text-accent transition flex items-center gap-1.5"
+            className={`account-link ${filled ? "text-charcoal" : "text-ivory/80"} ${hoverInk} transition flex items-center gap-1.5`}
             aria-label="Account"
           >
             <User className="w-5 h-5 font-light" />
@@ -129,13 +136,13 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
             </span>
           </Link>
           <button
-            className="open-cart p-1 hover:text-accent transition relative"
+            className={`open-cart p-1 ${hoverInk} transition relative`}
             aria-label="Cart"
             onClick={openCart}
           >
             <ShoppingBag className="w-5 h-5 font-light" />
             <span
-              className={`cart-count absolute -top-1 -right-1 bg-accent text-ivory text-[9px] w-4 h-4 rounded-full flex items-center justify-center ${
+              className={`cart-count absolute -top-1 -right-1 ${filled ? "bg-charcoal text-mango" : "bg-accent text-ivory"} text-[9px] w-4 h-4 rounded-full flex items-center justify-center ${
                 mounted && totalItems > 0 ? "" : "hidden"
               }`}
             >

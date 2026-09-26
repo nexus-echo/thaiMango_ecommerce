@@ -11,6 +11,7 @@ import {
   Gift,
   Heart,
   HelpCircle,
+  Info,
   Leaf,
   MessageCircle,
   Search,
@@ -60,6 +61,13 @@ const subitemPromoData: Record<string, PromoContent> = {
     title: "Discover our newest mango creations.",
     btn: "Shop All",
     url: "/shop",
+  },
+  "/about-us": {
+    img: "/images/processing/mango-selection.webp",
+    tag: "About Us",
+    title: "Kaew Kamin mangoes from Kui Buri, and the founder behind them.",
+    btn: "About Bangkok Mango",
+    url: "/about-us",
   },
   "/our-story": {
     img: "/images/menu-guides-promo.jpg",
@@ -404,6 +412,19 @@ export default function MobileMenu() {
             } flex-col gap-5 md:gap-6`}
           >
             <Link
+              href="/about-us"
+              className={linkCls()}
+              onClick={closeMenu}
+              onMouseEnter={() => hoverPromo("/about-us")}
+            >
+              <span className="contents">
+                <span className={subIconBox}>
+                  <Info className="w-5 h-5" />
+                </span>
+                <span className={subLabel}>ABOUT US</span>
+              </span>
+            </Link>
+            <Link
               href="/our-story"
               className={linkCls()}
               onClick={closeMenu}
@@ -672,7 +693,7 @@ export default function MobileMenu() {
             )}
           </div>
           <p className="text-[10px] tracking-widest uppercase text-muted">
-            © 2026 THAI MANGO
+            © 2026 Bangkok MANGO
           </p>
         </div>
       </div>
@@ -687,7 +708,7 @@ function NewsletterMiniForm() {
       className="flex border-b border-charcoal/30 max-w-sm"
       onSubmit={(e) => {
         e.preventDefault();
-        showToast("Subscribed to Thai Mango");
+        showToast("Subscribed to Bangkok Mango");
         (e.target as HTMLFormElement).reset();
       }}
     >

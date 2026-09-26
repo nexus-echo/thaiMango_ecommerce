@@ -4,20 +4,17 @@ import Link from "next/link";
 import {
   ArrowDown,
   ArrowRight,
-  Beaker,
   Check,
-  Droplets,
   FlaskConical,
-  Leaf,
   MapPin,
   Microscope,
   PackageCheck,
   ShieldCheck,
   Sprout,
   Sun,
-  Thermometer,
 } from "lucide-react";
 import CtaBanner from "@/components/public/CtaBanner";
+import StorySlide, { type Slide } from "@/components/public/StorySlide";
 
 /* Copy is transcribed from the brand's "Our Story" document (Mangobangkok.docx)
    and its ten-slide deck, including the document's SEO block: title, meta
@@ -27,31 +24,12 @@ import CtaBanner from "@/components/public/CtaBanner";
    they ship with the code in /public rather than living in the S3 bucket. */
 const SLIDE_BASE = "/images/our-story";
 
-interface Slide {
-  number: number;
-  src: string;
-  alt: string;
-  caption: string;
-}
-
 const slides = {
   story: {
     number: 1,
     src: `${SLIDE_BASE}/01-our-story.jpg`,
     caption: "Our Story",
     alt: "Bangkok Mango Our Story: Plum, Chili Lime and Passion Fruit dried mango pouches beside a plate of dried mango. Born in Thailand, perfected by nature and science — origin in Kui Buri, Kaew Kamin mango, very slow fermentation, clean drying and vacuum protection.",
-  },
-  kuiBuri: {
-    number: 2,
-    src: `${SLIDE_BASE}/02-kui-buri.jpg`,
-    caption: "From Kui Buri, Thailand",
-    alt: "From Kui Buri, Thailand: mango orchards below the mountains of Prachuap Khiri Khan, with biodiverse western Thailand, warm tropical climate, fertile soil, the Kaew Kamin variety and harvest at the right stage.",
-  },
-  traceability: {
-    number: 3,
-    src: `${SLIDE_BASE}/03-traceability.jpg`,
-    caption: "Farm-to-pack traceability",
-    alt: "Farm-to-pack traceability: GAP-based cultivation, selective harvesting, sorting, cleaning and preparation, quality control at every stage, traceable from orchard to pack.",
   },
   process: {
     number: 4,
@@ -64,12 +42,6 @@ const slides = {
     src: `${SLIDE_BASE}/05-fermentation.jpg`,
     caption: "Where tradition meets biotechnology",
     alt: "Where tradition meets biotechnology: Thai Namwa banana substrate, beneficial cultures, very slow fermentation, transformed mango matrix, richer flavor and thoughtful processing.",
-  },
-  cleanLabel: {
-    number: 6,
-    src: `${SLIDE_BASE}/06-clean-label.jpg`,
-    caption: "More than “no preservatives”",
-    alt: "More than no preservatives: control of raw materials, microorganisms, fermentation, moisture and drying, hygiene and packaging.",
   },
   flavors1: {
     number: 7,
@@ -138,22 +110,6 @@ const meetingPoints = [
   "Craftsmanship",
 ];
 
-const kaewKaminTraits = [
-  ["Golden flesh", "A beautiful yellow-golden color develops through the fruit."],
-  ["Firm & crisp", "Harvested at the right stage, the texture is firm, crisp and dense."],
-  ["Balanced", "Brightness from natural acidity, followed by sweetness and a characteristic mango aroma."],
-];
-
-const traceSteps = [
-  "GAP-based cultivation",
-  "Selective harvesting",
-  "Sorting, cleaning & preparation",
-  "Quality control at every stage",
-  "Traceable from orchard to pack",
-];
-
-const maturityEffects = ["Texture", "Acidity", "Sweetness", "Aroma", "Color", "Fermentation & drying behavior"];
-
 const processSteps = [
   "Select Kaew Kamin mangoes",
   "Clean, trim and prepare",
@@ -180,17 +136,6 @@ const fermentationChanges = [
   "The acidity of the food matrix can change.",
   "Flavor precursors can be generated.",
   "Entirely new sensory characteristics may emerge.",
-];
-
-const controls = [
-  { Icon: Leaf, label: "Raw materials" },
-  { Icon: Microscope, label: "Microorganisms" },
-  { Icon: FlaskConical, label: "Fermentation" },
-  { Icon: Beaker, label: "Acidity" },
-  { Icon: Droplets, label: "Water activity & moisture" },
-  { Icon: Thermometer, label: "Temperature" },
-  { Icon: ShieldCheck, label: "Hygiene" },
-  { Icon: PackageCheck, label: "Packaging" },
 ];
 
 const collections = [
@@ -300,52 +245,6 @@ const eyebrow = "mb-4 block text-[11px] font-bold uppercase tracking-[0.25em] te
 const h2 = "text-3xl font-medium leading-tight tracking-tight md:text-5xl";
 const body = "text-sm leading-7 text-muted md:text-base md:leading-8";
 
-/* One slide of the deck, shown whole (never cropped — the slides carry text).
-   Clicking opens the full-size image so the small print stays readable. */
-function StorySlide({
-  slide,
-  tone = "light",
-  preload = false,
-  className = "",
-}: {
-  slide: Slide;
-  tone?: "light" | "dark";
-  preload?: boolean;
-  className?: string;
-}) {
-  const dark = tone === "dark";
-  return (
-    <figure className={`mx-auto max-w-6xl ${className}`}>
-      <a
-        href={slide.src}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`group block overflow-hidden rounded-2xl border shadow-xl ${
-          dark ? "border-white/15 shadow-black/30" : "border-cream shadow-burgundy/10"
-        }`}
-      >
-        <Image
-          src={slide.src}
-          alt={slide.alt}
-          width={1600}
-          height={900}
-          preload={preload}
-          sizes="(max-width: 1199px) calc(100vw - 48px), 1152px"
-          className="h-auto w-full transition duration-500 group-hover:scale-[1.01]"
-        />
-      </a>
-      <figcaption
-        className={`mt-3 flex items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-[0.2em] ${
-          dark ? "text-white/60" : "text-muted"
-        }`}
-      >
-        <span>{slide.caption}</span>
-        <span>{String(slide.number).padStart(2, "0")} / 10</span>
-      </figcaption>
-    </figure>
-  );
-}
-
 export default function OurStoryPage() {
   return (
     <main>
@@ -421,82 +320,22 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      {/* From Kui Buri + Kaew Kamin */}
-      <section aria-labelledby="origin-heading" className="border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto grid max-w-6xl items-end gap-8 lg:grid-cols-2 lg:gap-16">
-          <div>
+      {/* Origin, traceability and clean label now live on /about-us */}
+      <section aria-labelledby="about-teaser-heading" className="border-y border-cream bg-white px-6 py-16 md:px-12 md:py-20">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 rounded-3xl bg-cream px-8 py-10 md:flex-row md:items-center md:justify-between md:px-12">
+          <div className="max-w-2xl">
             <span className={eyebrow}>From Kui Buri, Thailand</span>
-            <h2 id="origin-heading" className={h2}>Quality begins in the orchard.</h2>
+            <h2 id="about-teaser-heading" className="text-2xl font-medium leading-tight tracking-tight md:text-3xl">
+              Where our mangoes grow, how every harvest is traced, and what &ldquo;clean label&rdquo; means to us.
+            </h2>
           </div>
-          <div>
-            <p className={body}>
-              Our story begins in Kui Buri District, Prachuap Khiri Khan Province, on Thailand&apos;s western peninsula. This region lies alongside one of the country&apos;s great forest landscapes, an area recognized for its remarkable biological diversity.
-            </p>
-            <p className={`mt-4 ${body}`}>
-              Tropical warmth, balanced seasonal rainfall, fertile soil and local ecology provide an exceptional setting for cultivating mangoes.
-            </p>
-          </div>
+          <Link
+            href="/about-us#product"
+            className="inline-flex shrink-0 items-center gap-3 rounded-full bg-charcoal px-7 py-4 text-xs font-semibold uppercase tracking-widest text-white transition hover:bg-accent"
+          >
+            About the product <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </Link>
         </div>
-        <StorySlide slide={slides.kuiBuri} className="mt-12" />
-
-        <div className="mx-auto mt-20 max-w-7xl">
-          <div className="mb-10 grid items-end gap-6 md:grid-cols-2">
-            <div>
-              <span className={eyebrow}>The heart of Bangkok Mango</span>
-              <h3 className="text-2xl font-medium leading-tight tracking-tight md:text-4xl">Kaew Kamin Mango</h3>
-            </div>
-            <p className={`max-w-md md:justify-self-end ${body}`}>
-              A distinctive golden-fleshed mango cultivated in Thailand and valued for characteristics that make it particularly interesting for premium fruit processing. It is not simply sweet — its character comes from contrast.
-            </p>
-          </div>
-          <dl className="grid gap-5 md:grid-cols-3">
-            {kaewKaminTraits.map(([title, description]) => (
-              <div key={title} className="rounded-2xl border border-cream bg-ivory p-7">
-                <dt className="mb-2 text-lg font-medium tracking-tight">{title}</dt>
-                <dd className="text-sm leading-7 text-muted">{description}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className={`mt-10 max-w-3xl ${body}`}>
-            For Bangkok Mango, this balance matters. A truly exceptional dried mango cannot be created by drying an ordinary fruit and adding sweetness afterward.{" "}
-            <strong className="font-semibold text-charcoal">The quality must already exist inside the mango.</strong>{" "}
-            That is why our process begins in the orchard.
-          </p>
-        </div>
-      </section>
-
-      {/* Farm-to-pack traceability */}
-      <section aria-labelledby="trace-heading" className="bg-ivory px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <span className={eyebrow}>Farm-to-pack traceability</span>
-            <h2 id="trace-heading" className={h2}>Harvest is the first stage of food processing.</h2>
-          </div>
-          <div>
-            <p className={body}>
-              Our mangoes are cultivated under carefully managed agricultural practices based on Good Agricultural Practices — GAP principles. From orchard management and harvesting to fruit selection and processing, our objective is to maintain consistency, safety and traceability throughout the supply chain.
-            </p>
-            <p className={`mt-4 ${body}`}>
-              Each harvest is selected at an appropriate stage of maturity, because maturity affects almost everything that follows:
-            </p>
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {maturityEffects.map((effect) => (
-                <li key={effect} className="rounded-full bg-cream px-4 py-2 text-xs font-semibold">
-                  {effect}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <ol aria-label="Traceability steps" className="mx-auto mt-10 flex max-w-6xl flex-wrap items-center gap-3">
-          {traceSteps.map((step, i) => (
-            <li key={step} className="flex items-center gap-3">
-              <span className="rounded-full border border-cream bg-white px-4 py-2 text-xs font-semibold">{step}</span>
-              {i < traceSteps.length - 1 && <ArrowRight aria-hidden="true" className="h-4 w-4 text-accent" />}
-            </li>
-          ))}
-        </ol>
-        <StorySlide slide={slides.traceability} className="mt-12" />
       </section>
 
       {/* From fresh mango to finished product */}
@@ -660,34 +499,6 @@ export default function OurStoryPage() {
             </p>
           </div>
         </div>
-      </section>
-
-      {/* More than "no preservatives" */}
-      <section aria-labelledby="control-heading" className="border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <span className={eyebrow}>More than &ldquo;no preservatives&rdquo;</span>
-            <h2 id="control-heading" className={h2}>A clean-label philosophy built into the process.</h2>
-            <p className={`mt-6 ${body}`}>
-              For us, clean-label food should mean more than removing something from an ingredient list. It should mean designing the entire process intelligently enough that unnecessary additives are not required.
-            </p>
-            <p className={`mt-4 ${body}`}>
-              That requires control — and continuous verification of food safety. This is the difference between simply saying &ldquo;no preservatives&rdquo; and building a food-processing technology designed around that principle from the beginning.
-            </p>
-          </div>
-          <ul className="grid grid-cols-2 gap-4">
-            {controls.map(({ Icon, label }) => (
-              <li key={label} className="flex items-center gap-4 rounded-2xl border border-cream bg-ivory p-5">
-                <Icon aria-hidden="true" className="h-6 w-6 shrink-0 text-beetroot" strokeWidth={1.5} />
-                <span className="text-sm font-medium">
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-muted">Control of</span>
-                  {label}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <StorySlide slide={slides.cleanLabel} className="mt-14" />
       </section>
 
       {/* Flavor collections */}

@@ -50,11 +50,20 @@ export default function SiteFooter() {
     },
   ].filter((s) => Boolean(s.href));
 
-  const storeName = settings?.store_name || "Thai Mango";
+  const storeName = settings?.store_name || "Bangkok Mango";
 
   return (
-    <footer className="bg-charcoal text-ivory pt-24 pb-12 px-6 md:px-12">
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-20">
+    <footer className="relative overflow-hidden bg-charcoal text-ivory pt-10 pb-28 md:pb-36 px-6 md:px-12">
+      {/* Kui Buri orchard silhouettes along the bottom, tone-on-tone gold.
+          Held at a min width so phones crop the sides instead of shrinking it. */}
+      <img
+        src="/images/footer/orchard-scene.svg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full min-w-[1100px] max-w-none opacity-[0.13]"
+      />
+
+      <div className="relative max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-5">
         {/* Col 1 */}
         <div className="lg:pr-12 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start mb-6">
@@ -101,6 +110,11 @@ export default function SiteFooter() {
             {t("footer_discover")}
           </h4>
           <ul className="space-y-4 text-sm text-ivory/70">
+            <li>
+              <Link href="/about-us" className="hover:text-white transition">
+                About Us
+              </Link>
+            </li>
             <li>
               <Link href="/our-story" className="hover:text-white transition">
                 Our Story
@@ -157,7 +171,13 @@ export default function SiteFooter() {
               </Link>
             </li>
           </ul>
-          {/* Admin-managed support details */}
+        </div>
+      </div>
+
+      {/* Payment Methods */}
+      <div className="relative max-w-screen-2xl mx-auto pb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Admin-managed support details */}
+        <div className="">
           {settings && (
             <div className="mt-6 space-y-2 text-xs text-ivory/60">
               {settings.support_email && (
@@ -182,57 +202,56 @@ export default function SiteFooter() {
             </div>
           )}
         </div>
-      </div>
 
-      {/* Payment Methods */}
-      <div className="max-w-screen-2xl mx-auto pb-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-[10px] tracking-widest uppercase text-ivory/50">
-          We Accept
-        </p>
-        {/* Admin-managed: card_* toggles; UPI/COD follow the payment flags. */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5">
-          {(settings?.card_visa ?? true) && (
-            <svg viewBox="0 0 48 32" className="w-11 h-8 rounded-md shadow-sm" aria-label="Visa">
-              <rect width="48" height="32" rx="5" fill="#1A1F71" />
-              <text x="24" y="21" textAnchor="middle" fontStyle="italic" fontWeight="bold" fontSize="12" fill="#ffffff">
-                VISA
-              </text>
-            </svg>
-          )}
-          {(settings?.card_mastercard ?? true) && (
-            <svg viewBox="0 0 48 32" className="w-11 h-8 rounded-md shadow-sm" aria-label="Mastercard">
-              <rect width="48" height="32" rx="5" fill="#F3F3F3" />
-              <circle cx="20" cy="16" r="9" fill="#EB001B" />
-              <circle cx="28" cy="16" r="9" fill="#F79E1B" fillOpacity="0.85" />
-            </svg>
-          )}
-          {(settings?.card_rupay ?? true) && (
-            <span className="w-11 h-8 rounded-md shadow-sm bg-white flex items-center justify-center">
-              <img src="/payments/rupay.svg" alt="RuPay" className="w-8" />
-            </span>
-          )}
-          {(settings?.card_amex ?? false) && (
-            <svg viewBox="0 0 48 32" className="w-11 h-8 rounded-md shadow-sm" aria-label="American Express">
-              <rect width="48" height="32" rx="5" fill="#2E77BC" />
-              <text x="24" y="20" textAnchor="middle" fontWeight="bold" fontSize="9" fill="#ffffff">
-                AMEX
-              </text>
-            </svg>
-          )}
-          {(settings?.upi_enabled ?? true) && (
-            <span className="w-11 h-8 rounded-md shadow-sm bg-white flex items-center justify-center">
-              <img src="/payments/upi.svg" alt="UPI" className="w-8" />
-            </span>
-          )}
-          {(settings?.cod_enabled ?? true) && (
-            <span className="flex items-center gap-1.5 w-auto h-8 px-3 rounded-md bg-ivory/5 border border-ivory/15 text-ivory/70 text-[9px] tracking-wide uppercase font-semibold">
-              <Banknote className="w-3.5 h-3.5" /> COD
-            </span>
-          )}
+        <div className="">
+          <p className="text-[10px] text-center tracking-widest uppercase text-ivory/50 mb-2">
+            We Accept
+          </p>
+          {/* Admin-managed: card_* toggles; UPI/COD follow the payment flags. */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5">
+            {(settings?.card_visa ?? true) && (
+              <svg viewBox="0 0 48 32" className="w-11 h-8 rounded-md shadow-sm" aria-label="Visa">
+                <rect width="48" height="32" rx="5" fill="#1A1F71" />
+                <text x="24" y="21" textAnchor="middle" fontStyle="italic" fontWeight="bold" fontSize="12" fill="#ffffff">
+                  VISA
+                </text>
+              </svg>
+            )}
+            {(settings?.card_mastercard ?? true) && (
+              <svg viewBox="0 0 48 32" className="w-11 h-8 rounded-md shadow-sm" aria-label="Mastercard">
+                <rect width="48" height="32" rx="5" fill="#F3F3F3" />
+                <circle cx="20" cy="16" r="9" fill="#EB001B" />
+                <circle cx="28" cy="16" r="9" fill="#F79E1B" fillOpacity="0.85" />
+              </svg>
+            )}
+            {(settings?.card_rupay ?? true) && (
+              <span className="w-11 h-8 rounded-md shadow-sm bg-white flex items-center justify-center">
+                <img src="/payments/rupay.svg" alt="RuPay" className="w-8" />
+              </span>
+            )}
+            {(settings?.card_amex ?? false) && (
+              <svg viewBox="0 0 48 32" className="w-11 h-8 rounded-md shadow-sm" aria-label="American Express">
+                <rect width="48" height="32" rx="5" fill="#2E77BC" />
+                <text x="24" y="20" textAnchor="middle" fontWeight="bold" fontSize="9" fill="#ffffff">
+                  AMEX
+                </text>
+              </svg>
+            )}
+            {(settings?.upi_enabled ?? true) && (
+              <span className="w-11 h-8 rounded-md shadow-sm bg-white flex items-center justify-center">
+                <img src="/payments/upi.svg" alt="UPI" className="w-8" />
+              </span>
+            )}
+            {(settings?.cod_enabled ?? true) && (
+              <span className="flex items-center gap-1.5 w-auto h-8 px-3 rounded-md bg-ivory/5 border border-ivory/15 text-ivory/70 text-[9px] tracking-wide uppercase font-semibold">
+                <Banknote className="w-3.5 h-3.5" /> COD
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="max-w-screen-2xl mx-auto pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div className="relative max-w-screen-2xl mx-auto pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-[10px] tracking-widest text-ivory/50 uppercase">
           © 2026 {storeName}
         </p>

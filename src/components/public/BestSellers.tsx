@@ -9,6 +9,7 @@ import { useStore } from "@/components/public/store";
 import SellingFastBadge from "@/components/public/SellingFastBadge";
 import { unwrap } from "@/lib/http";
 import { mapProduct, type ApiProduct } from "@/lib/productCard";
+import TwoToneTitle from "./TwoToneTitle";
 
 /* Tailwind only emits classes it can see as complete strings, so a template
    like `md:grid-cols-${limit}` compiles to nothing. Spelled out here. */
@@ -58,9 +59,7 @@ export default function BestSellers({
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 reveal gap-6">
                     <div>
-                        <h2 className="text-2xl md:text-3xl font-serif font-normal text-[#A4741C] uppercase mb-3">
-                            Our Best Selling Products
-                        </h2>
+                        <TwoToneTitle text="Our Best Selling Products" accentWords={1} className="mb-3" />
                         <p className="text-muted text-sm md:text-base max-w-2xl">
                             {intro ||
                                 "The flavors our customers come back for — ranked by what actually leaves the orchard."}
