@@ -174,7 +174,7 @@ export default function Home() {
                 </svg>
               </span>
               <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">ธรรมชาติ 100%</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-[#502500]">100% NATURAL</span>
+              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">100% NATURAL</span>
             </div>
 
             {/* 2: Finest Quality Mango */}
@@ -187,7 +187,7 @@ export default function Home() {
                 </svg>
               </span>
               <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">คัดสรรจากมะม่วงคุณภาพ</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-[#502500]">FINEST QUALITY MANGO</span>
+              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">FINEST QUALITY MANGO</span>
             </div>
 
             {/* 3: Product of Thailand */}
@@ -200,7 +200,7 @@ export default function Home() {
                 </svg>
               </span>
               <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">ผลิตในประเทศไทย</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-[#502500]">PRODUCT OF THAILAND</span>
+              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">PRODUCT OF THAILAND</span>
             </div>
 
             {/* 4: Delicious & Chewy */}
@@ -214,7 +214,7 @@ export default function Home() {
                 </svg>
               </span>
               <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">อร่อย เพลิน เคี้ยวหนึบ</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-[#502500]">DELICIOUS &amp; CHEWY</span>
+              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">DELICIOUS &amp; CHEWY</span>
             </div>
 
             {/* 5: For All Ages */}
@@ -228,7 +228,7 @@ export default function Home() {
                 </svg>
               </span>
               <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">เหมาะสำหรับทุกวัย</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-[#502500]">FOR ALL AGES</span>
+              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">FOR ALL AGES</span>
             </div>
           </div>
         </div>
@@ -650,7 +650,7 @@ export default function Home() {
                 </svg>
               </span>
               <h3 className="text-sm font-semibold text-charcoal mb-0.5">ธรรมชาติ 100%</h3>
-              <p className="text-[10px] uppercase tracking-widest text-[#502500] font-bold mb-2">100% Natural</p>
+              <p className="text-[10px] uppercase tracking-widest text-burgundy font-bold mb-2">100% Natural</p>
               <p className="text-xs text-charcoal/75">Pure natural fruit with zero artificial preservatives.</p>
             </div>
 
@@ -664,7 +664,7 @@ export default function Home() {
                 </svg>
               </span>
               <h3 className="text-sm font-semibold text-charcoal mb-0.5">คัดสรรจากมะม่วงคุณภาพ</h3>
-              <p className="text-[10px] uppercase tracking-widest text-[#502500] font-bold mb-2">Finest Quality Mango</p>
+              <p className="text-[10px] uppercase tracking-widest text-burgundy font-bold mb-2">Finest Quality Mango</p>
               <p className="text-xs text-charcoal/75">Hand-selected ripe mangoes for maximum sweetness and aroma.</p>
             </div>
 
@@ -678,7 +678,7 @@ export default function Home() {
                 </svg>
               </span>
               <h3 className="text-sm font-semibold text-charcoal mb-0.5">ผลิตในประเทศไทย</h3>
-              <p className="text-[10px] uppercase tracking-widest text-[#502500] font-bold mb-2">Product of Thailand</p>
+              <p className="text-[10px] uppercase tracking-widest text-burgundy font-bold mb-2">Product of Thailand</p>
               <p className="text-xs text-charcoal/75">Authentically produced and packed in Thailand.</p>
             </div>
 
@@ -693,7 +693,7 @@ export default function Home() {
                 </svg>
               </span>
               <h3 className="text-sm font-semibold text-charcoal mb-0.5">อร่อย เพลิน เคี้ยวหนึบ</h3>
-              <p className="text-[10px] uppercase tracking-widest text-[#502500] font-bold mb-2">Delicious &amp; Chewy</p>
+              <p className="text-[10px] uppercase tracking-widest text-burgundy font-bold mb-2">Delicious &amp; Chewy</p>
               <p className="text-xs text-charcoal/75">Gently dried for that irresistibly soft, chewy mouthfeel.</p>
             </div>
 
@@ -708,7 +708,7 @@ export default function Home() {
                 </svg>
               </span>
               <h3 className="text-sm font-semibold text-charcoal mb-0.5">เหมาะสำหรับทุกวัย</h3>
-              <p className="text-[10px] uppercase tracking-widest text-[#502500] font-bold mb-2">For All Ages</p>
+              <p className="text-[10px] uppercase tracking-widest text-burgundy font-bold mb-2">For All Ages</p>
               <p className="text-xs text-charcoal/75">Wholesome, guilt-free snacking for kids and adults alike.</p>
             </div>
           </div>

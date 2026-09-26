@@ -60,7 +60,7 @@ export default function SiteFooter() {
         src="/images/footer/orchard-scene.svg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none select-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full min-w-[1100px] max-w-none opacity-[0.13]"
+        className="pointer-events-none select-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full min-w-275 max-w-none opacity-[0.13]"
       />
 
       <div className="relative max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 mb-5">
