@@ -153,6 +153,7 @@ export default function CartPage() {
   };
 
   return (
+    <>
     <main className="flex-1 py-10 md:py-16">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
         {/* Breadcrumbs */}
@@ -252,7 +253,7 @@ export default function CartPage() {
                         />
                         <div className="min-w-0">
                           <span className="text-[9px] uppercase tracking-wider text-accent font-bold">
-                            Thai Mango
+                            Bangkok Mango
                           </span>
                           <h3 className="font-serif text-base md:text-lg text-charcoal font-semibold line-clamp-1 mt-0.5">
                             {item.name}
@@ -574,6 +575,7 @@ export default function CartPage() {
           </div>
         )}
       </div>
+    </main>
       <CtaBanner
         eyebrow="Before You Check Out"
         title="Round out your box"
@@ -583,6 +585,6 @@ export default function CartPage() {
         secondaryLabel="View Bestsellers"
         secondaryHref="/shop?category=Bestsellers"
       />
-    </main>
+    </>
   );
 }

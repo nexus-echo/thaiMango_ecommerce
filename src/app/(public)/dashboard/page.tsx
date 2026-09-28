@@ -316,11 +316,11 @@ function TrackRail({ status }: { status: OrderStatus }) {
     <ol className="relative grid grid-cols-4">
       <span
         aria-hidden
-        className="absolute left-[12.5%] right-[12.5%] top-[11px] h-1 rounded-full bg-cream"
+        className="absolute left-[12.5%] right-[12.5%] top2.75 h-1 rounded-full bg-cream"
       />
       <span
         aria-hidden
-        className="absolute left-[12.5%] top-[11px] h-1 rounded-full bg-accent transition-[width] duration-1000 ease-out"
+        className="absolute left-[12.5%] top-2.75 h-1 rounded-full bg-accent transition-[width] duration-1000 ease-out"
         style={{ width: `${progress * 75}%` }}
       />
       {TRACK_STEPS.map((step, i) => {
@@ -517,10 +517,10 @@ export default function DashboardPage() {
 
   const profileMutation = useMutation({
     mutationFn: async (values: typeof profileDraft) =>
-      unwrap<{ name: string; email: string; phone: string }>(
+      unwrap<{ name: string; email: string | null; phone: string }>(
         axios.patch("/api/me", values)
       ),
-    onSuccess: (data: { name: string; email: string; phone: string }) => {
+    onSuccess: (data: { name: string; email: string | null; phone: string }) => {
       const [firstName, ...rest] = data.name.split(" ");
       setUser({
         ...(user ?? { isLoggedIn: true }),
@@ -528,7 +528,7 @@ export default function DashboardPage() {
         firstName,
         lastName: rest.join(" "),
         name: data.name,
-        email: data.email,
+        email: data.email ?? undefined,
         phone: data.phone,
       });
       queryClient.invalidateQueries({ queryKey: ["me"] });
@@ -662,7 +662,7 @@ export default function DashboardPage() {
             <div className="flex flex-wrap items-end justify-between gap-5">
               <div>
                 <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
-                  Thai Mango Circle
+                  Bangkok Mango Circle
                 </p>
                 <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
                   Welcome back,{" "}
@@ -674,7 +674,7 @@ export default function DashboardPage() {
               <p className="text-[13px] text-white/65">
                 {activeUser.memberSince
                   ? `Member since ${activeUser.memberSince}`
-                  : "Your Thai Mango account"}
+                  : "Your Bangkok Mango account"}
               </p>
             </div>
           </div>
@@ -1368,7 +1368,7 @@ export default function DashboardPage() {
                                       product.category.name_en,
                                       product.category.name_th
                                     )
-                                  : "Thai Mango"}
+                                  : "Bangkok Mango"}
                               </p>
                               <h4 className="mt-1.5 truncate text-[14px] font-semibold tracking-tight">
                                 {product
@@ -1608,7 +1608,7 @@ export default function DashboardPage() {
                       </p>
                       <p className="mt-3 text-[12px] leading-5 text-muted">
                         {orders.length} order{orders.length === 1 ? "" : "s"}{" "}
-                        placed with Thai Mango so far.
+                        placed with Bangkok Mango so far.
                       </p>
                     </div>
                   </div>
@@ -1726,7 +1726,8 @@ export default function DashboardPage() {
                           <label className={labelCls}>Email address</label>
                           <input
                             type="email"
-                            required
+                            /* WhatsApp / LINE sign-ups may not have one yet. */
+                            required={Boolean(user?.email)}
                             value={profileDraft.email}
                             onChange={(e) =>
                               setProfileDraft((d) => ({

@@ -52,7 +52,8 @@ export async function GET() {
 const profileSchema = z.object({
     f_name: z.string().trim().min(1, "First name is required"),
     l_name: z.string().trim().min(1, "Last name is required"),
-    email: z.email("Enter a valid email address"),
+    /* Blank is allowed for WhatsApp / LINE accounts that never gave one. */
+    email: z.union([z.email("Enter a valid email address"), z.literal("")]),
     ph_no: z.string().trim().min(7, "Enter a valid phone number"),
 });
 
@@ -77,19 +78,31 @@ export async function PATCH(req: Request) {
 
         const { f_name, l_name, email, ph_no } = parsed.data;
 
-        const emailTaken = await prisma.user.findFirst({
-            where: { email, id: { not: session.sub } },
-        });
-        if (emailTaken) {
-            const apiError = new ApiError(409, "An account with this email already exists");
-            return NextResponse.json(apiError, { status: apiError.statusCode });
+        if (!email) {
+            const current = await prisma.user.findUnique({
+                where: { id: session.sub },
+                select: { password_hash: true },
+            });
+            /* Password sign-in needs the email, so it can't be cleared. */
+            if (current?.password_hash) {
+                const apiError = new ApiError(400, "Enter a valid email address");
+                return NextResponse.json(apiError, { status: apiError.statusCode });
+            }
+        } else {
+            const emailTaken = await prisma.user.findFirst({
+                where: { email: { equals: email, mode: "insensitive" }, id: { not: session.sub } },
+            });
+            if (emailTaken) {
+                const apiError = new ApiError(409, "An account with this email already exists");
+                return NextResponse.json(apiError, { status: apiError.statusCode });
+            }
         }
 
         const user = await prisma.user.update({
             where: { id: session.sub },
             data: {
                 name: `${f_name} ${l_name}`.trim(),
-                email,
+                email: email || null,
                 phone: ph_no,
             },
             select: USER_SELECT,

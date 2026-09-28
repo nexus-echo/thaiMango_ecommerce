@@ -14,6 +14,7 @@ import {
   Sun,
 } from "lucide-react";
 import CtaBanner from "@/components/public/CtaBanner";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 import StorySlide, { type Slide } from "@/components/public/StorySlide";
 
 /* Copy is transcribed from the brand's "Our Story" document (Mangobangkok.docx)
@@ -81,8 +82,7 @@ export const metadata: Metadata = {
     "Kaew Kamin mango",
     "fermented mango",
     "naturally fermented dried mango",
-    "Thai mango",
-    "premium Thai mango",
+    "premium Bangkok mango",
     "mango snack Thailand",
     "preservative-free dried mango",
     "no added preservatives dried mango",
@@ -249,8 +249,10 @@ export default function OurStoryPage() {
   return (
     <main>
       {/* Hero */}
-      <section className="overflow-hidden bg-burgundy px-6 pb-16 pt-12 text-white md:px-12 md:pb-24 md:pt-16">
-        <div className="mx-auto max-w-6xl">
+      <section className="relative overflow-hidden bg-burgundy px-6 pb-16 pt-12 text-white md:px-12 md:pb-24 md:pt-16">
+        {/* Mild spray-paint graffiti */}
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={400} className="text-gold opacity-[0.12]" />
+        <div className="relative mx-auto max-w-6xl">
           <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-3 text-xs text-white/65">
             <Link href="/" className="transition hover:text-white">Home</Link>
             <span aria-hidden="true">/</span>
@@ -283,8 +285,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* The idea */}
-      <section id="the-idea" aria-labelledby="idea-heading" className="scroll-mt-28 bg-ivory px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+      <section id="the-idea" aria-labelledby="idea-heading" className="relative overflow-hidden scroll-mt-28 bg-ivory px-6 py-20 md:px-12 md:py-28">
+        {/* Mango-journey doodles in the side gutters only, away from the copy */}
+        <DoodleBackdrop src="/images/why-choose/process-doodles.svg" tile={480} fade="edges" className="text-accent opacity-[0.14]" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
             <span className={eyebrow}>Where it begins</span>
             <h2 id="idea-heading" className={h2}>It begins with the land.</h2>
@@ -310,7 +314,7 @@ export default function OurStoryPage() {
             </ul>
           </div>
         </div>
-        <div className="mx-auto mt-16 max-w-4xl rounded-2xl bg-cream px-8 py-10 text-center md:px-14 md:py-12">
+        <div className="relative mx-auto mt-16 max-w-4xl rounded-2xl bg-cream px-8 py-10 text-center md:px-14 md:py-12">
           <p className={body}>
             From our mango orchards in Kui Buri, Prachuap Khiri Khan, to our carefully controlled fermentation and drying process, every step has one purpose:
           </p>
@@ -321,8 +325,9 @@ export default function OurStoryPage() {
       </section>
 
       {/* Origin, traceability and clean label now live on /about-us */}
-      <section aria-labelledby="about-teaser-heading" className="border-y border-cream bg-white px-6 py-16 md:px-12 md:py-20">
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 rounded-3xl bg-cream px-8 py-10 md:flex-row md:items-center md:justify-between md:px-12">
+      <section aria-labelledby="about-teaser-heading" className="relative overflow-hidden border-y border-cream bg-white px-6 py-16 md:px-12 md:py-20">
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={380} className="text-accent opacity-[0.12]" />
+        <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-6 rounded-3xl bg-cream px-8 py-10 md:flex-row md:items-center md:justify-between md:px-12">
           <div className="max-w-2xl">
             <span className={eyebrow}>From Kui Buri, Thailand</span>
             <h2 id="about-teaser-heading" className="text-2xl font-medium leading-tight tracking-tight md:text-3xl">
@@ -339,8 +344,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* From fresh mango to finished product */}
-      <section aria-labelledby="process-heading" className="border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto max-w-6xl">
+      <section aria-labelledby="process-heading" className="relative overflow-hidden border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
+        {/* Processing graffiti (mango → wash → slice → dry → flavor → pack) */}
+        <DoodleBackdrop src="/images/doodles/processing.svg" tile={440} fade="edges" className="text-accent opacity-[0.14]" />
+        <div className="relative mx-auto max-w-6xl">
           <div className="mb-12 grid items-end gap-6 md:grid-cols-2">
             <div>
               <span className={eyebrow}>From fresh mango to finished product</span>
@@ -376,8 +383,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* Where tradition meets biotechnology */}
-      <section aria-labelledby="ferment-heading" className="bg-beetroot px-6 py-20 text-white md:px-12 md:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section aria-labelledby="ferment-heading" className="relative overflow-hidden bg-beetroot px-6 py-20 text-white md:px-12 md:py-28">
+        {/* Fermentation doodles (Namwa banana → cultures → mango), in gold */}
+        <DoodleBackdrop src="/images/fermentation/fermentation-doodles.svg" tile={480} className="text-gold opacity-[0.09]" />
+        <div className="relative mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
               <span className="mb-4 block text-[11px] font-bold uppercase tracking-[0.25em] text-gold">Where tradition meets biotechnology</span>
@@ -413,8 +422,9 @@ export default function OurStoryPage() {
       </section>
 
       {/* Probiotic → postbiotic */}
-      <section aria-labelledby="postbiotic-heading" className="bg-ivory px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section aria-labelledby="postbiotic-heading" className="relative overflow-hidden bg-ivory px-6 py-20 md:px-12 md:py-28">
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={380} fade="edges" className="text-accent opacity-[0.14]" />
+        <div className="relative mx-auto max-w-7xl">
           <div className="mb-14 grid items-end gap-6 md:grid-cols-2">
             <div>
               <span className={eyebrow}>From probiotic fermentation to postbiotic science</span>
@@ -449,8 +459,9 @@ export default function OurStoryPage() {
       </section>
 
       {/* Why fermentation matters */}
-      <section aria-labelledby="why-heading" className="border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section aria-labelledby="why-heading" className="relative overflow-hidden border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
+        <DoodleBackdrop src="/images/fermentation/fermentation-doodles.svg" tile={480} fade="edges" className="text-accent opacity-[0.14]" />
+        <div className="relative mx-auto max-w-7xl">
           <div className="mb-12 max-w-3xl">
             <span className={eyebrow}>Why fermentation matters</span>
             <h2 id="why-heading" className={h2}>During fermentation, complex biological reactions occur.</h2>
@@ -478,8 +489,9 @@ export default function OurStoryPage() {
       </section>
 
       {/* Food, microbiome and the future of health */}
-      <section aria-labelledby="health-heading" className="bg-ivory px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
+      <section aria-labelledby="health-heading" className="relative overflow-hidden bg-ivory px-6 py-20 md:px-12 md:py-28">
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={380} fade="edges" className="text-accent opacity-[0.14]" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <span className={eyebrow}>Food, microbiome and the future of health</span>
             <h2 id="health-heading" className={h2}>Built on science. Honest about it.</h2>
@@ -502,7 +514,7 @@ export default function OurStoryPage() {
       </section>
 
       {/* Flavor collections */}
-      <section aria-labelledby="flavors-heading" className="bg-ivory px-6 py-20 md:px-12 md:py-28">
+      {/* <section aria-labelledby="flavors-heading" className="bg-ivory px-6 py-20 md:px-12 md:py-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 grid items-end gap-6 md:grid-cols-2">
             <div>
@@ -541,11 +553,12 @@ export default function OurStoryPage() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* The Bangkok Mango difference */}
-      <section aria-labelledby="difference-heading" className="border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section aria-labelledby="difference-heading" className="relative overflow-hidden border-y border-cream bg-white px-6 py-20 md:px-12 md:py-28">
+        <DoodleBackdrop src="/images/why-choose/process-doodles.svg" tile={480} fade="edges" className="text-accent opacity-[0.14]" />
+        <div className="relative mx-auto max-w-7xl">
           <div className="mb-12 grid items-end gap-6 md:grid-cols-2">
             <div>
               <span className={eyebrow}>The Bangkok Mango difference</span>
@@ -582,8 +595,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* Nature created the mango */}
-      <section aria-labelledby="nature-heading" className="bg-burgundy px-6 py-20 text-white md:px-12 md:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section aria-labelledby="nature-heading" className="relative overflow-hidden bg-burgundy px-6 py-20 text-white md:px-12 md:py-28">
+        {/* Mild spray-paint graffiti, faded out behind the centred copy */}
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={400} fade="center" className="text-gold opacity-[0.18]" />
+        <div className="relative mx-auto max-w-7xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <span className="mb-4 block text-[11px] font-bold uppercase tracking-[0.25em] text-gold">Two worlds, one mango</span>
             <h2 id="nature-heading" className={h2}>Nature created the mango. Science helps us respect it.</h2>
@@ -610,9 +625,10 @@ export default function OurStoryPage() {
       </section>
 
       {/* From Thailand to the world */}
-      <section aria-labelledby="world-heading" className="bg-ivory px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-cream">
+      <section aria-labelledby="world-heading" className="relative overflow-hidden bg-ivory px-6 py-20 md:px-12 md:py-28">
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={380} fade="edges" className="text-accent opacity-[0.14]" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-20">
+          <div className="relative aspect-4/3 overflow-hidden rounded-2xl bg-cream">
             <Image
               src="/images/processing/bangkok-mango-packing.webp"
               alt="Gold and ivory Bangkok Mango Original Flavor pouches beside dried mango and a packing scoop"
@@ -625,7 +641,7 @@ export default function OurStoryPage() {
             <span className={eyebrow}>From Thailand to the world</span>
             <h2 id="world-heading" className={h2}>This is Bangkok Mango.</h2>
             <p className={`mt-6 ${body}`}>
-              Thailand is recognized around the world for the extraordinary diversity of its tropical fruits. Bangkok Mango was created to take that heritage one step further — so the world can experience Thai mango not simply as another dried-fruit snack, but as a premium food created through the combination of Thai origin, agricultural craftsmanship and modern biological science.
+              Thailand is recognized around the world for the extraordinary diversity of its tropical fruits. Bangkok Mango was created to take that heritage one step further — so the world can experience Bangkok mango not simply as another dried-fruit snack, but as a premium food created through the combination of Thai origin, agricultural craftsmanship and modern biological science.
             </p>
             <ul className="mt-8 divide-y divide-cream border-y border-cream">
               {journey.map((line) => (
@@ -642,7 +658,7 @@ export default function OurStoryPage() {
       <CtaBanner
         eyebrow="Born in Thailand. Perfected by Nature & Science."
         title="From our orchard to the world."
-        description="Taste the result of Kui Buri fruit, very slow fermentation and careful drying — real Thai mango, transformed first, then dried."
+        description="Taste the result of Kui Buri fruit, very slow fermentation and careful drying — real Bangkok mango, transformed first, then dried."
         primaryLabel="Shop the Collection"
         primaryHref="/shop"
         secondaryLabel="See Our Process"

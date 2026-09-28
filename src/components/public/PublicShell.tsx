@@ -5,6 +5,7 @@ import AnnouncementBar from "./AnnouncementBar";
 import BottomNav from "./BottomNav";
 import CartDrawer from "./CartDrawer";
 import ChatWidget from "./ChatWidget";
+import GoogleTranslate from "./GoogleTranslate";
 import MobileMenu from "./MobileMenu";
 import QuickViewModal from "./QuickViewModal";
 import ScrollEffects from "./ScrollEffects";
@@ -56,6 +57,7 @@ export default function PublicShell({
       <ChatWidget />
       <BottomNav />
       <ScrollEffects />
+      <GoogleTranslate />
     </div>
   );
 }

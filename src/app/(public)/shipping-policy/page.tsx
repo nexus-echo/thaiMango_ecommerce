@@ -43,7 +43,7 @@ export default async function ShippingPolicyPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-charcoal mb-3">3. Temperature-Controlled Eco Packaging</h2>
-              <p>All Thai Mango pouches are packed inside biodegradable insulated sleeves to ensure total freshness, even in warm climates.</p>
+              <p>All Bangkok Mango pouches are packed inside biodegradable insulated sleeves to ensure total freshness, even in warm climates.</p>
             </section>
 
             <section>

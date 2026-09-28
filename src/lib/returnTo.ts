@@ -1,21 +1,9 @@
 import { useSyncExternalStore } from "react";
+import { RETURN_TO_PARAM, safeReturnTo } from "@/lib/safeReturnTo";
 
-/* "Send me back where I was" for the sign-in / sign-up pages, carried as
-   `?next=/some/path`. Only same-site paths are honoured — anything else
-   (https://evil.com, //evil.com, /\evil.com) is dropped, so the parameter
-   can't be used to bounce people off-site after they sign in. */
+/* Client-side helpers for `?next=`; the validation itself is in safeReturnTo.ts. */
 
-export const RETURN_TO_PARAM = "next";
-
-export function safeReturnTo(value: string | null | undefined): string | null {
-    if (!value) return null;
-    if (!value.startsWith("/") || value.startsWith("//") || value.startsWith("/\\")) {
-        return null;
-    }
-    /* Never loop back to the auth pages themselves. */
-    if (/^\/(login|register)(\/|\?|#|$)/.test(value)) return null;
-    return value;
-}
+export { RETURN_TO_PARAM, safeReturnTo };
 
 /** Reads `?next=` from the current URL (client only). */
 export function readReturnTo(): string | null {

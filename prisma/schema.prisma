@@ -16,10 +16,18 @@ enum Role {
   ADMIN
 }
 
+enum AuthProvider {
+  GOOGLE
+  LINE
+  WHATSAPP
+}
+
 model User {
   id                String               @id @default(uuid())
-  email             String               @unique
-  password_hash     String
+  /// Null for WhatsApp / LINE sign-ups that never shared an email.
+  email             String?              @unique
+  /// Null for accounts that only ever signed in with Google / LINE / WhatsApp.
+  password_hash     String?
   name              String
   phone             String
   role              Role                 @default(CUSTOMER)
@@ -31,6 +39,30 @@ model User {
   reviews           Review[]
   reviewVotes       ReviewVote[]
   resetTokens       PasswordResetToken[]
+  authAccounts      AuthAccount[]
+}
+
+/// A Google / LINE identity or a WhatsApp-verified number linked to a user.
+/// provider_account_id is the Google `sub`, the LINE user id, or the E.164 number.
+model AuthAccount {
+  id                  Int          @id @default(autoincrement())
+  user_id             String
+  provider            AuthProvider
+  provider_account_id String
+  created_at          DateTime     @default(now())
+  user                User         @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@unique([provider, provider_account_id])
+  @@index([user_id])
+}
+
+/// WhatsApp sign-in codes, one live code per number; only an HMAC of the code is stored.
+model PhoneOtp {
+  phone      String   @id
+  code_hash  String
+  attempts   Int      @default(0)
+  expires_at DateTime
+  created_at DateTime @default(now())
 }
 
 /// One-shot, customer-only reset links; only the SHA-256 of the token is stored.

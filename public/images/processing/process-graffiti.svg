@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" fill="none" stroke="#FFF9E9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Processing hero mural: the page's six stages as street graffiti on a
+       dark wall, joined by a spray-painted trail and numbered like the stage
+       cards below —
+       1 select → 2 wash → 3 slice (top row, left→right),
+       4 dry → 5 flavor → 6 pack (bottom row, right→left).
+       Main shapes get a dark offset "block" shadow (defs + <use>), the
+       classic graffiti 3D look. Art sits in the top ~680px so the hero
+       caption can overlay the rest. -->
+  <defs>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#ECA40C" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#ECA40C" stop-opacity="0"/>
+    </radialGradient>
+    <path id="mango" transform="translate(170 180) rotate(-28)" d="M-95 0C-95-55-45-75 10-72C70-68 100-30 95 10C90 50 55 70 20 68C0 67-10 78-30 76C-70 72-95 45-95 0Z"/>
+    <path id="bowl" d="M325 175H475C475 225 440 252 400 252C360 252 325 225 325 175Z"/>
+    <rect id="board" x="575" y="185" width="175" height="62" rx="14"/>
+    <circle id="sun" cx="575" cy="500" r="24"/>
+    <path id="tray" d="M560 580L760 580L735 635L535 635Z"/>
+    <circle id="lime" cx="445" cy="545" r="36"/>
+    <path id="chili" d="M325 568C345 548 385 563 405 598C415 618 425 640 440 653C405 650 368 623 350 600C338 586 326 578 325 568Z"/>
+    <path id="pouch" d="M92 505H208L204 650C170 660 130 660 96 650Z"/>
+  </defs>
+
+  <!-- spray glow behind each stage -->
+  <g stroke="none" fill="url(#glow)">
+    <circle cx="165" cy="180" r="130"/>
+    <circle cx="400" cy="170" r="130"/>
+    <circle cx="650" cy="170" r="130"/>
+    <circle cx="650" cy="570" r="130"/>
+    <circle cx="400" cy="570" r="130"/>
+    <circle cx="150" cy="570" r="130"/>
+  </g>
+
+  <!-- spray-painted trail between the stages -->
+  <path d="M132 262C140 318 240 312 300 302C360 292 440 320 520 306C600 292 690 282 738 330C778 372 748 424 680 418C600 412 520 440 440 422C360 404 290 432 220 424C182 419 158 430 150 470" stroke="#FFE490" stroke-width="6" stroke-dasharray="1 15"/>
+  <path d="M432 293l14 12-14 12" stroke="#FFE490" stroke-width="5"/>
+  <path d="M338 403l-14 12 14 12" stroke="#FFE490" stroke-width="5"/>
+  <path d="M136 458l14 18 16-16" stroke="#FFE490" stroke-width="5"/>
+
+  <!-- block shadows -->
+  <g transform="translate(7 7)" fill="#2A1200" stroke="#2A1200" stroke-width="6">
+    <use href="#mango"/>
+    <use href="#bowl"/>
+    <use href="#board"/>
+    <use href="#sun"/>
+    <use href="#tray"/>
+    <use href="#lime"/>
+    <use href="#chili"/>
+    <use href="#pouch"/>
+  </g>
+
+  <!-- 1 · select: ripe mango with leaf -->
+  <use href="#mango" fill="#ECA40C" stroke-width="5"/>
+  <g transform="translate(170 180) rotate(-28)">
+    <path d="M-58-38C-38-56 0-60 32-54" stroke="#FFE490" stroke-width="5"/>
+    <path d="M-62 38C-32 60 18 60 58 38" stroke="#B47404" stroke-width="5"/>
+  </g>
+  <path d="M145 112C146 100 150 92 156 86"/>
+  <path d="M154 92C176 62 220 64 236 82C212 106 176 108 154 92Z" fill="#8DBA4E"/>
+  <path d="M159 92C182 84 206 80 230 82" stroke-width="2.5"/>
+  <path d="M180 264v20M218 240v14" stroke="#ECA40C" stroke-width="5"/>
+  <circle cx="180" cy="288" r="5" fill="#ECA40C" stroke="none"/>
+  <circle cx="218" cy="258" r="4" fill="#ECA40C" stroke="none"/>
+
+  <!-- 2 · wash: bowl of water, falling drops, a peeled mango -->
+  <path d="M365 67c-10 14-14 22-14 29a14 14 0 0 0 28 0c0-7-4-15-14-29z" fill="#9FD3E6" stroke-width="3"/>
+  <path d="M402 44c-12 17-17 27-17 35a17 17 0 0 0 34 0c0-8-5-18-17-35z" fill="#9FD3E6" stroke-width="3"/>
+  <path d="M440 78c-9 12-12 19-12 25a12 12 0 0 0 24 0c0-6-3-13-12-25z" fill="#9FD3E6" stroke-width="3"/>
+  <path d="M340 150l-12-10M460 150l12-10M400 138v-12" stroke="#9FD3E6" stroke-width="3"/>
+  <path d="M368 176c10-20 52-20 64 0" fill="#ECA40C" stroke-width="3"/>
+  <use href="#bowl" fill="#6B3A12"/>
+  <path d="M315 175H485"/>
+  <path d="M335 192q16-10 32 0t32 0 32 0 32 0" stroke="#9FD3E6"/>
+  <path d="M372 246v18M430 240v12" stroke="#9FD3E6" stroke-width="4"/>
+  <circle cx="372" cy="268" r="4" fill="#9FD3E6" stroke="none"/>
+  <circle cx="430" cy="256" r="3.5" fill="#9FD3E6" stroke="none"/>
+
+  <!-- 3 · slice: knife over a board of even slices -->
+  <g transform="rotate(-22 650 124)">
+    <path d="M620 110L745 110Q760 118 745 132L620 138Z" fill="#E8E4DC"/>
+    <rect x="560" y="110" width="62" height="28" rx="8" fill="#B47404"/>
+    <circle cx="578" cy="124" r="3" fill="#FFF9E9" stroke="none"/>
+    <circle cx="602" cy="124" r="3" fill="#FFF9E9" stroke="none"/>
+  </g>
+  <path d="M712 150q20 10 40 4M700 166q18 8 36 4" stroke="#FFE490" stroke-width="3"/>
+  <use href="#board" fill="#935400"/>
+  <circle cx="734" cy="216" r="6"/>
+  <path d="M588 228c10-20 38-24 50-10-11 17-36 22-50 10z" fill="#ECA40C" stroke-width="3"/>
+  <path d="M638 228c10-20 38-24 50-10-11 17-36 22-50 10z" fill="#ECA40C" stroke-width="3"/>
+  <path d="M688 228c10-20 34-22 44-10-10 15-32 20-44 10z" fill="#ECA40C" stroke-width="3"/>
+  <path d="M610 247v16M700 247v22" stroke="#935400" stroke-width="5"/>
+  <circle cx="610" cy="267" r="4" fill="#935400" stroke="none"/>
+  <circle cx="700" cy="273" r="5" fill="#935400" stroke="none"/>
+
+  <!-- 4 · dry: sun over a mesh drying tray -->
+  <use href="#sun" fill="#FFE490"/>
+  <path d="M575 468v-12M575 532v12M543 500h-12M607 500h12M552 477l-9-9M598 523l9 9M598 477l9-9M552 523l-9 9" stroke="#FFE490" stroke-width="4"/>
+  <path d="M640 568q8-10 0-20t0-20M680 564q8-10 0-20t0-20M720 568q8-10 0-20t0-20" stroke="#FFE490" stroke-width="3"/>
+  <use href="#tray" fill="#6B3A12"/>
+  <path d="M585 580l-25 55M610 580l-25 55M635 580l-25 55M660 580l-25 55M685 580l-25 55M710 580l-25 55M735 580l-25 55M552 598H752M544 616H744" stroke-width="1.5" stroke-opacity="0.5"/>
+  <path d="M575 612c10-18 40-22 52-8-12 16-38 20-52 8z" fill="#ECA40C" stroke-width="3"/>
+  <path d="M635 612c10-18 40-22 52-8-12 16-38 20-52 8z" fill="#ECA40C" stroke-width="3"/>
+  <path d="M695 612c10-18 36-20 46-8-11 15-34 19-46 8z" fill="#ECA40C" stroke-width="3"/>
+
+  <!-- 5 · flavor: lime wheel, chili and a pinch of seasoning -->
+  <use href="#lime" fill="#B5D65A"/>
+  <circle cx="445" cy="545" r="27" fill="#DCEFA0" stroke-width="2"/>
+  <path d="M445 545v-25M445 545v25M445 545h-25M445 545h25M445 545l-18-18M445 545l18 18M445 545l18-18M445 545l-18 18" stroke-width="2"/>
+  <use href="#chili" fill="#D9412B"/>
+  <path d="M348 578C362 574 378 582 390 596" stroke="#F28B6E" stroke-width="3"/>
+  <path d="M325 568C316 558 312 548 318 534" stroke="#8DBA4E" stroke-width="5"/>
+  <path d="M440 653v14" stroke="#D9412B" stroke-width="4"/>
+  <circle cx="440" cy="671" r="4" fill="#D9412B" stroke="none"/>
+  <g stroke="none">
+    <circle cx="362" cy="520" r="4" fill="#D9412B"/>
+    <circle cx="376" cy="506" r="2.5" fill="#FFE490"/>
+    <circle cx="392" cy="524" r="3" fill="#D9412B"/>
+    <circle cx="488" cy="596" r="3.5" fill="#D9412B"/>
+    <circle cx="474" cy="612" r="2.5" fill="#FFE490"/>
+    <circle cx="352" cy="640" r="3" fill="#FFE490"/>
+    <circle cx="470" cy="640" r="3" fill="#D9412B"/>
+  </g>
+
+  <!-- 6 · pack: a Bangkok Mango style pouch -->
+  <use href="#pouch" fill="#ECA40C" stroke-width="5"/>
+  <path d="M92 505H208V525H92Z" fill="#B47404" stroke-width="3"/>
+  <path d="M97 535H203" stroke-width="2" stroke-dasharray="4 5"/>
+  <rect x="112" y="545" width="76" height="86" rx="10" fill="#FFF9E9" stroke="none"/>
+  <path d="M150 552l-10 18h20z" fill="#B47404" stroke="none"/>
+  <path d="M136 574h28" stroke="#B47404" stroke-width="3"/>
+  <path d="M124 610c10-18 42-22 54-8-12 16-40 20-54 8z" fill="#ECA40C" stroke="#B47404" stroke-width="2"/>
+  <path d="M120 657v16M176 656v10" stroke="#ECA40C" stroke-width="5"/>
+  <circle cx="120" cy="677" r="5" fill="#ECA40C" stroke="none"/>
+  <circle cx="176" cy="670" r="4" fill="#ECA40C" stroke="none"/>
+
+  <!-- stage tags 1–6, matching the stage cards below the hero -->
+  <g font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="20" text-anchor="middle">
+    <g transform="translate(66 100) rotate(-8)">
+      <circle r="17" fill="#FFE490" stroke="#2A1200" stroke-width="3"/>
+      <text y="7" fill="#502500" stroke="none">1</text>
+    </g>
+    <g transform="translate(312 104) rotate(6)">
+      <circle r="17" fill="#FFE490" stroke="#2A1200" stroke-width="3"/>
+      <text y="7" fill="#502500" stroke="none">2</text>
+    </g>
+    <g transform="translate(772 214) rotate(-6)">
+      <circle r="17" fill="#FFE490" stroke="#2A1200" stroke-width="3"/>
+      <text y="7" fill="#502500" stroke="none">3</text>
+    </g>
+    <g transform="translate(774 536) rotate(8)">
+      <circle r="17" fill="#FFE490" stroke="#2A1200" stroke-width="3"/>
+      <text y="7" fill="#502500" stroke="none">4</text>
+    </g>
+    <g transform="translate(500 510) rotate(-6)">
+      <circle r="17" fill="#FFE490" stroke="#2A1200" stroke-width="3"/>
+      <text y="7" fill="#502500" stroke="none">5</text>
+    </g>
+    <g transform="translate(66 494) rotate(6)">
+      <circle r="17" fill="#FFE490" stroke="#2A1200" stroke-width="3"/>
+      <text y="7" fill="#502500" stroke="none">6</text>
+    </g>
+  </g>
+
+  <!-- graffiti extras: sparkles, heart, x marks, zigzag, splatter -->
+  <path d="M250 520c2 12 5 15 17 17-12 2-15 5-17 17-2-12-5-15-17-17 12-2 15-5 17-17z" fill="#FFE490" stroke="none"/>
+  <path d="M40 610c2 10 4 12 14 14-10 2-12 4-14 14-2-10-4-12-14-14 10-2 12-4 14-14z" fill="#FFE490" stroke="none"/>
+  <path d="M272 624c-5-10-22-7-19 7 2 9 19 19 19 19s17-10 19-19c3-14-14-17-19-7z" stroke="#FFE490" stroke-width="3"/>
+  <path d="M740 40l16 16M756 40l-16 16M30 380l14 14M44 380l-14 14" stroke="#FFE490" stroke-width="3.5"/>
+  <path d="M470 40l12 14 12-14 12 14 12-14 12 14" stroke="#FFE490" stroke-width="3.5"/>
+  <g stroke="none" fill="#ECA40C">
+    <circle cx="40" cy="44" r="9"/>
+    <circle cx="60" cy="32" r="3.5"/>
+    <circle cx="24" cy="62" r="2.5"/>
+    <circle cx="70" cy="52" r="2"/>
+    <circle cx="770" cy="680" r="9"/>
+    <circle cx="752" cy="696" r="3.5"/>
+    <circle cx="784" cy="662" r="2.5"/>
+    <circle cx="746" cy="670" r="2"/>
+    <circle cx="560" cy="40" r="3"/>
+    <circle cx="574" cy="54" r="2"/>
+  </g>
+</svg>

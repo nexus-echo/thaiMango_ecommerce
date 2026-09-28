@@ -91,7 +91,7 @@ export type GatewaySaveValues = z.infer<typeof gatewaySaveSchema>;
 export type SettingsValues = z.infer<typeof settingsSchema>;
 
 export const DEFAULT_SETTINGS: SettingsValues = {
-    store_name: "Thai Mango",
+    store_name: "Bangkok Mango",
     support_email: "care@thaimango.com",
     support_phone: "+91 98765 43210",
     store_address: "Bangkok Orchard House, MG Road, Bengaluru, KA 560001",

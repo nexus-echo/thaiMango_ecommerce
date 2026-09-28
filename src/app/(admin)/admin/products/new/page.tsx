@@ -226,7 +226,7 @@ export default function NewProductPage() {
 
       <PageHeader
         title="Add Product"
-        subtitle="Create a new product for the Thai Mango catalog."
+        subtitle="Create a new product for the Bangkok Mango catalog."
       >
         <button
           type="button"

@@ -10,7 +10,7 @@ import { unwrap } from "@/lib/http";
 interface AdminCustomer {
   id: string;
   name: string;
-  email: string;
+  email: string | null;
   phone: string;
   flavor_preference: string[];
   created_at: string;
@@ -31,7 +31,7 @@ export default function CustomersPage() {
     return (
       !q ||
       c.name.toLowerCase().includes(q) ||
-      c.email.toLowerCase().includes(q) ||
+      (c.email ?? "").toLowerCase().includes(q) ||
       c.phone.includes(q)
     );
   });
@@ -124,7 +124,7 @@ export default function CustomersPage() {
                           <div className="min-w-0">
                             <div className="font-medium text-charcoal">{c.name}</div>
                             <div className="text-[11px] text-muted truncate">
-                              {c.email}
+                              {c.email ?? c.phone}
                             </div>
                           </div>
                         </div>

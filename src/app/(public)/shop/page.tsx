@@ -209,7 +209,7 @@ function ShopPageContent() {
             The Complete Collection
           </h1>
           <p className="text-sm md:text-base text-muted max-w-2xl leading-relaxed">
-            Discover our full range of naturally sun-dried Thai mango, from classic
+            Discover our full range of naturally sun-dried Bangkok mango, from classic
             sun-dried strips to our iconic beetroot fusion chews and gift-ready
             variety boxes.
           </p>

@@ -92,6 +92,34 @@ body {
   color: #0A0A0A;
 }
 
+/* Google Website Translator (components/public/GoogleTranslate.tsx): the
+   EN/TH buttons drive it, so its banner, hover tooltip, spinner and text
+   highlight stay hidden, and the banner's push-down of <body> is undone.
+   The VIpgJd-… names are what current versions of the widget emit. */
+iframe.skiptranslate,
+.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-te-spinner-pos,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-yAWNEb-L7lbkb {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+.goog-text-highlight,
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
+  background: none !important;
+  box-shadow: none !important;
+}
+/* Thai has no letter case, and its stacked vowel/tone marks fall apart under
+   the wide tracking the uppercase labels use — close it up in Thai. */
+html[lang="th"] .uppercase {
+  letter-spacing: 0.02em !important;
+}
+
 /* Hide scrollbar for horizontal scroll areas */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

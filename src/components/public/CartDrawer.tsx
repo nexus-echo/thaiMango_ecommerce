@@ -88,7 +88,7 @@ export default function CartDrawer() {
                 Your Bag is Empty
               </h4>
               <p className="text-xs text-muted max-w-xs mb-6">
-                Discover our sun-dried Thai mango flavors, from classic to chili
+                Discover our sun-dried Bangkok mango flavors, from classic to chili
                 lime.
               </p>
               <Link

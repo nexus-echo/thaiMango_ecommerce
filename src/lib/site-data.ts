@@ -6,7 +6,7 @@ export type Lang = "en" | "th";
 
 export const translations: Record<Lang, Record<string, string>> = {
   en: {
-    marquee_welcome: "Welcome to Thai Mango — Enjoy 15% off your first order",
+    marquee_welcome: "Welcome to Bangkok Mango — Enjoy 15% off your first order",
     shop_now: "Shop Now",
     menu: "Menu",
     hero_title_1: "BANGKOK",
@@ -21,10 +21,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     category_serums: "Spiced & Zesty",
     category_sunscreen: "Fusion Blends",
     category_mango: "Classic Cuts",
-    join_circle_title: "Stay in the Mango Loop",
+    join_circle_title: "Subscribe our Newsletter",
     join_circle_desc:
       "Receive snacking rituals, new launches and exclusive offers directly in your inbox.",
-    join_circle_btn: "Join the Circle",
+    join_circle_btn: "Subscribe Now",
     join_circle_eyebrow: "The Inner Circle",
     join_circle_perk_1: "First taste of every new flavor",
     join_circle_perk_2: "Members-only offers and early access",
@@ -55,7 +55,7 @@ export const translations: Record<Lang, Record<string, string>> = {
   },
   th: {
     marquee_welcome:
-      "ยินดีต้อนรับสู่ Thai Mango — รับส่วนลด 15% สำหรับการสั่งซื้อครั้งแรก",
+      "ยินดีต้อนรับสู่ Bangkok Mango — รับส่วนลด 15% สำหรับการสั่งซื้อครั้งแรก",
     shop_now: "ช้อปเลย",
     menu: "เมนู",
     hero_title_1: "BANGKOK",
@@ -70,10 +70,10 @@ export const translations: Record<Lang, Record<string, string>> = {
     category_serums: "รสเผ็ดจี๊ดจ๊าด",
     category_sunscreen: "สูตรผสมพิเศษ",
     category_mango: "มะม่วงแท้คลาสสิก",
-    join_circle_title: "ติดตามข่าวสารมะม่วงก่อนใคร",
+    join_circle_title: "สมัครรับจดหมายข่าวของเรา",
     join_circle_desc:
       "รับเคล็ดลับการกินมะม่วงและข้อเสนอสุดพิเศษส่งตรงถึงคุณก่อนใคร",
-    join_circle_btn: "สมัครรับข่าวสาร",
+    join_circle_btn: "สมัครเลย",
     join_circle_eyebrow: "คอมมูนิตี้สุดพิเศษ",
     join_circle_perk_1: "ลิ้มลองรสชาติใหม่ก่อนใคร",
     join_circle_perk_2: "ข้อเสนอเฉพาะสมาชิกและสิทธิ์ซื้อก่อน",

@@ -3,14 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, Droplets, Leaf, PackageCheck, Scissors, Sparkles, Sun } from "lucide-react";
 import CtaBanner from "@/components/public/CtaBanner";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 
 export const metadata: Metadata = {
   title: "Our Process | Bangkok Mango",
-  description: "Explore the journey from ripe Thai mangoes to delicious dried mango: selection, preparation, drying, flavoring and packing.",
+  description: "Explore the journey from ripe Bangkok mangoes to delicious dried mango: selection, preparation, drying, flavoring and packing.",
 };
 
 const stages = [
-  { number: "01", title: "Start with the fruit", label: "Selection", Icon: Leaf, image: "/images/processing/mango-selection.webp", alt: "Ripe golden Thai mangoes with green leaves in a harvest crate", description: "Ripe Thai mangoes are the starting point. Their aroma, golden flesh and natural sweetness set the character of the finished snack." },
+  { number: "01", title: "Start with the fruit", label: "Selection", Icon: Leaf, image: "/images/processing/mango-selection.webp", alt: "Ripe golden Bangkok mangoes with green leaves in a harvest crate", description: "Ripe Bangkok mangoes are the starting point. Their aroma, golden flesh and natural sweetness set the character of the finished snack." },
   { number: "02", title: "Prepare with care", label: "Washing & peeling", Icon: Droplets, image: "/images/processing/mango-preparation.webp", alt: "Washed mangoes in a colander beside a peeled mango", description: "The fruit is washed and peeled, and the stone is removed to reveal the mango flesh ready for slicing." },
   { number: "03", title: "Find the right cut", label: "Slicing", Icon: Scissors, image: "/images/processing/mango-slicing.webp", alt: "Even mango slices arranged on a cutting board", description: "Mango flesh is cut into slices. Consistent pieces help the fruit dry evenly and give each bite its familiar shape." },
   { number: "04", title: "Let the flavor deepen", label: "Drying", Icon: Sun, image: "/images/processing/mango-drying.webp", alt: "Golden mango slices spread across mesh drying trays", description: "Slices are spread out for drying. As moisture reduces, the mango develops a more concentrated flavor and a soft, chewy texture." },
@@ -22,7 +23,7 @@ export default function ProcessingPage() {
   return (
     <main>
       <section className="overflow-hidden bg-beetroot text-white">
-        <div className="mx-auto grid max-w-screen-2xl lg:min-h-[620px] lg:grid-cols-2">
+        <div className="mx-auto grid max-w-screen-2xl lg:min-h-155 lg:grid-cols-2">
           <div className="flex flex-col justify-center px-6 py-16 md:px-12 md:py-24 lg:pr-16">
             <nav aria-label="Breadcrumb" className="mb-12 flex items-center gap-3 text-xs text-white/65">
               <Link href="/" className="transition hover:text-white">Home</Link>
@@ -34,15 +35,19 @@ export default function ProcessingPage() {
               Good fruit.<br />Thoughtful process.<br /><span className="text-gold">Golden results.</span>
             </h1>
             <p className="mt-7 max-w-md text-sm leading-7 text-white/80 md:text-base">
-              Follow the journey from ripe Thai mango to the golden, chewy slices you love. A little care at every stage makes the fruit the hero.
+              Follow the journey from ripe Bangkok mango to the golden, chewy slices you love. A little care at every stage makes the fruit the hero.
             </p>
             <a href="#the-process" className="mt-9 inline-flex w-fit items-center gap-4 rounded-full border border-white/30 px-6 py-4 text-xs font-semibold uppercase tracking-widest transition hover:bg-white hover:text-beetroot">
               Discover the process <ArrowDown aria-hidden="true" className="h-4 w-4" />
             </a>
           </div>
-          <figure className="relative min-h-[360px] sm:min-h-[460px] lg:min-h-full">
-            <Image src="/images/processing/mango-drying.webp" alt="Golden dried mango slices arranged on stainless-steel mesh drying trays" fill preload sizes="(max-width: 1023px) 100vw, (max-width: 1535px) 50vw, 768px" className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true" />
+          {/* Graffiti mural of the six stages below, on a dark wall. The square
+              art is contained (never cropped); the tiled graffiti fills the
+              wall around it on wide or tall screens. */}
+          <figure className="relative min-h-105 overflow-hidden bg-burgundy sm:min-h-130 lg:min-h-full">
+            <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={380} className="text-gold opacity-[0.1]" />
+            <Image src="/images/processing/process-graffiti.svg" alt="Graffiti mural of the mango journey: a ripe mango, washing, slicing, sun drying on trays, flavoring with chili and lime, and packing into a pouch" fill preload className="object-contain p-4 md:p-8" />
+            <div className="absolute inset-0 bg-linear-to-t from-burgundy via-transparent to-transparent" aria-hidden="true" />
             <figcaption className="absolute inset-x-0 bottom-0 px-6 py-7 md:px-10">
               <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-gold">A closer look</span>
               <p className="mt-2 text-lg font-medium">Simple fruit. Beautiful transformation.</p>
@@ -51,8 +56,11 @@ export default function ProcessingPage() {
         </div>
       </section>
 
-      <section id="the-process" aria-labelledby="process-heading" className="scroll-mt-28 bg-ivory px-6 py-20 md:px-12 md:py-28">
-        <div className="mx-auto max-w-7xl">
+      <section id="the-process" aria-labelledby="process-heading" className="relative scroll-mt-28 overflow-hidden bg-ivory px-6 py-20 md:px-12 md:py-28">
+        {/* Mild processing graffiti (mango → wash → slice → dry → flavor →
+            pack); the stage cards keep their solid white fill. */}
+        <DoodleBackdrop src="/images/doodles/processing.svg" tile={440} className="text-accent opacity-[0.13]" />
+        <div className="relative mx-auto max-w-7xl">
           <div className="mb-14 grid items-end gap-6 md:grid-cols-2">
             <div>
               <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.25em] text-beetroot">From mango to moment</p>
@@ -65,7 +73,7 @@ export default function ProcessingPage() {
           <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {stages.map(({ number, title, label, Icon, image, alt, description }) => (
               <li key={number} className="rounded-2xl border border-cream bg-white p-7 md:p-9">
-                <div className="relative -mx-7 -mt-7 mb-6 aspect-[16/10] overflow-hidden rounded-t-[15px] bg-cream md:-mx-9 md:-mt-9">
+                <div className="relative -mx-7 -mt-7 mb-6 aspect-16/10 overflow-hidden rounded-t-[15px] bg-cream md:-mx-9 md:-mt-9">
                   <Image
                     src={image}
                     alt={alt}
@@ -87,9 +95,11 @@ export default function ProcessingPage() {
         </div>
       </section>
 
-      <section aria-labelledby="texture-heading" className="border-y border-cream bg-white px-6 py-20 md:px-12 md:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-20">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-cream">
+      <section aria-labelledby="texture-heading" className="relative overflow-hidden border-y border-cream bg-white px-6 py-20 md:px-12 md:py-24">
+        {/* Mild graffiti in the side gutters only, away from the copy */}
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={380} fade="edges" className="text-accent opacity-[0.12]" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-2 lg:gap-20">
+          <div className="relative aspect-4/3 overflow-hidden rounded-2xl bg-cream">
             <Image src="/images/ingredients/dried-mango-classic.webp" alt="A plate of golden dried mango slices beside a whole ripe mango" fill sizes="(max-width: 1023px) 100vw, 600px" className="object-cover" />
           </div>
           <div>

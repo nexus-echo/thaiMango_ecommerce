@@ -19,7 +19,7 @@ interface AdminOrder {
   payment: "PREPAID" | "COD";
   total: string;
   created_at: string;
-  user: { name: string; email: string };
+  user: { name: string; email: string | null };
   _count: { items: number };
 }
 
@@ -75,7 +75,7 @@ export default function OrdersPage() {
       !q ||
       `tm-${o.order_no}`.includes(q) ||
       o.user.name.toLowerCase().includes(q) ||
-      o.user.email.toLowerCase().includes(q);
+      (o.user.email ?? "").toLowerCase().includes(q);
     return matchTab && matchQuery;
   });
 

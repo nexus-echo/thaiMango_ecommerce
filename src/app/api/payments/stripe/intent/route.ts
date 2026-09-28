@@ -45,7 +45,7 @@ export async function POST(req: Request) {
             amount: amountMinor,
             currency: currency.toLowerCase(),
             automatic_payment_methods: { enabled: true },
-            description: "Thai Mango order",
+            description: "Bangkok Mango order",
             receipt_email: parsed.data.customer?.email,
             metadata: {
                 customer_name: parsed.data.customer?.name ?? "",

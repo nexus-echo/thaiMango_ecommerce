@@ -91,7 +91,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
         <Link
           href="/"
           className="flex items-center justify-center group"
-          aria-label="Thai Mango home"
+          aria-label="Bangkok Mango home"
         >
           <img
             src={filled ? "/brand/logo-on-gold.svg" : "/brand/logo-dark.svg"}
@@ -102,7 +102,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
 
         {/* Right: Language + Icons */}
         <div className="flex items-center gap-4 md:gap-6">
-          <div className="lang-switcher hidden sm:flex items-center gap-1 text-[10px] md:text-xs tracking-widest uppercase font-semibold">
+          <div translate="no" className="lang-switcher notranslate hidden sm:flex items-center gap-1 text-[10px] md:text-xs tracking-widest uppercase font-semibold">
             <button
               className={`lang-btn px-1.5 py-0.5 rounded transition ${
                 lang === "en"
@@ -142,7 +142,8 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
           >
             <ShoppingBag className="w-5 h-5 font-light" />
             <span
-              className={`cart-count absolute -top-1 -right-1 ${filled ? "bg-charcoal text-mango" : "bg-accent text-ivory"} text-[9px] w-4 h-4 rounded-full flex items-center justify-center ${
+              translate="no"
+              className={`cart-count notranslate absolute -top-1 -right-1 ${filled ? "bg-charcoal text-mango" : "bg-accent text-ivory"} text-[9px] w-4 h-4 rounded-full flex items-center justify-center ${
                 mounted && totalItems > 0 ? "" : "hidden"
               }`}
             >

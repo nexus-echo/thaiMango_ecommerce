@@ -21,12 +21,12 @@ export default function TermsPage() {
           <div className="prose max-w-none text-sm md:text-base text-muted space-y-8 leading-relaxed">
             <section>
               <h2 className="font-serif text-2xl text-charcoal mb-3">1. Agreement to Terms</h2>
-              <p>By accessing or purchasing from Thai Mango, you agree to be bound by these Terms and Conditions and all applicable laws and regulations.</p>
+              <p>By accessing or purchasing from Bangkok Mango, you agree to be bound by these Terms and Conditions and all applicable laws and regulations.</p>
             </section>
 
             <section>
               <h2 className="font-serif text-2xl text-charcoal mb-3">2. Product Authenticity &amp; Use</h2>
-              <p>All Thai Mango products are authentic and manufactured under stringent food safety and sanitary standards. Our dried mango products are intended for personal consumption only.</p>
+              <p>All Bangkok Mango products are authentic and manufactured under stringent food safety and sanitary standards. Our dried mango products are intended for personal consumption only.</p>
             </section>
 
             <section>
@@ -36,7 +36,7 @@ export default function TermsPage() {
 
             <section>
               <h2 className="font-serif text-2xl text-charcoal mb-3">4. Intellectual Property</h2>
-              <p>All logos, imagery, typography, and product descriptions are the proprietary intellectual property of Thai Mango.</p>
+              <p>All logos, imagery, typography, and product descriptions are the proprietary intellectual property of Bangkok Mango.</p>
             </section>
           </div>
         </div>

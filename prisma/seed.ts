@@ -322,10 +322,16 @@ async function main() {
         create: {
             email: ADMIN_EMAIL,
             password_hash,
-            name: "Thai Mango Admin",
+            name: "Bangkok Mango Admin",
             phone: "+91 00000 00000",
             role: "ADMIN",
         },
+    });
+    /* Admins seeded before the rebrand still carry the old default name; a
+       name changed by hand is left alone. */
+    await prisma.user.updateMany({
+        where: { email: ADMIN_EMAIL, name: "Thai Mango Admin" },
+        data: { name: "Bangkok Mango Admin" },
     });
     console.log(`Admin ready: ${admin.email} (password: ${ADMIN_PASSWORD})`);
 

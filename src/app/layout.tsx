@@ -12,11 +12,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Bangkok Mango | Sun-Dried Mango, Straight From Thailand",
   description:
-    "Discover Thai Mango — sun-ripened, sun-dried mango snacks handcrafted from Thailand's finest orchards. No artificial preservatives, just pure tropical flavor.",
+    "Discover Bangkok Mango — sun-ripened, sun-dried mango snacks handcrafted from Thailand's finest orchards. No artificial preservatives, just pure tropical flavor.",
   openGraph: {
     title: "Bangkok Mango | Sun-Dried Mango, Straight From Thailand",
     description:
-      "Discover Thai Mango — sun-ripened, sun-dried mango snacks handcrafted from Thailand's finest orchards.",
+      "Discover Bangkok Mango — sun-ripened, sun-dried mango snacks handcrafted from Thailand's finest orchards.",
     type: "website",
   },
 };

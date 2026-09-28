@@ -137,7 +137,8 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex-1 flex items-center justify-start">
           <div className="max-w-2xl text-left text-white reveal">
-            <h1 className="font-serif font-medium text-5xl md:text-[5rem] leading-[1.1] mb-4 tracking-tight uppercase">
+            {/* The brand name stays as-is when Google translates the page */}
+            <h1 translate="no" className="notranslate font-serif font-medium text-5xl md:text-[5rem] leading-[1.1] mb-4 tracking-tight uppercase">
               {heroLead && <span>{heroLead} </span>}
               <span className="text-[#ECA40C]">{heroAccent}</span>
             </h1>
@@ -569,7 +570,7 @@ export default function Home() {
             width={800}
             height={800}
             src="/Gemini_Generated_Image_3moitt3moitt3moi.png"
-            alt="Thai Mango orchard"
+            alt="Bangkok Mango orchard"
             className="absolute inset-0 w-full h-full"
           />
           <div className="absolute bottom-6 left-6 right-6 lg:right-auto lg:max-w-xs bg-charcoal/70 backdrop-blur-sm rounded-2xl p-5">
@@ -718,7 +719,7 @@ export default function Home() {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <span className="text-[10px] tracking-[0.3em] uppercase text-burgundy font-bold">Quality &amp; Authenticity</span>
-            <TwoToneTitle text="The Thai Mango Standard" accentWords={1} onGold className="mt-2" />
+            <TwoToneTitle text="The Bangkok Mango Standard" accentWords={1} onGold className="mt-2" />
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-4 gap-x-6 md:gap-x-4 text-center">
             {/* 1 */}

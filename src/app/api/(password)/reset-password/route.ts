@@ -101,6 +101,12 @@ export async function PATCH(req: Request) {
             where: { id: session.sub }
         });
         if (!user) return NextResponse.json(new ApiError(404, "User not found"), { status: 404 });
+        if (!user.password_hash) {
+            return NextResponse.json(
+                new ApiError(400, "Your account has no password yet. Add an email to your profile, then use Forgot Password to set one."),
+                { status: 400 }
+            );
+        }
 
         const isOldPasswordMatched = await verifyPassword(user.password_hash, parsed.data.old_password)
         if (!isOldPasswordMatched) return NextResponse.json(new ApiError(404, "Old pasword is not matched"), { status: 404 });

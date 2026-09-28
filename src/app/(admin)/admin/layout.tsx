@@ -5,7 +5,7 @@ import Providers from "@/components/public/Providers";
 
 export const metadata: Metadata = {
   title: "Bangkok Mango — Admin Portal",
-  description: "Manage products, orders and customers for Thai Mango.",
+  description: "Manage products, orders and customers for Bangkok Mango.",
 };
 
 export default function AdminLayout({

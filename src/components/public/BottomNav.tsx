@@ -46,7 +46,8 @@ export default function BottomNav() {
       >
         <ShoppingBag className="w-5 h-5" />
         <span
-          className={`cart-count absolute top-1 right-1/4 bg-accent text-ivory text-[9px] w-4 h-4 rounded-full flex items-center justify-center ${
+          translate="no"
+          className={`cart-count notranslate absolute top-1 right-1/4 bg-accent text-ivory text-[9px] w-4 h-4 rounded-full flex items-center justify-center ${
             mounted && totalItems > 0 ? "" : "hidden"
           }`}
         >

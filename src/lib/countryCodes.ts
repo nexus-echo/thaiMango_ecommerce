@@ -7,7 +7,7 @@ export interface CountryCode {
     flag: string;
 }
 
-/** Thai Mango's shipping markets first, then the rest of the common list. */
+/** Bangkok Mango's shipping markets first, then the rest of the common list. */
 export const COUNTRY_CODES: CountryCode[] = [
     { iso: "IN", name: "India", dial: "+91", flag: "🇮🇳" },
     { iso: "TH", name: "Thailand", dial: "+66", flag: "🇹🇭" },

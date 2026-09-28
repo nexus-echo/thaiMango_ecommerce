@@ -27,6 +27,7 @@ import {
 } from "@/lib/currency";
 import type { SettingsResponse } from "@/lib/storeSettings";
 import { normalizeImagePath } from "@/lib/images";
+import { toAuthUser, type ApiUser } from "@/lib/authUser";
 
 /* ------------------------------------------------------------------ */
 /* Types                                                              */
@@ -65,6 +66,12 @@ interface StoreValue {
   /** Picks the Thai value of a bilingual DB field when the site is in Thai,
    *  falling back to English when the Thai column is empty. */
   localized: (en: string, th?: string | null) => string;
+  /** Google translates the page from English, so while it is available
+   *  t()/localized() stay English (translating our own Thai again garbles
+   *  it). Set false by GoogleTranslate when the widget can't load — the
+   *  hand-written Thai is then the fallback. */
+  machineTranslate: boolean;
+  setMachineTranslate: (on: boolean) => void;
   /* toast */
   showToast: (message: string, type?: "info" | "heart") => void;
   /* cart */
@@ -129,6 +136,7 @@ const normalizeImg = normalizeImagePath;
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
+  const [machineTranslate, setMachineTranslate] = useState(true);
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [wishlist, setWishlist] = useState<string[]>([]);
@@ -206,15 +214,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     queryFn: async () => {
       try {
         const res = await axios.get("/api/me");
-        return res.data.data as {
-          id: string;
-          name: string;
-          email: string;
-          phone: string;
-          role: "ADMIN" | "CUSTOMER";
-          flavor_preference: string[];
-          created_at: string;
-        };
+        return res.data.data as ApiUser;
       } catch {
         return null;
       }
@@ -225,22 +225,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (meQuery.isPending) return;
-    const u = meQuery.data;
-    if (u) {
-      const [firstName, ...rest] = u.name.split(" ");
-      setUserState({
-        isLoggedIn: true,
-        id: u.id,
-        firstName,
-        lastName: rest.join(" "),
-        name: u.name,
-        email: u.email,
-        phone: u.phone,
-        skinType: u.flavor_preference?.[0],
-        memberSince: new Date(u.created_at).getFullYear().toString(),
-        role: u.role,
-      });
-    }
+    if (meQuery.data) setUserState(toAuthUser(meQuery.data));
     setAuthLoading(false);
   }, [meQuery.isPending, meQuery.data]);
 
@@ -308,16 +293,19 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("preferred_language", l);
   }, []);
 
+  /* Language our own strings render in (see machineTranslate). */
+  const textLang: Lang = lang === "th" && !machineTranslate ? "th" : "en";
+
   const t = useCallback(
     (key: string, fallback?: string) =>
-      translations[lang][key] ?? translations.en[key] ?? fallback ?? key,
-    [lang]
+      translations[textLang][key] ?? translations.en[key] ?? fallback ?? key,
+    [textLang]
   );
 
   const localized = useCallback(
     (en: string, th?: string | null) =>
-      lang === "th" && th && th.trim() ? th : en,
-    [lang]
+      textLang === "th" && th && th.trim() ? th : en,
+    [textLang]
   );
 
   const showToast = useCallback(
@@ -483,6 +471,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
         setLang,
         t,
         localized,
+        machineTranslate,
+        setMachineTranslate,
         showToast,
         cart,
         addToCart,

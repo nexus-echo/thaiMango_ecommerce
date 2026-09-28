@@ -157,7 +157,7 @@ const controls = [
 /* The promises printed on every pack (slide 3's badge bar + the home trust pillars) */
 const usps = [
   { Icon: Leaf, th: "ธรรมชาติ 100%", en: "100% Natural", text: "Pure natural fruit with no added synthetic preservatives." },
-  { Icon: MangoIcon, th: "คัดสรรจากมะม่วงคุณภาพ", en: "Finest Quality Thai Mango", text: "Kaew Kamin mangoes selected at the right stage of maturity." },
+  { Icon: MangoIcon, th: "คัดสรรจากมะม่วงคุณภาพ", en: "Finest Quality Bangkok Mango", text: "Kaew Kamin mangoes selected at the right stage of maturity." },
   { Icon: ThaiFlag, th: "ผลิตในประเทศไทย", en: "Product of Thailand", text: "Grown in Kui Buri, produced and packed in Thailand." },
   { Icon: Heart, th: "อร่อย เพลิน เคี้ยวหนึบ", en: "Delicious & Chewy", text: "Controlled drying keeps the soft, satisfying chew." },
   { Icon: Users, th: "เหมาะสำหรับทุกวัย", en: "For All Ages", text: "A wholesome snack for kids and adults alike." },

@@ -85,7 +85,7 @@ export default function RelatedProducts({
                       {variant?.label ??
                         (r.category
                           ? localized(r.category.name_en, r.category.name_th)
-                          : "Thai Mango")}
+                          : "Bangkok Mango")}
                     </span>
                     <h3 className="font-serif text-xl text-charcoal mb-2 leading-snug">
                       <Link

@@ -19,7 +19,7 @@ export const FAQ_CATEGORIES: {
     },
     {
         id: "snacks",
-        label: "Thai Mango Snacks",
+        label: "Bangkok Mango Snacks",
         blurb: "Craft, shelf life, and who our chews are made for.",
     },
     {
@@ -50,9 +50,9 @@ export const FAQ_DEFAULTS: FaqValues[] = [
         category: "ingredients",
         position: 0,
         is_active: true,
-        question: "Do Thai Mango snacks contain any allergens?",
+        question: "Do Bangkok Mango snacks contain any allergens?",
         answer:
-            "All Thai Mango products are processed in a facility that also handles tree nuts and sulfites, so trace cross-contact is possible. Some lines use a small amount of sulfites as a preservative to maintain color and freshness — always check the pack label for the specific batch's allergen statement before serving to anyone with a known sensitivity.",
+            "All Bangkok Mango products are processed in a facility that also handles tree nuts and sulfites, so trace cross-contact is possible. Some lines use a small amount of sulfites as a preservative to maintain color and freshness — always check the pack label for the specific batch's allergen statement before serving to anyone with a known sensitivity.",
     },
     {
         category: "ingredients",
@@ -74,9 +74,9 @@ export const FAQ_DEFAULTS: FaqValues[] = [
         category: "snacks",
         position: 0,
         is_active: true,
-        question: "What makes Thai Mango Beetroot Fusion Chews unique?",
+        question: "What makes Bangkok Mango Beetroot Fusion Chews unique?",
         answer:
-            "We select only tree-ripened Thai mangoes and infuse them with natural beetroot juice before gently dehydrating them at low temperatures. This preserves the soft, chewy texture, vibrant ruby hue, and vital phytonutrients without adding artificial colors or chemical preservatives.",
+            "We select only tree-ripened Bangkok mangoes and infuse them with natural beetroot juice before gently dehydrating them at low temperatures. This preserves the soft, chewy texture, vibrant ruby hue, and vital phytonutrients without adding artificial colors or chemical preservatives.",
     },
     {
         category: "snacks",
@@ -90,7 +90,7 @@ export const FAQ_DEFAULTS: FaqValues[] = [
         category: "snacks",
         position: 2,
         is_active: true,
-        question: "Is Thai Mango suitable for children?",
+        question: "Is Bangkok Mango suitable for children?",
         answer:
             "Yes! It is crafted for all ages (เหมาะสำหรับทุกวัย) as a wholesome lunchbox treat or guilt-free snack. We recommend the milder Classic Cuts and Glazed & Sweet lines for younger kids, and saving Spiced & Zesty for older snackers.",
     },

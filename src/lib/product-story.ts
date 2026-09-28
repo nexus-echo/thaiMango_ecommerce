@@ -189,10 +189,10 @@ const DEFAULT_STORY: ProductStory = {
         },
     ],
     know: {
-        intro: "Every pouch starts as whole Thai mango and ends as whole Thai mango. Here is what happens in between — and what to look for when you open one.",
+        intro: "Every pouch starts as whole Bangkok mango and ends as whole Bangkok mango. Here is what happens in between — and what to look for when you open one.",
         facts: BASE_FACTS,
         image: "/images/processing/mango-drying.webp",
-        imageAlt: "Sliced Thai mango laid out on drying racks",
+        imageAlt: "Sliced Bangkok mango laid out on drying racks",
     },
 };
 

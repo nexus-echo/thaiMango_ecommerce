@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Processing graffiti tile (mango → wash → slice → dry → flavor → pack,
+       with drips, splatter and a crown tag), tinted and faded by
+       DoodleBackdrop on the Our Process page. -->
+
+  <!-- 1 · mango with leaf -->
+  <path transform="translate(105 95) rotate(-28) scale(0.5)" stroke-width="4.4" d="M-95 0C-95-55-45-75 10-72C70-68 100-30 95 10C90 50 55 70 20 68C0 67-10 78-30 76C-70 72-95 45-95 0Z"/>
+  <path d="M92 61c1-8 4-13 9-17"/>
+  <path d="M99 47c12-16 36-15 45-5-13 13-33 14-45 5z"/>
+
+  <!-- 2 · water drops -->
+  <path d="M245 50c-8 11-11 17-11 22a11 11 0 0 0 22 0c0-5-3-11-11-22z"/>
+  <path d="M275 28c-10 14-14 22-14 28a14 14 0 0 0 28 0c0-6-4-14-14-28z"/>
+  <path d="M300 66c-7 9-9 14-9 18a9 9 0 0 0 18 0c0-4-2-9-9-18z"/>
+  <path d="M232 104l-8 6M312 104l8 6" stroke-width="1.6"/>
+
+  <!-- 3 · knife -->
+  <g transform="rotate(-30 425 90)">
+    <path d="M400 80H480Q492 86 480 96L400 100Z"/>
+    <rect x="356" y="80" width="44" height="20" rx="6"/>
+    <circle cx="368" cy="90" r="2" fill="#B47404"/>
+    <circle cx="386" cy="90" r="2" fill="#B47404"/>
+  </g>
+
+  <!-- crown tag -->
+  <path d="M400 192l6-24 13 16 11-22 11 22 13-16 6 24z"/>
+  <circle cx="406" cy="164" r="2.5" fill="#B47404"/>
+  <circle cx="430" cy="142" r="2.5" fill="#B47404"/>
+  <circle cx="454" cy="164" r="2.5" fill="#B47404"/>
+
+  <!-- 4 · sun + drying tray -->
+  <circle cx="80" cy="270" r="20"/>
+  <path d="M80 242v-10M80 298v10M52 270H42M108 270h10M60 250l-7-7M100 290l7 7M100 250l7-7M60 290l-7 7" stroke-width="1.8"/>
+  <path d="M190 240H330L315 280H175Z"/>
+  <path d="M215 240l-15 40M240 240l-15 40M265 240l-15 40M290 240l-15 40M315 240l-15 40M183 260H322" stroke-width="1.4"/>
+  <path d="M220 228q6-8 0-16t0-16M260 228q6-8 0-16t0-16M300 228q6-8 0-16t0-16" stroke-width="1.8"/>
+
+  <!-- 5 · chili + lime -->
+  <path d="M390 230C405 215 435 228 450 255C458 272 465 290 478 300C450 298 420 278 405 258C396 246 390 238 390 230Z"/>
+  <path d="M390 230C383 222 380 214 384 204"/>
+  <circle cx="110" cy="420" r="30"/>
+  <circle cx="110" cy="420" r="22" stroke-width="1.6"/>
+  <path d="M110 420v-20M110 420v20M110 420l17-10M110 420l-17 10M110 420l17 10M110 420l-17-10" stroke-width="1.4"/>
+
+  <!-- 6 · pouch -->
+  <path d="M235 380H305L302 470C280 478 260 478 238 470Z"/>
+  <path d="M235 394H305"/>
+  <path d="M238 402H302" stroke-width="1.4" stroke-dasharray="3 4"/>
+  <rect x="250" y="410" width="40" height="44" rx="6"/>
+  <path d="M256 440c6-10 22-12 28-4-7 9-21 11-28 4z" stroke-width="1.6"/>
+
+  <!-- spray trail with arrow -->
+  <path d="M40 350c40-28 90-28 130 0s90 28 130 0" stroke-dasharray="3 9"/>
+  <path d="M290 342l12 8-13 5"/>
+
+  <!-- drip line -->
+  <path d="M360 340c30-6 60 6 90 0s30-4 44 2" stroke-width="3"/>
+  <path d="M378 341v18M410 342v28M446 340v12" stroke-width="2.6"/>
+  <circle cx="378" cy="362" r="3" fill="#B47404"/>
+  <circle cx="410" cy="374" r="3.5" fill="#B47404"/>
+  <circle cx="446" cy="355" r="2.5" fill="#B47404"/>
+
+  <!-- graffiti marks -->
+  <path d="M380 420l10 12 10-12 10 12 10-12 10 12"/>
+  <path d="M20 190l12 12M32 190l-12 12M486 176l12 12M498 176l-12 12"/>
+  <path d="M495 240c2 10 4 12 14 14-10 2-12 4-14 14-2-10-4-12-14-14 10-2 12-4 14-14z"/>
+  <path d="M180 450c-4-8-18-6-15 5 2 7 15 15 15 15s13-8 15-15c3-11-11-13-15-5z"/>
+  <g stroke="none" fill="#B47404">
+    <circle cx="460" cy="470" r="7"/>
+    <circle cx="476" cy="458" r="3"/>
+    <circle cx="448" cy="488" r="2.5"/>
+    <circle cx="474" cy="486" r="2"/>
+    <circle cx="486" cy="474" r="1.8"/>
+    <circle cx="180" cy="160" r="3"/>
+    <circle cx="192" cy="172" r="2"/>
+  </g>
+</svg>

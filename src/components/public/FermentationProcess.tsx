@@ -196,7 +196,7 @@ export default function FermentationProcess() {
                 </div>
 
                 <p className="mt-12 text-center text-[10px] md:text-[11px] font-bold uppercase tracking-[0.3em] text-accent/80">
-                    Real Thai mango · Science for a tastier tomorrow
+                    Real Bangkok mango · Science for a tastier tomorrow
                 </p>
             </div>
         </section>

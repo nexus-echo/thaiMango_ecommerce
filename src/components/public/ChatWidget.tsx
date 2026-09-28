@@ -136,7 +136,7 @@ export default function ChatWidget() {
             </span>
             <span className="flex-1">
               <span className="block text-[11px] tracking-wide uppercase font-extrabold">
-                Thai Mango Support
+                Bangkok Mango Support
               </span>
               <span className="block text-[9px] uppercase tracking-wide font-semibold opacity-80">
                 Personal Assistance

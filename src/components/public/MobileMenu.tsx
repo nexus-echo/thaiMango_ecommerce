@@ -79,14 +79,14 @@ const subitemPromoData: Record<string, PromoContent> = {
   "/processing": {
     img: "/images/processing/mango-drying.webp",
     tag: "Our Process",
-    title: "From ripe Thai mango to a delicious golden bite.",
+    title: "From ripe Bangkok mango to a delicious golden bite.",
     btn: "Discover the Process",
     url: "/processing",
   },
   "/ingredients": {
     img: "/images/menu-guides-promo.jpg",
     tag: "Our Ingredients",
-    title: "Explore Thai mangoes, spices, and natural flavors.",
+    title: "Explore Bangkok mangoes, spices, and natural flavors.",
     btn: "Explore Ingredients",
     url: "/ingredients",
   },
@@ -240,12 +240,12 @@ export default function MobileMenu() {
         <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
           <img
             src="/brand/logo.svg"
-            alt="Thai Mango"
+            alt="Bangkok Mango"
             className="h-12 w-auto"
           />
         </Link>
         <div className="flex items-center gap-6">
-          <div className="lang-switcher flex items-center gap-1 text-[10px] tracking-widest uppercase font-semibold">
+          <div translate="no" className="lang-switcher notranslate flex items-center gap-1 text-[10px] tracking-widest uppercase font-semibold">
             <button
               className={`lang-btn px-1.5 py-0.5 rounded transition ${
                 lang === "en"

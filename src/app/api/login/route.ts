@@ -28,6 +28,16 @@ export async function POST(req: Request) {
             return NextResponse.json(apiError, { status: apiError.statusCode });
         }
 
+        /* Accounts made with Google / LINE / WhatsApp have no password until
+           the customer sets one through Forgot Password. */
+        if (!user.password_hash) {
+            const apiError = new ApiError(
+                401,
+                "This account signs in with Google, LINE or WhatsApp. Use that button, or choose Forgot Password to set a password."
+            );
+            return NextResponse.json(apiError, { status: apiError.statusCode });
+        }
+
         const passwordMatches = await bcrypt.compare(password, user.password_hash);
         if (!passwordMatches) {
             const apiError = new ApiError(401, "Invalid email or password");
