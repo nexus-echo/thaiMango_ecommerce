@@ -13,27 +13,27 @@ interface Collection {
   alt: string;
 }
 
-/* Slides 7–9 of the brand's Our Story deck (1600×900, static in /public). */
+/* Flavor collection slides (1672×941, static in /public). */
 const COLLECTIONS: Collection[] = [
   {
     numeral: "I",
     title: "Fruit-forward signature flavors",
     flavors: "Plum · Passion Fruit · Roselle",
-    image: "/images/our-story/07-flavors-1.jpg",
+    image: "/images/flavor-collections/collection-1.webp",
     alt: "Flavor Collection I, fruit-forward signature flavors: Plum (sweet-tart and aromatic), Passion Fruit (bright, tropical and lively) and Roselle (floral, tangy and distinctive) dried mango pouches.",
   },
   {
     numeral: "II",
     title: "Sweet, spicy and wellness-inspired flavors",
     flavors: "Lychee · Chili Salt · Ginger · Turmeric",
-    image: "/images/our-story/08-flavors-2.jpg",
+    image: "/images/flavor-collections/collection-2.webp",
     alt: "Flavor Collection II, sweet, spicy and wellness-inspired flavors: Lychee (fragrant and softly sweet), Chili Salt (a bold sweet-salty-spicy bite), Ginger (warm and aromatic) and Turmeric (earthy and golden) dried mango pouches.",
   },
   {
     numeral: "III",
     title: "Special selections and serving inspiration",
     flavors: "Beetroot · Chili Lime · Original",
-    image: "/images/our-story/09-flavors-3.jpg",
+    image: "/images/flavor-collections/collection-3.webp",
     alt: "Flavor Collection III, special selections: Beetroot (vibrant color with a savory-sweet twist), Chili Lime (zesty, spicy and refreshing) and Original (pure, naturally sweet and delicious). Three or four strips a serving.",
   },
 ];
@@ -126,8 +126,8 @@ export default function FlavorCollections() {
               key={c.numeral}
               src={c.image}
               alt={c.alt}
-              width={1600}
-              height={900}
+              width={1672}
+              height={941}
               sizes="(max-width: 1199px) calc(100vw - 48px), 1152px"
               className="h-auto w-full rounded-2xl shadow-lg"
             />

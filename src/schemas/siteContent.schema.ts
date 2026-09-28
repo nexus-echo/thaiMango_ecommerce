@@ -16,7 +16,7 @@ export const SITE_CONTENT_DEFAULTS: SiteContentDefault[] = [
     /* Founder section (home #our-founder) — edited together in one admin card.
        The photo is the founder poster already in the S3 bucket; seed the URL,
        never re-upload it per environment. */
-    { id: "founder_image", section: "Founder Photo", location: "Home · Founder", content: "https://s3.nexusneural.online/thai-mango/site-content/dr-patr-nangsue-founder-c64a8ab9.jpg" },
+    { id: "founder_image", section: "Founder Photo", location: "Home · Founder", content: "https://s3.nexusneural.online/thai-mango/site-content/dr-patr-nangsue-founder-1b8cfe85.webp" },
     { id: "founder_name", section: "Founder Name", location: "Home · Founder", content: "Dr. Patr Nangsue" },
     { id: "founder_quote", section: "Founder Quote", location: "Home · Founder", content: "Food is not simply fuel for the body. It is biological information connecting nature, the microbiome and the human biological system." },
     { id: "founder_point1_title", section: "Founder Highlight 1 Title", location: "Home · Founder", content: "30+ Years With Plants" },

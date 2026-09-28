@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import axios from "axios";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useStore } from "@/components/public/store";
@@ -10,11 +11,28 @@ import { DEFAULT_SETTINGS } from "@/schemas/settings.schema";
 import { INQUIRY_TOPICS } from "@/schemas/contact.schema";
 import { unwrap } from "@/lib/http";
 import CtaBanner from "@/components/public/CtaBanner";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
+
+type Topic = (typeof INQUIRY_TOPICS)[number];
+
+const isTopic = (value: string | null): value is Topic =>
+  (INQUIRY_TOPICS as readonly string[]).includes(value ?? "");
+
+/* Preselects the topic from ?topic= (e.g. the chat widget's "Talk to Our
+   Mango Expert"). Own Suspense boundary so the page stays prerendered. */
+function TopicParamSync({ onTopic }: { onTopic: (topic: Topic) => void }) {
+  const topicParam = useSearchParams().get("topic");
+  useEffect(() => {
+    if (isTopic(topicParam)) onTopic(topicParam);
+  }, [topicParam, onTopic]);
+  return null;
+}
 
 export default function ContactPage() {
   const { showToast, settings } = useStore();
   const [contactPhone, setContactPhone] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [topic, setTopic] = useState<Topic>(INQUIRY_TOPICS[0]);
 
   const submitInquiry = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,6 +53,7 @@ export default function ContactPage() {
       showToast("Thank you! Your request has been received.");
       form.reset();
       setContactPhone("");
+      setTopic(INQUIRY_TOPICS[0]);
     } catch (error) {
       showToast(
         error instanceof Error
@@ -54,9 +73,14 @@ export default function ContactPage() {
 
   return (
     <main>
+      <Suspense fallback={null}>
+        <TopicParamSync onTopic={setTopic} />
+      </Suspense>
       {/* Contact Hero */}
-      <section className="py-20 md:py-28 bg-burgundy text-white text-center">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="relative overflow-hidden py-20 md:py-28 bg-burgundy text-white text-center">
+        {/* Mild spray-paint graffiti, faded out behind the centred copy */}
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={400} fade="center" className="text-gold opacity-[0.2]" />
+        <div className="relative max-w-3xl mx-auto px-6">
           <span className="text-[11px] tracking-[0.3em] uppercase text-gold font-bold mb-3 block">We Are Here For You</span>
           <h1 className="font-serif text-4xl md:text-6xl mb-6">Connect with Bangkok Mango</h1>
           <p className="text-white/80 text-sm md:text-base leading-relaxed">
@@ -66,8 +90,11 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Section */}
-      <section className="py-16 md:py-24 bg-ivory">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+      <section className="relative overflow-hidden py-16 md:py-24 bg-ivory">
+        {/* Support doodles (headset, chat, phone, parcel, clock); the form
+            card keeps its solid white fill. */}
+        <DoodleBackdrop src="/images/doodles/support.svg" tile={440} className="text-accent opacity-[0.12]" />
+        <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
             {/* Contact Info Sidebar (5 cols) */}
@@ -132,7 +159,7 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Form (7 cols) */}
-            <div className="lg:col-span-7 bg-white p-8 md:p-12 rounded-4xl border border-cream shadow-xl">
+            <div id="contact-form" className="scroll-mt-28 lg:col-span-7 bg-white p-8 md:p-12 rounded-4xl border border-cream shadow-xl">
               <h3 className="font-serif text-2xl md:text-3xl text-charcoal mb-2">Send Us a Message</h3>
               <p className="text-xs md:text-sm text-muted mb-8">Fill in your details below and we will get back to you promptly.</p>
 
@@ -166,7 +193,11 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-widest text-charcoal mb-2">Inquiry Topic</label>
-                  <select name="topic" className="w-full px-4 py-3.5 rounded-2xl border border-cream bg-ivory text-sm focus:outline-none focus:border-accent">
+                  <select
+                    name="topic"
+                    value={topic}
+                    onChange={(e) => setTopic(e.target.value as Topic)}
+                    className="w-full px-4 py-3.5 rounded-2xl border border-cream bg-ivory text-sm focus:outline-none focus:border-accent">
                     {INQUIRY_TOPICS.map((topic) => (
                       <option key={topic} value={topic}>
                         {topic}

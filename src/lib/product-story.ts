@@ -56,7 +56,7 @@ export interface ProductStory {
 
 /**
  * The nutrition panel transcribed from the back of the 70 g pouch (the Chili
- * Salt artwork in public/images/all_products.jpeg), percentages included —
+ * Salt pack artwork), percentages included —
  * nothing here is estimated or converted, so the site cannot contradict the
  * pack.
  *

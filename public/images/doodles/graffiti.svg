@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none" stroke="#FFE490" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Street-graffiti tile for the contact hero (burgundy): heavier strokes
+       than the doodle tiles, spray splatter, paint drips, a tag crown and
+       bubble letters. Gold outlines, mango fills. -->
+
+  <!-- curved arrow -->
+  <path d="M60 120c40-60 120-60 150-10" stroke-width="4"/>
+  <path d="M196 94l14 16-20 6" stroke-width="4"/>
+
+  <!-- tag crown -->
+  <path d="M300 120l10-40 22 28 18-36 18 36 22-28 10 40z" fill="#ECA40C" fill-opacity="0.35"/>
+  <circle cx="310" cy="72" r="5" fill="#ECA40C"/>
+  <circle cx="350" cy="36" r="5" fill="#ECA40C"/>
+  <circle cx="390" cy="72" r="5" fill="#ECA40C"/>
+
+  <!-- zigzag -->
+  <path d="M170 30l14 16 14-16 14 16 14-16 14 16"/>
+
+  <!-- x marks -->
+  <path d="M452 36l16 16M468 36l-16 16"/>
+  <path d="M24 440l14 14M38 440l-14 14"/>
+
+  <!-- starburst -->
+  <path d="M90 180v40M70 200h40M76 186l28 28M104 186l-28 28"/>
+
+  <!-- heart -->
+  <path d="M250 200c-6-12-26-8-22 8 3 10 22 22 22 22s19-12 22-22c4-16-16-20-22-8z"/>
+
+  <!-- paint drips -->
+  <path d="M300 250c30-6 60 6 90 0s50-4 70 2" stroke-width="5"/>
+  <path d="M322 250v28M356 251v44M410 250v20M444 251v34" stroke-width="4"/>
+  <circle cx="322" cy="283" r="4.5" fill="#FFE490"/>
+  <circle cx="356" cy="299" r="5" fill="#FFE490"/>
+  <circle cx="410" cy="274" r="4" fill="#FFE490"/>
+  <circle cx="444" cy="289" r="4.5" fill="#FFE490"/>
+
+  <!-- bubble letters: HI! -->
+  <g transform="rotate(-8 110 340)" fill="#ECA40C" fill-opacity="0.35">
+    <path d="M40 300h22v26h18v-26h22v78h-22v-30h-18v30h-22z"/>
+    <path d="M114 300h22v78h-22z"/>
+    <path d="M150 300h22l-4 52h-14z"/>
+    <circle cx="161" cy="370" r="8"/>
+  </g>
+
+  <!-- speech bubble -->
+  <path d="M204 400h90a14 14 0 0 1 14 14v36a14 14 0 0 1-14 14h-50l-20 18v-18h-20a14 14 0 0 1-14-14v-36a14 14 0 0 1 14-14z"/>
+  <circle cx="230" cy="432" r="4" fill="#FFE490"/>
+  <circle cx="249" cy="432" r="4" fill="#FFE490"/>
+  <circle cx="268" cy="432" r="4" fill="#FFE490"/>
+
+  <!-- spray splatter -->
+  <g fill="#ECA40C" stroke="none">
+    <circle cx="420" cy="400" r="10"/>
+    <circle cx="442" cy="386" r="4"/>
+    <circle cx="404" cy="420" r="3"/>
+    <circle cx="450" cy="412" r="2.5"/>
+    <circle cx="430" cy="428" r="5"/>
+    <circle cx="410" cy="384" r="2"/>
+    <circle cx="458" cy="396" r="1.8"/>
+    <circle cx="396" cy="404" r="1.6"/>
+    <circle cx="150" cy="60" r="6"/>
+    <circle cx="136" cy="48" r="2.5"/>
+    <circle cx="164" cy="70" r="2"/>
+    <circle cx="140" cy="74" r="1.8"/>
+  </g>
+  <path d="M424 412l18 22M414 396l-14-10" stroke="#ECA40C" stroke-width="2"/>
+</svg>

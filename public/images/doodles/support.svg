@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Customer-support doodles, tiled behind the contact section. Same
+       hand-drawn language as process-doodles.svg: round caps, uneven curves. -->
+
+  <!-- headset -->
+  <path d="M40 110a44 44 0 0 1 88 0"/>
+  <rect x="32" y="104" width="16" height="30" rx="6"/>
+  <rect x="120" y="104" width="16" height="30" rx="6"/>
+  <path d="M128 134c0 18-14 24-30 24"/>
+  <circle cx="94" cy="158" r="4"/>
+
+  <!-- dashed line → chat -->
+  <path d="M146 76c40-30 100-30 124-14" stroke-dasharray="3 8"/>
+
+  <!-- chat bubbles -->
+  <path d="M290 40h100a16 16 0 0 1 16 16v34a16 16 0 0 1-16 16h-60l-22 18v-18h-18a16 16 0 0 1-16-16v-34a16 16 0 0 1 16-16z"/>
+  <circle cx="320" cy="73" r="3" fill="#B47404"/>
+  <circle cx="340" cy="73" r="3" fill="#B47404"/>
+  <circle cx="360" cy="73" r="3" fill="#B47404"/>
+  <path d="M392 116h70a12 12 0 0 1 12 12v26a12 12 0 0 1-12 12h-10v14l-16-14h-44a12 12 0 0 1-12-12v-26a12 12 0 0 1 12-12z"/>
+  <path d="M414 141l9 9 18-18"/>
+
+  <!-- smiley -->
+  <circle cx="200" cy="170" r="22"/>
+  <circle cx="193" cy="164" r="2" fill="#B47404"/>
+  <circle cx="207" cy="164" r="2" fill="#B47404"/>
+  <path d="M190 176q10 10 20 0"/>
+
+  <!-- ringing phone -->
+  <path d="M70 250c-8 8-8 20 0 32 14 22 34 42 56 56 12 8 24 8 32 0l10-10c4-4 4-10 0-14l-18-14c-4-3-9-3-13 1l-8 8c-14-8-26-20-34-34l8-8c4-4 4-9 1-13l-14-18c-4-4-10-4-14 0z"/>
+  <path d="M150 256c10 6 16 16 18 28M160 238c16 10 26 26 28 44" stroke-width="1.8"/>
+
+  <!-- question mark -->
+  <path d="M252 236c0-16 12-26 26-26s26 10 26 24c0 18-24 20-24 38"/>
+  <circle cx="280" cy="290" r="3" fill="#B47404"/>
+
+  <!-- clock (we reply within 24h) -->
+  <circle cx="440" cy="280" r="34"/>
+  <path d="M440 280v-20M440 280l14 10"/>
+  <path d="M440 250v4M470 280h-4M440 310v-4M410 280h4" stroke-width="1.6"/>
+
+  <!-- parcel (order tracking) -->
+  <path d="M60 410l40-18 40 18v44l-40 18-40-18z"/>
+  <path d="M60 410l40 18 40-18M100 428v44"/>
+  <path d="M80 401l40 18" stroke-width="1.6"/>
+
+  <!-- envelope + heart -->
+  <path d="M250 400h96v62h-96z"/>
+  <path d="M250 400l48 34 48-34"/>
+  <path d="M380 404c-4-8-18-6-15 5 2 7 15 15 15 15s13-8 15-15c3-11-11-13-15-5z"/>
+
+  <!-- map pin -->
+  <path d="M460 494c-18-22-26-36-26-48a26 26 0 0 1 52 0c0 12-8 26-26 48z"/>
+  <circle cx="460" cy="446" r="8"/>
+
+  <!-- sparkles + dots -->
+  <path d="M240 120v12M234 126h12M30 200v12M24 206h12M500 200v12M494 206h12" stroke-width="1.6"/>
+  <circle cx="190" cy="470" r="3" fill="#B47404"/>
+  <circle cx="204" cy="484" r="2" fill="#B47404"/>
+  <path d="M170 360c6-8 14-8 20 0s14 8 20 0" stroke-width="1.8"/>
+</svg>

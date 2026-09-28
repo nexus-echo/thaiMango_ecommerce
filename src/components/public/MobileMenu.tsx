@@ -550,9 +550,17 @@ export default function MobileMenu() {
         )}
       </div>
 
-      {/* Footer */}
-      <div className="border-t border-stone-200/70 bg-cream/60 px-8 md:px-16 py-8 shrink-0">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 max-w-7xl mx-auto">
+      {/* Footer — same Kui Buri orchard silhouettes as SiteFooter, along the
+          bottom; held at a min width so phones crop the sides. Stronger than
+          the site footer's 0.13 because gold on cream reads fainter than on black. */}
+      <div className="relative overflow-hidden border-t border-stone-200/70 bg-cream/60 px-8 md:px-16 pt-8 pb-16 md:pb-24 shrink-0">
+        <img
+          src="/images/footer/orchard-scene.svg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full min-w-275 max-w-none opacity-[0.22]"
+        />
+        <div className="relative grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 max-w-7xl mx-auto">
           <div>
             <h4 className="text-[10px] tracking-widest uppercase font-bold text-muted mb-4">
               Discover
@@ -650,7 +658,7 @@ export default function MobileMenu() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-charcoal/10">
+        <div className="relative max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-charcoal/10">
           <div className="flex items-center gap-6 text-charcoal">
             <Link
               href="/login"

@@ -7,9 +7,13 @@ import {
   ArrowRight,
   ArrowUpRight,
   Award,
+  ChefHat,
+  Gift,
+  Mail,
   MessageCircle,
   Play,
   ShoppingBag,
+  Sparkles,
   Star,
   Stethoscope,
   User,
@@ -138,7 +142,7 @@ export default function Home() {
               <span className="text-[#ECA40C]">{heroAccent}</span>
             </h1>
 
-            <p className="text-white/90 text-sm md:text-lg leading-relaxed mb-10 max-w-md font-medium text-justify">
+            <p className="text-white/90 text-sm md:text-lg leading-relaxed mb-10 max-w-96 font-medium text-justify">
               {content("hero_desc", t("hero_desc"))}
             </p>
 
@@ -604,30 +608,108 @@ export default function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-32 bg-cream text-center border-t border-cream reveal">
-        <div className="max-w-xl mx-auto px-6">
-          <TwoToneTitle text={t("join_circle_title")} className="mb-6" />
-          <p className="text-muted text-sm md:text-base mb-10 leading-relaxed">{t("join_circle_desc")}</p>
+      <section className="relative overflow-hidden bg-cream py-16 md:py-24">
+        {/* Hand-drawn mail doodles (envelopes, paper plane, mango, hearts),
+            tiled faintly behind the card; strongest at the edges. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-[0.28]"
+          style={{
+            backgroundImage: "url(/images/newsletter/newsletter-doodles.svg)",
+            backgroundSize: "420px 420px",
+            backgroundRepeat: "repeat",
+            maskImage:
+              "radial-gradient(ellipse at center, rgb(0 0 0 / 0.35) 30%, #000 75%)",
+          }}
+        />
 
-          <form
-            className="flex flex-col sm:flex-row gap-4 mb-6"
-            onSubmit={(e) => {
-              e.preventDefault();
-              showToast("Thank you! Your request has been received.");
-              e.currentTarget.reset();
-            }}
-          >
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-1 bg-transparent border-b border-charcoal py-3 px-2 focus:outline-none focus:border-accent text-sm transition text-center sm:text-left"
-              required
-            />
-            <button type="submit" className="px-8 py-3.5 bg-accent text-white text-xs tracking-widest uppercase hover:bg-charcoal transition duration-300">
-              {t("join_circle_btn")}
-            </button>
-          </form>
-          <p className="text-[10px] text-muted uppercase tracking-widest">By subscribing, you agree to receive updates from Thai Mango.</p>
+        <div className="relative max-w-6xl mx-auto px-6 md:px-12 reveal">
+          <div className="group relative grid overflow-hidden rounded-4xl bg-burgundy shadow-2xl shadow-burgundy/25 lg:grid-cols-[1.15fr_0.85fr]">
+            {/* Warm glow behind the pouches */}
+            <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-mango/30 blur-3xl lg:-right-16 lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2" />
+
+            {/* Copy + form */}
+            <div className="relative p-8 text-center sm:p-12 lg:p-14 lg:text-left">
+              <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.3em] text-gold">
+                {t("join_circle_eyebrow")}
+              </span>
+              <TwoToneTitle text={t("join_circle_title")} onDark className="mb-4" />
+              <p className="mx-auto mb-8 max-w-md text-sm leading-relaxed text-ivory/75 md:text-base lg:mx-0">
+                {t("join_circle_desc")}
+              </p>
+
+              <ul className="mx-auto mb-10 inline-flex flex-col gap-3 text-left lg:mx-0">
+                {[
+                  { icon: Sparkles, text: t("join_circle_perk_1") },
+                  { icon: Gift, text: t("join_circle_perk_2") },
+                  { icon: ChefHat, text: t("join_circle_perk_3") },
+                ].map(({ icon: Icon, text }) => (
+                  <li key={text} className="flex items-center gap-3 text-sm text-ivory/90">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ivory/10 text-gold">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    {text}
+                  </li>
+                ))}
+              </ul>
+
+              <form
+                className="flex flex-col gap-2 rounded-3xl bg-ivory p-1.5 sm:flex-row sm:rounded-full"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  showToast("Thank you! Your request has been received.");
+                  e.currentTarget.reset();
+                }}
+              >
+                <label className="flex flex-1 items-center gap-3 px-4">
+                  <Mail className="h-4 w-4 shrink-0 text-muted" aria-hidden="true" />
+                  <span className="sr-only">Email address</span>
+                  <input
+                    type="email"
+                    required
+                    placeholder={t("join_circle_placeholder")}
+                    className="w-full bg-transparent py-3 text-sm text-charcoal placeholder:text-muted/70 focus:outline-none"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-mango px-7 py-3.5 text-[10px] font-bold uppercase tracking-widest text-charcoal transition duration-300 hover:bg-gold md:text-xs"
+                >
+                  {t("join_circle_btn")}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </form>
+              <p className="mt-4 text-[11px] text-ivory/55">{t("join_circle_note")}</p>
+            </div>
+
+            {/* Pouch fan */}
+            <div aria-hidden="true" className="relative flex items-end justify-center px-6 pb-10 lg:items-center lg:pb-0">
+              <Image
+                src="/images/products/bangkok-mango-plum-front.png"
+                alt=""
+                width={300}
+                height={400}
+                sizes="(max-width: 1023px) 160px, 176px"
+                className="-mr-10 h-auto w-32 translate-y-4 -rotate-12 drop-shadow-2xl transition duration-500 group-hover:-translate-x-2 group-hover:-rotate-16 sm:w-40 lg:w-44"
+              />
+              <Image
+                src="/images/products/bangkok-mango-original-front.png"
+                alt=""
+                width={300}
+                height={400}
+                sizes="(max-width: 1023px) 192px, 224px"
+                className="relative z-10 h-auto w-40 drop-shadow-2xl transition duration-500 group-hover:-translate-y-2 sm:w-48 lg:w-56"
+              />
+              <Image
+                src="/images/products/bangkok-mango-chili-lime-front.png"
+                alt=""
+                width={300}
+                height={400}
+                sizes="(max-width: 1023px) 160px, 176px"
+                className="-ml-10 h-auto w-32 translate-y-4 rotate-12 drop-shadow-2xl transition duration-500 group-hover:translate-x-2 group-hover:rotate-16 sm:w-40 lg:w-44"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

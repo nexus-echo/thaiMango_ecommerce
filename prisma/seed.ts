@@ -13,9 +13,8 @@ const ADMIN_PASSWORD = process.env.SEED_ADMIN_PASSWORD || "Admin@12345";
    would only create duplicate copies. Seed with the existing URLs instead.
    They only resolve while the server's S3_* env points at this same bucket.
 
-   Migration to S3 is in progress: categories are done (URLs copied from the
-   local DB on 2026-09-24); products and the rest still use /public/images
-   and should move to `${S3_BASE}/<folder>/…` the same way. */
+   Categories (2026-09-24) and product packshots (2026-09-28) are in the
+   bucket; images hard-coded in page code stay in /public. */
 const S3_BASE = "https://s3.nexusneural.online/thai-mango";
 const CATEGORY_IMAGE_BASE = `${S3_BASE}/categories`;
 
@@ -53,38 +52,62 @@ const CATEGORY_DEFAULTS = [
 ];
 
 
-const beetroot = "/images/products/bangkok-mango-beetroot.png";
-const beetroot_front = "/images/products/bangkok-mango-beetroot-front.png";
+/* Product packshots, uploaded once to the bucket as WebP (2026-09-28): the
+   /public file each one was made from → its object key. The /public files
+   stay, because Shop by Flavor and the Ingredients page use them directly. */
+const PRODUCT_IMAGE_BASE = `${S3_BASE}/products`;
+const PRODUCT_IMAGES = {
+    "bangkok-mango-beetroot-front.png": "bangkok-mango-beetroot-front-ed9a9a80.webp",
+    "bangkok-mango-beetroot.png": "bangkok-mango-beetroot-9eafe974.webp",
+    "bangkok-mango-chili-lime-front.png": "bangkok-mango-chili-lime-front-0ee6b454.webp",
+    "bangkok-mango-chili-lime.png": "bangkok-mango-chili-lime-21aa8cef.webp",
+    "bangkok-mango-chili-salt-front.png": "bangkok-mango-chili-salt-front-cee1baee.webp",
+    "bangkok-mango-chili-salt.png": "bangkok-mango-chili-salt-bb58d159.webp",
+    "bangkok-mango-Ginger-front.png": "bangkok-mango-ginger-front-9f47b37f.webp",
+    "bangkok-mango-Ginger.png": "bangkok-mango-ginger-1425993d.webp",
+    "bangkok-mango-Lychee-front.png": "bangkok-mango-lychee-front-d1621dc2.webp",
+    "bangkok-mango-Lychee.png": "bangkok-mango-lychee-e57b9bf4.webp",
+    "bangkok-mango-original-front.png": "bangkok-mango-original-front-5be8916e.webp",
+    "bangkok-mango-original.jpeg": "bangkok-mango-original-093a970d.webp",
+    "bangkok-mango-passion-front.png": "bangkok-mango-passion-front-caeb564a.webp",
+    "bangkok-mango-passion.png": "bangkok-mango-passion-3688b624.webp",
+    "bangkok-mango-plum-front.png": "bangkok-mango-plum-front-c1da19e0.webp",
+    "bangkok-mango-plum.jpeg": "bangkok-mango-plum-148e64a1.webp",
+    "bangkok-mango-Roselle-front.png": "bangkok-mango-roselle-front-83a9e7b2.webp",
+    "bangkok-mango-Roselle.png": "bangkok-mango-roselle-509a3663.webp",
+    "bangkok-mango-strawberry-front.png": "bangkok-mango-strawberry-front-24fbedfe.webp",
+    "bangkok-mango-strawberry.png": "bangkok-mango-strawberry-e8de83ee.webp",
+    "bangkok-mango-Turmeric-front.png": "bangkok-mango-turmeric-front-af930496.webp",
+    "bangkok-mango-Turmeric.png": "bangkok-mango-turmeric-b6fe3e6f.webp",
+} as const;
 
-const chiliLime = "/images/products/bangkok-mango-chili-lime.png";
-const chiliLime_front = "/images/products/bangkok-mango-chili-lime-front.png";
+const packshot = (file: keyof typeof PRODUCT_IMAGES) => `${PRODUCT_IMAGE_BASE}/${PRODUCT_IMAGES[file]}`;
 
-const chiliSalt = "/images/products/bangkok-mango-chili-salt.png";
-const chiliSalt_front = "/images/products/bangkok-mango-chili-salt-front.png";
+/* Old /public path → bucket URL, for rows seeded before the move. */
+const LEGACY_PRODUCT_IMAGES = new Map(
+    Object.keys(PRODUCT_IMAGES).map((file) => [
+        `/images/products/${file}`,
+        packshot(file as keyof typeof PRODUCT_IMAGES),
+    ])
+);
 
-const ginger = "/images/products/bangkok-mango-Ginger.png";
-const ginger_front = "/images/products/bangkok-mango-Ginger-front.png";
+const beetroot = packshot("bangkok-mango-beetroot.png");
+const beetroot_front = packshot("bangkok-mango-beetroot-front.png");
 
-const lychee = "/images/products/bangkok-mango-Lychee.png";
-const lychee_front = "/images/products/bangkok-mango-Lychee-front.png";
+const chiliLime = packshot("bangkok-mango-chili-lime.png");
+const chiliLime_front = packshot("bangkok-mango-chili-lime-front.png");
 
-const original = "/images/products/bangkok-mango-original.png";
-const original_front = "/images/products/bangkok-mango-original-front.png";
+const chiliSalt = packshot("bangkok-mango-chili-salt.png");
+const chiliSalt_front = packshot("bangkok-mango-chili-salt-front.png");
 
-const passion = "/images/products/bangkok-mango-passion.png";
-const passion_front = "/images/products/bangkok-mango-passion-front.png";
+const ginger = packshot("bangkok-mango-Ginger.png");
+const ginger_front = packshot("bangkok-mango-Ginger-front.png");
 
-const plum = "/images/products/bangkok-mango-plum.png";
-const plum_front = "/images/products/bangkok-mango-plum-front.png";
+const lychee = packshot("bangkok-mango-Lychee.png");
+const lychee_front = packshot("bangkok-mango-Lychee-front.png");
 
-const roselle = "/images/products/bangkok-mango-Roselle.png";
-const roselle_front = "/images/products/bangkok-mango-Roselle-front.png";
-
-const strawberry = "/images/products/bangkok-mango-strawberry.png";
-const strawberry_front = "/images/products/bangkok-mango-strawberry-front.png";
-
-const turmeric = "/images/products/bangkok-mango-Turmeric.png";
-const turmeric_front = "/images/products/bangkok-mango-Turmeric-front.png";
+const original = packshot("bangkok-mango-original.jpeg");
+const original_front = packshot("bangkok-mango-original-front.png");
 
 const STORAGE_INFO =
     "Keep in a cool, dry place away from direct sunlight. The resealable pouch locks in freshness after opening — best enjoyed within 2 weeks. Unopened, it stays fresh for up to 12 months from the pack date.";
@@ -361,6 +384,21 @@ async function main() {
             });
         }
     }
+    /* The upsert above never touches existing rows, so databases seeded
+       before the move still hold /public product paths — point those at the
+       bucket copies. Anything else (admin uploads, S3 URLs) is kept. */
+    let movedToS3 = 0;
+    for (const { id, images } of await prisma.product.findMany({ select: { id: true, images: true } })) {
+        const next = images.map(
+            (src) => LEGACY_PRODUCT_IMAGES.get(src) ?? LEGACY_PRODUCT_IMAGES.get(`/${src}`) ?? src
+        );
+        if (next.some((src, i) => src !== images[i])) {
+            await prisma.product.update({ where: { id }, data: { images: next } });
+            movedToS3++;
+        }
+    }
+    if (movedToS3 > 0) console.log(`Product images moved to S3 (${movedToS3} products)`);
+
     const variantCount = PRODUCT_DEFAULTS.reduce((n, p) => n + p.variants.length, 0);
     console.log(
         `Products ready (${PRODUCT_DEFAULTS.length} products, ${variantCount} variants)`

@@ -24,6 +24,7 @@ import {
 } from "@/schemas/faq.schema";
 import { unwrap } from "@/lib/http";
 import CtaBanner from "@/components/public/CtaBanner";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 
 interface FaqItem {
   id: number;
@@ -189,6 +190,8 @@ export default function FaqPage() {
         >
           ?
         </span>
+        {/* Mild spray-paint graffiti, faded out behind the centred copy */}
+        <DoodleBackdrop src="/images/doodles/graffiti.svg" tile={400} fade="center" className="text-gold opacity-[0.18]" />
 
         <div className="relative max-w-3xl mx-auto px-6">
           <span className="flex items-center justify-center gap-4 mb-5">
@@ -239,8 +242,10 @@ export default function FaqPage() {
       </section>
 
       {/* FAQ Body */}
-      <section className="py-16 md:py-24 bg-ivory">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+      {/* overflow-clip, not hidden: hidden would break the sticky topic rail */}
+      <section className="relative overflow-clip py-16 md:py-24 bg-ivory">
+        <DoodleBackdrop src="/images/doodles/faq.svg" tile={440} className="text-accent opacity-[0.12]" />
+        <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Topic rail */}
             <aside className="lg:col-span-4">

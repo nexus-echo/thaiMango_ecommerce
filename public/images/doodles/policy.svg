@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Policy doodles (shield, padlock, document, signature, truck, seal),
+       tiled behind the legal pages via DoodleBackdrop. -->
+
+  <!-- shield with tick -->
+  <path d="M80 40l40 14v34c0 26-18 42-40 50-22-8-40-24-40-50v-34z"/>
+  <path d="M64 88l11 12 22-24"/>
+
+  <!-- document with folded corner -->
+  <path d="M290 40h54l24 24v84h-78z"/>
+  <path d="M344 40v24h24"/>
+  <path d="M304 84h48M304 100h48M304 116h32" stroke-width="1.6"/>
+
+  <!-- padlock -->
+  <rect x="436" y="120" width="52" height="42" rx="8"/>
+  <path d="M446 120v-14a16 16 0 0 1 32 0v14"/>
+  <circle cx="462" cy="138" r="4"/>
+  <path d="M462 142v8"/>
+
+  <!-- signature scribble -->
+  <path d="M150 210c14-26 24-26 18 0s4 26 18 0 20-20 14 4c12-8 26-10 40-4"/>
+  <path d="M150 226h96" stroke-dasharray="3 7" stroke-width="1.6"/>
+
+  <!-- delivery truck -->
+  <path d="M40 300h86v50h-86zM126 316h28l18 18v16h-46"/>
+  <circle cx="64" cy="354" r="10"/>
+  <circle cx="150" cy="354" r="10"/>
+  <path d="M20 312h12M14 326h16M22 340h10" stroke-width="1.6"/>
+
+  <!-- rosette seal -->
+  <circle cx="320" cy="300" r="24"/>
+  <circle cx="320" cy="300" r="14" stroke-width="1.6"/>
+  <path d="M306 320l-8 30 14-8 8 14 6-30M334 320l8 30-14-8-8 14" stroke-width="1.8"/>
+
+  <!-- key -->
+  <circle cx="440" cy="300" r="14"/>
+  <path d="M454 300h40M480 300v12M490 300v8"/>
+
+  <!-- paperclip -->
+  <path d="M110 470v-60a14 14 0 0 1 28 0v56a8 8 0 0 1-16 0v-48"/>
+
+  <!-- parcel -->
+  <path d="M250 420l36-16 36 16v40l-36 16-36-16z"/>
+  <path d="M250 420l36 16 36-16M286 436v40"/>
+
+  <!-- sparkles + dots -->
+  <path d="M430 430c2 12 5 15 17 17-12 2-15 5-17 17-2-12-5-15-17-17 12-2 15-5 17-17z"/>
+  <path d="M200 70v12M194 76h12M30 200v12M24 206h12" stroke-width="1.6"/>
+  <circle cx="400" cy="220" r="3" fill="#B47404"/>
+  <circle cx="414" cy="234" r="2" fill="#B47404"/>
+  <path d="M170 490c6-8 14-8 20 0s14 8 20 0" stroke-width="1.8"/>
+</svg>

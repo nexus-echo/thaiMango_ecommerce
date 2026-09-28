@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Newsletter doodles, tiled behind the Inner Circle section. Same
+       hand-drawn language as process-doodles.svg: round caps, uneven curves. -->
+
+  <!-- envelope -->
+  <path d="M44 70l96-4 3 62-97 5z"/>
+  <path d="M45 72l48 36 46-40"/>
+  <path d="M47 131l34-30M141 126l-36-28" stroke-width="1.6"/>
+
+  <!-- paper plane with looping trail -->
+  <path d="M300 60l86-30-38 78-14-30z"/>
+  <path d="M334 78l52-48"/>
+  <path d="M334 78l0 26 14-26"/>
+  <path d="M292 72c-40 10-52 40-30 52 22 12 34-22 8-30-30-10-62 18-88 26" stroke-dasharray="3 8"/>
+
+  <!-- sparkle -->
+  <path d="M470 150c2 14 6 18 20 20-14 2-18 6-20 20-2-14-6-18-20-20 14-2 18-6 20-20z"/>
+  <path d="M440 120v10M435 125h10" stroke-width="1.6"/>
+
+  <!-- mango with leaf -->
+  <path d="M112 232c-28 6-38 38-21 62 15 23 50 22 61 1 13-24-8-65-40-63z"/>
+  <path d="M113 230c2-8 6-13 12-16"/>
+  <path d="M125 214c11-14 31-14 37-4-11 11-27 11-37 4z"/>
+  <path d="M98 264c3 9 10 15 18 18" stroke-width="1.6"/>
+
+  <!-- heart -->
+  <path d="M274 268c-10-18-40-12-34 12 4 16 34 34 34 34s30-18 34-34c6-24-24-30-34-12z"/>
+  <path d="M322 250c6-4 10-4 14 0M326 262c5-2 9-1 12 2" stroke-width="1.6"/>
+
+  <!-- @ scribble -->
+  <path d="M438 286c-4-12-18-16-28-10-12 8-10 26 2 30 10 3 18-4 18-14v-10m0 14c2 10 14 10 18 0 6-18-6-38-28-40-26-2-42 22-34 44 8 20 32 24 48 14"/>
+
+  <!-- squiggle underline -->
+  <path d="M30 400c12-12 22 12 34 0s22 12 34 0 22 12 34 0 22 12 34 0"/>
+
+  <!-- gift box -->
+  <path d="M232 384h72v58h-72z"/>
+  <path d="M226 368h84v16h-84zM268 368v74"/>
+  <path d="M268 368c-6-18-30-20-28-6 2 10 18 8 28 6zM268 368c6-18 30-20 28-6-2 10-18 8-28 6z"/>
+
+  <!-- second envelope, tilted -->
+  <g transform="rotate(-14 430 430)">
+    <path d="M388 404h78v52h-78z"/>
+    <path d="M388 404l39 30 39-30"/>
+  </g>
+
+  <!-- dots + small stars scattered -->
+  <circle cx="200" cy="150" r="3" fill="#B47404"/>
+  <circle cx="214" cy="164" r="2" fill="#B47404"/>
+  <circle cx="366" cy="352" r="2.5" fill="#B47404"/>
+  <circle cx="60" cy="480" r="3" fill="#B47404"/>
+  <path d="M190 470l5 10 11 1-8 8 2 11-10-5-10 5 2-11-8-8 11-1z" stroke-width="1.8"/>
+  <path d="M40 180v12M34 186h12" stroke-width="1.6"/>
+  <path d="M330 480c6-8 14-8 20 0s14 8 20 0" stroke-width="1.8"/>
+</svg>

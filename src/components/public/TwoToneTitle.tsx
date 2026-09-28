@@ -9,6 +9,7 @@
      splits on real word boundaries too.
    - onGold: for gold (bg-mango) sections, where amber would vanish — black
      lead, burgundy accent, the pack's dark-ink-on-gold rule.
+   - onDark: for burgundy panels — ivory lead, mango accent.
    - ALL-CAPS Latin text (e.g. "THE SELECTION" from translations) is shown in
      title case so every heading shares one case. */
 const SMALL_WORDS = new Set(["a", "an", "and", "at", "by", "for", "in", "of", "on", "or", "the", "to"]);
@@ -26,6 +27,7 @@ export default function TwoToneTitle({
   text,
   accentWords,
   onGold = false,
+  onDark = false,
   as: Tag = "h2",
   id,
   className = "",
@@ -34,13 +36,14 @@ export default function TwoToneTitle({
   text: string;
   accentWords?: number;
   onGold?: boolean;
+  onDark?: boolean;
   as?: "h2" | "h3";
   id?: string;
   className?: string;
   isbreak?: boolean;
 }) {
-  const leadTone = onGold ? "text-charcoal" : "text-burgundy";
-  const accentTone = onGold ? "text-burgundy" : "text-accent";
+  const leadTone = onDark ? "text-ivory" : onGold ? "text-charcoal" : "text-burgundy";
+  const accentTone = onDark ? "text-mango" : onGold ? "text-burgundy" : "text-accent";
   const heading = titleCase(text.trim());
 
   const starts = [...new Intl.Segmenter(undefined, { granularity: "word" }).segment(heading)]

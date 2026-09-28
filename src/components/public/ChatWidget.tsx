@@ -14,6 +14,9 @@ import {
 import { useState } from "react";
 import { useStore } from "./store";
 
+/* Opens the contact form with the flavor-help topic already chosen. */
+const EXPERT_HREF = `/contact?topic=${encodeURIComponent("Product Recommendation / Flavor Help")}#contact-form`;
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   useStore(); // keeps the widget inside the provider tree
@@ -22,7 +25,7 @@ export default function ChatWidget() {
     <>
       <button
         id="chat-fab"
-        className="fixed bottom-[92px] right-5 lg:bottom-6 z-40 w-14 h-14 rounded-full bg-charcoal text-ivory flex items-center justify-center shadow-xl hover:scale-105 transition"
+        className="fixed bottom-23 right-5 lg:bottom-6 z-40 w-14 h-14 rounded-full bg-charcoal text-ivory flex items-center justify-center shadow-xl hover:scale-105 transition"
         aria-label="Open help chat"
         onClick={() => setOpen((o) => !o)}
       >
@@ -31,7 +34,8 @@ export default function ChatWidget() {
 
       <div
         id="chat-panel"
-        className={`fixed inset-x-4 bottom-[160px] lg:inset-x-auto lg:bottom-24 lg:right-8 lg:w-[380px] max-h-[65vh] lg:max-h-[600px] bg-charcoal text-ivory rounded-3xl shadow-2xl z-50 transition-all duration-300 flex flex-col overflow-hidden border border-ivory/10 ${
+        inert={!open}
+        className={`fixed inset-x-4 bottom-40 lg:inset-x-auto lg:bottom-24 lg:right-8 lg:w-95 max-h-[65vh] lg:max-h-150 bg-charcoal text-ivory rounded-3xl shadow-2xl z-50 transition-all duration-300 flex flex-col overflow-hidden border border-ivory/10 ${
           open
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "translate-y-4 opacity-0 pointer-events-none"
@@ -57,27 +61,39 @@ export default function ChatWidget() {
         </div>
 
         <div className="flex-1 overflow-y-auto no-scrollbar px-4 pb-4 space-y-2.5">
-          <button className="chat-quick-link w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ivory/5 hover:bg-ivory/10 transition text-left">
+          <Link
+            href="/shop"
+            className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ivory/5 hover:bg-ivory/10 transition text-left"
+            onClick={() => setOpen(false)}
+          >
             <Search className="w-4 h-4 text-accent shrink-0" />
             <span className="flex-1 text-[11px] tracking-wide uppercase font-bold">
               Recommend a Product for Me
             </span>
             <ChevronRight className="w-4 h-4 text-ivory/40 shrink-0" />
-          </button>
-          <button className="chat-quick-link w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ivory/5 hover:bg-ivory/10 transition text-left">
+          </Link>
+          <Link
+            href="/about-us#founder"
+            className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ivory/5 hover:bg-ivory/10 transition text-left"
+            onClick={() => setOpen(false)}
+          >
             <UserRound className="w-4 h-4 text-accent shrink-0" />
             <span className="flex-1 text-[11px] tracking-wide uppercase font-bold">
               Meet Our Founder
             </span>
             <ChevronRight className="w-4 h-4 text-ivory/40 shrink-0" />
-          </button>
-          <button className="chat-quick-link w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ivory/5 hover:bg-ivory/10 transition text-left">
+          </Link>
+          {/* <Link
+            href={EXPERT_HREF}
+            className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ivory/5 hover:bg-ivory/10 transition text-left"
+            onClick={() => setOpen(false)}
+          >
             <Sparkles className="w-4 h-4 text-accent shrink-0" />
             <span className="flex-1 text-[11px] tracking-wide uppercase font-bold">
               Talk to Our Mango Expert
             </span>
             <ChevronRight className="w-4 h-4 text-ivory/40 shrink-0" />
-          </button>
+          </Link> */}
           <Link
             href="/dashboard"
             className="w-full flex items-center gap-3 px-4 py-3.5 rounded-2xl bg-ivory/5 hover:bg-ivory/10 transition text-left"
