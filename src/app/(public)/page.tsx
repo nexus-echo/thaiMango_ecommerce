@@ -8,12 +8,12 @@ import {
   ArrowUpRight,
   Award,
   ChefHat,
+  Citrus,
   Gift,
   Mail,
   MessageCircle,
   Play,
   ShoppingBag,
-  Sparkles,
   Star,
   Stethoscope,
   User,
@@ -126,24 +126,26 @@ export default function Home() {
           <div className="absolute inset-0 bg-[#0A0A0A]/60"></div>
         </div>
 
-        {/* Corner Frame Accent */}
-        <div className="hidden md:block absolute inset-6 md:inset-10 lg:inset-12 z-5 pointer-events-none">
-          <span className="absolute top-0 left-0 w-14 h-14 border-t border-l border-ivory/30"></span>
-          <span className="absolute top-0 right-0 w-14 h-14 border-t border-r border-ivory/30"></span>
-          <span className="absolute bottom-0 left-0 w-14 h-14 border-b border-l border-ivory/30"></span>
-          <span className="absolute bottom-0 right-0 w-14 h-14 border-b border-r border-ivory/30"></span>
-        </div>
-
         {/* Content */}
-        <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex-1 flex items-center justify-start">
+        <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-12 lg:py-0 flex-1 flex items-center justify-start">
+          {/* Corner Frame Accent — framed to the content area, not the section,
+              so the bottom corners sit above the badge strip. The top edge starts
+              below the floating header (its bottom is ~80px on md, ~144px on lg). */}
+          <div aria-hidden="true" className="hidden md:block absolute inset-x-6 bottom-6 top-24 lg:top-40 pointer-events-none">
+            <span className="absolute top-0 left-0 w-14 h-14 border-t border-l border-ivory/30"></span>
+            <span className="absolute top-0 right-0 w-14 h-14 border-t border-r border-ivory/30"></span>
+            <span className="absolute bottom-0 left-0 w-14 h-14 border-b border-l border-ivory/30"></span>
+            <span className="absolute bottom-0 right-0 w-14 h-14 border-b border-r border-ivory/30"></span>
+          </div>
+
           <div className="max-w-2xl text-left text-white reveal">
             {/* The brand name stays as-is when Google translates the page */}
-            <h1 translate="no" className="notranslate font-serif font-medium text-5xl md:text-[5rem] leading-[1.1] mb-4 tracking-tight uppercase">
+            <h1 translate="no" className="notranslate font-serif font-medium text-4xl sm:text-5xl md:text-[5rem] leading-[1.1] mb-3 md:mb-4 tracking-tight uppercase">
               {heroLead && <span>{heroLead} </span>}
               <span className="text-[#ECA40C]">{heroAccent}</span>
             </h1>
 
-            <p className="text-white/90 text-sm md:text-lg leading-relaxed mb-10 max-w-96 font-medium text-justify">
+            <p className="text-white/90 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-96 font-medium md:text-justify">
               {content("hero_desc", t("hero_desc"))}
             </p>
 
@@ -167,73 +169,74 @@ export default function Home() {
 
         {/* Quality & Origin 5-Badge Banner */}
         <div className="relative z-10 w-full border-t border-[#B47404]/40 bg-mango text-charcoal reveal">
-          <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 py-10 md:py-6 grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-0 gap-x-6 md:gap-x-0 md:divide-x md:divide-charcoal/20 text-center items-center">
+          {/* Below md: one swipeable row (snaps per badge). md+: the 5-column divided grid. */}
+          <div className="no-scrollbar max-w-screen-2xl mx-auto px-6 sm:px-10 py-8 md:py-6 flex snap-x snap-mandatory overflow-x-auto md:grid md:grid-cols-5 md:overflow-visible gap-x-6 md:gap-x-0 md:divide-x md:divide-charcoal/20 text-center items-start md:items-center">
             {/* 1: 100% Natural */}
-            <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-              <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
-                <svg className="w-7 h-7 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+              <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
+                <svg className="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22V10"></path>
                   <path d="M12 10C12 5 8 3 4 3c0 5 2 9 8 9"></path>
                   <path d="M12 14c0-4 3-7 8-7 0 4-2 7-8 7"></path>
                   <line x1="8" y1="22" x2="16" y2="22"></line>
                 </svg>
               </span>
-              <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">ธรรมชาติ 100%</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">100% NATURAL</span>
+              <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-charcoal mb-1">ธรรมชาติ 100%</span>
+              <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-burgundy">100% NATURAL</span>
             </div>
 
             {/* 2: Finest Quality Mango */}
-            <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-              <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
-                <svg className="w-7 h-7 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+              <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
+                <svg className="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M10 4c-1.2-1.8-3-2.5-5-1.8 0 2.8 1.8 3.8 4.8 3.8"></path>
                   <path d="M9.8 6.5C6 6.5 3 10.2 4 15c1 4.8 5.8 6.8 8.8 4.8 4-2.8 5-8.8 3-11.8-1.5-1.8-3.8-2.2-6-1.5z"></path>
                   <path d="M10 4.5c1-1.5 2-2 3-2"></path>
                 </svg>
               </span>
-              <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">คัดสรรจากมะม่วงคุณภาพ</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">FINEST QUALITY MANGO</span>
+              <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-charcoal mb-1">คัดสรรจากมะม่วงคุณภาพ</span>
+              <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-burgundy">FINEST QUALITY MANGO</span>
             </div>
 
             {/* 3: Product of Thailand */}
-            <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-              <span className="w-14 h-14 md:w-14 md:h-14 flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300">
-                <svg className="w-14 h-9 md:w-14 md:h-9 drop-shadow-md" viewBox="0 0 54 36" fill="none">
+            <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+              <span className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center mb-2.5 md:mb-3 group-hover:scale-110 transition-all duration-300">
+                <svg className="w-12 h-8 md:w-14 md:h-9 drop-shadow-md" viewBox="0 0 54 36" fill="none">
                   <path d="M2 10C12 2 24 20 34 10C40 4 48 12 52 8V24C48 28 40 20 34 26C24 36 12 18 2 26V10Z" fill="#ED1C24" />
                   <path d="M2 13C12 5 24 23 34 13C40 7 48 15 52 11V21C48 25 40 17 34 23C24 33 12 15 2 23V13Z" fill="#FFFFFF" />
                   <path d="M2 15.5C12 7.5 24 25.5 34 15.5C40 9.5 48 17.5 52 13.5V18.5C48 22.5 40 14.5 34 20.5C24 30.5 12 12.5 2 20.5V15.5Z" fill="#241D4F" />
                 </svg>
               </span>
-              <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">ผลิตในประเทศไทย</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">PRODUCT OF THAILAND</span>
+              <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-charcoal mb-1">ผลิตในประเทศไทย</span>
+              <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-burgundy">PRODUCT OF THAILAND</span>
             </div>
 
             {/* 4: Delicious & Chewy */}
-            <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-              <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
-                <svg className="w-7 h-7 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+              <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
+                <svg className="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5.5 14c1 4.5 4.5 6.5 8.5 6.5 4 0 7-3 7-7 0-3.2-2.2-5.2-4.5-5.2-3 0-5 2-6.5 4-2 0-3.5 1-4.5 1.7z"></path>
                   <circle cx="9" cy="8" r="1" fill="currentColor"></circle>
                   <circle cx="15" cy="7" r="0.8" fill="currentColor"></circle>
                   <path d="M7 6l.4 1.2L8.5 7.5l-1.1.4L7 9l-.4-1.1L5.5 7.5l1.1-.3L7 6z" fill="currentColor"></path>
                 </svg>
               </span>
-              <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">อร่อย เพลิน เคี้ยวหนึบ</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">DELICIOUS &amp; CHEWY</span>
+              <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-charcoal mb-1">อร่อย เพลิน เคี้ยวหนึบ</span>
+              <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-burgundy">DELICIOUS &amp; CHEWY</span>
             </div>
 
             {/* 5: For All Ages */}
-            <div className="col-span-2 md:col-span-1 px-2 md:px-4 flex flex-col items-center justify-center group max-w-xs mx-auto">
-              <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
-                <svg className="w-7 h-7 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+            <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group md:max-w-xs md:mx-auto">
+              <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
+                <svg className="w-6 h-6 md:w-7 md:h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="8" cy="5.5" r="2.2"></circle>
                   <path d="M5.5 21v-5a3 3 0 0 1 5.5 0v5"></path>
                   <circle cx="16.5" cy="7" r="1.8"></circle>
                   <path d="M14 21v-4a2.5 2.5 0 0 1 5 0v4"></path>
                 </svg>
               </span>
-              <span className="text-sm md:text-sm font-semibold tracking-wide text-charcoal mb-1">เหมาะสำหรับทุกวัย</span>
-              <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-burgundy">FOR ALL AGES</span>
+              <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-charcoal mb-1">เหมาะสำหรับทุกวัย</span>
+              <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-burgundy">FOR ALL AGES</span>
             </div>
           </div>
         </div>
@@ -278,7 +281,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 w-full p-8 md:p-10 text-white">
+                  <div className="absolute bottom-0 left-0 w-full p-8 md:p-6 lg:p-10 text-white">
                     <h2 className="text-lg xl:text-xl font-serif font-medium mb-3 tracking-tight leading-snug pr-4 uppercase">
                       {product.name}
                     </h2>
@@ -352,9 +355,9 @@ export default function Home() {
                     className={`${category.image ? "object-cover" : "object-fill"} transition-transform duration-1000 ease-out group-hover:scale-105`}
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 p-8 md:p-10 z-10 w-full">
+                  <div className="absolute bottom-0 left-0 p-6 md:p-10 z-10 w-full">
                     <span className="block text-menuaccent text-[10px] md:text-xs tracking-[0.2em] font-bold uppercase mb-2">Selection</span>
-                    <h3 className="text-white text-3xl md:text-4xl font-serif font-medium uppercase tracking-tight">{localized(category.name_en, category.name_th)}</h3>
+                    <h3 className="text-white text-2xl md:text-4xl font-serif font-medium uppercase tracking-tight">{localized(category.name_en, category.name_th)}</h3>
 
                     {/* Hover Button */}
                     <div className="flex items-center gap-3 mt-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
@@ -388,7 +391,7 @@ export default function Home() {
 
           {/* Product Cards Grid */}
           {productsPending ? (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {[0, 1, 2, 4].map((i) => (
                 <div key={i} className="rounded-3xl aspect-4/5 bg-white/70 animate-pulse" />
               ))}
@@ -398,7 +401,7 @@ export default function Home() {
               No products available yet.
             </p>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 lg:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
               {collections.map((product, i) => (
                 <div
                   key={product.id}
@@ -625,7 +628,7 @@ export default function Home() {
         />
 
         <div className="relative max-w-6xl mx-auto px-6 md:px-12 reveal">
-          <div className="group relative grid overflow-hidden rounded-4xl bg-burgundy shadow-2xl shadow-burgundy/25 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="group relative grid overflow-hidden rounded-4xl bg-burgundy shadow-2xl shadow-burgundy/25 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
             {/* Warm glow behind the pouches */}
             <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-mango/30 blur-3xl lg:-right-16 lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2" />
 
@@ -641,7 +644,7 @@ export default function Home() {
 
               <ul className="mx-auto mb-10 inline-flex flex-col gap-3 text-left lg:mx-0">
                 {[
-                  { icon: Sparkles, text: t("join_circle_perk_1") },
+                  { icon: Citrus, text: t("join_circle_perk_1") },
                   { icon: Gift, text: t("join_circle_perk_2") },
                   { icon: ChefHat, text: t("join_circle_perk_3") },
                 ].map(({ icon: Icon, text }) => (
@@ -684,31 +687,35 @@ export default function Home() {
             </div>
 
             {/* Pouch fan */}
-            <div aria-hidden="true" className="relative flex items-end justify-center px-6 pb-10 lg:items-center lg:pb-0">
-              <Image
-                src="/images/products/bangkok-mango-plum-front.png"
-                alt=""
-                width={300}
-                height={400}
-                sizes="(max-width: 1023px) 160px, 176px"
-                className="-mr-10 h-auto w-32 translate-y-4 -rotate-12 drop-shadow-2xl transition duration-500 group-hover:-translate-x-2 group-hover:-rotate-16 sm:w-40 lg:w-44"
-              />
-              <Image
-                src="/images/products/bangkok-mango-original-front.png"
-                alt=""
-                width={300}
-                height={400}
-                sizes="(max-width: 1023px) 192px, 224px"
-                className="relative z-10 h-auto w-40 drop-shadow-2xl transition duration-500 group-hover:-translate-y-2 sm:w-48 lg:w-56"
-              />
-              <Image
-                src="/images/products/bangkok-mango-chili-lime-front.png"
-                alt=""
-                width={300}
-                height={400}
-                sizes="(max-width: 1023px) 160px, 176px"
-                className="-ml-10 h-auto w-32 translate-y-4 rotate-12 drop-shadow-2xl transition duration-500 group-hover:translate-x-2 group-hover:rotate-16 sm:w-40 lg:w-44"
-              />
+            <div aria-hidden="true" className="relative flex min-w-0 items-end justify-center px-6 pb-10 lg:items-center lg:px-8 lg:pb-0">
+              {/* Widths are shares of the column (34 + 42 + 34 − 2×8 overlap = 94%),
+                  so the fan shrinks with it instead of spilling past the card. */}
+              <div className="flex w-full max-w-md items-end justify-center">
+                <Image
+                  src="/images/products/bangkok-mango-plum-front.png"
+                  alt=""
+                  width={300}
+                  height={400}
+                  sizes="160px"
+                  className="mr-[-8%] h-auto w-[34%] translate-y-4 -rotate-12 drop-shadow-2xl transition duration-500 group-hover:-translate-x-2 group-hover:-rotate-16"
+                />
+                <Image
+                  src="/images/products/bangkok-mango-original-front.png"
+                  alt=""
+                  width={300}
+                  height={400}
+                  sizes="192px"
+                  className="relative z-10 h-auto w-[42%] drop-shadow-2xl transition duration-500 group-hover:-translate-y-2"
+                />
+                <Image
+                  src="/images/products/bangkok-mango-chili-lime-front.png"
+                  alt=""
+                  width={300}
+                  height={400}
+                  sizes="160px"
+                  className="ml-[-8%] h-auto w-[34%] translate-y-4 rotate-12 drop-shadow-2xl transition duration-500 group-hover:translate-x-2 group-hover:rotate-16"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -717,13 +724,15 @@ export default function Home() {
       {/* Trust / Quality Pillars */}
       <section className="py-16 bg-mango text-charcoal border-y border-burgundy/30 reveal">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <span className="text-[10px] tracking-[0.3em] uppercase text-burgundy font-bold">Quality &amp; Authenticity</span>
             <TwoToneTitle text="The Bangkok Mango Standard" accentWords={1} onGold className="mt-2" />
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-4 gap-x-6 md:gap-x-4 text-center">
+          {/* Below md: one swipeable row, bled to the screen edges (-mx-6 px-6) so cards
+              scroll past the gutter instead of clipping at it. md+: the 5-column grid. */}
+          <div className="no-scrollbar -mx-6 px-6 py-2 md:mx-0 md:px-0 md:py-0 flex snap-x snap-mandatory overflow-x-auto md:grid md:grid-cols-5 md:overflow-visible gap-x-6 md:gap-y-4 md:gap-x-4 text-center">
             {/* 1 */}
-            <div className="px-2 md:px-3 flex flex-col items-center group">
+            <div className="w-44 shrink-0 snap-center md:w-auto px-2 md:px-3 flex flex-col items-center group">
               <span className="w-14 h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow">
                 <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 22V10"></path>
@@ -738,7 +747,7 @@ export default function Home() {
             </div>
 
             {/* 2 */}
-            <div className="px-2 md:px-3 flex flex-col items-center group">
+            <div className="w-44 shrink-0 snap-center md:w-auto px-2 md:px-3 flex flex-col items-center group">
               <span className="w-14 h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow">
                 <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M10 4c-1.2-1.8-3-2.5-5-1.8 0 2.8 1.8 3.8 4.8 3.8"></path>
@@ -752,7 +761,7 @@ export default function Home() {
             </div>
 
             {/* 3 */}
-            <div className="px-2 md:px-3 flex flex-col items-center group">
+            <div className="w-44 shrink-0 snap-center md:w-auto px-2 md:px-3 flex flex-col items-center group">
               <span className="w-14 h-14 flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300">
                 <svg className="w-14 h-9 drop-shadow-md" viewBox="0 0 54 36" fill="none">
                   <path d="M2 10C12 2 24 20 34 10C40 4 48 12 52 8V24C48 28 40 20 34 26C24 36 12 18 2 26V10Z" fill="#ED1C24" />
@@ -766,7 +775,7 @@ export default function Home() {
             </div>
 
             {/* 4 */}
-            <div className="px-2 md:px-3 flex flex-col items-center group">
+            <div className="w-44 shrink-0 snap-center md:w-auto px-2 md:px-3 flex flex-col items-center group">
               <span className="w-14 h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow">
                 <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5.5 14c1 4.5 4.5 6.5 8.5 6.5 4 0 7-3 7-7 0-3.2-2.2-5.2-4.5-5.2-3 0-5 2-6.5 4-2 0-3.5 1-4.5 1.7z"></path>
@@ -781,7 +790,7 @@ export default function Home() {
             </div>
 
             {/* 5 */}
-            <div className="col-span-2 md:col-span-1 px-2 md:px-3 flex flex-col items-center group max-w-xs mx-auto">
+            <div className="w-44 shrink-0 snap-center md:w-auto px-2 md:px-3 flex flex-col items-center group md:max-w-xs md:mx-auto">
               <span className="w-14 h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow">
                 <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="8" cy="5.5" r="2.2"></circle>

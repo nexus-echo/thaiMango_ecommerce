@@ -431,6 +431,49 @@ html[lang="th"] .uppercase {
   }
 }
 
+/* ===== Help chat =====
+   Bubbles and quick replies rise in as the concierge "sends" them; the
+   typing dots hop in sequence (delays set inline). */
+
+@keyframes chat-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.chat-msg-in {
+  animation: chat-msg-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes chat-typing-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: none;
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.chat-typing-dot {
+  animation: chat-typing-dot 1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-msg-in,
+  .chat-typing-dot {
+    animation: none;
+  }
+}
+
 /* "Selling fast" badge — a halo that pulses outward from the pill plus a
    flicker on the bolt, on one shared 2.2s beat so the two read as a single
    motion rather than two competing loops. */

@@ -7,7 +7,7 @@ import {
   ChevronRight,
   ShoppingBag,
   Truck,
-  Sparkles,
+  PartyPopper,
   ArrowLeft,
   Trash2,
   ShieldCheck,
@@ -198,7 +198,7 @@ export default function CartPage() {
                   <div className="flex items-center gap-2 text-xs font-semibold text-charcoal">
                     {remaining === 0 ? (
                       <>
-                        <Sparkles className="w-4 h-4 text-emerald-600" />
+                        <PartyPopper className="w-4 h-4 text-emerald-600" />
                         <span className="text-emerald-700">
                           Congratulations! You have unlocked{" "}
                           <strong>FREE Express Shipping</strong>!

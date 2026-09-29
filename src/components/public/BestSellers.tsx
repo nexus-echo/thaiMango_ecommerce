@@ -12,14 +12,16 @@ import { mapProduct, type ApiProduct } from "@/lib/productCard";
 import TwoToneTitle from "./TwoToneTitle";
 
 /* Tailwind only emits classes it can see as complete strings, so a template
-   like `md:grid-cols-${limit}` compiles to nothing. Spelled out here. */
+   like `lg:grid-cols-${limit}` compiles to nothing. Spelled out here.
+   The full row only starts at lg: on a tablet four cards come out ~150px
+   wide, too narrow for the title, price and badges, so sm–md shows two. */
 const GRID_COLS: Record<number, string> = {
-    1: "md:grid-cols-1",
-    2: "md:grid-cols-2",
-    3: "md:grid-cols-3",
-    4: "md:grid-cols-4",
-    5: "md:grid-cols-5",
-    6: "md:grid-cols-6",
+    1: "lg:grid-cols-1",
+    2: "lg:grid-cols-2",
+    3: "lg:grid-cols-3",
+    4: "lg:grid-cols-4",
+    5: "lg:grid-cols-5",
+    6: "lg:grid-cols-6",
 };
 
 interface BestSellersResponse {
@@ -75,7 +77,7 @@ export default function BestSellers({
                 </div>
 
                 {bestSellersQuery.isPending ? (
-                    <div className={`grid grid-cols-1 ${GRID_COLS[limit] ?? "md:grid-cols-4"} gap-5`}>
+                    <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_COLS[limit] ?? "lg:grid-cols-4"} gap-5`}>
                         {Array.from({ length: limit }, (_, i) => (
                             <div
                                 key={i}
@@ -88,7 +90,7 @@ export default function BestSellers({
                         No products available yet.
                     </p>
                 ) : (
-                    <div className={`grid grid-cols-1 ${GRID_COLS[limit] ?? "md:grid-cols-4"} gap-5`}>
+                    <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_COLS[limit] ?? "lg:grid-cols-4"} gap-5`}>
                         {products.map((product, i) => (
                             <div
                                 key={product.id}

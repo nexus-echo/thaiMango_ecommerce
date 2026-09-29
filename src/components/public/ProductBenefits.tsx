@@ -1,8 +1,8 @@
 import {
+  Candy,
   Leaf,
   Package,
   ShieldCheck,
-  Sparkles,
   Sun,
   Wheat,
 } from "lucide-react";
@@ -10,7 +10,7 @@ import type { StoryPoint } from "@/lib/product-story";
 
 /* Cycled across the grid in order, the way the showcase cycles its highlight
    icons. Six icons for six benefits — a shorter list simply uses the first n. */
-const BENEFIT_ICONS = [Leaf, Sparkles, Wheat, Sun, ShieldCheck, Package];
+const BENEFIT_ICONS = [Leaf, Candy, Wheat, Sun, ShieldCheck, Package];
 
 interface ProductBenefitsProps {
   benefits: StoryPoint[];

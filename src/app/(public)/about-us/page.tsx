@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Award,
   Beaker,
   ChevronRight,
   ClipboardCheck,
@@ -15,7 +16,6 @@ import {
   PackageCheck,
   Quote,
   ShieldCheck,
-  Sparkles,
   Sprout,
   Sun,
   Thermometer,
@@ -76,20 +76,17 @@ async function founderContent(): Promise<(id: string) => string> {
 const SLIDE_BASE = "/images/our-story";
 const slides = {
   kuiBuri: {
-    number: 2,
-    src: `${SLIDE_BASE}/02-kui-buri.jpg`,
+    src: `${SLIDE_BASE}/02-kui-buri.webp`,
     caption: "From Kui Buri, Thailand",
     alt: "From Kui Buri, Thailand: mango orchards below the mountains of Prachuap Khiri Khan, with biodiverse western Thailand, warm tropical climate, fertile soil, the Kaew Kamin variety and harvest at the right stage.",
   },
   traceability: {
-    number: 3,
-    src: `${SLIDE_BASE}/03-traceability.jpg`,
+    src: `${SLIDE_BASE}/03-traceability.webp`,
     caption: "Farm-to-pack traceability",
     alt: "Farm-to-pack traceability: GAP-based cultivation, selective harvesting, sorting, cleaning and preparation, quality control at every stage, traceable from orchard to pack.",
   },
   cleanLabel: {
-    number: 6,
-    src: `${SLIDE_BASE}/06-clean-label.jpg`,
+    src: `${SLIDE_BASE}/06-clean-label.webp`,
     caption: "More than “no preservatives”",
     alt: "More than no preservatives: control of raw materials, microorganisms, fermentation, moisture and drying, hygiene and packaging.",
   },
@@ -424,7 +421,7 @@ export default async function AboutUsPage() {
             <ul className="mx-auto mt-6 max-w-md space-y-2">
               {credentials.map((line) => (
                 <li key={line} className="flex items-start gap-3 text-sm text-charcoal">
-                  <Sparkles aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <Award aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                   {line}
                 </li>
               ))}

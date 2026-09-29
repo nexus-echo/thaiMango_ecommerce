@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480" fill="none" stroke="#FFE490" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Mango street-graffiti tile for the burgundy brand panel on /login and
+       /register: same heavy strokes, drips and splatter as graffiti.svg, but
+       every motif is ours (mango, sun-drying, chili, a "YUM" tag). -->
+
+  <!-- bubble mango + leaf -->
+  <path d="M92 58c36-4 64 26 62 64-2 34-28 58-58 56-30-2-48-28-44-58 4-28 16-60 40-62z" fill="#ECA40C" fill-opacity="0.35" stroke-width="4"/>
+  <path d="M92 58c0-10 4-18 10-22" stroke-width="4"/>
+  <path d="M102 36c14-14 36-14 48-4-12 14-34 16-48 4z" fill="#ECA40C" fill-opacity="0.35"/>
+  <path d="M70 110c0-14 6-26 16-32" stroke-width="2"/>
+
+  <!-- curved arrow off the mango -->
+  <path d="M170 60c30-34 80-34 104-4" stroke-width="4"/>
+  <path d="M262 40l12 16-20 6" stroke-width="4"/>
+
+  <!-- sun-dried: sunburst -->
+  <circle cx="380" cy="84" r="22" fill="#ECA40C" fill-opacity="0.35"/>
+  <path d="M380 44v-14M380 124v14M340 84h-14M420 84h14M352 56l-10-10M408 56l10-10M352 112l-10 10M408 112l10 10"/>
+
+  <!-- x marks -->
+  <path d="M452 196l16 16M468 196l-16 16"/>
+  <path d="M24 440l14 14M38 440l-14 14"/>
+
+  <!-- chili -->
+  <path d="M210 190c-2 36 30 64 74 58-36-10-56-34-60-58z" fill="#ECA40C" fill-opacity="0.35"/>
+  <path d="M212 190c2-8 8-12 16-12M218 180c-4-6-2-14 4-18"/>
+
+  <!-- heart -->
+  <path d="M60 220c-6-12-26-8-22 8 3 10 22 22 22 22s19-12 22-22c4-16-16-20-22-8z"/>
+
+  <!-- mango-paint drips -->
+  <path d="M310 250c30-6 60 6 90 0s50-4 70 2" stroke-width="5"/>
+  <path d="M332 250v28M366 251v44M420 250v20M454 251v34" stroke-width="4"/>
+  <circle cx="332" cy="283" r="4.5" fill="#FFE490"/>
+  <circle cx="366" cy="299" r="5" fill="#FFE490"/>
+  <circle cx="420" cy="274" r="4" fill="#FFE490"/>
+  <circle cx="454" cy="289" r="4.5" fill="#FFE490"/>
+
+  <!-- bubble letters: YUM -->
+  <g transform="rotate(-8 150 340)" fill="#ECA40C" fill-opacity="0.35">
+    <path d="M40 300h22l12 24 12-24h22l-24 40v38h-20v-38z"/>
+    <path d="M118 300h20v54c0 6 4 10 10 10s10-4 10-10v-54h20v56c0 18-14 30-30 30s-30-12-30-30z"/>
+    <path d="M194 378v-78h20l16 30 16-30h20v78h-20v-40l-16 24-16-24v40z"/>
+  </g>
+
+  <!-- dried mango strip -->
+  <g transform="rotate(-14 270 430)">
+    <path d="M210 420c20-10 40 10 60 0s40 10 60 0v18c-20 10-40-10-60 0s-40-10-60 0z" fill="#ECA40C" fill-opacity="0.35"/>
+  </g>
+
+  <!-- spray splatter -->
+  <g fill="#ECA40C" stroke="none">
+    <circle cx="420" cy="400" r="10"/>
+    <circle cx="442" cy="386" r="4"/>
+    <circle cx="404" cy="420" r="3"/>
+    <circle cx="450" cy="412" r="2.5"/>
+    <circle cx="430" cy="428" r="5"/>
+    <circle cx="410" cy="384" r="2"/>
+    <circle cx="458" cy="396" r="1.8"/>
+    <circle cx="396" cy="404" r="1.6"/>
+    <circle cx="300" cy="150" r="6"/>
+    <circle cx="286" cy="138" r="2.5"/>
+    <circle cx="314" cy="160" r="2"/>
+    <circle cx="290" cy="164" r="1.8"/>
+  </g>
+  <path d="M424 412l18 22M414 396l-14-10" stroke="#ECA40C" stroke-width="2"/>
+</svg>

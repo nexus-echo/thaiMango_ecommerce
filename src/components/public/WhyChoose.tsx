@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, FlaskConical, Leaf, Package, ShieldCheck, Sparkles, Sprout } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FlaskConical, Leaf, Package, Palette, ShieldCheck, Sprout } from "lucide-react";
 import TwoToneTitle from "./TwoToneTitle";
 
 /* Copy follows "The Bangkok Mango Difference" in the brand document
@@ -47,10 +47,10 @@ const CONTROLS = [
 ];
 
 /* "From fresh mango to finished product" — slide 4 of the brand's Our Story
-   deck (public/images/our-story/04-fresh-to-finished.jpg), rebuilt as real,
+   deck (public/images/our-story/04-fresh-to-finished.webp), rebuilt as real,
    responsive text. The step photos in public/images/why-choose/process/ are
    high-res regenerations of the slide's imagery, not crops of the slide. */
-const INFOGRAPHIC = "/images/our-story/04-fresh-to-finished.jpg";
+const INFOGRAPHIC = "/images/our-story/04-fresh-to-finished.webp";
 
 const STEPS = [
     { image: "/images/why-choose/process/1-select-hq.webp", label: "Select Kaew Kamin mangoes", alt: "Two ripe Kaew Kamin mangoes with leaves" },
@@ -67,7 +67,7 @@ const SAFETY = [
     { Icon: FlaskConical, text: "No artificial antifungal agents" },
     { Icon: Sprout, text: "No unnecessary artificial antioxidants" },
     { Icon: ShieldCheck, text: "Microbiological and heavy metal testing" },
-    { Icon: Sparkles, text: "Designed for stable color, aroma and flavor" },
+    { Icon: Palette, text: "Designed for stable color, aroma and flavor" },
     { Icon: Package, text: "Shelf-stable for over 1 year when properly stored" },
 ];
 

@@ -5,7 +5,6 @@ import Image from "next/image";
    full-size image so the small print stays readable. Shared by /our-story
    and /about-us. */
 export interface Slide {
-  number: number;
   src: string;
   alt: string;
   caption: string;
@@ -49,7 +48,6 @@ export default function StorySlide({
         }`}
       >
         <span>{slide.caption}</span>
-        <span>{String(slide.number).padStart(2, "0")} / 10</span>
       </figcaption>
     </figure>
   );

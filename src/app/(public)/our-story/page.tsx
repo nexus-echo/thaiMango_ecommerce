@@ -27,44 +27,37 @@ const SLIDE_BASE = "/images/our-story";
 
 const slides = {
   story: {
-    number: 1,
-    src: `${SLIDE_BASE}/01-our-story.jpg`,
+    src: `${SLIDE_BASE}/01-our-story.webp`,
     caption: "Our Story",
     alt: "Bangkok Mango Our Story: Plum, Chili Lime and Passion Fruit dried mango pouches beside a plate of dried mango. Born in Thailand, perfected by nature and science — origin in Kui Buri, Kaew Kamin mango, very slow fermentation, clean drying and vacuum protection.",
   },
   process: {
-    number: 4,
-    src: `${SLIDE_BASE}/04-fresh-to-finished.jpg`,
+    src: `${SLIDE_BASE}/04-fresh-to-finished.webp`,
     caption: "From fresh mango to finished product",
     alt: "From fresh mango to finished product in seven steps, with the Bangkok Mango clean-label safety system.",
   },
   fermentation: {
-    number: 5,
-    src: `${SLIDE_BASE}/05-fermentation.jpg`,
+    src: `${SLIDE_BASE}/05-fermentation.webp`,
     caption: "Where tradition meets biotechnology",
     alt: "Where tradition meets biotechnology: Thai Namwa banana substrate, beneficial cultures, very slow fermentation, transformed mango matrix, richer flavor and thoughtful processing.",
   },
   flavors1: {
-    number: 7,
-    src: `${SLIDE_BASE}/07-flavors-1.jpg`,
+    src: `${SLIDE_BASE}/07-flavors-1.webp`,
     caption: "Flavor Collection I",
     alt: "Flavor Collection I, fruit-forward signature flavors: Plum, Passion Fruit and Roselle dried mango pouches.",
   },
   flavors2: {
-    number: 8,
-    src: `${SLIDE_BASE}/08-flavors-2.jpg`,
+    src: `${SLIDE_BASE}/08-flavors-2.webp`,
     caption: "Flavor Collection II",
     alt: "Flavor Collection II, sweet, spicy and wellness-inspired flavors: Lychee, Chili Salt, Ginger and Turmeric dried mango pouches.",
   },
   flavors3: {
-    number: 9,
-    src: `${SLIDE_BASE}/09-flavors-3.jpg`,
+    src: `${SLIDE_BASE}/09-flavors-3.webp`,
     caption: "Flavor Collection III",
     alt: "Flavor Collection III, special selections: Beetroot and Chili Lime dried mango pouches and a plate of Original dried mango.",
   },
   difference: {
-    number: 10,
-    src: `${SLIDE_BASE}/10-difference.jpg`,
+    src: `${SLIDE_BASE}/10-difference.webp`,
     caption: "The Bangkok Mango difference",
     alt: "The Bangkok Mango difference: Kui Buri origin, Kaew Kamin mango, very slow fermentation, inspired by science, clean-label process and vacuum protection.",
   },

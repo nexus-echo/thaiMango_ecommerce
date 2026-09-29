@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, Droplets, Leaf, PackageCheck, Scissors, Sparkles, Sun } from "lucide-react";
+import { ArrowDown, ArrowRight, Citrus, Droplets, Leaf, PackageCheck, Scissors, Sun } from "lucide-react";
 import CtaBanner from "@/components/public/CtaBanner";
 import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 
@@ -15,7 +15,7 @@ const stages = [
   { number: "02", title: "Prepare with care", label: "Washing & peeling", Icon: Droplets, image: "/images/processing/mango-preparation.webp", alt: "Washed mangoes in a colander beside a peeled mango", description: "The fruit is washed and peeled, and the stone is removed to reveal the mango flesh ready for slicing." },
   { number: "03", title: "Find the right cut", label: "Slicing", Icon: Scissors, image: "/images/processing/mango-slicing.webp", alt: "Even mango slices arranged on a cutting board", description: "Mango flesh is cut into slices. Consistent pieces help the fruit dry evenly and give each bite its familiar shape." },
   { number: "04", title: "Let the flavor deepen", label: "Drying", Icon: Sun, image: "/images/processing/mango-drying.webp", alt: "Golden mango slices spread across mesh drying trays", description: "Slices are spread out for drying. As moisture reduces, the mango develops a more concentrated flavor and a soft, chewy texture." },
-  { number: "05", title: "Give each flavor its finish", label: "Flavoring", Icon: Sparkles, image: "/images/ingredients/dried-mango-chili-lime.webp", alt: "Dried mango seasoned with chili alongside fresh lime", description: "Classic mango keeps the fruit in focus. Other varieties bring together ingredients such as beetroot, honey, or Thai chili and lime." },
+  { number: "05", title: "Give each flavor its finish", label: "Flavoring", Icon: Citrus, image: "/images/ingredients/dried-mango-chili-lime.webp", alt: "Dried mango seasoned with chili alongside fresh lime", description: "Classic mango keeps the fruit in focus. Other varieties bring together ingredients such as beetroot, honey, or Thai chili and lime." },
   { number: "06", title: "Ready for your next moment", label: "Packing", Icon: PackageCheck, image: "/images/processing/bangkok-mango-packing.webp", alt: "Gold and ivory Bangkok Mango Original Flavor pouches beside dried mango and a packing scoop", description: "The finished mango is portioned and packed. Check your pouch for its ingredient list, storage guidance and best-before date." },
 ];
 

@@ -4,7 +4,7 @@ import { ArrowRight, Quote } from "lucide-react";
 import TwoToneTitle from "./TwoToneTitle";
 
 /* "Where tradition meets biotechnology" — slide 5 of the brand's Our Story
-   deck (public/images/our-story/05-fermentation.jpg), rebuilt with real text.
+   deck (public/images/our-story/05-fermentation.webp), rebuilt with real text.
    Photos in public/images/fermentation/ are high-res regenerations of the
    slide's imagery (the slide itself is too small to crop from); steps 3 and 5
    are line art, so they are vector redraws. Wording
@@ -160,13 +160,13 @@ export default function FermentationProcess() {
 
                 {/* Science panel */}
                 <div className="mt-20 md:mt-24 grid overflow-hidden rounded-3xl border border-cream bg-white text-charcoal shadow-xl shadow-burgundy/5 md:grid-cols-[minmax(0,2fr)_3fr] lg:grid-cols-[minmax(0,4fr)_7fr_5fr] reveal">
-                    <div className="relative aspect-390/170 md:aspect-auto md:min-h-full">
+                    <div className="relative aspect-390/170 bg-[#fef4db] md:aspect-auto md:min-h-full">
                         <Image
-                            src="/images/fermentation/microbiome-hq.webp"
-                            alt="Golden microscopic view of cultures and cells"
+                            src="/images/fermentation/step-2-cultures-hq.webp"
+                            alt="Beneficial cultures in a petri dish"
                             fill
                             sizes="(max-width: 767px) 100vw, 40vw"
-                            className="object-cover"
+                            className="object-contain p-4 md:p-6"
                         />
                     </div>
                     <div className="p-8 md:p-10">

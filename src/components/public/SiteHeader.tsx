@@ -12,7 +12,7 @@ import { useStore } from "./store";
  *  - "solid" (every other page): sticky maroon bar that darkens after 10px.
  */
 export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
-  const { t, lang, setLang, showToast, openCart, openMenu, totalItems, user, mounted } =
+  const { t, lang, setLang, showToast, openCart, openMenu, totalItems, user, mounted, settings } =
     useStore();
   const [scrolled, setScrolled] = useState(false);
 
@@ -32,7 +32,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
       ? `header-transparent w-full z-40 transition-all duration-500 ${
           scrolled
             ? "fixed top-0 bg-header text-headerfg shadow-md py-4"
-            : "absolute top-[40px] bg-transparent text-ivory py-6"
+            : `absolute ${settings?.show_announcement ? "top-[40px]" : "top-0 lg:top-[6px]"} bg-transparent text-ivory py-3 lg:py-6`
         }`
       : `sticky top-0 w-full z-40 py-4 text-headerfg transition-all duration-300 ${
           scrolled ? "bg-headerdark shadow-lg" : "bg-header shadow-md"
@@ -61,14 +61,11 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
   return (
     <header id="main-header" className={headerClass}>
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Menu Button (desktop only on the hero header — mobile uses the bottom app nav) */}
+        {/* Menu Button (desktop only — below lg the bottom app nav carries Menu,
+            so mobile is just logo left, account right) */}
         <button
           id="open-menu"
-          className={`${
-            variant === "hero"
-              ? `invisible lg:visible flex items-center gap-3 p-1 ${hoverInk} transition`
-              : `flex items-center gap-3 p-1 ${hoverInk} transition`
-          }`}
+          className={`hidden lg:flex items-center gap-3 p-1 ${hoverInk} transition`}
           aria-label="Open Menu"
           onClick={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
@@ -100,7 +97,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
           />
         </Link>
 
-        {/* Right: Language + Icons */}
+        {/* Right: Language + Icons (cart is desktop only — the bottom nav has Bag) */}
         <div className="flex items-center gap-4 md:gap-6">
           <div translate="no" className="lang-switcher notranslate hidden sm:flex items-center gap-1 text-[10px] md:text-xs tracking-widest uppercase font-semibold">
             <button
@@ -136,7 +133,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
             </span>
           </Link>
           <button
-            className={`open-cart p-1 ${hoverInk} transition relative`}
+            className={`open-cart hidden lg:block p-1 ${hoverInk} transition relative`}
             aria-label="Cart"
             onClick={openCart}
           >

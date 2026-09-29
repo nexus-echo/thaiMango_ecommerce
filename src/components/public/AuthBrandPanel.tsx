@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useStore } from "./store";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 type AuthBrandPanelProps = {
   eyebrow: string;
@@ -23,12 +24,14 @@ export default function AuthBrandPanel({
   const storeName = settings?.store_name || "Bangkok Mango";
 
   return (
-    <div className="lg:col-span-5 relative bg-burgundy text-white p-8 md:p-12 flex flex-col overflow-hidden">
+    <div className="lg:col-span-5 relative bg-burgundy text-white p-6 sm:p-8 md:p-12 flex flex-col overflow-hidden">
       {/* Warm mango glow behind the lockup */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[150%] aspect-square rounded-full opacity-30 bg-[radial-gradient(circle,var(--color-mango)_0%,transparent_60%)]"
       />
+      {/* Mango graffiti, kept off the centred lockup + copy */}
+      <DoodleBackdrop src="/images/doodles/mango-graffiti.svg" tile={380} fade="center" className="text-gold opacity-[0.16]" />
       {/* Inset hairline frame, like the label border on the packs */}
       <div
         aria-hidden="true"
@@ -48,7 +51,7 @@ export default function AuthBrandPanel({
           {eyebrow}
           <span aria-hidden="true" className="h-px w-8 bg-gold/40" />
         </span>
-        <h2 className="font-serif text-3xl md:text-4xl text-white leading-tight mb-4">
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white leading-tight mb-4">
           {title}
         </h2>
         <p className="text-xs text-white/70 leading-relaxed max-w-sm mx-auto">

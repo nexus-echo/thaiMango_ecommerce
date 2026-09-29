@@ -58,7 +58,7 @@ export default function TwoToneTitle({
   return (
     <Tag
       id={id}
-      className={`font-serif font-normal normal-case tracking-normal text-3xl md:text-4xl leading-tight ${className}`}
+      className={`font-serif font-normal normal-case tracking-normal text-[1.625rem] sm:text-3xl md:text-4xl leading-tight ${className}`}
     >
       <span className={`${isbreak && "block"} ${leadTone}`}>{heading.slice(0, cut).trim()}</span>
       {split && <span className={`${isbreak && "block"} ${accentTone}`}> {heading.slice(cut).trim()}</span>}

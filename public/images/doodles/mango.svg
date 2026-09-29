@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Mango doodles, tiled around the /login and /register cards. Same
+       hand-drawn language as support.svg: round caps, uneven curves. -->
+
+  <!-- whole mango + stem + leaf -->
+  <path d="M96 70c34-4 62 26 60 64-2 34-28 58-58 56-30-2-48-28-44-58 4-28 18-60 42-62z"/>
+  <path d="M96 70c0-10 4-18 10-22"/>
+  <path d="M106 48c14-14 36-14 48-4-12 14-34 16-48 4z"/>
+  <path d="M106 48c14-2 30-2 48-4" stroke-width="1.6"/>
+  <path d="M72 128c0-14 6-26 16-32" stroke-width="1.6"/>
+
+  <!-- dashed line → cut mango -->
+  <path d="M170 96c24-26 56-28 78-12" stroke-dasharray="3 8"/>
+
+  <!-- hedgehog-cut mango cheek -->
+  <ellipse cx="312" cy="116" rx="58" ry="56" transform="rotate(-15 312 116)"/>
+  <path d="M298 67l64 64M263 102l64 64M276 80l72 72" stroke-width="1.8"/>
+  <path d="M326 67l-64 64M361 102l-64 64M348 80l-72 72" stroke-width="1.8"/>
+
+  <!-- sun (sun-dried) -->
+  <circle cx="462" cy="70" r="16"/>
+  <path d="M462 42v-8M462 98v8M434 70h-8M490 70h8M442 50l-6-6M482 50l6-6M442 90l-6 6M482 90l6 6" stroke-width="1.8"/>
+
+  <!-- dried mango strips -->
+  <g transform="rotate(-12 100 270)">
+    <path d="M40 250c20-10 40 10 60 0s40 10 60 0v16c-20 10-40-10-60 0s-40-10-60 0z"/>
+    <path d="M50 290c20-10 40 10 60 0s40 10 60 0v16c-20 10-40-10-60 0s-40-10-60 0z"/>
+  </g>
+
+  <!-- chili (chili-lime) -->
+  <path d="M232 226c-2 36 30 64 74 58-36-10-56-34-60-58z"/>
+  <path d="M234 226c2-8 8-12 16-12M240 216c-4-6-2-14 4-18"/>
+
+  <!-- mango branch -->
+  <path d="M396 280c30-14 60-46 76-90"/>
+  <path d="M420 262c-6-22 4-40 22-46 4 20-6 38-22 46z"/>
+  <path d="M446 230c16-16 36-18 50-10-12 16-32 18-50 10z"/>
+  <path d="M456 206c-4-18 4-32 18-38 4 16-2 30-18 38z"/>
+
+  <!-- lime slice -->
+  <circle cx="190" cy="390" r="26"/>
+  <circle cx="190" cy="390" r="20" stroke-width="1.6"/>
+  <path d="M190 370v40M173 380l34 20M173 400l34-20" stroke-width="1.6"/>
+
+  <!-- stand-up pouch with a mango on it -->
+  <path d="M50 380h76l-6 104h-64z"/>
+  <path d="M54 396h68" stroke-dasharray="4 5" stroke-width="1.6"/>
+  <path d="M88 424c12-2 22 8 22 20s-10 20-22 20-18-10-16-20 6-18 16-20z" stroke-width="1.8"/>
+  <path d="M88 424c2-6 6-8 10-8" stroke-width="1.6"/>
+
+  <!-- lotus (Thai touch) -->
+  <path d="M310 470c-12-18-10-38 0-52 10 14 12 34 0 52z"/>
+  <path d="M306 470c-20-2-36-16-40-36 20 0 36 14 40 36z"/>
+  <path d="M314 470c20-2 36-16 40-36-20 0-36 14-40 36z"/>
+  <path d="M272 484c12-6 24 6 36 0s24 6 36 0" stroke-width="1.8"/>
+
+  <!-- gift box -->
+  <path d="M404 380h72v60h-72z"/>
+  <path d="M398 366h84v14h-84zM440 366v74"/>
+  <path d="M440 366c-6-14-26-18-26-6 0 8 16 6 26 6zM440 366c6-14 26-18 26-6 0 8-16 6-26 6z"/>
+
+  <!-- heart -->
+  <path d="M366 330c-4-8-18-6-15 5 2 7 15 15 15 15s13-8 15-15c3-11-11-13-15-5z"/>
+
+  <!-- sparkles + dots -->
+  <path d="M210 40v12M204 46h12M30 200v12M24 206h12M500 330v12M494 336h12M250 330v12M244 336h12" stroke-width="1.6"/>
+  <circle cx="200" cy="170" r="3" fill="#B47404"/>
+  <circle cx="214" cy="184" r="2" fill="#B47404"/>
+  <circle cx="380" cy="500" r="3" fill="#B47404"/>
+  <path d="M130 330c6-8 14-8 20 0s14 8 20 0" stroke-width="1.8"/>
+</svg>

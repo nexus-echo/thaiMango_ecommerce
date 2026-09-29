@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Droplet, ShieldCheck, Sparkles } from "lucide-react";
+import { Candy, ChevronDown, Droplet, ShieldCheck } from "lucide-react";
 import { useStore } from "@/components/public/store";
 import Stars from "@/components/public/Stars";
 import { defaultVariant } from "@/lib/variants";
 import type { DetailProduct } from "@/lib/productDetail";
 
 /* Icons cycled across the key-benefit grid, mirroring the static design. */
-const HIGHLIGHT_ICONS = [Droplet, ShieldCheck, Sparkles];
+const HIGHLIGHT_ICONS = [Droplet, ShieldCheck, Candy];
 
 /* The three promises the pack itself makes, shown under the CTA. */
 const KEY_BENEFITS = ["100% Natural", "No Preservatives", "Naturally Sweet"];

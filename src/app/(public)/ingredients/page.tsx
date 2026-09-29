@@ -362,26 +362,27 @@ export default function IngredientsPage() {
 
       {/* Pack promises — the badge bar printed on every pouch */}
       <section aria-label="Printed on every pack" className="border-y border-accent/40 bg-mango text-charcoal">
-        <ul className="mx-auto grid max-w-screen-2xl grid-cols-2 items-center gap-x-6 gap-y-10 px-6 py-10 text-center sm:px-10 md:grid-cols-5 md:gap-y-0 md:divide-x md:divide-charcoal/20 md:py-8">
-          {promises.map(({ th, en, path }, i) => (
-            <li key={en} className={`flex flex-col items-center px-2 md:px-4 ${i === promises.length - 1 ? "col-span-2 md:col-span-1" : ""}`}>
+        {/* Below md: one swipeable row. md+: the 5-column divided bar. */}
+        <ul className="no-scrollbar mx-auto flex max-w-screen-2xl snap-x snap-mandatory items-start gap-x-6 overflow-x-auto px-6 py-8 text-center sm:px-10 md:grid md:grid-cols-5 md:items-center md:overflow-visible md:divide-x md:divide-charcoal/20 md:py-8">
+          {promises.map(({ th, en, path }) => (
+            <li key={en} className="flex w-32 shrink-0 snap-center flex-col items-center px-2 md:w-auto md:px-4">
               {path ? (
-                <span className="mb-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-charcoal/45">
-                  <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <span className="mb-2.5 flex h-12 w-12 items-center justify-center rounded-full border-2 border-charcoal/45 md:mb-3 md:h-14 md:w-14">
+                  <svg className="h-6 w-6 md:h-7 md:w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     {path}
                   </svg>
                 </span>
               ) : (
-                <span className="mb-3 flex h-14 w-14 items-center justify-center">
-                  <svg className="h-9 w-14 drop-shadow-md" viewBox="0 0 54 36" aria-hidden="true">
+                <span className="mb-2.5 flex h-12 w-12 items-center justify-center md:mb-3 md:h-14 md:w-14">
+                  <svg className="h-8 w-12 drop-shadow-md md:h-9 md:w-14" viewBox="0 0 54 36" aria-hidden="true">
                     <path d="M2 10C12 2 24 20 34 10C40 4 48 12 52 8V24C48 28 40 20 34 26C24 36 12 18 2 26V10Z" fill="#ED1C24" />
                     <path d="M2 13C12 5 24 23 34 13C40 7 48 15 52 11V21C48 25 40 17 34 23C24 33 12 15 2 23V13Z" fill="#FFFFFF" />
                     <path d="M2 15.5C12 7.5 24 25.5 34 15.5C40 9.5 48 17.5 52 13.5V18.5C48 22.5 40 14.5 34 20.5C24 30.5 12 12.5 2 20.5V15.5Z" fill="#241D4F" />
                   </svg>
                 </span>
               )}
-              <span className="mb-1 text-sm font-semibold">{th}</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-burgundy">{en}</span>
+              <span className="mb-1 text-[13px] font-semibold leading-snug md:text-sm md:leading-normal">{th}</span>
+              <span className="text-[9px] font-bold uppercase tracking-[0.12em] text-burgundy md:text-[10px] md:tracking-[0.18em]">{en}</span>
             </li>
           ))}
         </ul>

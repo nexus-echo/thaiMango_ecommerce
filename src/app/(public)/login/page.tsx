@@ -14,6 +14,7 @@ import { loginSchema } from "@/schemas/login.schema";
 import { unwrap } from "@/lib/http";
 import CtaBanner from "@/components/public/CtaBanner";
 import AuthBrandPanel from "@/components/public/AuthBrandPanel";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 import SocialAuthButtons from "@/components/public/SocialAuthButtons";
 import { toAuthUser, type ApiUser } from "@/lib/authUser";
 import { readReturnTo, useReturnTo, withReturnTo } from "@/lib/returnTo";
@@ -58,8 +59,9 @@ export default function LoginPage() {
 
   return (
     <>
-    <main className="flex-1 flex items-center justify-center py-12 md:py-20 px-6">
-      <div className="max-w-5xl w-full bg-white rounded-[36px] shadow-2xl border border-cream overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+    <main className="relative overflow-hidden flex-1 flex items-center justify-center py-12 md:py-20 px-4 sm:px-6">
+      <DoodleBackdrop src="/images/doodles/mango.svg" tile={440} className="text-accent opacity-[0.14]" />
+      <div className="relative max-w-5xl w-full bg-white rounded-[36px] shadow-2xl border border-cream overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         {/* Left Visual / Brand Column (5 cols) */}
         <AuthBrandPanel
           eyebrow="Thai Bangkok Circle"
@@ -90,12 +92,12 @@ export default function LoginPage() {
         </AuthBrandPanel>
 
         {/* Right Sign In Form Column (7 cols) */}
-        <div className="lg:col-span-7 p-8 md:p-14 flex flex-col justify-center bg-white">
+        <div className="lg:col-span-7 p-6 sm:p-8 md:p-14 flex flex-col justify-center bg-white">
           <div className="mb-8">
             <span className="text-xs uppercase tracking-widest text-accent font-bold block mb-2">
               Account Login
             </span>
-            <h1 className="font-serif text-3xl md:text-4xl text-charcoal mb-2">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal mb-2">
               Sign In to Bangkok Mango
             </h1>
             <p className="text-xs text-muted">

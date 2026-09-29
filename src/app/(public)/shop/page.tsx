@@ -379,12 +379,12 @@ function ShopPageContent() {
 
       {/* Quality & Origin 5-Badge Banner (Mobile 2x2+1 responsive format) */}
       <div className="relative z-10 w-full border-t border-gold/30 bg-beetroot text-white reveal">
-        <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 py-10 md:py-6 grid grid-cols-2 md:grid-cols-5 gap-y-10 md:gap-y-0 gap-x-6 md:gap-x-0 md:divide-x md:divide-gold/30 text-center items-center">
+        <div className="max-w-screen-2xl mx-auto px-6 sm:px-10 py-8 md:py-6 no-scrollbar flex snap-x snap-mandatory overflow-x-auto md:grid md:grid-cols-5 md:overflow-visible gap-x-6 md:gap-x-0 md:divide-x md:divide-gold/30 text-center items-start md:items-center">
           {/* 1: 100% Natural */}
-          <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-            <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
+          <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+            <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
               <svg
-                className="w-7 h-7 md:w-7 md:h-7"
+                className="w-6 h-6 md:w-7 md:h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -398,19 +398,19 @@ function ShopPageContent() {
                 <line x1="8" y1="22" x2="16" y2="22"></line>
               </svg>
             </span>
-            <span className="text-sm md:text-sm font-semibold tracking-wide text-white mb-1">
+            <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-white mb-1">
               ธรรมชาติ 100%
             </span>
-            <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-gold">
+            <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-gold">
               100% NATURAL
             </span>
           </div>
 
           {/* 2: Finest Quality Mango */}
-          <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-            <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
+          <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+            <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
               <svg
-                className="w-7 h-7 md:w-7 md:h-7"
+                className="w-6 h-6 md:w-7 md:h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -423,19 +423,19 @@ function ShopPageContent() {
                 <path d="M10 4.5c1-1.5 2-2 3-2"></path>
               </svg>
             </span>
-            <span className="text-sm md:text-sm font-semibold tracking-wide text-white mb-1">
+            <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-white mb-1">
               คัดสรรจากมะม่วงคุณภาพ
             </span>
-            <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-gold">
+            <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-gold">
               FINEST QUALITY MANGO
             </span>
           </div>
 
           {/* 3: Product of Thailand */}
-          <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-            <span className="w-14 h-14 md:w-14 md:h-14 flex items-center justify-center mb-3 group-hover:scale-110 transition-all duration-300">
+          <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+            <span className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center mb-2.5 md:mb-3 group-hover:scale-110 transition-all duration-300">
               <svg
-                className="w-14 h-9 md:w-14 md:h-9 drop-shadow-md"
+                className="w-12 h-8 md:w-14 md:h-9 drop-shadow-md"
                 viewBox="0 0 54 36"
                 fill="none"
               >
@@ -453,19 +453,19 @@ function ShopPageContent() {
                 />
               </svg>
             </span>
-            <span className="text-sm md:text-sm font-semibold tracking-wide text-white mb-1">
+            <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-white mb-1">
               ผลิตในประเทศไทย
             </span>
-            <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-gold">
+            <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-gold">
               PRODUCT OF THAILAND
             </span>
           </div>
 
           {/* 4: Delicious & Chewy */}
-          <div className="px-2 md:px-4 flex flex-col items-center justify-center group">
-            <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
+          <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
+            <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
               <svg
-                className="w-7 h-7 md:w-7 md:h-7"
+                className="w-6 h-6 md:w-7 md:h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -482,19 +482,19 @@ function ShopPageContent() {
                 ></path>
               </svg>
             </span>
-            <span className="text-sm md:text-sm font-semibold tracking-wide text-white mb-1">
+            <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-white mb-1">
               อร่อย เพลิน เคี้ยวหนึบ
             </span>
-            <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-gold">
+            <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-gold">
               DELICIOUS &amp; CHEWY
             </span>
           </div>
 
           {/* 5: For All Ages */}
-          <div className="col-span-2 md:col-span-1 px-2 md:px-4 flex flex-col items-center justify-center group max-w-xs mx-auto">
-            <span className="w-14 h-14 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
+          <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group md:max-w-xs md:mx-auto">
+            <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gold flex items-center justify-center text-gold mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-gold/10 transition-all duration-300 shadow-sm">
               <svg
-                className="w-7 h-7 md:w-7 md:h-7"
+                className="w-6 h-6 md:w-7 md:h-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -508,10 +508,10 @@ function ShopPageContent() {
                 <path d="M14 21v-4a2.5 2.5 0 0 1 5 0v4"></path>
               </svg>
             </span>
-            <span className="text-sm md:text-sm font-semibold tracking-wide text-white mb-1">
+            <span className="text-[13px] leading-snug md:text-sm md:leading-normal font-semibold tracking-wide text-white mb-1">
               เหมาะสำหรับทุกวัย
             </span>
-            <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase font-bold text-gold">
+            <span className="text-[9px] tracking-[0.12em] md:text-[11px] md:tracking-[0.18em] uppercase font-bold text-gold">
               FOR ALL AGES
             </span>
           </div>

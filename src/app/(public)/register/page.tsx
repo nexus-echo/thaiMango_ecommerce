@@ -15,6 +15,7 @@ import { signUpSchema } from "@/schemas/signup.schema";
 import { unwrap } from "@/lib/http";
 import CtaBanner from "@/components/public/CtaBanner";
 import AuthBrandPanel from "@/components/public/AuthBrandPanel";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 import SocialAuthButtons from "@/components/public/SocialAuthButtons";
 import { readReturnTo, useReturnTo, withReturnTo } from "@/lib/returnTo";
 
@@ -79,8 +80,9 @@ export default function RegisterPage() {
 
   return (
     <>
-    <main className="flex-1 flex items-center justify-center py-12 md:py-20 px-6">
-      <div className="max-w-5xl w-full bg-white rounded-[36px] shadow-2xl border border-cream overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+    <main className="relative overflow-hidden flex-1 flex items-center justify-center py-12 md:py-20 px-4 sm:px-6">
+      <DoodleBackdrop src="/images/doodles/mango.svg" tile={440} className="text-accent opacity-[0.14]" />
+      <div className="relative max-w-5xl w-full bg-white rounded-[36px] shadow-2xl border border-cream overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         {/* Left Visual / Brand Column (5 cols) */}
         <AuthBrandPanel
           eyebrow="Join The Bangkok Mango Circle"
@@ -100,12 +102,12 @@ export default function RegisterPage() {
         </AuthBrandPanel>
 
         {/* Right Register Form Column (7 cols) */}
-        <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-center bg-white overflow-y-auto max-h-[85vh] no-scrollbar">
+        <div className="lg:col-span-7 p-6 sm:p-8 md:p-12 flex flex-col justify-center bg-white">
           <div className="mb-6">
             <span className="text-xs uppercase tracking-widest text-accent font-bold block mb-1">
               New Membership
             </span>
-            <h1 className="font-serif text-3xl md:text-4xl text-charcoal mb-2">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal mb-2">
               Create Account
             </h1>
             <p className="text-xs text-muted">
@@ -154,7 +156,9 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Stacked again at lg: the form is only 7/12 of the card there,
+                too narrow for the country picker + number side by side */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
               <div>
                 <label className="block text-[11px] uppercase tracking-wider font-semibold text-muted mb-1">
                   Email Address
