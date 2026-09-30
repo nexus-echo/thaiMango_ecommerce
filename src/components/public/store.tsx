@@ -401,16 +401,17 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const toggleWishlist = useCallback(
     (slug: string, label?: string) => {
       const name = label ?? slug;
-      setWishlist((prev) => {
-        if (prev.includes(slug)) {
-          showToast(`Removed ${name} from Wishlist`);
-          return prev.filter((s) => s !== slug);
-        }
+      /* Decide outside the updater: React may run updaters twice (Strict
+         Mode), which would fire the toast twice. */
+      if (wishlist.includes(slug)) {
+        setWishlist((prev) => prev.filter((s) => s !== slug));
+        showToast(`Removed ${name} from Wishlist`);
+      } else {
+        setWishlist((prev) => (prev.includes(slug) ? prev : [...prev, slug]));
         showToast(`Added ${name} to Wishlist`, "heart");
-        return [...prev, slug];
-      });
+      }
     },
-    [showToast]
+    [wishlist, showToast]
   );
 
   const isWishlisted = useCallback(

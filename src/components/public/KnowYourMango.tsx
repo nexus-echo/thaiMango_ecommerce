@@ -1,5 +1,6 @@
 import { Info } from "lucide-react";
 import { MICRONUTRIENTS, NUTRITION, type KnowFact } from "@/lib/product-story";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 interface KnowYourMangoProps {
   intro: string;
@@ -185,8 +186,9 @@ export default function KnowYourMango({
   ingredients,
 }: KnowYourMangoProps) {
   return (
-    <section className="bg-ivory py-16 md:py-24 border-t border-cream">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+    <section className="relative overflow-hidden bg-ivory py-16 md:py-24 border-t border-cream">
+      <DoodleBackdrop src="/images/doodles/mango.svg" tile={440} fade="edges" className="text-accent opacity-[0.12]" />
+      <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
         {/* Heading */}
         <div className="reveal mx-auto mb-12 max-w-2xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-4">

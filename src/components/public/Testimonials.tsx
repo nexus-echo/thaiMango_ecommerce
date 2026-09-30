@@ -10,6 +10,7 @@ import Stars from "@/components/public/Stars";
 import TestimonialImage from "@/components/common/TestimonialImage";
 import { unwrap } from "@/lib/http";
 import TwoToneTitle from "./TwoToneTitle";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 interface PublicTestimonial {
     id: number;
@@ -23,11 +24,24 @@ interface PublicTestimonial {
     product: { slug: string; name_en: string; name_th: string } | null;
 }
 
+interface TestimonialsProps {
+    /** On a product page: that product's quotes lead, the rest follow. */
+    productSlug?: string;
+    /** Section background/border classes. */
+    className?: string;
+    /** Optional tiled line art (a doodle SVG path), kept to the side gutters. */
+    doodle?: string;
+}
+
 /**
  * Admin-curated customer quotes (Admin → Testimonials). Renders nothing when
  * there are none, so the homepage never shows an empty "what people say".
  */
-export default function Testimonials() {
+export default function Testimonials({
+    productSlug,
+    className = "bg-ivory",
+    doodle,
+}: TestimonialsProps = {}) {
     const { t, localized } = useStore();
     const trackRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +51,15 @@ export default function Testimonials() {
         staleTime: 5 * 60 * 1000,
     });
 
-    const testimonials = testimonialsQuery.data ?? [];
+    const all = testimonialsQuery.data ?? [];
+    /* Stable sort: this product's quotes first, admin order otherwise kept. */
+    const testimonials = productSlug
+        ? [...all].sort(
+              (a, b) =>
+                  Number(b.product?.slug === productSlug) -
+                  Number(a.product?.slug === productSlug)
+          )
+        : all;
     if (testimonialsQuery.isError || (testimonialsQuery.isSuccess && testimonials.length === 0)) {
         return null;
     }
@@ -51,8 +73,11 @@ export default function Testimonials() {
     const scrollable = testimonials.length > 1;
 
     return (
-        <section id="testimonials" className="py-20 md:py-24 bg-ivory">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+        <section id="testimonials" className={`relative overflow-hidden py-20 md:py-24 ${className}`}>
+            {doodle && (
+                <DoodleBackdrop src={doodle} tile={440} fade="edges" className="text-accent opacity-[0.12]" />
+            )}
+            <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 reveal">
                     <div>
                         <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-bold block mb-3">
@@ -103,9 +128,12 @@ export default function Testimonials() {
                                 ? localized(item.product.name_en, item.product.name_th)
                                 : null;
                             return (
+                                /* relative: anchors the absolute sr-only rating
+                                   inside the card; without it the span escapes
+                                   the scrolling track and widens the page. */
                                 <figure
                                     key={item.id}
-                                    className="snap-start shrink-0 w-[85%] md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] bg-white rounded-4xl border border-cream p-8 flex flex-col"
+                                    className="relative snap-start shrink-0 w-[85%] md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] bg-white rounded-4xl border border-cream p-8 flex flex-col"
                                 >
                                     <div className="flex items-center justify-between mb-5">
                                         <Stars n={item.rating} />

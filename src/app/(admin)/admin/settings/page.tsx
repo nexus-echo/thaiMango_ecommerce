@@ -618,7 +618,7 @@ export default function SettingsPage() {
             </h2>
             <div className="divide-y divide-cream">
               {toggle("maintenance_mode", "Maintenance Mode", "Temporarily hide the storefront.")}
-              {toggle("show_announcement", "Show Announcement Bar", "Display the top promo marquee.")}
+              {toggle("show_announcement", "Show Announcement Bar", "Display the top promo marquee. Edit its text in Site Content.")}
             </div>
           </Card>
 

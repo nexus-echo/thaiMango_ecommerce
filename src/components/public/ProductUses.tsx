@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { StoryPoint } from "@/lib/product-story";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 interface ProductUsesProps {
   uses: StoryPoint[];
@@ -24,8 +25,9 @@ export default function ProductUses({
   productName,
 }: ProductUsesProps) {
   return (
-    <section className="bg-ivory py-16 md:py-24 border-t border-cream">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+    <section className="relative overflow-clip bg-ivory py-16 md:py-24 border-t border-cream">
+      <DoodleBackdrop src="/images/doodles/mango.svg" tile={440} fade="edges" className="text-accent opacity-[0.12]" />
+      <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 xl:gap-20">
           {/* Image column — sticks while the longer list scrolls past it */}
           <div className="reveal lg:sticky lg:top-28 lg:self-start">

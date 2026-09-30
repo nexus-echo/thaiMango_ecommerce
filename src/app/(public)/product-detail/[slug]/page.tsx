@@ -11,6 +11,7 @@ import { unwrap } from "@/lib/http";
 import type { DetailProduct } from "@/lib/productDetail";
 import { USES_IMAGE, USES_IMAGE_ALT, productStory } from "@/lib/product-story";
 import CtaBanner from "@/components/public/CtaBanner";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 import KnowYourMango from "@/components/public/KnowYourMango";
 import ProductBenefits from "@/components/public/ProductBenefits";
 import ProductBreadcrumbs from "@/components/public/ProductBreadcrumbs";
@@ -24,6 +25,7 @@ import ProductShelfLife from "@/components/public/ProductShelfLife";
 import ProductUses from "@/components/public/ProductUses";
 import QualityBadges from "@/components/public/QualityBadges";
 import RelatedProducts from "@/components/public/RelatedProducts";
+import Testimonials from "@/components/public/Testimonials";
 
 /**
  * Product detail route.
@@ -101,8 +103,12 @@ export default function ProductDetailPage() {
         />
 
         {/* Product Showcase */}
-        <section className="py-12 md:py-20 bg-ivory">
-          <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+        {/* overflow-clip, not -hidden: hidden would break the sticky gallery */}
+        <section className="relative overflow-clip py-12 md:py-20 bg-ivory">
+          {/* Product doodles (quality check, sun-drying, jar, serving bowl,
+              reviews, ingredients, shelf life), kept to the side gutters */}
+          <DoodleBackdrop src="/images/doodles/product.svg" tile={440} fade="edges" className="text-accent opacity-[0.1]" />
+          <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               <ProductGallery
                 images={images}
@@ -119,7 +125,8 @@ export default function ProductDetailPage() {
 
         {/* ---- The long-form half of the page ----
             The order follows the order the questions arrive in: how do I eat
-            it, why would I, how long does it keep, what else should I ask,
+            it, why would I, how long does it keep, do others like it, what
+            else should I ask,
             what is it exactly, and who else has already bought it. */}
 
         <ProductUses
@@ -135,6 +142,13 @@ export default function ProductDetailPage() {
         />
 
         <ProductShelfLife storageInfo={product.storage_info} />
+
+        {/* Same admin-curated quotes as the home page, this product's first */}
+        <Testimonials
+          productSlug={product.slug}
+          className="bg-ivory border-t border-cream"
+          doodle="/images/doodles/support.svg"
+        />
 
         <ProductFaq />
 
@@ -166,6 +180,7 @@ export default function ProductDetailPage() {
           primaryHref="/shop"
           secondaryLabel="Ask a Question"
           secondaryHref="/contact"
+          doodle="/images/doodles/graffiti.svg"
         />
 
         <QualityBadges />

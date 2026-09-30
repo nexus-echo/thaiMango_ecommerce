@@ -7,6 +7,7 @@ import {
   Wheat,
 } from "lucide-react";
 import type { StoryPoint } from "@/lib/product-story";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 /* Cycled across the grid in order, the way the showcase cycles its highlight
    icons. Six icons for six benefits — a shorter list simply uses the first n. */
@@ -30,8 +31,9 @@ export default function ProductBenefits({
   highlights,
 }: ProductBenefitsProps) {
   return (
-    <section className="bg-cream py-16 md:py-24">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+    <section className="relative overflow-hidden bg-cream py-16 md:py-24">
+      <DoodleBackdrop src="/images/why-choose/process-doodles.svg" tile={480} fade="edges" className="text-accent opacity-[0.14]" />
+      <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
         {/* Heading */}
         <div className="reveal mx-auto mb-12 max-w-2xl text-center md:mb-16">
           <div className="mb-5 flex items-center justify-center gap-4">

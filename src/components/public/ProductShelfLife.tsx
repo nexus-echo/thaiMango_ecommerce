@@ -1,5 +1,6 @@
 import { RefreshCw, Snowflake, Sun } from "lucide-react";
 import { SHELF_LIFE } from "@/lib/product-story";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 interface ProductShelfLifeProps {
   /** The product's own `storage_info`; the band falls back to a generic line. */
@@ -42,8 +43,9 @@ export default function ProductShelfLife({
   storageInfo,
 }: ProductShelfLifeProps) {
   return (
-    <section className="bg-ivory py-16 md:py-20 border-t border-cream">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+    <section className="relative overflow-hidden bg-ivory py-16 md:py-20 border-t border-cream">
+      <DoodleBackdrop src="/images/doodles/product.svg" tile={440} fade="edges" className="text-accent opacity-[0.12]" />
+      <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="reveal mb-10 text-center">
           <div className="mb-5 flex items-center justify-center gap-4">
             <span className="h-px w-10 bg-accent/50" />

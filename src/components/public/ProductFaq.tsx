@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { FAQ_DEFAULTS, type FaqCategoryId } from "@/schemas/faq.schema";
 import { unwrap } from "@/lib/http";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 interface FaqRow {
   id: number;
@@ -79,8 +80,9 @@ export default function ProductFaq() {
   };
 
   return (
-    <section className="bg-cream py-16 md:py-24">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+    <section className="relative overflow-hidden bg-cream py-16 md:py-24">
+      <DoodleBackdrop src="/images/doodles/faq.svg" tile={440} fade="edges" className="text-accent opacity-[0.14]" />
+      <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
         <h2 className="reveal mb-10 text-center font-serif text-[1.75rem] font-semibold tracking-[-0.01em] text-charcoal md:mb-12 md:text-4xl">
           You Ask, We Answer
         </h2>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Shopping doodles, tiled behind the shop header/catalog and related
+       products. Same hand-drawn language as support.svg: round caps,
+       uneven curves. -->
+
+  <!-- shopping bag with a mango -->
+  <path d="M50 70h96l-8 90h-80z"/>
+  <path d="M76 70c0-24 44-24 44 0"/>
+  <path d="M98 102c12 0 20 10 18 22-2 10-10 16-20 14-10-2-14-10-12-20 2-8 6-16 14-16z"/>
+  <path d="M98 102c4-6 10-8 16-6-4 6-10 8-16 6z"/>
+
+  <!-- dashed line → pouch -->
+  <path d="M160 60c20-24 44-28 60-18" stroke-dasharray="3 8"/>
+
+  <!-- stand-up pouch with window -->
+  <path d="M230 50h90v10c0 30 4 70 6 100H224c2-30 6-70 6-100z"/>
+  <path d="M232 64h86"/>
+  <rect x="252" y="88" width="46" height="40" rx="10"/>
+  <path d="M258 112c8-4 16 4 24 0s8 2 10 1"/>
+  <path d="M226 150c30 8 70 8 100 0"/>
+
+  <!-- price tag -->
+  <path d="M420 50h54a10 10 0 0 1 10 10v56a10 10 0 0 1-10 10h-54l-30-38z"/>
+  <circle cx="408" cy="88" r="5"/>
+  <path d="M408 83c-14-18-10-38 8-46"/>
+  <path d="M432 78h36M432 96h24"/>
+
+  <!-- discount % -->
+  <circle cx="182" cy="176" r="5"/>
+  <circle cx="202" cy="198" r="5"/>
+  <path d="M206 170l-28 32"/>
+
+  <!-- cart with a mango -->
+  <path d="M30 222h24l20 78h80l16-56H60"/>
+  <circle cx="86" cy="318" r="8"/>
+  <circle cx="144" cy="318" r="8"/>
+  <path d="M96 244c14-12 34-10 42 4-10 12-30 12-42-4z"/>
+
+  <!-- star rating -->
+  <g transform="translate(236 256)"><path d="M0-14L3.5-4.9 13.3-4.3 5.7 1.9 8.2 11.3 0 6-8.2 11.3-5.7 1.9-13.3-4.3-3.5-4.9z"/></g>
+  <g transform="translate(272 240)"><path d="M0-14L3.5-4.9 13.3-4.3 5.7 1.9 8.2 11.3 0 6-8.2 11.3-5.7 1.9-13.3-4.3-3.5-4.9z"/></g>
+  <g transform="translate(308 256)"><path d="M0-14L3.5-4.9 13.3-4.3 5.7 1.9 8.2 11.3 0 6-8.2 11.3-5.7 1.9-13.3-4.3-3.5-4.9z"/></g>
+  <path d="M232 292c20 10 60 10 80 0"/>
+
+  <!-- gift box with bow -->
+  <rect x="372" y="226" width="112" height="26" rx="4"/>
+  <rect x="382" y="252" width="92" height="74" rx="4"/>
+  <path d="M428 226v100"/>
+  <path d="M428 226c-10-20-34-22-34-6 0 8 18 8 34 6z"/>
+  <path d="M428 226c10-20 34-22 34-6 0 8-18 8-34 6z"/>
+
+  <!-- market basket of mangoes -->
+  <path d="M34 420h132l-14 70H48z"/>
+  <path d="M44 442h112M50 464h100"/>
+  <path d="M50 420c0-50 100-50 100 0"/>
+  <path d="M70 420c0-16 12-24 24-22 12 2 18 14 14 22"/>
+  <path d="M106 420c2-18 18-24 30-18 10 6 10 16 6 18"/>
+  <path d="M92 398c6-8 16-10 24-6-6 8-16 10-24 6z"/>
+
+  <!-- delivery parcel -->
+  <path d="M200 430h16M206 446h12M196 414h12"/>
+  <path d="M230 400l50-20 50 20v70l-50 20-50-20z"/>
+  <path d="M230 400l50 20 50-20M280 420v70"/>
+  <path d="M255 390l50 20"/>
+
+  <!-- mango -->
+  <path d="M430 390c30-2 50 22 48 52-2 28-22 46-46 44-24-2-38-22-34-46 3-22 12-48 32-50z"/>
+  <path d="M430 390c0-8 4-14 8-18"/>
+  <path d="M438 372c12-10 28-10 36-2-10 10-26 12-36 2z"/>
+  <path d="M414 430c0-12 6-22 14-26"/>
+
+  <!-- sparkles + dots -->
+  <path d="M356 170v14M349 177h14"/>
+  <path d="M190 350v12M184 356h12"/>
+  <path d="M492 180v12M486 186h12"/>
+  <circle cx="30" cy="30" r="2.5" fill="#B47404"/>
+  <circle cx="350" cy="350" r="2.5" fill="#B47404"/>
+  <circle cx="220" cy="500" r="2" fill="#B47404"/>
+  <circle cx="500" cy="340" r="2" fill="#B47404"/>
+</svg>

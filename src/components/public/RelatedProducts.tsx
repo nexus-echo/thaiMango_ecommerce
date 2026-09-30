@@ -5,6 +5,7 @@ import { useStore } from "@/components/public/store";
 import { defaultVariant } from "@/lib/variants";
 import { productImage } from "@/lib/images";
 import type { RelatedProduct } from "@/lib/productDetail";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 /** How many of the ranked candidates the rail actually shows. */
 const VISIBLE = 4;
@@ -31,8 +32,10 @@ export default function RelatedProducts({
   if (products.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-20 bg-[#FFF9E9] border-t border-cream">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+    <section className="relative overflow-hidden py-16 md:py-20 bg-[#FFF9E9] border-t border-cream">
+      {/* Shopping doodles, as on /shop, kept to the side gutters */}
+      <DoodleBackdrop src="/images/doodles/shop.svg" tile={440} fade="edges" className="text-accent opacity-[0.12]" />
+      <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="flex flex-wrap justify-between items-end gap-4 mb-10">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-accent mb-2 block">

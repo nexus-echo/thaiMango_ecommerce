@@ -99,7 +99,7 @@ export default function SiteHeader({ variant }: { variant: "hero" | "solid" }) {
 
         {/* Right: Language + Icons (cart is desktop only — the bottom nav has Bag) */}
         <div className="flex items-center gap-4 md:gap-6">
-          <div translate="no" className="lang-switcher notranslate hidden sm:flex items-center gap-1 text-[10px] md:text-xs tracking-widest uppercase font-semibold">
+          <div translate="no" className="lang-switcher notranslate flex items-center gap-1 text-[10px] md:text-xs tracking-widest uppercase font-semibold">
             <button
               className={`lang-btn px-1.5 py-0.5 rounded transition ${
                 lang === "en"

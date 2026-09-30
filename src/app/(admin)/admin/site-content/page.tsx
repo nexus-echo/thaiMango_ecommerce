@@ -33,6 +33,7 @@ export default function SiteContentPage() {
       unwrap<unknown>(axios.patch(`/api/admin/site-content/${id}`, { content })),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["admin-site-content"] });
+      queryClient.invalidateQueries({ queryKey: ["site-content"] });
       setEditingId(null);
     },
     onError: (error: Error) => setServerError(error.message),
