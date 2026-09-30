@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 interface CtaBannerProps {
   /* Every page passes its own copy so the closing CTA speaks to that page's
@@ -11,6 +12,9 @@ interface CtaBannerProps {
   primaryHref: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  /* Optional tiled line art (a /images/doodles/*.svg path) — off unless the
+     page asks for it. */
+  doodle?: string;
 }
 
 /* Closing call-to-action band. Sits just above the site footer on every public
@@ -25,6 +29,7 @@ export default function CtaBanner({
   primaryHref,
   secondaryLabel,
   secondaryHref,
+  doodle,
 }: CtaBannerProps) {
   return (
     <section className="relative isolate w-full overflow-hidden border-t border-ivory/10 bg-charcoal text-ivory">
@@ -37,6 +42,9 @@ export default function CtaBanner({
             "radial-gradient(120% 120% at 88% -10%, rgba(255,228,144,0.15), transparent 55%), radial-gradient(90% 100% at -10% 110%, rgba(147,84,0,0.45), transparent 60%)",
         }}
       />
+      {doodle && (
+        <DoodleBackdrop src={doodle} tile={400} className="text-gold opacity-[0.1]" />
+      )}
       {/* Corner frame accents — echoes the hero and heritage sections */}
       <div aria-hidden className="pointer-events-none absolute inset-5 md:inset-8">
         <span className="absolute left-0 top-0 h-12 w-12 border-l border-t border-gold/25" />

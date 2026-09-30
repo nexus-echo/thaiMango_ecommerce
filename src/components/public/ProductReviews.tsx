@@ -13,6 +13,7 @@ import ReviewDialog, {
 import { useStore } from "@/components/public/store";
 import { unwrap } from "@/lib/http";
 import type { DetailProduct, DetailReview } from "@/lib/productDetail";
+import DoodleBackdrop from "./DoodleBackdrop";
 
 interface ProductReviewsProps {
   slug: string;
@@ -222,8 +223,10 @@ export default function ProductReviews({
   };
 
   return (
-    <section id="reviews" className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-4xl px-6 md:px-8">
+    <section id="reviews" className="relative overflow-hidden bg-white py-16 md:py-24">
+      {/* Feedback doodles (chat bubbles, smiley, check) in the side gutters */}
+      <DoodleBackdrop src="/images/doodles/support.svg" tile={440} fade="edges" className="text-accent opacity-[0.12]" />
+      <div className="relative mx-auto max-w-4xl px-6 md:px-8">
         {/* 1 — Rate this product / Your review */}
         {myReview ? (
           <div className="mb-16">

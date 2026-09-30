@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Candy, ChevronDown, Droplet, ShieldCheck } from "lucide-react";
+import { Candy, ChevronDown, Droplet, Heart, ShieldCheck } from "lucide-react";
 import { useStore } from "@/components/public/store";
 import Stars from "@/components/public/Stars";
 import { defaultVariant } from "@/lib/variants";
@@ -205,13 +205,15 @@ export default function ProductBuyBox({ product, image }: ProductBuyBoxProps) {
         <button
           type="button"
           onClick={() => toggleWishlist(product.slug, name)}
-          className={`px-5 py-4 rounded-full border text-xs font-bold uppercase tracking-widest transition ${
+          aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+          aria-pressed={wishlisted}
+          className={`px-5 py-4 rounded-full border transition ${
             wishlisted
               ? "border-rose-300 bg-rose-50 text-rose-600"
               : "border-cream bg-white text-muted hover:border-charcoal hover:text-charcoal"
           }`}
         >
-          {wishlisted ? "Saved" : "Save"}
+          <Heart className="w-5 h-5" fill={wishlisted ? "currentColor" : "none"} />
         </button>
       </div>
 

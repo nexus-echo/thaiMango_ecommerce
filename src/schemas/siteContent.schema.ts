@@ -10,6 +10,9 @@ export interface SiteContentDefault {
 }
 
 export const SITE_CONTENT_DEFAULTS: SiteContentDefault[] = [
+    /* Top promo marquee (AnnouncementBar). Shown only while the "Show
+       Announcement Bar" toggle in Admin → Settings is on. */
+    { id: "announcement_text", section: "Announcement Bar", location: "All pages", content: "Welcome to Bangkok Mango — Enjoy 15% off your first order" },
     { id: "hero_desc", section: "Hero Description", location: "Home", content: "Where orchard tradition meets modern craft. Discover naturally sun-dried mango, hand-selected in Thailand for timeless tropical sweetness." },
     { id: "best_sellers_intro", section: "Best Selling Intro", location: "Home", content: "The flavors our customers come back for — ranked by what actually leaves the orchard." },
     { id: "expert_intro", section: "Flavor Expert Intro", location: "Home", content: "Tell us your taste preferences — sweet, spicy, tangy, or classic — and we'll point you toward the flavors that fit, or connect you with our team for bulk and gifting orders." },

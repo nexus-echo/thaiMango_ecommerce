@@ -16,6 +16,7 @@ import { defaultVariant, minPrice } from "@/lib/variants";
 import { productImage } from "@/lib/images";
 import { unwrap } from "@/lib/http";
 import CtaBanner from "@/components/public/CtaBanner";
+import DoodleBackdrop from "@/components/public/DoodleBackdrop";
 
 interface ApiVariant {
   label: string;
@@ -196,8 +197,10 @@ function ShopPageContent() {
         <CategoryParamSync onCategory={setActiveFilter} />
       </Suspense>
       {/* Page Header & Breadcrumbs */}
-      <section className="bg-cream/60 border-b border-cream py-12 md:py-16">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+      <section className="relative overflow-hidden bg-cream/60 border-b border-cream py-12 md:py-16">
+        {/* Shopping doodles (bag, pouch, tag, cart, gift box, parcel) */}
+        <DoodleBackdrop src="/images/doodles/shop.svg" tile={440} className="text-accent opacity-[0.14]" />
+        <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
           <nav className="flex items-center gap-2 text-xs text-muted uppercase tracking-widest mb-4">
             <Link href="/" className="hover:text-charcoal transition">
               Home
@@ -217,8 +220,10 @@ function ShopPageContent() {
       </section>
 
       {/* Catalog Section with Filters */}
-      <section className="py-12 md:py-16 bg-[#FFF9E9]">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+      <section className="relative overflow-hidden py-12 md:py-16 bg-[#FFF9E9]">
+        {/* Same doodles, kept to the side gutters around the product grid */}
+        <DoodleBackdrop src="/images/doodles/shop.svg" tile={440} fade="edges" className="text-accent opacity-[0.12]" />
+        <div className="relative max-w-screen-2xl mx-auto px-6 md:px-12">
           {/* Category Tabs & Sorting Bar */}
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-10 pb-6 border-b border-cream">
             <div className="flex flex-wrap gap-2.5">

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520" fill="none" stroke="#B47404" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Product-detail doodles, tiled behind the product showcase: quality
+       check, sun-drying, storage, serving, reviews, ingredients, the
+       hedgehog cut, shelf life and flavors. Same hand-drawn language as
+       support.svg: round caps, uneven curves. -->
+
+  <!-- magnifier over a mango (quality check) -->
+  <circle cx="96" cy="90" r="40"/>
+  <path d="M96 64c16-2 26 12 24 28-2 14-12 22-24 20-12-2-20-12-18-24 2-12 6-24 18-24z"/>
+  <path d="M96 64c2-6 6-10 12-10"/>
+  <path d="M125 119l28 28" stroke-width="4"/>
+
+  <!-- sun over a drying rack -->
+  <circle cx="280" cy="52" r="14"/>
+  <path d="M280 28v-8M280 76v8M256 52h-8M304 52h8M263 35l-6-6M297 35l6-6M263 69l-6 6M297 69l6 6"/>
+  <path d="M236 124c8-6 16 2 24-4M270 124c8-6 16 2 24-4M304 124c8-6 16 2 22-4"/>
+  <path d="M220 130h120M220 150h120M230 130v40M330 130v40"/>
+
+  <!-- storage jar -->
+  <rect x="398" y="50" width="64" height="16" rx="4"/>
+  <path d="M404 66h52c8 0 12 6 12 14v70c0 10-6 16-16 16h-48c-10 0-16-6-16-16V80c0-8 4-14 12-14z"/>
+  <rect x="404" y="100" width="52" height="30" rx="4"/>
+  <path d="M412 118c8-5 16 3 24-2s8 2 12 0"/>
+
+  <!-- bowl of mango cubes + spoon (serving ideas) -->
+  <path d="M34 250h130c0 36-28 60-65 60s-65-24-65-60z"/>
+  <path d="M80 312h38"/>
+  <rect x="58" y="232" width="16" height="16" rx="3" transform="rotate(-10 66 240)"/>
+  <rect x="86" y="226" width="16" height="16" rx="3" transform="rotate(8 94 234)"/>
+  <rect x="114" y="234" width="16" height="16" rx="3" transform="rotate(-6 122 242)"/>
+  <path d="M142 238l24-34"/>
+  <ellipse cx="172" cy="194" rx="8" ry="12" transform="rotate(35 172 194)"/>
+
+  <!-- review bubble with stars -->
+  <path d="M220 220h110a14 14 0 0 1 14 14v44a14 14 0 0 1-14 14h-66l-20 18v-18h-24a14 14 0 0 1-14-14v-44a14 14 0 0 1 14-14z"/>
+  <g transform="translate(244 256) scale(0.7)"><path d="M0-14L3.5-4.9 13.3-4.3 5.7 1.9 8.2 11.3 0 6-8.2 11.3-5.7 1.9-13.3-4.3-3.5-4.9z"/></g>
+  <g transform="translate(275 256) scale(0.7)"><path d="M0-14L3.5-4.9 13.3-4.3 5.7 1.9 8.2 11.3 0 6-8.2 11.3-5.7 1.9-13.3-4.3-3.5-4.9z"/></g>
+  <g transform="translate(306 256) scale(0.7)"><path d="M0-14L3.5-4.9 13.3-4.3 5.7 1.9 8.2 11.3 0 6-8.2 11.3-5.7 1.9-13.3-4.3-3.5-4.9z"/></g>
+
+  <!-- ingredients checklist -->
+  <rect x="384" y="220" width="86" height="106" rx="8"/>
+  <rect x="408" y="212" width="38" height="16" rx="4"/>
+  <path d="M398 252l6 6 10-12M422 252h36"/>
+  <path d="M398 278l6 6 10-12M422 278h36"/>
+  <path d="M398 304l6 6 10-12M422 304h28"/>
+
+  <!-- hedgehog-cut mango cheek -->
+  <path d="M50 420c0-30 26-50 56-50s56 20 56 50-26 50-56 50-56-20-56-50z"/>
+  <path d="M74 394l64 48M62 416l58 44M92 380l62 46"/>
+  <path d="M138 394l-64 48M150 416l-58 44M120 380l-62 46"/>
+
+  <!-- hourglass (shelf life) -->
+  <path d="M232 380h64M232 480h64"/>
+  <path d="M240 380c0 30 24 34 24 50s-24 20-24 50M288 380c0 30-24 34-24 50s24 20 24 50"/>
+  <path d="M250 400h28c-4 8-10 12-14 14-4-2-10-6-14-14z" fill="#B47404"/>
+  <path d="M252 470c6-10 18-10 24 0z" fill="#B47404"/>
+
+  <!-- chili + lime (flavors) -->
+  <g transform="translate(176 190)">
+    <path d="M210 190c-2 36 30 64 74 58-36-10-56-34-60-58z"/>
+    <path d="M212 190c2-8 8-12 16-12M218 180c-4-6-2-14 4-18"/>
+  </g>
+  <circle cx="474" cy="466" r="22"/>
+  <circle cx="474" cy="466" r="15"/>
+  <path d="M474 451v30M459 466h30M463 455l22 22M485 455l-22 22"/>
+
+  <!-- dashed trails + sparkles -->
+  <path d="M180 100c14-18 26-24 36-22" stroke-dasharray="3 8"/>
+  <path d="M352 400c10-16 20-22 30-20" stroke-dasharray="3 8"/>
+  <path d="M190 350v12M184 356h12"/>
+  <path d="M356 180v14M349 187h14"/>
+  <circle cx="30" cy="180" r="2.5" fill="#B47404"/>
+  <circle cx="500" cy="200" r="2" fill="#B47404"/>
+  <circle cx="340" cy="340" r="2.5" fill="#B47404"/>
+  <circle cx="200" cy="500" r="2" fill="#B47404"/>
+</svg>

@@ -124,10 +124,15 @@ export default function Home() {
           </video>
           {/* Overlay to ensure text readability */}
           <div className="absolute inset-0 bg-[#0A0A0A]/60"></div>
+          {/* Mobile: extra shade under the bottom-docked content */}
+          <div className="md:hidden absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/75 via-black/30 to-transparent"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-12 lg:py-0 flex-1 flex items-center justify-start">
+        {/* Below md the content docks at the bottom: title row, then a row of
+            both buttons; description hidden. md+ keeps the centered
+            left-aligned block. */}
+        <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12 pt-24 md:pt-32 pb-7 md:pb-12 lg:py-0 flex-1 flex items-end md:items-center justify-start">
           {/* Corner Frame Accent — framed to the content area, not the section,
               so the bottom corners sit above the badge strip. The top edge starts
               below the floating header (its bottom is ~80px on md, ~144px on lg). */}
@@ -138,28 +143,31 @@ export default function Home() {
             <span className="absolute bottom-0 right-0 w-14 h-14 border-b border-r border-ivory/30"></span>
           </div>
 
-          <div className="max-w-2xl text-left text-white reveal">
+          <div className="w-full md:w-auto md:max-w-2xl flex flex-col gap-5 md:block text-left text-white reveal">
             {/* The brand name stays as-is when Google translates the page */}
-            <h1 translate="no" className="notranslate font-serif font-medium text-4xl sm:text-5xl md:text-[5rem] leading-[1.1] mb-3 md:mb-4 tracking-tight uppercase">
+            <h1 translate="no" className="notranslate font-serif font-medium text-[2rem] sm:text-5xl md:text-[5rem] leading-none md:leading-[1.1] md:mb-4 tracking-tight uppercase">
+              <span aria-hidden="true" className="md:hidden block w-7 h-0.5 rounded-full bg-mango mb-3"></span>
               {heroLead && <span>{heroLead} </span>}
               <span className="text-[#ECA40C]">{heroAccent}</span>
             </h1>
 
-            <p className="text-white/90 text-sm md:text-lg leading-relaxed mb-8 md:mb-10 max-w-96 font-medium md:text-justify">
+            <p className="hidden md:block text-white/90 text-lg leading-relaxed mb-10 max-w-96 font-medium text-justify">
               {content("hero_desc", t("hero_desc"))}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start justify-start gap-4">
+            <div className="flex flex-row items-stretch md:items-start justify-start gap-2.5 md:gap-4">
               <Link
                 href="/shop"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 bg-mango border border-mango text-charcoal text-[10px] md:text-xs tracking-widest uppercase hover:bg-charcoal hover:text-mango hover:border-charcoal transition duration-300 rounded-full font-bold shadow-lg"
+                className="max-md:flex-[1.15] inline-flex items-center justify-between md:justify-center gap-2 md:gap-0 pl-3.5 pr-1.5 md:px-8 py-1.5 md:py-3.5 bg-mango border border-mango text-charcoal max-md:bg-transparent max-md:border-white/25 max-md:text-white max-md:shadow-none text-[10px] md:text-xs tracking-wider md:tracking-widest uppercase md:hover:bg-charcoal md:hover:text-mango md:hover:border-charcoal max-md:hover:bg-white max-md:hover:text-charcoal transition duration-300 rounded-full font-bold shadow-lg"
               >
                 <span>{t("shop_products")}</span>
-                <ArrowRight className="w-4 h-4 ml-3" />
+                <span className="w-7 h-7 md:w-auto md:h-auto md:ml-3 rounded-full max-md:bg-mango max-md:text-charcoal flex items-center justify-center">
+                  <ArrowRight className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                </span>
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3.5 bg-white/10 border border-white/20 text-white text-[10px] md:text-xs tracking-widest uppercase hover:bg-white hover:text-charcoal transition duration-300 rounded-full font-bold backdrop-blur-sm"
+                className="max-md:flex-1 inline-flex items-center justify-center px-4 md:px-8 py-3 md:py-3.5 max-md:bg-transparent bg-white/10 border border-white/25 md:border-white/20 text-white text-[10px] md:text-xs tracking-wider md:tracking-widest uppercase hover:bg-white hover:text-charcoal transition duration-300 rounded-full font-bold md:backdrop-blur-sm"
               >
                 <span>{t("skin_consultation")}</span>
               </Link>
@@ -170,7 +178,7 @@ export default function Home() {
         {/* Quality & Origin 5-Badge Banner */}
         <div className="relative z-10 w-full border-t border-[#B47404]/40 bg-mango text-charcoal reveal">
           {/* Below md: one swipeable row (snaps per badge). md+: the 5-column divided grid. */}
-          <div className="no-scrollbar max-w-screen-2xl mx-auto px-6 sm:px-10 py-8 md:py-6 flex snap-x snap-mandatory overflow-x-auto md:grid md:grid-cols-5 md:overflow-visible gap-x-6 md:gap-x-0 md:divide-x md:divide-charcoal/20 text-center items-start md:items-center">
+          <div className="no-scrollbar max-w-screen-2xl mx-auto px-6 sm:px-10 py-2 md:py-6 flex snap-x snap-mandatory overflow-x-auto md:grid md:grid-cols-5 md:overflow-visible gap-x-6 md:gap-x-0 md:divide-x md:divide-charcoal/20 text-center items-start md:items-center">
             {/* 1: 100% Natural */}
             <div className="w-32 shrink-0 snap-center md:w-auto px-2 md:px-4 flex flex-col items-center justify-center group">
               <span className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-charcoal/45 flex items-center justify-center text-charcoal mb-2.5 md:mb-3 group-hover:scale-110 group-hover:bg-charcoal/10 transition-all duration-300 shadow-sm">
