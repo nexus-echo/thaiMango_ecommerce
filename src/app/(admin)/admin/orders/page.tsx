@@ -127,7 +127,7 @@ export default function OrdersPage() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-sm min-w-[760px]">
+          <table className="w-full text-sm min-w-190">
             <thead>
               <tr className="text-left text-[11px] uppercase tracking-wider text-muted border-b border-cream bg-ivory">
                 <th className="font-semibold px-5 py-3">Order</th>
@@ -187,7 +187,7 @@ export default function OrdersPage() {
                       </td>
                       <td className="px-5 py-3.5">
                         <div className="flex items-center justify-end gap-1.5">
-                          <div className="w-[130px]">
+                          <div className="w-32.5">
                             <Select<SelectOption>
                               instanceId={`order-status-${o.id}`}
                               options={STATUS_OPTIONS}
