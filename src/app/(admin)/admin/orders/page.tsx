@@ -1,9 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import { Search } from "lucide-react";
+import { ChevronRight, Search } from "lucide-react";
 import Select from "react-select";
 import { useMoney } from "@/components/admin/useMoney";
 import { Card, PageHeader, StatusBadge } from "@/components/admin/ui";
@@ -153,8 +154,13 @@ export default function OrdersPage() {
                       key={o.id}
                       className="border-b border-cream/60 last:border-0 hover:bg-cream/30 transition"
                     >
-                      <td className="px-5 py-3.5 font-semibold text-charcoal whitespace-nowrap">
-                        TM-{String(o.order_no).padStart(5, "0")}
+                      <td className="px-5 py-3.5 whitespace-nowrap">
+                        <Link
+                          href={`/admin/orders/${o.id}`}
+                          className="font-semibold text-charcoal hover:text-accent transition"
+                        >
+                          TM-{String(o.order_no).padStart(5, "0")}
+                        </Link>
                       </td>
                       <td className="px-5 py-3.5 whitespace-nowrap">
                         <div className="text-charcoal font-medium">{o.user.name}</div>
@@ -180,7 +186,7 @@ export default function OrdersPage() {
                         <StatusBadge status={STATUS_LABEL[o.status]} />
                       </td>
                       <td className="px-5 py-3.5">
-                        <div className="flex justify-end">
+                        <div className="flex items-center justify-end gap-1.5">
                           <div className="w-[130px]">
                             <Select<SelectOption>
                               instanceId={`order-status-${o.id}`}
@@ -200,6 +206,13 @@ export default function OrdersPage() {
                               aria-label={`Update status of order ${o.order_no}`}
                             />
                           </div>
+                          <Link
+                            href={`/admin/orders/${o.id}`}
+                            className="w-8 h-8 rounded-lg border border-cream flex items-center justify-center text-muted hover:text-accent hover:border-accent transition shrink-0"
+                            aria-label={`Open order TM-${String(o.order_no).padStart(5, "0")}`}
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </Link>
                         </div>
                       </td>
                     </tr>
